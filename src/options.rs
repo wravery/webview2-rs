@@ -1,3 +1,5 @@
+use std::default::Default;
+
 use crate::{
     browser_version::CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
     pwstr::{pwstr_from_str, string_from_pwstr},
@@ -17,9 +19,8 @@ pub struct CoreWebView2EnvironmentOptions {
     allow_single_sign_on_using_os_primary_account: bool,
 }
 
-#[allow(non_snake_case)]
-impl CoreWebView2EnvironmentOptions {
-    pub fn new() -> Self {
+impl Default for CoreWebView2EnvironmentOptions {
+    fn default() -> Self {
         Self {
             additional_browser_arguments: String::new(),
             language: String::new(),
@@ -27,43 +28,46 @@ impl CoreWebView2EnvironmentOptions {
             allow_single_sign_on_using_os_primary_account: false,
         }
     }
+}
 
-    pub fn AdditionalBrowserArguments(&self, result: *mut PWSTR) -> Result<()> {
+#[allow(non_snake_case)]
+impl CoreWebView2EnvironmentOptions {
+    fn AdditionalBrowserArguments(&self, result: *mut PWSTR) -> Result<()> {
         unsafe { *result = pwstr_from_str(&self.additional_browser_arguments) };
         Ok(())
     }
 
-    pub fn SetAdditionalBrowserArguments(&mut self, value: PWSTR) -> Result<()> {
+    fn SetAdditionalBrowserArguments(&mut self, value: PWSTR) -> Result<()> {
         self.additional_browser_arguments = string_from_pwstr(value);
         Ok(())
     }
 
-    pub fn Language(&self, result: *mut PWSTR) -> Result<()> {
+    fn Language(&self, result: *mut PWSTR) -> Result<()> {
         unsafe { *result = pwstr_from_str(&self.language) };
         Ok(())
     }
 
-    pub fn SetLanguage(&mut self, value: PWSTR) -> Result<()> {
+    fn SetLanguage(&mut self, value: PWSTR) -> Result<()> {
         self.language = string_from_pwstr(value);
         Ok(())
     }
 
-    pub fn TargetCompatibleBrowserVersion(&self, result: *mut PWSTR) -> Result<()> {
+    fn TargetCompatibleBrowserVersion(&self, result: *mut PWSTR) -> Result<()> {
         unsafe { *result = pwstr_from_str(&self.target_compatible_browser_version) };
         Ok(())
     }
 
-    pub fn SetTargetCompatibleBrowserVersion(&mut self, value: PWSTR) -> Result<()> {
+    fn SetTargetCompatibleBrowserVersion(&mut self, value: PWSTR) -> Result<()> {
         self.target_compatible_browser_version = string_from_pwstr(value);
         Ok(())
     }
 
-    pub fn AllowSingleSignOnUsingOSPrimaryAccount(&self, result: *mut BOOL) -> Result<()> {
+    fn AllowSingleSignOnUsingOSPrimaryAccount(&self, result: *mut BOOL) -> Result<()> {
         unsafe { *result = self.allow_single_sign_on_using_os_primary_account.into() };
         Ok(())
     }
 
-    pub fn SetAllowSingleSignOnUsingOSPrimaryAccount(&mut self, value: BOOL) -> Result<()> {
+    fn SetAllowSingleSignOnUsingOSPrimaryAccount(&mut self, value: BOOL) -> Result<()> {
         self.allow_single_sign_on_using_os_primary_account = value.into();
         Ok(())
     }
@@ -79,7 +83,7 @@ mod test {
     #[test]
     fn additional_arguments() {
         const ADDITIONAL_ARGUMENTS: &str = "FakeArguments";
-        let mut options = CoreWebView2EnvironmentOptions::new();
+        let mut options = CoreWebView2EnvironmentOptions::default();
         options
             .SetAdditionalBrowserArguments(pwstr_from_str(ADDITIONAL_ARGUMENTS))
             .unwrap();
@@ -92,7 +96,7 @@ mod test {
     #[test]
     fn override_language() {
         const OVERRIDE_LANGUAGE: &str = "FakeLanguage";
-        let mut options = CoreWebView2EnvironmentOptions::new();
+        let mut options = CoreWebView2EnvironmentOptions::default();
         options
             .SetLanguage(pwstr_from_str(OVERRIDE_LANGUAGE))
             .unwrap();
@@ -104,7 +108,7 @@ mod test {
 
     #[test]
     fn default_version() {
-        let options = CoreWebView2EnvironmentOptions::new();
+        let options = CoreWebView2EnvironmentOptions::default();
         let mut result = PWSTR(ptr::null_mut::<u16>());
         options.TargetCompatibleBrowserVersion(&mut result).unwrap();
         let result = take_pwstr(result);
@@ -115,7 +119,7 @@ mod test {
     fn override_version() {
         const OVERRIDE_VERSION: &str = "FakeVersion";
         assert_ne!(OVERRIDE_VERSION, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
-        let mut options = CoreWebView2EnvironmentOptions::new();
+        let mut options = CoreWebView2EnvironmentOptions::default();
         options
             .SetTargetCompatibleBrowserVersion(pwstr_from_str(OVERRIDE_VERSION))
             .unwrap();
@@ -127,7 +131,7 @@ mod test {
 
     #[test]
     fn default_allow_sso() {
-        let options = CoreWebView2EnvironmentOptions::new();
+        let options = CoreWebView2EnvironmentOptions::default();
         let mut result = BOOL(1);
         options
             .AllowSingleSignOnUsingOSPrimaryAccount(&mut result)
@@ -137,7 +141,7 @@ mod test {
 
     #[test]
     fn override_allow_sso() {
-        let mut options = CoreWebView2EnvironmentOptions::new();
+        let mut options = CoreWebView2EnvironmentOptions::default();
         options
             .SetAllowSingleSignOnUsingOSPrimaryAccount(BOOL(1))
             .unwrap();

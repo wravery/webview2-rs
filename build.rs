@@ -34,7 +34,7 @@ mod webview2_nuget {
         convert::From,
         env, fs,
         io::{self, Read, Write},
-        path::PathBuf,
+        path::{Path, PathBuf},
         process::Command,
     };
 
@@ -112,19 +112,19 @@ mod webview2_nuget {
     }
 
     #[cfg(not(windows))]
-    pub fn update_windows(_: &PathBuf) -> Result<()> {
+    pub fn update_windows(_: &Path) -> Result<()> {
         Ok(())
     }
 
     #[cfg(windows)]
-    pub fn update_windows(package_root: &PathBuf) -> Result<()> {
+    pub fn update_windows(package_root: &Path) -> Result<()> {
         const WEBVIEW2_STATIC_LIB: &str = "WebView2LoaderStatic.lib";
-        const WEBVIEW2_TARGETS: &[&'static str] = &["arm64", "x64", "x86"];
+        const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
 
         let mut windows_dir = get_workspace_dir()?;
         windows_dir.push(".windows");
 
-        let mut native_dir = package_root.clone();
+        let mut native_dir = package_root.to_path_buf();
         native_dir.push("build");
         native_dir.push("native");
         for target in WEBVIEW2_TARGETS {
@@ -164,7 +164,7 @@ mod webview2_nuget {
     }
 
     #[cfg(windows)]
-    pub fn update_browser_version(package_root: &PathBuf) -> Result<bool> {
+    pub fn update_browser_version(package_root: &Path) -> Result<bool> {
         let version = get_target_broweser_version(package_root)?;
         let mut source_path = get_workspace_dir()?;
         source_path.push("src");
@@ -179,8 +179,8 @@ mod webview2_nuget {
     }
 
     #[cfg(windows)]
-    fn get_target_broweser_version(package_root: &PathBuf) -> Result<String> {
-        let mut include_path = package_root.clone();
+    fn get_target_broweser_version(package_root: &Path) -> Result<String> {
+        let mut include_path = package_root.to_path_buf();
         include_path.push("build");
         include_path.push("native");
         include_path.push("include");
@@ -203,13 +203,13 @@ mod webview2_nuget {
     #[derive(Debug, Error)]
     pub enum Error {
         #[error(transparent)]
-        IoError(#[from] io::Error),
+        Io(#[from] io::Error),
         #[error(transparent)]
-        VarError(#[from] env::VarError),
+        Var(#[from] env::VarError),
         #[error(transparent)]
-        JsonError(#[from] serde_json::Error),
+        Json(#[from] serde_json::Error),
         #[error(transparent)]
-        RegexError(#[from] regex::Error),
+        Regex(#[from] regex::Error),
         #[error("Missing Version")]
         MissingVersion,
         #[error("Missing Path")]
