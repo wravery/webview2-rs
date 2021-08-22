@@ -43,6 +43,12 @@ mod webview2_nuget {
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
     const WEBVIEW2_VERSION: &str = "1.0.902.49";
 
+    #[cfg(not(windows))]
+    pub fn install() -> Result<PathBuf> {
+        get_manifest_dir()
+    }
+
+    #[cfg(windows)]
     pub fn install() -> Result<PathBuf> {
         let manifest_dir = get_manifest_dir()?;
         let install_root = match manifest_dir.to_str() {
@@ -86,6 +92,7 @@ mod webview2_nuget {
         Ok(PathBuf::from(env::var("CARGO_MANIFEST_DIR")?))
     }
 
+    #[cfg(windows)]
     fn check_nuget_dir(install_root: &str) -> Result<bool> {
         let nuget_path = format!("{}.{}", WEBVIEW2_NAME, WEBVIEW2_VERSION);
         let mut dir_iter = fs::read_dir(install_root)?.filter(|dir| match dir {
@@ -104,6 +111,12 @@ mod webview2_nuget {
         Ok(dir_iter.next().is_some())
     }
 
+    #[cfg(not(windows))]
+    pub fn update_windows(_: &PathBuf) -> Result<()> {
+        Ok(())
+    }
+
+    #[cfg(windows)]
     pub fn update_windows(package_root: &PathBuf) -> Result<()> {
         const WEBVIEW2_STATIC_LIB: &str = "WebView2LoaderStatic.lib";
         const WEBVIEW2_TARGETS: &[&'static str] = &["arm64", "x64", "x86"];
@@ -145,6 +158,12 @@ mod webview2_nuget {
         Ok(PathBuf::from(metadata.workspace_root))
     }
 
+    #[cfg(not(windows))]
+    pub fn update_browser_version(_: &PathBuf) -> Result<bool> {
+        Ok(false)
+    }
+
+    #[cfg(windows)]
     pub fn update_browser_version(package_root: &PathBuf) -> Result<bool> {
         let version = get_target_broweser_version(package_root)?;
         let mut source_path = get_workspace_dir()?;
@@ -159,6 +178,7 @@ mod webview2_nuget {
         Ok(true)
     }
 
+    #[cfg(windows)]
     fn get_target_broweser_version(package_root: &PathBuf) -> Result<String> {
         let mut include_path = package_root.clone();
         include_path.push("build");
