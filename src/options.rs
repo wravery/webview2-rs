@@ -77,6 +77,32 @@ mod test {
     use crate::pwstr::take_pwstr;
 
     #[test]
+    fn additional_arguments() {
+        const ADDITIONAL_ARGUMENTS: &str = "FakeArguments";
+        let mut options = CoreWebView2EnvironmentOptions::new();
+        options
+            .SetAdditionalBrowserArguments(pwstr_from_str(ADDITIONAL_ARGUMENTS))
+            .unwrap();
+        let mut result = PWSTR(ptr::null_mut::<u16>());
+        options.AdditionalBrowserArguments(&mut result).unwrap();
+        let result = take_pwstr(result);
+        assert_eq!(&result, ADDITIONAL_ARGUMENTS);
+    }
+
+    #[test]
+    fn override_language() {
+        const OVERRIDE_LANGUAGE: &str = "FakeLanguage";
+        let mut options = CoreWebView2EnvironmentOptions::new();
+        options
+            .SetLanguage(pwstr_from_str(OVERRIDE_LANGUAGE))
+            .unwrap();
+        let mut result = PWSTR(ptr::null_mut::<u16>());
+        options.Language(&mut result).unwrap();
+        let result = take_pwstr(result);
+        assert_eq!(&result, OVERRIDE_LANGUAGE);
+    }
+
+    #[test]
     fn default_version() {
         let options = CoreWebView2EnvironmentOptions::new();
         let mut result = PWSTR(ptr::null_mut::<u16>());
@@ -90,10 +116,35 @@ mod test {
         const OVERRIDE_VERSION: &str = "FakeVersion";
         assert_ne!(OVERRIDE_VERSION, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
         let mut options = CoreWebView2EnvironmentOptions::new();
-        options.SetTargetCompatibleBrowserVersion(pwstr_from_str(OVERRIDE_VERSION)).unwrap();
+        options
+            .SetTargetCompatibleBrowserVersion(pwstr_from_str(OVERRIDE_VERSION))
+            .unwrap();
         let mut result = PWSTR(ptr::null_mut::<u16>());
         options.TargetCompatibleBrowserVersion(&mut result).unwrap();
         let result = take_pwstr(result);
         assert_eq!(&result, OVERRIDE_VERSION);
+    }
+
+    #[test]
+    fn default_allow_sso() {
+        let options = CoreWebView2EnvironmentOptions::new();
+        let mut result = BOOL(1);
+        options
+            .AllowSingleSignOnUsingOSPrimaryAccount(&mut result)
+            .unwrap();
+        assert_eq!(result.0, 0);
+    }
+
+    #[test]
+    fn override_allow_sso() {
+        let mut options = CoreWebView2EnvironmentOptions::new();
+        options
+            .SetAllowSingleSignOnUsingOSPrimaryAccount(BOOL(1))
+            .unwrap();
+        let mut result = BOOL(0);
+        options
+            .AllowSingleSignOnUsingOSPrimaryAccount(&mut result)
+            .unwrap();
+        assert_eq!(result.0, 1);
     }
 }
