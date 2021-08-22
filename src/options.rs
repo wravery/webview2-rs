@@ -1,4 +1,5 @@
 use crate::{
+    browser_version::CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
     pwstr::{pwstr_from_str, string_from_pwstr},
     Microsoft,
     Windows::{
@@ -19,12 +20,10 @@ pub struct CoreWebView2EnvironmentOptions {
 #[allow(non_snake_case)]
 impl CoreWebView2EnvironmentOptions {
     pub fn new() -> Self {
-        pub const DESIRED_VERSION: &str = "89.0.0.0";
-
         Self {
             additional_browser_arguments: String::new(),
             language: String::new(),
-            target_compatible_browser_version: DESIRED_VERSION.into(),
+            target_compatible_browser_version: CORE_WEBVIEW_TARGET_PRODUCT_VERSION.into(),
             allow_single_sign_on_using_os_primary_account: false,
         }
     }
@@ -83,12 +82,13 @@ mod test {
         let mut result = PWSTR(ptr::null_mut::<u16>());
         options.TargetCompatibleBrowserVersion(&mut result).unwrap();
         let result = take_pwstr(result);
-        assert_eq!(&result, "89.0.0.0");
+        assert_eq!(&result, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
     }
 
     #[test]
     fn override_version() {
-        const OVERRIDE_VERSION: &str = "90.0.0.0";
+        const OVERRIDE_VERSION: &str = "FakeVersion";
+        assert_ne!(OVERRIDE_VERSION, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
         let mut options = CoreWebView2EnvironmentOptions::new();
         options.SetTargetCompatibleBrowserVersion(pwstr_from_str(OVERRIDE_VERSION)).unwrap();
         let mut result = PWSTR(ptr::null_mut::<u16>());
