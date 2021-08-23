@@ -1,6 +1,6 @@
 use std::sync::mpsc;
 
-use windows::{implement, Interface, HRESULT};
+use windows::{implement, IUnknown, Interface, HRESULT};
 
 use crate::{
     pwstr::string_from_pwstr,
@@ -57,12 +57,12 @@ impl<'a, I: 'a + Interface> InvokeArg<'a> for Option<I> {
     }
 }
 
-/// Generic closure signature for [`CompletedCallback`].
+/// Generic closure signature for [`completed_callback`].
 pub type CompletedClosure<Arg1, Arg2> = Box<
     dyn FnOnce(<Arg1 as ClosureArg>::Output, <Arg2 as ClosureArg>::Output) -> ::windows::Result<()>,
 >;
 
-/// Generic closure signature for [`EventCallback`].
+/// Generic closure signature for [`event_callback`].
 pub type EventClosure<Arg1, Arg2> = Box<
     dyn FnMut(<Arg1 as ClosureArg>::Output, <Arg2 as ClosureArg>::Output) -> windows::Result<()>,
 >;
@@ -82,17 +82,94 @@ pub struct CreateCoreWebView2ControllerCompletedHandler(
 );
 
 #[event_callback]
-pub struct WebMessageReceivedEventHandler(
-    ICoreWebView2WebMessageReceivedEventHandler,
-    Option<ICoreWebView2>,
-    Option<ICoreWebView2WebMessageReceivedEventArgs>,
+pub struct NewBrowserVersionAvailableEventHandler(
+    ICoreWebView2NewBrowserVersionAvailableEventHandler,
+    Option<ICoreWebView2Environment>,
+    Option<IUnknown>,
+);
+
+#[completed_callback]
+pub struct CreateCoreWebView2CompositionControllerCompletedHandler(
+    ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
+    HRESULT,
+    Option<ICoreWebView2CompositionController>,
 );
 
 #[event_callback]
-pub struct WebResourceRequestedEventHandler(
-    ICoreWebView2WebResourceRequestedEventHandler,
+pub struct ZoomFactorChangedEventHandler(
+    ICoreWebView2ZoomFactorChangedEventHandler,
+    Option<ICoreWebView2Controller>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct MoveFocusRequestedEventHandler(
+    ICoreWebView2MoveFocusRequestedEventHandler,
+    Option<ICoreWebView2Controller>,
+    Option<ICoreWebView2MoveFocusRequestedEventArgs>,
+);
+
+#[event_callback]
+pub struct FocusChangedEventHandler(
+    ICoreWebView2FocusChangedEventHandler,
+    Option<ICoreWebView2Controller>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct AcceleratorKeyPressedEventHandler(
+    ICoreWebView2AcceleratorKeyPressedEventHandler,
+    Option<ICoreWebView2Controller>,
+    Option<ICoreWebView2AcceleratorKeyPressedEventArgs>,
+);
+
+#[event_callback]
+pub struct RasterizationScaleChangedEventHandler(
+    ICoreWebView2RasterizationScaleChangedEventHandler,
+    Option<ICoreWebView2Controller>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct NavigationStartingEventHandler(
+    ICoreWebView2NavigationStartingEventHandler,
     Option<ICoreWebView2>,
-    Option<ICoreWebView2WebResourceRequestedEventArgs>,
+    Option<ICoreWebView2NavigationStartingEventArgs>,
+);
+
+#[event_callback]
+pub struct ContentLoadingEventHandler(
+    ICoreWebView2ContentLoadingEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2ContentLoadingEventArgs>,
+);
+
+#[event_callback]
+pub struct SourceChangedEventHandler(
+    ICoreWebView2SourceChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2SourceChangedEventArgs>,
+);
+
+#[event_callback]
+pub struct HistoryChangedEventHandler(
+    ICoreWebView2HistoryChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct NavigationCompletedEventHandler(
+    ICoreWebView2NavigationCompletedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2NavigationCompletedEventArgs>,
+);
+
+#[event_callback]
+pub struct ScriptDialogOpeningEventHandler(
+    ICoreWebView2ScriptDialogOpeningEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2ScriptDialogOpeningEventArgs>,
 );
 
 #[event_callback]
@@ -103,10 +180,10 @@ pub struct PermissionRequestedEventHandler(
 );
 
 #[event_callback]
-pub struct NavigationCompletedEventHandler(
-    ICoreWebView2NavigationCompletedEventHandler,
+pub struct ProcessFailedEventHandler(
+    ICoreWebView2ProcessFailedEventHandler,
     Option<ICoreWebView2>,
-    Option<ICoreWebView2NavigationCompletedEventArgs>,
+    Option<ICoreWebView2ProcessFailedEventArgs>,
 );
 
 #[completed_callback]
@@ -121,4 +198,102 @@ pub struct ExecuteScriptCompletedHandler(
     ICoreWebView2ExecuteScriptCompletedHandler,
     HRESULT,
     PWSTR,
+);
+
+type CapturePreviewCompletedHandlerClosure =
+    Box<dyn FnOnce(<HRESULT as ClosureArg>::Output) -> ::windows::Result<()>>;
+
+/// Implementation of [`ICoreWebView2CapturePreviewCompletedHandler`].
+#[implement(Microsoft::Web::WebView2::Win32::ICoreWebView2CapturePreviewCompletedHandler)]
+pub struct CapturePreviewCompletedHandler(Option<CapturePreviewCompletedHandlerClosure>);
+
+#[allow(non_snake_case)]
+impl CapturePreviewCompletedHandler {
+    pub fn create(
+        closure: CapturePreviewCompletedHandlerClosure,
+    ) -> ICoreWebView2CapturePreviewCompletedHandler {
+        Self(Some(closure)).into()
+    }
+
+    pub fn wait_for_async_operation(
+        closure: Box<
+            dyn FnOnce(ICoreWebView2CapturePreviewCompletedHandler) -> crate::webview2::Result<()>,
+        >,
+        completed: CapturePreviewCompletedHandlerClosure,
+    ) -> crate::webview2::Result<()> {
+        let (tx, rx) = mpsc::channel();
+        let completed: CapturePreviewCompletedHandlerClosure =
+            Box::new(move |arg_1| -> ::windows::Result<()> {
+                let result = completed(arg_1).map_err(crate::webview2::Error::WindowsError);
+                tx.send(result).expect("send over mpsc channel");
+                Ok(())
+            });
+        let callback = Self::create(completed);
+
+        closure(callback)?;
+        wait_with_pump(rx)?
+    }
+
+    fn Invoke<'a>(&mut self, arg_1: <HRESULT as InvokeArg<'a>>::Input) -> ::windows::Result<()> {
+        match self.0.take() {
+            Some(completed) => completed(<HRESULT as InvokeArg<'a>>::convert(arg_1)),
+            None => Ok(()),
+        }
+    }
+}
+
+#[event_callback]
+pub struct WebMessageReceivedEventHandler(
+    ICoreWebView2WebMessageReceivedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2WebMessageReceivedEventArgs>,
+);
+
+#[completed_callback]
+pub struct CallDevToolsProtocolMethodCompletedHandler(
+    ICoreWebView2CallDevToolsProtocolMethodCompletedHandler,
+    HRESULT,
+    PWSTR,
+);
+
+#[event_callback]
+pub struct NewWindowRequestedEventHandler(
+    ICoreWebView2NewWindowRequestedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2NewWindowRequestedEventArgs>,
+);
+
+#[event_callback]
+pub struct DocumentTitleChangedEventHandler(
+    ICoreWebView2DocumentTitleChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct ContainsFullScreenElementChangedEventHandler(
+    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct WebResourceRequestedEventHandler(
+    ICoreWebView2WebResourceRequestedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2WebResourceRequestedEventArgs>,
+);
+
+#[event_callback]
+pub struct WindowCloseRequestedEventHandler(
+    ICoreWebView2WindowCloseRequestedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[completed_callback]
+pub struct GetCookiesCompletedHandler(
+    ICoreWebView2GetCookiesCompletedHandler,
+    HRESULT,
+    Option<ICoreWebView2CookieList>,
 );

@@ -5,24 +5,23 @@ use syn::{
     parse::{Parse, ParseStream},
     parse_macro_input,
     punctuated::Punctuated,
-    Ident, Result, Token, Type, TypePath, Visibility,
+    Ident, Result, Token, TypePath, Visibility,
 };
 
 struct CallbackTypes {
     pub interface: TypePath,
-    pub arg_1: Type,
-    pub arg_2: Type,
+    pub arg_1: TypePath,
+    pub arg_2: TypePath,
 }
 
 impl Parse for CallbackTypes {
     fn parse(input: ParseStream) -> Result<Self> {
         let content;
         parenthesized!(content in input);
-        let args: Punctuated<Type, Token![,]> = content.parse_terminated(Type::parse)?;
+        let args: Punctuated<TypePath, Token![,]> = content.parse_terminated(TypePath::parse)?;
         input.parse::<Token![;]>()?;
         let mut args = args.into_iter();
-        if let (Some(Type::Path(interface)), Some(arg_1), Some(arg_2)) =
-            (args.next(), args.next(), args.next())
+        if let (Some(interface), Some(arg_1), Some(arg_2)) = (args.next(), args.next(), args.next())
         {
             Ok(CallbackTypes {
                 interface,
@@ -70,41 +69,45 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
     let arg_1 = &ast.args.arg_1;
     let arg_2 = &ast.args.arg_2;
 
+    let msg = match interface.path.segments.last() {
+        Some(interface) => format!("Implementation of [`{}`].", interface.ident),
+        None => String::from("Implementation of unknown [`completed_callback`] interface.")
+    };
+
     let gen = quote! {
         use windows as _;
         use crate::webview2 as _;
 
         type #closure = CompletedClosure<#arg_1, #arg_2>;
 
-        /// Implementation of [`#interface`].
-        #[implement(
-            Microsoft::Web::WebView2::Win32::#interface
-        )]
+        #[doc = #msg]
+        #[implement(Microsoft::Web::WebView2::Win32::#interface)]
         #vis struct #name(Option<#closure>);
 
+        #[allow(non_snake_case)]
         impl #name {
-            pub fn create(closure: #closure) -> Microsoft::Web::WebView2::Win32::#interface {
+            pub fn create(
+                closure: #closure,
+            ) -> #interface {
                 Self(Some(closure)).into()
             }
 
             pub fn wait_for_async_operation(
                 closure: Box<
-                    dyn FnOnce(
-                        Microsoft::Web::WebView2::Win32::#interface,
-                    ) -> crate::webview2::Result<()>,
+                    dyn FnOnce(#interface) -> crate::webview2::Result<()>,
                 >,
                 completed: #closure,
             ) -> crate::webview2::Result<()> {
                 let (tx, rx) = mpsc::channel();
-                let completed: #closure = Box::new(move |arg_1, arg_2| -> ::windows::Result<()> {
-                    let result =
-                        completed(arg_1, arg_2).or_else(|err| Err(crate::webview2::Error::WindowsError(err)));
-                    tx.send(result).expect("send over mpsc channel");
-                    Ok(())
-                });
+                let completed: #closure =
+                    Box::new(move |arg_1, arg_2| -> ::windows::Result<()> {
+                        let result = completed(arg_1, arg_2).map_err(crate::webview2::Error::WindowsError);
+                        tx.send(result).expect("send over mpsc channel");
+                        Ok(())
+                    });
                 let callback = Self::create(completed);
 
-                closure(callback.into())?;
+                closure(callback)?;
                 wait_with_pump(rx)?
             }
 
@@ -145,17 +148,23 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
     let arg_1 = &ast.args.arg_1;
     let arg_2 = &ast.args.arg_2;
 
+    let msg = match interface.path.segments.last() {
+        Some(interface) => format!("Implementation of [`{}`].", interface.ident),
+        None => String::from("Implementation of unknown [`event_callback`] interface.")
+    };
+
     let gen = quote! {
         type #closure = EventClosure<#arg_1, #arg_2>;
 
-        /// Implementation of [`#interface`].
-        #[implement(
-            Microsoft::Web::WebView2::Win32::#interface
-        )]
+        #[doc = #msg]
+        #[implement(Microsoft::Web::WebView2::Win32::#interface)]
         #vis struct #name(#closure);
 
+        #[allow(non_snake_case)]
         impl #name {
-            pub fn create(closure: #closure) -> Microsoft::Web::WebView2::Win32::#interface {
+            pub fn create(
+                closure: #closure,
+            ) -> #interface {
                 Self(closure).into()
             }
 
