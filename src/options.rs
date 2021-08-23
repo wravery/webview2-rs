@@ -1,5 +1,7 @@
 use std::default::Default;
 
+use windows::*;
+
 use crate::{
     browser_version::CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
     pwstr::{pwstr_from_str, string_from_pwstr},
@@ -9,7 +11,6 @@ use crate::{
         Win32::Foundation::{BOOL, PWSTR},
     },
 };
-use windows::*;
 
 #[implement(Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions)]
 pub struct CoreWebView2EnvironmentOptions {
