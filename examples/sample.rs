@@ -1,9 +1,9 @@
 #![windows_subsystem = "windows"]
 
-extern crate webview2_rs;
-extern crate windows;
 extern crate serde;
 extern crate serde_json;
+extern crate webview2_rs;
+extern crate windows;
 
 use std::{
     collections::HashMap,
@@ -35,7 +35,7 @@ use webview2_rs::{
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(std::ptr::null_mut(), COINIT_APARTMENTTHREADED)?;
+        CoInitializeEx(ptr::null_mut(), COINIT_APARTMENTTHREADED)?;
     }
     set_process_dpi_awareness()?;
 
