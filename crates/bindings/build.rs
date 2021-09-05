@@ -166,7 +166,7 @@ mod webview2_nuget {
     #[cfg(windows)]
     pub fn update_browser_version(package_root: &Path) -> Result<bool> {
         let version = get_target_broweser_version(package_root)?;
-        let mut source_path = get_workspace_dir()?;
+        let mut source_path = get_manifest_dir()?;
         source_path.push("src");
         source_path.push("browser_version.rs");
         let mut source_file = fs::File::create(source_path)?;

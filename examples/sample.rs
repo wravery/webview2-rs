@@ -2,7 +2,7 @@
 
 extern crate serde;
 extern crate serde_json;
-extern crate webview2_rs;
+extern crate webview2_com;
 extern crate windows;
 
 use std::{
@@ -16,21 +16,19 @@ use serde::Deserialize;
 use serde_json::{Number, Value};
 use windows::*;
 
-use webview2_rs::{
-    callback, pwstr,
-    webview2::{
-        Windows::Win32::{Foundation::E_POINTER, System::Com::*},
-        Windows::Win32::{
-            Foundation::{HWND, LPARAM, LRESULT, PSTR, PWSTR, RECT, SIZE, WPARAM},
-            Graphics::Gdi,
-            System::{LibraryLoader, Threading, WinRT::EventRegistrationToken},
-            UI::{
-                HiDpi, KeyboardAndMouseInput,
-                WindowsAndMessaging::{self, MSG, WINDOW_LONG_PTR_INDEX, WNDCLASSA},
-            },
+use webview2_com::{
+    Microsoft::Web::WebView2::Win32::*,
+    Windows::Win32::{Foundation::E_POINTER, System::Com::*},
+    Windows::Win32::{
+        Foundation::{HWND, LPARAM, LRESULT, PSTR, PWSTR, RECT, SIZE, WPARAM},
+        Graphics::Gdi,
+        System::{LibraryLoader, Threading, WinRT::EventRegistrationToken},
+        UI::{
+            HiDpi, KeyboardAndMouseInput,
+            WindowsAndMessaging::{self, MSG, WINDOW_LONG_PTR_INDEX, WNDCLASSA},
         },
-        *,
     },
+    *,
 };
 
 fn main() -> Result<()> {
@@ -53,11 +51,9 @@ fn main() -> Result<()> {
             }
         }
 
-        Err(Error::WebView2Error(
-            webview2_rs::webview2::Error::CallbackError(String::from(
-                r#"Usage: window.hostCallback("Add", a, b)"#,
-            )),
-        ))
+        Err(Error::WebView2Error(webview2_com::Error::CallbackError(
+            String::from(r#"Usage: window.hostCallback("Add", a, b)"#),
+        )))
     })?;
 
     // Configure the target URL and add an init script to trigger the calculator callback.
@@ -74,14 +70,14 @@ fn main() -> Result<()> {
 
 #[derive(Debug)]
 pub enum Error {
-    WebView2Error(webview2_rs::webview2::Error),
+    WebView2Error(webview2_com::Error),
     WindowsError(windows::Error),
     JsonError(serde_json::Error),
     LockError,
 }
 
-impl From<webview2_rs::webview2::Error> for Error {
-    fn from(err: webview2_rs::webview2::Error) -> Self {
+impl From<webview2_com::Error> for Error {
+    fn from(err: webview2_com::Error) -> Self {
         Self::WebView2Error(err)
     }
 }
@@ -218,10 +214,10 @@ impl WebView {
         let environment = {
             let (tx, rx) = mpsc::channel();
 
-            callback::CreateCoreWebView2EnvironmentCompletedHandler::wait_for_async_operation(
+            CreateCoreWebView2EnvironmentCompletedHandler::wait_for_async_operation(
                 Box::new(|environmentcreatedhandler| unsafe {
                     CreateCoreWebView2Environment(environmentcreatedhandler)
-                        .map_err(webview2_rs::webview2::Error::WindowsError)
+                        .map_err(webview2_com::Error::WindowsError)
                 }),
                 Box::new(move |error_code, environment| {
                     error_code?;
@@ -232,17 +228,17 @@ impl WebView {
             )?;
 
             rx.recv()
-                .map_err(|_| Error::WebView2Error(webview2_rs::webview2::Error::SendError))?
+                .map_err(|_| Error::WebView2Error(webview2_com::Error::SendError))?
         }?;
 
         let controller = {
             let (tx, rx) = mpsc::channel();
 
-            callback::CreateCoreWebView2ControllerCompletedHandler::wait_for_async_operation(
+            CreateCoreWebView2ControllerCompletedHandler::wait_for_async_operation(
                 Box::new(move |handler| unsafe {
                     environment
                         .CreateCoreWebView2Controller(parent, handler)
-                        .map_err(webview2_rs::webview2::Error::WindowsError)
+                        .map_err(webview2_com::Error::WindowsError)
                 }),
                 Box::new(move |error_code, controller| {
                     error_code?;
@@ -253,7 +249,7 @@ impl WebView {
             )?;
 
             rx.recv()
-                .map_err(|_| Error::WebView2Error(webview2_rs::webview2::Error::SendError))?
+                .map_err(|_| Error::WebView2Error(webview2_com::Error::SendError))?
         }?;
 
         let size = get_window_size(parent);
@@ -308,32 +304,30 @@ impl WebView {
         unsafe {
             let mut _token = EventRegistrationToken::default();
             webview.webview.add_WebMessageReceived(
-                callback::WebMessageReceivedEventHandler::create(Box::new(
-                    move |_webview, args| {
-                        if let Some(args) = args {
-                            let mut message = PWSTR::default();
-                            if args.get_WebMessageAsJson(&mut message).is_ok() {
-                                let message = pwstr::take_pwstr(message);
-                                if let Ok(value) = serde_json::from_str::<InvokeMessage>(&message) {
-                                    if let Ok(mut bindings) = bindings.try_lock() {
-                                        if let Some(f) = bindings.get_mut(&value.method) {
-                                            match (*f)(value.params) {
-                                                Ok(result) => bound.resolve(value.id, 0, result),
-                                                Err(err) => bound.resolve(
-                                                    value.id,
-                                                    1,
-                                                    Value::String(format!("{:#?}", err)),
-                                                ),
-                                            }
-                                            .unwrap();
+                WebMessageReceivedEventHandler::create(Box::new(move |_webview, args| {
+                    if let Some(args) = args {
+                        let mut message = PWSTR::default();
+                        if args.get_WebMessageAsJson(&mut message).is_ok() {
+                            let message = take_pwstr(message);
+                            if let Ok(value) = serde_json::from_str::<InvokeMessage>(&message) {
+                                if let Ok(mut bindings) = bindings.try_lock() {
+                                    if let Some(f) = bindings.get_mut(&value.method) {
+                                        match (*f)(value.params) {
+                                            Ok(result) => bound.resolve(value.id, 0, result),
+                                            Err(err) => bound.resolve(
+                                                value.id,
+                                                1,
+                                                Value::String(format!("{:#?}", err)),
+                                            ),
                                         }
+                                        .unwrap();
                                     }
                                 }
                             }
                         }
-                        Ok(())
-                    },
-                )),
+                    }
+                    Ok(())
+                })),
                 &mut _token,
             )?;
         }
@@ -351,17 +345,16 @@ impl WebView {
         let (tx, rx) = mpsc::channel();
 
         if !url.is_empty() {
-            let handler = callback::NavigationCompletedEventHandler::create(Box::new(
-                move |_sender, _args| {
+            let handler =
+                NavigationCompletedEventHandler::create(Box::new(move |_sender, _args| {
                     tx.send(()).expect("send over mpsc channel");
                     Ok(())
-                },
-            ));
+                }));
             let mut token = EventRegistrationToken::default();
             unsafe {
                 webview.add_NavigationCompleted(handler, &mut token)?;
                 webview.Navigate(url)?;
-                let result = webview2_rs::webview2::wait_with_pump(rx);
+                let result = webview2_com::wait_with_pump(rx);
                 webview.remove_NavigationCompleted(token)?;
                 result?;
             }
@@ -466,11 +459,11 @@ impl WebView {
     pub fn init(&self, js: &str) -> Result<&Self> {
         let webview = self.webview.clone();
         let js = String::from(js);
-        callback::AddScriptToExecuteOnDocumentCreatedCompletedHandler::wait_for_async_operation(
+        AddScriptToExecuteOnDocumentCreatedCompletedHandler::wait_for_async_operation(
             Box::new(move |handler| unsafe {
                 webview
                     .AddScriptToExecuteOnDocumentCreated(js, handler)
-                    .map_err(webview2_rs::webview2::Error::WindowsError)
+                    .map_err(webview2_com::Error::WindowsError)
             }),
             Box::new(|error_code, _id| error_code),
         )?;
@@ -480,11 +473,11 @@ impl WebView {
     pub fn eval(&self, js: &str) -> Result<&Self> {
         let webview = self.webview.clone();
         let js = String::from(js);
-        callback::ExecuteScriptCompletedHandler::wait_for_async_operation(
+        ExecuteScriptCompletedHandler::wait_for_async_operation(
             Box::new(move |handler| unsafe {
                 webview
                     .ExecuteScript(js, handler)
-                    .map_err(webview2_rs::webview2::Error::WindowsError)
+                    .map_err(webview2_com::Error::WindowsError)
             }),
             Box::new(|error_code, _result| error_code),
         )?;

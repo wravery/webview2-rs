@@ -2,12 +2,12 @@ use std::sync::mpsc;
 
 use windows::{implement, IUnknown, Interface, HRESULT};
 
-use crate::{
-    pwstr::string_from_pwstr,
-    webview2::*,
-    Microsoft,
+use bindings::{
+    Microsoft::{self, Web::WebView2::Win32::*},
     Windows::{self, Win32::Foundation::PWSTR},
 };
+
+use crate::pwstr::string_from_pwstr;
 
 pub trait ClosureArg {
     type Output: Sized;

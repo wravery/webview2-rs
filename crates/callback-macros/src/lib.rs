@@ -75,9 +75,6 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
 
     let gen = match arg_2 {
         Some(arg_2) => quote! {
-            use windows as _;
-            use crate::webview2 as _;
-
             type #closure = CompletedClosure<#arg_1, #arg_2>;
 
             #[doc = #msg]
@@ -94,21 +91,21 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
 
                 pub fn wait_for_async_operation(
                     closure: Box<
-                        dyn FnOnce(#interface) -> crate::webview2::Result<()>,
+                        dyn FnOnce(#interface) -> crate::Result<()>,
                     >,
                     completed: #closure,
-                ) -> crate::webview2::Result<()> {
+                ) -> crate::Result<()> {
                     let (tx, rx) = mpsc::channel();
                     let completed: #closure =
                         Box::new(move |arg_1, arg_2| -> ::windows::Result<()> {
-                            let result = completed(arg_1, arg_2).map_err(crate::webview2::Error::WindowsError);
+                            let result = completed(arg_1, arg_2).map_err(crate::Error::WindowsError);
                             tx.send(result).expect("send over mpsc channel");
                             Ok(())
                         });
                     let callback = Self::create(completed);
 
                     closure(callback)?;
-                    wait_with_pump(rx)?
+                    crate::wait_with_pump(rx)?
                 }
 
                 fn Invoke<'a>(
@@ -127,9 +124,6 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             }
         },
         None => quote! {
-            use windows as _;
-            use crate::webview2 as _;
-
             type #closure = Box<dyn FnOnce(<#arg_1 as ClosureArg>::Output) -> ::windows::Result<()>>;
 
             #[doc = #msg]
@@ -146,21 +140,21 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
 
                 pub fn wait_for_async_operation(
                     closure: Box<
-                        dyn FnOnce(#interface) -> crate::webview2::Result<()>,
+                        dyn FnOnce(#interface) -> crate::Result<()>,
                     >,
                     completed: #closure,
-                ) -> crate::webview2::Result<()> {
+                ) -> crate::Result<()> {
                     let (tx, rx) = mpsc::channel();
                     let completed: #closure =
                         Box::new(move |arg_1| -> ::windows::Result<()> {
-                            let result = completed(arg_1).map_err(crate::webview2::Error::WindowsError);
+                            let result = completed(arg_1).map_err(crate::Error::WindowsError);
                             tx.send(result).expect("send over mpsc channel");
                             Ok(())
                         });
                     let callback = Self::create(completed);
 
                     closure(callback)?;
-                    wait_with_pump(rx)?
+                    crate::wait_with_pump(rx)?
                 }
 
                 fn Invoke<'a>(
