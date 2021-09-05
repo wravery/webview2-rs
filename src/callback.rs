@@ -258,3 +258,8 @@ pub struct GetCookiesCompletedHandler(
     HRESULT,
     Option<ICoreWebView2CookieList>,
 );
+
+#[cfg(all(test, windows))]
+mod test {
+
+}

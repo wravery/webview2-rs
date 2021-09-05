@@ -22,6 +22,7 @@ fn main() -> webview2_nuget::Result<()> {
     let package_root = webview2_nuget::install()?;
     webview2_nuget::update_windows(&package_root)?;
     webview2_nuget::update_browser_version(&package_root)?;
+    webview2_nuget::update_callback_interfaces(&package_root)?;
 
     Ok(())
 }
@@ -31,6 +32,7 @@ extern crate thiserror;
 
 mod webview2_nuget {
     use std::{
+        collections::BTreeSet,
         convert::From,
         env, fs,
         io::{self, Read, Write},
@@ -200,6 +202,64 @@ mod webview2_nuget {
         }
     }
 
+    #[cfg(not(windows))]
+    pub fn update_callback_interfaces(_: &PathBuf) -> Result<bool> {
+        Ok(false)
+    }
+
+    #[cfg(windows)]
+    pub fn update_callback_interfaces(package_root: &Path) -> Result<bool> {
+        let interfaces = get_callback_interfaces(package_root)?;
+        let mut source_path = get_manifest_dir()?;
+        source_path.push("src");
+        source_path.push("callback_interfaces.rs");
+        let mut source_file = fs::File::create(source_path)?;
+        writeln!(
+            source_file,
+            r#"use std::collections::BTreeSet;
+
+/// Generate a list of all `ICoreWebView2...Handler` interfaces declared in `WebView2.h`. This is
+/// for testing purposes to make sure they are all covered in [callback.rs](../../src/callback.rs).
+pub fn all_declared() -> BTreeSet<&'static str> {{
+    let mut interfaces = BTreeSet::new();
+"#,
+        )?;
+        for interface in interfaces {
+            writeln!(source_file, r#"    interfaces.insert("{}");"#, interface)?;
+        }
+        writeln!(
+            source_file,
+            r#"
+    interfaces
+}}"#
+        )?;
+        Ok(true)
+    }
+
+    #[cfg(windows)]
+    fn get_callback_interfaces(package_root: &Path) -> Result<BTreeSet<String>> {
+        let mut include_path = package_root.to_path_buf();
+        include_path.push("build");
+        include_path.push("native");
+        include_path.push("include");
+        include_path.push("WebView2.h");
+        let mut contents = String::new();
+        fs::File::open(include_path)?.read_to_string(&mut contents)?;
+        let pattern =
+            Regex::new(r#"^\s*typedef\s+interface\s+(ICoreWebView2[A-Za-z0-9]+Handler)\s+"#)?;
+        let interfaces: BTreeSet<String> = contents
+            .lines()
+            .filter_map(|line| pattern.captures(line))
+            .filter_map(|captures| captures.get(1))
+            .filter_map(|match_1| Some(String::from(match_1.as_str())))
+            .collect();
+        if interfaces.is_empty() {
+            Err(Error::MissingTypedef)
+        } else {
+            Ok(interfaces)
+        }
+    }
+
     #[derive(Debug, Error)]
     pub enum Error {
         #[error(transparent)]
@@ -212,6 +272,8 @@ mod webview2_nuget {
         Regex(#[from] regex::Error),
         #[error("Missing Version")]
         MissingVersion,
+        #[error("Missing Typedef")]
+        MissingTypedef,
         #[error("Missing Path")]
         MissingPath(PathBuf),
     }
