@@ -11,7 +11,7 @@ use syn::{
 struct CallbackTypes {
     pub interface: TypePath,
     pub arg_1: TypePath,
-    pub arg_2: TypePath,
+    pub arg_2: Option<TypePath>,
 }
 
 impl Parse for CallbackTypes {
@@ -21,8 +21,7 @@ impl Parse for CallbackTypes {
         let args: Punctuated<TypePath, Token![,]> = content.parse_terminated(TypePath::parse)?;
         input.parse::<Token![;]>()?;
         let mut args = args.into_iter();
-        if let (Some(interface), Some(arg_1), Some(arg_2)) = (args.next(), args.next(), args.next())
-        {
+        if let (Some(interface), Some(arg_1), arg_2) = (args.next(), args.next(), args.next()) {
             Ok(CallbackTypes {
                 interface,
                 arg_1,
@@ -71,60 +70,112 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
 
     let msg = match interface.path.segments.last() {
         Some(interface) => format!("Implementation of [`{}`].", interface.ident),
-        None => String::from("Implementation of unknown [`completed_callback`] interface.")
+        None => String::from("Implementation of unknown [`completed_callback`] interface."),
     };
 
-    let gen = quote! {
-        use windows as _;
-        use crate::webview2 as _;
+    let gen = match arg_2 {
+        Some(arg_2) => quote! {
+            use windows as _;
+            use crate::webview2 as _;
 
-        type #closure = CompletedClosure<#arg_1, #arg_2>;
+            type #closure = CompletedClosure<#arg_1, #arg_2>;
 
-        #[doc = #msg]
-        #[implement(Microsoft::Web::WebView2::Win32::#interface)]
-        #vis struct #name(Option<#closure>);
+            #[doc = #msg]
+            #[implement(Microsoft::Web::WebView2::Win32::#interface)]
+            #vis struct #name(Option<#closure>);
 
-        #[allow(non_snake_case)]
-        impl #name {
-            pub fn create(
-                closure: #closure,
-            ) -> #interface {
-                Self(Some(closure)).into()
-            }
+            #[allow(non_snake_case)]
+            impl #name {
+                pub fn create(
+                    closure: #closure,
+                ) -> #interface {
+                    Self(Some(closure)).into()
+                }
 
-            pub fn wait_for_async_operation(
-                closure: Box<
-                    dyn FnOnce(#interface) -> crate::webview2::Result<()>,
-                >,
-                completed: #closure,
-            ) -> crate::webview2::Result<()> {
-                let (tx, rx) = mpsc::channel();
-                let completed: #closure =
-                    Box::new(move |arg_1, arg_2| -> ::windows::Result<()> {
-                        let result = completed(arg_1, arg_2).map_err(crate::webview2::Error::WindowsError);
-                        tx.send(result).expect("send over mpsc channel");
-                        Ok(())
-                    });
-                let callback = Self::create(completed);
+                pub fn wait_for_async_operation(
+                    closure: Box<
+                        dyn FnOnce(#interface) -> crate::webview2::Result<()>,
+                    >,
+                    completed: #closure,
+                ) -> crate::webview2::Result<()> {
+                    let (tx, rx) = mpsc::channel();
+                    let completed: #closure =
+                        Box::new(move |arg_1, arg_2| -> ::windows::Result<()> {
+                            let result = completed(arg_1, arg_2).map_err(crate::webview2::Error::WindowsError);
+                            tx.send(result).expect("send over mpsc channel");
+                            Ok(())
+                        });
+                    let callback = Self::create(completed);
 
-                closure(callback)?;
-                wait_with_pump(rx)?
-            }
+                    closure(callback)?;
+                    wait_with_pump(rx)?
+                }
 
-            fn Invoke<'a>(
-                &mut self,
-                arg_1: <#arg_1 as InvokeArg<'a>>::Input,
-                arg_2: <#arg_2 as InvokeArg<'a>>::Input,
-            ) -> ::windows::Result<()> {
-                match self.0.take() {
-                    Some(completed) => completed(
-                        <#arg_1 as InvokeArg<'a>>::convert(arg_1),
-                        <#arg_2 as InvokeArg<'a>>::convert(arg_2),
-                    ),
-                    None => Ok(()),
+                fn Invoke<'a>(
+                    &mut self,
+                    arg_1: <#arg_1 as InvokeArg<'a>>::Input,
+                    arg_2: <#arg_2 as InvokeArg<'a>>::Input,
+                ) -> ::windows::Result<()> {
+                    match self.0.take() {
+                        Some(completed) => completed(
+                            <#arg_1 as InvokeArg<'a>>::convert(arg_1),
+                            <#arg_2 as InvokeArg<'a>>::convert(arg_2),
+                        ),
+                        None => Ok(()),
+                    }
                 }
             }
-        }
+        },
+        None => quote! {
+            use windows as _;
+            use crate::webview2 as _;
+
+            type #closure = Box<dyn FnOnce(<#arg_1 as ClosureArg>::Output) -> ::windows::Result<()>>;
+
+            #[doc = #msg]
+            #[implement(Microsoft::Web::WebView2::Win32::#interface)]
+            #vis struct #name(Option<#closure>);
+
+            #[allow(non_snake_case)]
+            impl #name {
+                pub fn create(
+                    closure: #closure,
+                ) -> #interface {
+                    Self(Some(closure)).into()
+                }
+
+                pub fn wait_for_async_operation(
+                    closure: Box<
+                        dyn FnOnce(#interface) -> crate::webview2::Result<()>,
+                    >,
+                    completed: #closure,
+                ) -> crate::webview2::Result<()> {
+                    let (tx, rx) = mpsc::channel();
+                    let completed: #closure =
+                        Box::new(move |arg_1| -> ::windows::Result<()> {
+                            let result = completed(arg_1).map_err(crate::webview2::Error::WindowsError);
+                            tx.send(result).expect("send over mpsc channel");
+                            Ok(())
+                        });
+                    let callback = Self::create(completed);
+
+                    closure(callback)?;
+                    wait_with_pump(rx)?
+                }
+
+                fn Invoke<'a>(
+                    &mut self,
+                    arg_1: <#arg_1 as InvokeArg<'a>>::Input,
+                ) -> ::windows::Result<()> {
+                    match self.0.take() {
+                        Some(completed) => completed(
+                            <#arg_1 as InvokeArg<'a>>::convert(arg_1),
+                        ),
+                        None => Ok(()),
+                    }
+                }
+            }
+        },
     };
 
     gen.into()
@@ -146,11 +197,15 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
     let interface = &ast.args.interface;
 
     let arg_1 = &ast.args.arg_1;
-    let arg_2 = &ast.args.arg_2;
+    let arg_2 = &ast
+        .args
+        .arg_2
+        .as_ref()
+        .expect("event_callback should always have 2 arguments");
 
     let msg = match interface.path.segments.last() {
         Some(interface) => format!("Implementation of [`{}`].", interface.ident),
-        None => String::from("Implementation of unknown [`event_callback`] interface.")
+        None => String::from("Implementation of unknown [`event_callback`] interface."),
     };
 
     let gen = quote! {

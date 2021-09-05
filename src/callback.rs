@@ -200,50 +200,8 @@ pub struct ExecuteScriptCompletedHandler(
     PWSTR,
 );
 
-type CapturePreviewCompletedHandlerClosure =
-    Box<dyn FnOnce(<HRESULT as ClosureArg>::Output) -> ::windows::Result<()>>;
-
-/// Implementation of [`ICoreWebView2CapturePreviewCompletedHandler`].
-///
-/// This interface is unique in that it only takes 1 parameter, which is why
-/// it does not use the [`completed_callback`] macro for its implementation.
-#[implement(Microsoft::Web::WebView2::Win32::ICoreWebView2CapturePreviewCompletedHandler)]
-pub struct CapturePreviewCompletedHandler(Option<CapturePreviewCompletedHandlerClosure>);
-
-#[allow(non_snake_case)]
-impl CapturePreviewCompletedHandler {
-    pub fn create(
-        closure: CapturePreviewCompletedHandlerClosure,
-    ) -> ICoreWebView2CapturePreviewCompletedHandler {
-        Self(Some(closure)).into()
-    }
-
-    pub fn wait_for_async_operation(
-        closure: Box<
-            dyn FnOnce(ICoreWebView2CapturePreviewCompletedHandler) -> crate::webview2::Result<()>,
-        >,
-        completed: CapturePreviewCompletedHandlerClosure,
-    ) -> crate::webview2::Result<()> {
-        let (tx, rx) = mpsc::channel();
-        let completed: CapturePreviewCompletedHandlerClosure =
-            Box::new(move |arg_1| -> ::windows::Result<()> {
-                let result = completed(arg_1).map_err(crate::webview2::Error::WindowsError);
-                tx.send(result).expect("send over mpsc channel");
-                Ok(())
-            });
-        let callback = Self::create(completed);
-
-        closure(callback)?;
-        wait_with_pump(rx)?
-    }
-
-    fn Invoke<'a>(&mut self, arg_1: <HRESULT as InvokeArg<'a>>::Input) -> ::windows::Result<()> {
-        match self.0.take() {
-            Some(completed) => completed(<HRESULT as InvokeArg<'a>>::convert(arg_1)),
-            None => Ok(()),
-        }
-    }
-}
+#[completed_callback]
+pub struct CapturePreviewCompletedHandler(ICoreWebView2CapturePreviewCompletedHandler, HRESULT);
 
 #[event_callback]
 pub struct WebMessageReceivedEventHandler(
