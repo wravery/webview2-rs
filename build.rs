@@ -55,17 +55,17 @@ mod webview2_nuget {
 
     #[cfg(windows)]
     pub fn install() -> Result<PathBuf> {
-        let manifest_dir = get_manifest_dir()?;
-        let install_root = match manifest_dir.to_str() {
+        let out_dir = get_out_dir()?;
+        let install_root = match out_dir.to_str() {
             Some(path) => path,
-            None => return Err(Error::MissingPath(manifest_dir)),
+            None => return Err(Error::MissingPath(out_dir)),
         };
 
-        let mut package_root = manifest_dir.clone();
+        let mut package_root = out_dir.clone();
         package_root.push(format!("{}.{}", WEBVIEW2_NAME, WEBVIEW2_VERSION));
 
         if !check_nuget_dir(install_root)? {
-            let mut nuget_path = manifest_dir.clone();
+            let mut nuget_path = get_manifest_dir()?;
             nuget_path.push("tools");
             nuget_path.push("nuget.exe");
 
@@ -91,6 +91,10 @@ mod webview2_nuget {
         }
 
         Ok(package_root)
+    }
+
+    fn get_out_dir() -> Result<PathBuf> {
+        Ok(PathBuf::from(env::var("OUT_DIR")?))
     }
 
     fn get_manifest_dir() -> Result<PathBuf> {
