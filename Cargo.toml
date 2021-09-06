@@ -16,15 +16,9 @@ bindings = { path = "crates/bindings" }
 callback-macros = { path = "crates/callback-macros" }
 windows = "0.19.0"
 
-[build-dependencies]
-regex = "1.5.4"
-serde = { version = "1.0", features = [ "derive" ] }
-serde_json = "1.0"
-thiserror = "1.0.26"
-windows = "0.19.0"
-
 [dev-dependencies]
 bindings = { path = "crates/bindings" }
+regex = "1.5.4"
 serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 windows = "0.19.0"

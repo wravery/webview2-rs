@@ -4,7 +4,13 @@ use windows::{implement, IUnknown, Interface, HRESULT};
 
 use bindings::{
     Microsoft::{self, Web::WebView2::Win32::*},
-    Windows::{self, Win32::Foundation::PWSTR},
+    Windows::{
+        self,
+        Win32::{
+            Foundation::{BOOL, PWSTR},
+            Storage::StructuredStorage::IStream,
+        },
+    },
 };
 
 use crate::pwstr::string_from_pwstr;
@@ -30,6 +36,18 @@ impl<'a> InvokeArg<'a> for HRESULT {
 
     fn convert(input: HRESULT) -> windows::Result<()> {
         input.ok()
+    }
+}
+
+impl ClosureArg for BOOL {
+    type Output = bool;
+}
+
+impl<'a> InvokeArg<'a> for BOOL {
+    type Input = Self;
+
+    fn convert(input: BOOL) -> bool {
+        input.as_bool()
     }
 }
 
@@ -96,6 +114,13 @@ pub struct CreateCoreWebView2CompositionControllerCompletedHandler(
 );
 
 #[event_callback]
+pub struct CursorChangedEventHandler(
+    ICoreWebView2CursorChangedEventHandler,
+    Option<ICoreWebView2CompositionController>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
 pub struct ZoomFactorChangedEventHandler(
     ICoreWebView2ZoomFactorChangedEventHandler,
     Option<ICoreWebView2Controller>,
@@ -149,6 +174,13 @@ pub struct SourceChangedEventHandler(
     ICoreWebView2SourceChangedEventHandler,
     Option<ICoreWebView2>,
     Option<ICoreWebView2SourceChangedEventArgs>,
+);
+
+#[event_callback]
+pub struct DOMContentLoadedEventHandler(
+    ICoreWebView2DOMContentLoadedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2DOMContentLoadedEventArgs>,
 );
 
 #[event_callback]
@@ -246,9 +278,79 @@ pub struct WebResourceRequestedEventHandler(
 );
 
 #[event_callback]
+pub struct WebResourceResponseReceivedEventHandler(
+    ICoreWebView2WebResourceResponseReceivedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2WebResourceResponseReceivedEventArgs>,
+);
+
+#[completed_callback]
+pub struct WebResourceResponseViewGetContentCompletedHandler(
+    ICoreWebView2WebResourceResponseViewGetContentCompletedHandler,
+    HRESULT,
+    Option<IStream>,
+);
+
+#[event_callback]
 pub struct WindowCloseRequestedEventHandler(
     ICoreWebView2WindowCloseRequestedEventHandler,
     Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct DownloadStartingEventHandler(
+    ICoreWebView2DownloadStartingEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2DownloadStartingEventArgs>,
+);
+
+#[event_callback]
+pub struct BytesReceivedChangedEventHandler(
+    ICoreWebView2BytesReceivedChangedEventHandler,
+    Option<ICoreWebView2DownloadOperation>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct EstimatedEndTimeChangedEventHandler(
+    ICoreWebView2EstimatedEndTimeChangedEventHandler,
+    Option<ICoreWebView2DownloadOperation>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct StateChangedEventHandler(
+    ICoreWebView2StateChangedEventHandler,
+    Option<ICoreWebView2DownloadOperation>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct DevToolsProtocolEventReceivedEventHandler(
+    ICoreWebView2DevToolsProtocolEventReceivedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2DevToolsProtocolEventReceivedEventArgs>,
+);
+
+#[event_callback]
+pub struct FrameCreatedEventHandler(
+    ICoreWebView2FrameCreatedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2FrameCreatedEventArgs>,
+);
+
+#[event_callback]
+pub struct FrameDestroyedEventHandler(
+    ICoreWebView2FrameDestroyedEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct FrameNameChangedEventHandler(
+    ICoreWebView2FrameNameChangedEventHandler,
+    Option<ICoreWebView2Frame>,
     Option<IUnknown>,
 );
 
@@ -259,7 +361,40 @@ pub struct GetCookiesCompletedHandler(
     Option<ICoreWebView2CookieList>,
 );
 
+#[completed_callback]
+pub struct TrySuspendCompletedHandler(ICoreWebView2TrySuspendCompletedHandler, HRESULT, BOOL);
+
 #[cfg(all(test, windows))]
 mod test {
+    use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
 
+    use regex::Regex;
+
+    use bindings::callback_interfaces;
+
+    #[test]
+    fn all_implemented() {
+        let mut source_path = PathBuf::from(
+            env::var("CARGO_MANIFEST_DIR").expect("cargo should set CARGO_MANIFEST_DIR"),
+        );
+        source_path.push("src");
+        source_path.push("callback.rs");
+        let mut contents = String::new();
+        File::open(source_path)
+            .expect("can open the file")
+            .read_to_string(&mut contents)
+            .expect("can read the file");
+        let pattern = Regex::new(r#"(ICoreWebView2[A-Za-z0-9]+Handler)"#).expect("valid regex");
+        let implemented: BTreeSet<&str> = contents
+            .lines()
+            .filter_map(|line| pattern.captures(line))
+            .filter_map(|captures| captures.get(1))
+            .filter_map(|match_1| Some(match_1.as_str()))
+            .collect();
+        assert_eq!(
+            implemented,
+            callback_interfaces::all_declared(),
+            "all declared interfaces should be implemented"
+        );
+    }
 }
