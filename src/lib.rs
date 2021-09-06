@@ -74,29 +74,3 @@ pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         }
     }
 }
-
-#[cfg(test)]
-mod test {
-    use bindings::Microsoft::Web::WebView2::Win32::*;
-
-    #[test]
-    fn compare_eq() {
-        let mut result = 1;
-        unsafe { CompareBrowserVersions("1.0.0", "1.0.0", &mut result) }.unwrap();
-        assert_eq!(0, result);
-    }
-
-    #[test]
-    fn compare_lt() {
-        let mut result = 0;
-        unsafe { CompareBrowserVersions("1.0.0", "1.0.1", &mut result) }.unwrap();
-        assert_eq!(-1, result);
-    }
-
-    #[test]
-    fn compare_gt() {
-        let mut result = 0;
-        unsafe { CompareBrowserVersions("2.0.0", "1.0.1", &mut result) }.unwrap();
-        assert_eq!(1, result);
-    }
-}
