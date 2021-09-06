@@ -254,7 +254,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
             .lines()
             .filter_map(|line| pattern.captures(line))
             .filter_map(|captures| captures.get(1))
-            .filter_map(|match_1| Some(String::from(match_1.as_str())))
+            .map(|match_1| String::from(match_1.as_str()))
             .collect();
         if interfaces.is_empty() {
             Err(Error::MissingTypedef)
