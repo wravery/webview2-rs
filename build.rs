@@ -35,7 +35,6 @@ extern crate thiserror;
 
 mod webview2_nuget {
     use std::{
-        collections::BTreeSet,
         convert::From,
         env, fs,
         io::{self, Read, Write},
@@ -44,6 +43,9 @@ mod webview2_nuget {
     };
 
     use regex::Regex;
+
+    include!("./src/browser_version.rs");
+    include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
     const WEBVIEW2_VERSION: &str = "1.0.902.49";
@@ -175,6 +177,10 @@ mod webview2_nuget {
     #[cfg(windows)]
     pub fn update_browser_version(package_root: &Path) -> Result<bool> {
         let version = get_target_broweser_version(package_root)?;
+        if version == CORE_WEBVIEW_TARGET_PRODUCT_VERSION {
+            return Ok(false);
+        }
+
         let mut source_path = get_manifest_dir()?;
         source_path.push("src");
         source_path.push("browser_version.rs");
@@ -217,6 +223,11 @@ mod webview2_nuget {
     #[cfg(windows)]
     pub fn update_callback_interfaces(package_root: &Path) -> Result<bool> {
         let interfaces = get_callback_interfaces(package_root)?;
+        let declared = all_declared().into_iter().map(String::from).collect();
+        if interfaces == declared {
+            return Ok(false);
+        }
+
         let mut source_path = get_manifest_dir()?;
         source_path.push("src");
         source_path.push("callback_interfaces.rs");
