@@ -1,4 +1,5 @@
 extern crate webview2_com_bindings;
+pub use webview2_com_bindings::*;
 
 #[macro_use]
 extern crate webview2_com_callback_macros;
@@ -14,9 +15,8 @@ use windows::HRESULT;
 pub use callback::*;
 pub use options::*;
 pub use pwstr::*;
-pub use webview2_com_bindings::*;
 
-use webview2_com_bindings::Windows::Win32::{
+use Windows::Win32::{
     Foundation::HWND,
     UI::WindowsAndMessaging::{self, MSG},
 };
