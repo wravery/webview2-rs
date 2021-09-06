@@ -1,2 +1,6 @@
 [workspace]
 members = [ "crates/*" ]
+
+[patch.crates-io]
+webview2-com-bindings = { path = "crates/bindings" }
+webview2-com-callback-macros = { path = "crates/callback-macros" }

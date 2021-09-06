@@ -1,8 +1,12 @@
 [package]
-name = "callback-macros"
+name = "webview2-com-callback-macros"
 version = "0.1.0"
 edition = "2018"
-publish = false
+description = "Macros which generate callback implementations for WebView2 COM APIs"
+repository = "https://github.com/wravery/webview2-rs"
+license = "MIT"
+keywords = [ "win32", "webview2" ]
+categories = [ "os::windows-apis" ]
 
 [lib]
 proc-macro = true

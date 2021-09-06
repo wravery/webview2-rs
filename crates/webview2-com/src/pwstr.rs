@@ -1,6 +1,6 @@
 use std::{mem, ptr};
 
-use bindings::Windows::Win32::{Foundation::PWSTR, System::Com};
+use webview2_com_bindings::Windows::Win32::{Foundation::PWSTR, System::Com};
 
 /// Copy a [`PWSTR`] from an input param to a [`String`].
 pub fn string_from_pwstr(source: PWSTR) -> String {

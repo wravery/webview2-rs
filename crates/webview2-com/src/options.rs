@@ -2,7 +2,7 @@ use std::default::Default;
 
 use windows::*;
 
-use bindings::{
+use webview2_com_bindings::{
     browser_version::CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
     Microsoft,
     Windows::{

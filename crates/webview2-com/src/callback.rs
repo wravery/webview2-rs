@@ -2,7 +2,7 @@ use std::sync::mpsc;
 
 use windows::{implement, IUnknown, Interface, HRESULT};
 
-use bindings::{
+use webview2_com_bindings::{
     Microsoft::{self, Web::WebView2::Win32::*},
     Windows::{
         self,
@@ -370,7 +370,7 @@ mod test {
 
     use regex::Regex;
 
-    use bindings::callback_interfaces;
+    use webview2_com_bindings::callback_interfaces;
 
     #[test]
     fn all_implemented() {

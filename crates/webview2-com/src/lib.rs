@@ -1,7 +1,7 @@
-extern crate bindings;
+extern crate webview2_com_bindings;
 
 #[macro_use]
-extern crate callback_macros;
+extern crate webview2_com_callback_macros;
 
 mod callback;
 mod options;
@@ -11,12 +11,12 @@ use std::sync::mpsc;
 
 use windows::HRESULT;
 
-pub use bindings::*;
 pub use callback::*;
 pub use options::*;
 pub use pwstr::*;
+pub use webview2_com_bindings::*;
 
-use bindings::Windows::Win32::{
+use webview2_com_bindings::Windows::Win32::{
     Foundation::HWND,
     UI::WindowsAndMessaging::{self, MSG},
 };
