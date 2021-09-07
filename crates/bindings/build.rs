@@ -132,19 +132,29 @@ mod webview2_nuget {
         const WEBVIEW2_STATIC_LIB: &str = "WebView2LoaderStatic.lib";
         const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
 
-        let mut windows_dir = get_workspace_dir()?;
-        windows_dir.push(".windows");
+        let mut workspace_windows_dir = get_workspace_dir()?;
+        workspace_windows_dir.push(".windows");
+
+        let mut bindings_windows_dir = get_manifest_dir()?;
+        bindings_windows_dir.push(".windows");
 
         let mut native_dir = package_root.to_path_buf();
         native_dir.push("build");
         native_dir.push("native");
         for target in WEBVIEW2_TARGETS {
-            let mut lib_dest = windows_dir.clone();
-            lib_dest.push(target);
-            lib_dest.push(WEBVIEW2_STATIC_LIB);
             let mut lib_src = native_dir.clone();
             lib_src.push(target);
             lib_src.push(WEBVIEW2_STATIC_LIB);
+
+            let mut lib_dest = workspace_windows_dir.clone();
+            lib_dest.push(target);
+            lib_dest.push(WEBVIEW2_STATIC_LIB);
+            eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
+            fs::copy(lib_src.as_path(), lib_dest.as_path())?;
+
+            let mut lib_dest = bindings_windows_dir.clone();
+            lib_dest.push(target);
+            lib_dest.push(WEBVIEW2_STATIC_LIB);
             eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
             fs::copy(lib_src.as_path(), lib_dest.as_path())?;
         }
