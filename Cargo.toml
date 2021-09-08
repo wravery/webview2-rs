@@ -2,5 +2,5 @@
 members = [ "crates/*" ]
 
 [patch.crates-io]
-webview2-com-bindings = { path = "crates/bindings/" }
-webview2-com-callback-macros = { path = "crates/callback-macros/" }
+webview2-com-sys = { path = "crates/bindings/" }
+webview2-com-macros = { path = "crates/callback-macros/" }

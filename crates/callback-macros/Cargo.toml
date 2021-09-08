@@ -1,6 +1,6 @@
 [package]
-name = "webview2-com-callback-macros"
-version = "0.1.1"
+name = "webview2-com-macros"
+version = "0.2.0"
 edition = "2018"
 description = "Macros which generate callback implementations for WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"

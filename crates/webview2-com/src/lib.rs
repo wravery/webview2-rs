@@ -1,8 +1,8 @@
-extern crate webview2_com_bindings;
-pub use webview2_com_bindings::*;
+extern crate webview2_com_sys;
+pub use webview2_com_sys::*;
 
 #[macro_use]
-extern crate webview2_com_callback_macros;
+extern crate webview2_com_macros;
 
 mod callback;
 mod options;
