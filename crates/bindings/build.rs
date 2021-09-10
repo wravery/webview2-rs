@@ -6,7 +6,10 @@ fn main() -> webview2_nuget::Result<()> {
             Foundation::*,
             Storage::StructuredStorage::*,
             Globalization::*,
-            Graphics::Gdi::*,
+            Graphics::{
+                Dwm::*,
+                Gdi::*,
+            },
             System::{
                 Com::*,
                 DataExchange::*,
