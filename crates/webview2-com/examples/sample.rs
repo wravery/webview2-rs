@@ -5,12 +5,7 @@ extern crate serde_json;
 extern crate webview2_com;
 extern crate windows;
 
-use std::{
-    collections::HashMap,
-    ffi::CString,
-    mem, ptr,
-    sync::{mpsc, Arc, Mutex},
-};
+use std::{collections::HashMap, ffi::CString, fmt, mem, ptr, sync::{mpsc, Arc, Mutex}};
 
 use serde::Deserialize;
 use serde_json::{Number, Value};
@@ -74,6 +69,12 @@ pub enum Error {
     WindowsError(windows::Error),
     JsonError(serde_json::Error),
     LockError,
+}
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:?}", self)
+    }
 }
 
 impl From<webview2_com::Error> for Error {
