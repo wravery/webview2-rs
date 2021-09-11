@@ -25,6 +25,7 @@ fn main() -> webview2_nuget::Result<()> {
                 Controls::*,
                 HiDpi::*,
                 KeyboardAndMouseInput::*,
+                PointerInput::*,
                 Shell::*,
                 TextServices::*,
                 WindowsAndMessaging::*,
