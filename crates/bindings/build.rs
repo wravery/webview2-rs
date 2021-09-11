@@ -4,7 +4,10 @@ fn main() -> webview2_nuget::Result<()> {
         Windows::Win32::{
             Devices::HumanInterfaceDevice::*,
             Foundation::*,
-            Storage::StructuredStorage::IStream,
+            Storage::StructuredStorage::{
+                CreateStreamOnHGlobal,
+                IStream,
+            },
             Globalization::*,
             Graphics::{
                 Dwm::*,
