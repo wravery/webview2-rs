@@ -23,6 +23,7 @@ fn main() -> webview2_nuget::Result<()> {
             UI::{
                 Accessibility::*,
                 Controls::*,
+                DisplayDevices::*,
                 HiDpi::*,
                 KeyboardAndMouseInput::*,
                 PointerInput::*,
