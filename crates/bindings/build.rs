@@ -106,7 +106,7 @@ mod webview2_nuget {
     include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.902.49";
+    const WEBVIEW2_VERSION: &str = "1.0.961.33";
 
     #[cfg(not(windows))]
     pub fn install() -> Result<PathBuf> {
