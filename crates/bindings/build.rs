@@ -18,6 +18,7 @@ fn main() -> webview2_nuget::Result<()> {
                 SystemInformation::*,
                 SystemServices::*,
                 Threading::*,
+                WindowsProgramming::*,
                 WinRT::EventRegistrationToken,
             },
             UI::{
