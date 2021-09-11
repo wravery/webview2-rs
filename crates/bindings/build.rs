@@ -28,6 +28,7 @@ fn main() -> webview2_nuget::Result<()> {
                 PointerInput::*,
                 Shell::*,
                 TextServices::*,
+                TouchInput::*,
                 WindowsAndMessaging::*,
             },
         }
