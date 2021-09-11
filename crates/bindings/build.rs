@@ -13,6 +13,7 @@ fn main() -> webview2_nuget::Result<()> {
             System::{
                 Com::*,
                 DataExchange::*,
+                Diagnostics::Debug::*,
                 LibraryLoader::*,
                 Memory::*,
                 SystemInformation::*,
