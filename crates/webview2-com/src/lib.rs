@@ -8,7 +8,7 @@ mod callback;
 mod options;
 mod pwstr;
 
-use std::sync::mpsc;
+use std::{fmt, sync::mpsc};
 
 use windows::HRESULT;
 
@@ -27,6 +27,12 @@ pub enum Error {
     CallbackError(String),
     TaskCanceled,
     SendError,
+}
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:?}", self)
+    }
 }
 
 impl From<windows::Error> for Error {

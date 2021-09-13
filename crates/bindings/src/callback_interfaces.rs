@@ -10,6 +10,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2BytesReceivedChangedEventHandler");
     interfaces.insert("ICoreWebView2CallDevToolsProtocolMethodCompletedHandler");
     interfaces.insert("ICoreWebView2CapturePreviewCompletedHandler");
+    interfaces.insert("ICoreWebView2ClientCertificateRequestedEventHandler");
     interfaces.insert("ICoreWebView2ContainsFullScreenElementChangedEventHandler");
     interfaces.insert("ICoreWebView2ContentLoadingEventHandler");
     interfaces.insert("ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler");

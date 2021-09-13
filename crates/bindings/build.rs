@@ -2,21 +2,79 @@ fn main() -> webview2_nuget::Result<()> {
     windows::build! {
         Microsoft::Web::WebView2::Win32::*,
         Windows::Win32::{
-            Foundation::{
-                E_NOINTERFACE, E_POINTER, HINSTANCE, LRESULT, POINT, PWSTR, RECT, SIZE, S_OK,
+            Devices::HumanInterfaceDevice::*,
+            Foundation::*,
+            Storage::StructuredStorage::{
+                CreateStreamOnHGlobal,
+                IStream,
             },
-            Storage::StructuredStorage::IStream,
-            Graphics::Gdi::UpdateWindow,
-            System::Com::{CoCreateInstance, CoInitializeEx},
+            Globalization::*,
+            Graphics::{
+                Dwm::*,
+                Gdi::*,
+            },
             System::{
-                Com::{CoTaskMemAlloc, CoTaskMemFree},
-                LibraryLoader::GetModuleHandleA,
-                Threading::GetCurrentThreadId,
+                Com::{
+                    CoCreateInstance,
+                    CoInitializeEx,
+                    CoTaskMemAlloc,
+                    CoTaskMemFree,
+                    CoUninitialize,
+                    IDataObject,
+                    IDropTarget,
+                    OleInitialize,
+                    OleUninitialize,
+                    RegisterDragDrop,
+                    RevokeDragDrop,
+                    CLSCTX,
+                    DROPEFFECT_COPY,
+                    DROPEFFECT_NONE,
+                    DVASPECT,
+                    FORMATETC,
+                    TYMED,
+                },
+                DataExchange::*,
+                Diagnostics::Debug::{
+                    FlashWindowEx,
+                    FLASHWINFO,
+                    FLASHWINFO_FLAGS,
+                },
+                LibraryLoader::*,
+                Memory::{
+                    GlobalAlloc,
+                    GlobalFlags,
+                    GlobalFree,
+                    GlobalLock,
+                    GlobalReAlloc,
+                    GlobalSize,
+                    GlobalUnlock,
+                    GLOBAL_ALLOC_FLAGS,
+                },
+                SystemServices::{
+                    CLIPBOARD_FORMATS,
+                    DPI_AWARENESS_CONTEXT,
+                    LANG_JAPANESE,
+                    LANG_KOREAN,
+                },
+                Threading::{
+                    MsgWaitForMultipleObjectsEx,
+                    GetCurrentThreadId,
+                    MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS,
+                    WAIT_RETURN_CAUSE,
+                },
+                WindowsProgramming::INFINITE,
                 WinRT::EventRegistrationToken,
             },
             UI::{
-                HiDpi::{SetProcessDpiAwareness, PROCESS_DPI_AWARENESS},
-                KeyboardAndMouseInput::SetFocus,
+                Accessibility::*,
+                Controls::*,
+                DisplayDevices::DEVMODEW,
+                HiDpi::*,
+                KeyboardAndMouseInput::*,
+                PointerInput::*,
+                Shell::*,
+                TextServices::HKL,
+                TouchInput::*,
                 WindowsAndMessaging::*,
             },
         }
@@ -48,7 +106,7 @@ mod webview2_nuget {
     include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.902.49";
+    const WEBVIEW2_VERSION: &str = "1.0.961.33";
 
     #[cfg(not(windows))]
     pub fn install() -> Result<PathBuf> {

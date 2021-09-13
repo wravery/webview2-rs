@@ -354,6 +354,13 @@ pub struct FrameNameChangedEventHandler(
     Option<IUnknown>,
 );
 
+#[event_callback]
+pub struct ClientCertificateRequestedEventHandler(
+    ICoreWebView2ClientCertificateRequestedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2ClientCertificateRequestedEventArgs>,
+);
+
 #[completed_callback]
 pub struct GetCookiesCompletedHandler(
     ICoreWebView2GetCookiesCompletedHandler,
