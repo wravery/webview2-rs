@@ -8,10 +8,50 @@ fn main() -> webview2_nuget::Result<()> {
                 CreateStreamOnHGlobal,
                 IStream,
             },
-            Globalization::*,
+            Globalization::{
+                lstrlenW,
+                ImmGetContext,
+                ImmReleaseContext,
+                ImmSetCompositionWindow,
+                CFS_POINT,
+            },
             Graphics::{
                 Dwm::*,
-                Gdi::*,
+                Gdi::{
+                    ChangeDisplaySettingsExW,
+                    ClientToScreen,
+                    CreateRectRgn,
+                    DeleteObject,
+                    EnumDisplayMonitors,
+                    EnumDisplaySettingsExW,
+                    GetDC,
+                    GetDeviceCaps,
+                    GetMonitorInfoW,
+                    GetUpdateRect,
+                    InvalidateRgn,
+                    MonitorFromPoint,
+                    MonitorFromRect,
+                    MonitorFromWindow,
+                    RedrawWindow,
+                    ScreenToClient,
+                    UpdateWindow,
+                    ValidateRect,
+                    CDS_TYPE,
+                    DISP_CHANGE,
+                    DM_BITSPERPEL,
+                    DM_DISPLAYFREQUENCY,
+                    DM_PELSHEIGHT,
+                    DM_PELSWIDTH,
+                    ENUM_DISPLAY_SETTINGS_MODE,
+                    HMONITOR,
+                    HRGN,
+                    LOGPIXELSX,
+                    LOGPIXELSY,
+                    MONITOR_FROM_FLAGS,
+                    MONITORINFO,
+                    MONITORINFOEXW,
+                    REDRAW_WINDOW_FLAGS,
+                },
             },
             System::{
                 Com::{
@@ -72,7 +112,23 @@ fn main() -> webview2_nuget::Result<()> {
                 HiDpi::*,
                 KeyboardAndMouseInput::*,
                 PointerInput::*,
-                Shell::*,
+                Shell::{
+                    DefSubclassProc,
+                    DragFinish,
+                    DragQueryFileW,
+                    ITaskbarList,
+                    ITaskbarList2,
+                    RemoveWindowSubclass,
+                    SetWindowSubclass,
+                    Shell_NotifyIconW,
+                    Shell_NotifyIconGetRect,
+                    TaskbarList,
+                    HDROP,
+                    NOTIFY_ICON_DATA_FLAGS,
+                    NOTIFY_ICON_MESSAGE,
+                    NOTIFYICONDATAW,
+                    NOTIFYICONIDENTIFIER,
+                },
                 TextServices::HKL,
                 TouchInput::*,
                 WindowsAndMessaging::*,
@@ -80,10 +136,11 @@ fn main() -> webview2_nuget::Result<()> {
         }
     };
 
-    let package_root = webview2_nuget::install()?;
-    webview2_nuget::update_windows(&package_root)?;
-    webview2_nuget::update_browser_version(&package_root)?;
-    webview2_nuget::update_callback_interfaces(&package_root)?;
+    if let Ok(package_root) = webview2_nuget::install() {
+        webview2_nuget::update_windows(&package_root)?;
+        webview2_nuget::update_browser_version(&package_root)?;
+        webview2_nuget::update_callback_interfaces(&package_root)?;
+    }
 
     Ok(())
 }
