@@ -4,9 +4,16 @@ fn main() -> webview2_nuget::Result<()> {
         Windows::Win32::{
             Devices::HumanInterfaceDevice::*,
             Foundation::*,
-            Storage::StructuredStorage::{
-                CreateStreamOnHGlobal,
-                IStream,
+            Storage::{
+                FileSystem::{
+                    GetFileInformationByHandleEx,
+                    FILE_INFO_BY_HANDLE_CLASS,
+                    FILE_NAME_INFO,
+                },
+                StructuredStorage::{
+                    CreateStreamOnHGlobal,
+                    IStream,
+                },
             },
             Globalization::{
                 lstrlenW,
@@ -72,6 +79,28 @@ fn main() -> webview2_nuget::Result<()> {
                     DVASPECT,
                     FORMATETC,
                     TYMED,
+                },
+                Console::{
+                    FillConsoleOutputAttribute,
+                    FillConsoleOutputCharacterA,
+                    GetConsoleCursorInfo,
+                    GetConsoleMode,
+                    GetConsoleScreenBufferInfo,
+                    GetNumberOfConsoleInputEvents,
+                    GetStdHandle,
+                    ReadConsoleInputW,
+                    SetConsoleCursorInfo,
+                    SetConsoleCursorPosition,
+                    SetConsoleMode,
+                    SetConsoleTitleW,
+                    CONSOLE_CURSOR_INFO,
+                    CONSOLE_MODE,
+                    CONSOLE_SCREEN_BUFFER_INFO,
+                    COORD,
+                    INPUT_RECORD,
+                    KEY_EVENT,
+                    KEY_EVENT_RECORD,
+                    STD_HANDLE,
                 },
                 DataExchange::*,
                 Diagnostics::Debug::{
