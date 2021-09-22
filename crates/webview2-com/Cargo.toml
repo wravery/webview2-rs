@@ -11,11 +11,11 @@ categories = [ "os::windows-apis" ]
 [dependencies]
 webview2-com-sys = "0.5.0"
 webview2-com-macros = "0.3.0"
-windows = "0.20.0"
+windows = "0.20.1"
 
 [dev-dependencies]
 regex = "1.5.4"
 serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 webview2-com-sys = "0.5.0"
-windows = "0.20.0"
+windows = "0.20.1"
