@@ -5,7 +5,12 @@ extern crate serde_json;
 extern crate webview2_com;
 extern crate windows;
 
-use std::{collections::HashMap, ffi::CString, fmt, mem, ptr, sync::{mpsc, Arc, Mutex}};
+use std::{
+    collections::HashMap,
+    ffi::CString,
+    fmt, mem, ptr,
+    sync::{mpsc, Arc, Mutex},
+};
 
 use serde::Deserialize;
 use serde_json::{Number, Value};
@@ -382,7 +387,7 @@ impl WebView {
                 let result = WindowsAndMessaging::GetMessageA(&mut msg, h_wnd, 0, 0).0;
 
                 match result {
-                    -1 => break Err(HRESULT::from_thread().into()),
+                    -1 => break Err(windows::Error::from_win32().into()),
                     0 => break Ok(()),
                     _ => match msg.message {
                         WindowsAndMessaging::WM_APP => (),
