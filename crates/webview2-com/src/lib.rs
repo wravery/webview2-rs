@@ -10,20 +10,21 @@ mod pwstr;
 
 use std::{fmt, sync::mpsc};
 
-use windows::HRESULT;
+use windows::{
+    runtime::HRESULT,
+    Win32::{
+        Foundation::HWND,
+        UI::WindowsAndMessaging::{self, MSG},
+    },
+};
 
 pub use callback::*;
 pub use options::*;
 pub use pwstr::*;
 
-use Windows::Win32::{
-    Foundation::HWND,
-    UI::WindowsAndMessaging::{self, MSG},
-};
-
 #[derive(Debug)]
 pub enum Error {
-    WindowsError(windows::Error),
+    WindowsError(windows::runtime::Error),
     CallbackError(String),
     TaskCanceled,
     SendError,
@@ -35,15 +36,15 @@ impl fmt::Display for Error {
     }
 }
 
-impl From<windows::Error> for Error {
-    fn from(err: windows::Error) -> Self {
+impl From<windows::runtime::Error> for Error {
+    fn from(err: windows::runtime::Error) -> Self {
         Self::WindowsError(err)
     }
 }
 
 impl From<HRESULT> for Error {
     fn from(err: HRESULT) -> Self {
-        Self::WindowsError(windows::Error::fast_error(err))
+        Self::WindowsError(windows::runtime::Error::fast_error(err))
     }
 }
 
@@ -69,7 +70,7 @@ pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         unsafe {
             match WindowsAndMessaging::GetMessageA(&mut msg, hwnd, 0, 0).0 {
                 -1 => {
-                    return Err(windows::Error::from_win32().into());
+                    return Err(windows::runtime::Error::from_win32().into());
                 }
                 0 => return Err(Error::TaskCanceled),
                 _ => {

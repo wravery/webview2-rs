@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com"
-version = "0.5.0"
+version = "0.6.0"
 edition = "2018"
 description = "Rust bindings for the WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"
@@ -9,13 +9,23 @@ keywords = [ "win32", "webview2" ]
 categories = [ "os::windows-apis" ]
 
 [dependencies]
-webview2-com-sys = "0.5.0"
-webview2-com-macros = "0.3.0"
-windows = "0.20.1"
+webview2-com-sys = "0.6.0"
+webview2-com-macros = "0.4.0"
+windows = "0.24.0"
 
 [dev-dependencies]
 regex = "1.5.4"
 serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
-webview2-com-sys = "0.5.0"
-windows = "0.20.1"
+webview2-com-sys = "0.6.0"
+
+[dev-dependencies.windows]
+version = "0.24.0"
+features = [
+    "Win32_Graphics_Gdi",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Threading",
+    "Win32_UI_HiDpi",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_WindowsAndMessaging",
+]

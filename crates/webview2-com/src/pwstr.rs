@@ -1,6 +1,8 @@
 use std::{mem, ptr};
 
-use crate::Windows::Win32::{Foundation::PWSTR, System::Com};
+use windows::Win32::System::Com;
+
+use crate::Windows::Win32::Foundation::PWSTR;
 
 /// Copy a [`PWSTR`] from an input param to a [`String`].
 pub fn string_from_pwstr(source: PWSTR) -> String {

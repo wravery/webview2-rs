@@ -14,19 +14,26 @@ use std::{
 
 use serde::Deserialize;
 use serde_json::{Number, Value};
-use windows::*;
+use windows::{
+    runtime::*,
+    Win32::{
+        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, PSTR, SIZE, WPARAM},
+        Graphics::Gdi,
+        System::Com::*,
+        System::{LibraryLoader, Threading},
+        UI::{
+            HiDpi,
+            Input::KeyboardAndMouse,
+            WindowsAndMessaging::{self, MSG, WINDOW_LONG_PTR_INDEX, WNDCLASSA},
+        },
+    },
+};
 
 use webview2_com::{
     Microsoft::Web::WebView2::Win32::*,
-    Windows::Win32::{Foundation::E_POINTER, System::Com::*},
     Windows::Win32::{
-        Foundation::{HWND, LPARAM, LRESULT, PSTR, PWSTR, RECT, SIZE, WPARAM},
-        Graphics::Gdi,
-        System::{LibraryLoader, Threading, WinRT::EventRegistrationToken},
-        UI::{
-            HiDpi, KeyboardAndMouseInput,
-            WindowsAndMessaging::{self, MSG, WINDOW_LONG_PTR_INDEX, WNDCLASSA},
-        },
+        Foundation::{PWSTR, RECT},
+        System::WinRT::EventRegistrationToken,
     },
     *,
 };
@@ -71,7 +78,7 @@ fn main() -> Result<()> {
 #[derive(Debug)]
 pub enum Error {
     WebView2Error(webview2_com::Error),
-    WindowsError(windows::Error),
+    WindowsError(windows::runtime::Error),
     JsonError(serde_json::Error),
     LockError,
 }
@@ -88,15 +95,15 @@ impl From<webview2_com::Error> for Error {
     }
 }
 
-impl From<windows::Error> for Error {
-    fn from(err: windows::Error) -> Self {
+impl From<windows::runtime::Error> for Error {
+    fn from(err: windows::runtime::Error) -> Self {
         Self::WindowsError(err)
     }
 }
 
 impl From<HRESULT> for Error {
     fn from(err: HRESULT) -> Self {
-        Self::WindowsError(windows::Error::fast_error(err))
+        Self::WindowsError(windows::runtime::Error::fast_error(err))
     }
 }
 
@@ -227,8 +234,10 @@ impl WebView {
                 }),
                 Box::new(move |error_code, environment| {
                     error_code?;
-                    tx.send(environment.ok_or_else(|| windows::Error::fast_error(E_POINTER)))
-                        .expect("send over mpsc channel");
+                    tx.send(
+                        environment.ok_or_else(|| windows::runtime::Error::fast_error(E_POINTER)),
+                    )
+                    .expect("send over mpsc channel");
                     Ok(())
                 }),
             )?;
@@ -243,13 +252,18 @@ impl WebView {
             CreateCoreWebView2ControllerCompletedHandler::wait_for_async_operation(
                 Box::new(move |handler| unsafe {
                     environment
-                        .CreateCoreWebView2Controller(parent, handler)
+                        .CreateCoreWebView2Controller(
+                            webview2_com_sys::Windows::Win32::Foundation::HWND(parent.0),
+                            handler,
+                        )
                         .map_err(webview2_com::Error::WindowsError)
                 }),
                 Box::new(move |error_code, controller| {
                     error_code?;
-                    tx.send(controller.ok_or_else(|| windows::Error::fast_error(E_POINTER)))
-                        .expect("send over mpsc channel");
+                    tx.send(
+                        controller.ok_or_else(|| windows::runtime::Error::fast_error(E_POINTER)),
+                    )
+                    .expect("send over mpsc channel");
                     Ok(())
                 }),
             )?;
@@ -261,23 +275,23 @@ impl WebView {
         let size = get_window_size(parent);
         let mut client_rect = RECT::default();
         unsafe {
-            WindowsAndMessaging::GetClientRect(parent, &mut client_rect);
-            controller.put_Bounds(RECT {
+            WindowsAndMessaging::GetClientRect(parent, std::mem::transmute(&mut client_rect));
+            controller.SetBounds(RECT {
                 left: 0,
                 top: 0,
                 right: size.cx,
                 bottom: size.cy,
             })?;
-            controller.put_IsVisible(true)?;
+            controller.SetIsVisible(true)?;
         }
 
-        let webview = unsafe { controller.get_CoreWebView2()? };
+        let webview = unsafe { controller.CoreWebView2()? };
 
         if !debug {
             unsafe {
-                let settings = webview.get_Settings()?;
-                settings.put_AreDefaultContextMenusEnabled(false)?;
-                settings.put_AreDevToolsEnabled(false)?;
+                let settings = webview.Settings()?;
+                settings.SetAreDefaultContextMenusEnabled(false)?;
+                settings.SetAreDevToolsEnabled(false)?;
             }
         }
 
@@ -309,11 +323,11 @@ impl WebView {
         let bound = webview.clone();
         unsafe {
             let mut _token = EventRegistrationToken::default();
-            webview.webview.add_WebMessageReceived(
+            webview.webview.WebMessageReceived(
                 WebMessageReceivedEventHandler::create(Box::new(move |_webview, args| {
                     if let Some(args) = args {
                         let mut message = PWSTR::default();
-                        if args.get_WebMessageAsJson(&mut message).is_ok() {
+                        if args.WebMessageAsJson(&mut message).is_ok() {
                             let message = take_pwstr(message);
                             if let Ok(value) = serde_json::from_str::<InvokeMessage>(&message) {
                                 if let Ok(mut bindings) = bindings.try_lock() {
@@ -358,10 +372,10 @@ impl WebView {
                 }));
             let mut token = EventRegistrationToken::default();
             unsafe {
-                webview.add_NavigationCompleted(handler, &mut token)?;
+                webview.NavigationCompleted(handler, &mut token)?;
                 webview.Navigate(url)?;
                 let result = webview2_com::wait_with_pump(rx);
-                webview.remove_NavigationCompleted(token)?;
+                webview.RemoveNavigationCompleted(token)?;
                 result?;
             }
         }
@@ -371,7 +385,7 @@ impl WebView {
             unsafe {
                 WindowsAndMessaging::ShowWindow(hwnd, WindowsAndMessaging::SW_SHOW);
                 Gdi::UpdateWindow(hwnd);
-                KeyboardAndMouseInput::SetFocus(hwnd);
+                KeyboardAndMouse::SetFocus(hwnd);
             }
         }
 
@@ -387,7 +401,7 @@ impl WebView {
                 let result = WindowsAndMessaging::GetMessageA(&mut msg, h_wnd, 0, 0).0;
 
                 match result {
-                    -1 => break Err(windows::Error::from_win32().into()),
+                    -1 => break Err(windows::runtime::Error::from_win32().into()),
                     0 => break Ok(()),
                     _ => match msg.message {
                         WindowsAndMessaging::WM_APP => (),
@@ -429,7 +443,7 @@ impl WebView {
                 cy: height,
             };
             unsafe {
-                self.controller.0.put_Bounds(RECT {
+                self.controller.0.SetBounds(RECT {
                     left: 0,
                     top: 0,
                     right: width,
@@ -619,7 +633,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
                 webview
                     .controller
                     .0
-                    .put_Bounds(RECT {
+                    .SetBounds(RECT {
                         left: 0,
                         top: 0,
                         right: size.cx,
@@ -649,7 +663,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
 
 fn get_window_size(hwnd: HWND) -> SIZE {
     let mut client_rect = RECT::default();
-    unsafe { WindowsAndMessaging::GetClientRect(hwnd, &mut client_rect) };
+    unsafe { WindowsAndMessaging::GetClientRect(hwnd, std::mem::transmute(&mut client_rect)) };
     SIZE {
         cx: client_rect.right - client_rect.left,
         cy: client_rect.bottom - client_rect.top,

@@ -1,19 +1,18 @@
 use std::sync::mpsc;
 
-use windows::{implement, IUnknown, Interface, HRESULT};
+use windows::runtime::{implement, IUnknown, Interface, HRESULT};
 
 use crate::{
+    pwstr::string_from_pwstr,
     Microsoft::{self, Web::WebView2::Win32::*},
     Windows::{
         self,
         Win32::{
             Foundation::{BOOL, PWSTR},
-            Storage::StructuredStorage::IStream,
+            System::Com::IStream,
         },
     },
 };
-
-use crate::pwstr::string_from_pwstr;
 
 pub trait ClosureArg {
     type Output: Sized;
@@ -28,13 +27,13 @@ pub trait InvokeArg<'a> {
 }
 
 impl ClosureArg for HRESULT {
-    type Output = windows::Result<()>;
+    type Output = windows::runtime::Result<()>;
 }
 
 impl<'a> InvokeArg<'a> for HRESULT {
     type Input = Self;
 
-    fn convert(input: HRESULT) -> windows::Result<()> {
+    fn convert(input: HRESULT) -> windows::runtime::Result<()> {
         input.ok()
     }
 }
@@ -77,12 +76,18 @@ impl<'a, I: 'a + Interface> InvokeArg<'a> for Option<I> {
 
 /// Generic closure signature for [`completed_callback`].
 pub type CompletedClosure<Arg1, Arg2> = Box<
-    dyn FnOnce(<Arg1 as ClosureArg>::Output, <Arg2 as ClosureArg>::Output) -> ::windows::Result<()>,
+    dyn FnOnce(
+        <Arg1 as ClosureArg>::Output,
+        <Arg2 as ClosureArg>::Output,
+    ) -> ::windows::runtime::Result<()>,
 >;
 
 /// Generic closure signature for [`event_callback`].
 pub type EventClosure<Arg1, Arg2> = Box<
-    dyn FnMut(<Arg1 as ClosureArg>::Output, <Arg2 as ClosureArg>::Output) -> windows::Result<()>,
+    dyn FnMut(
+        <Arg1 as ClosureArg>::Output,
+        <Arg2 as ClosureArg>::Output,
+    ) -> windows::runtime::Result<()>,
 >;
 
 #[completed_callback]
@@ -219,6 +224,9 @@ pub struct ProcessFailedEventHandler(
 );
 
 #[completed_callback]
+pub struct PrintToPdfCompletedHandler(ICoreWebView2PrintToPdfCompletedHandler, HRESULT, BOOL);
+
+#[completed_callback]
 pub struct AddScriptToExecuteOnDocumentCreatedCompletedHandler(
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
     HRESULT,
@@ -310,6 +318,13 @@ pub struct BytesReceivedChangedEventHandler(
     ICoreWebView2BytesReceivedChangedEventHandler,
     Option<ICoreWebView2DownloadOperation>,
     Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct BrowserProcessExitedEventHandler(
+    ICoreWebView2BrowserProcessExitedEventHandler,
+    Option<ICoreWebView2Environment>,
+    Option<ICoreWebView2BrowserProcessExitedEventArgs>,
 );
 
 #[event_callback]

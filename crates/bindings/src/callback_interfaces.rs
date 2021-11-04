@@ -7,6 +7,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
 
     interfaces.insert("ICoreWebView2AcceleratorKeyPressedEventHandler");
     interfaces.insert("ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler");
+    interfaces.insert("ICoreWebView2BrowserProcessExitedEventHandler");
     interfaces.insert("ICoreWebView2BytesReceivedChangedEventHandler");
     interfaces.insert("ICoreWebView2CallDevToolsProtocolMethodCompletedHandler");
     interfaces.insert("ICoreWebView2CapturePreviewCompletedHandler");
@@ -35,6 +36,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2NewBrowserVersionAvailableEventHandler");
     interfaces.insert("ICoreWebView2NewWindowRequestedEventHandler");
     interfaces.insert("ICoreWebView2PermissionRequestedEventHandler");
+    interfaces.insert("ICoreWebView2PrintToPdfCompletedHandler");
     interfaces.insert("ICoreWebView2ProcessFailedEventHandler");
     interfaces.insert("ICoreWebView2RasterizationScaleChangedEventHandler");
     interfaces.insert("ICoreWebView2ScriptDialogOpeningEventHandler");

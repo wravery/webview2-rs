@@ -1,175 +1,13 @@
 fn main() -> webview2_nuget::Result<()> {
-    windows::build! {
-        Microsoft::Web::WebView2::Win32::*,
-        Windows::Win32::{
-            Devices::HumanInterfaceDevice::*,
-            Foundation::*,
-            Storage::{
-                FileSystem::{
-                    GetFileInformationByHandleEx,
-                    FILE_INFO_BY_HANDLE_CLASS,
-                    FILE_NAME_INFO,
-                },
-                StructuredStorage::{
-                    CreateStreamOnHGlobal,
-                    IStream,
-                },
-            },
-            Globalization::{
-                lstrlenW,
-                ImmGetContext,
-                ImmReleaseContext,
-                ImmSetCompositionWindow,
-                CFS_POINT,
-            },
-            Graphics::{
-                Dwm::*,
-                Gdi::{
-                    ChangeDisplaySettingsExW,
-                    ClientToScreen,
-                    CreateRectRgn,
-                    DeleteObject,
-                    EnumDisplayMonitors,
-                    EnumDisplaySettingsExW,
-                    GetDC,
-                    GetDeviceCaps,
-                    GetMonitorInfoW,
-                    GetUpdateRect,
-                    InvalidateRgn,
-                    MonitorFromPoint,
-                    MonitorFromRect,
-                    MonitorFromWindow,
-                    RedrawWindow,
-                    ScreenToClient,
-                    UpdateWindow,
-                    ValidateRect,
-                    CDS_TYPE,
-                    DISP_CHANGE,
-                    DM_BITSPERPEL,
-                    DM_DISPLAYFREQUENCY,
-                    DM_PELSHEIGHT,
-                    DM_PELSWIDTH,
-                    ENUM_DISPLAY_SETTINGS_MODE,
-                    HMONITOR,
-                    HRGN,
-                    LOGPIXELSX,
-                    LOGPIXELSY,
-                    MONITOR_FROM_FLAGS,
-                    MONITORINFO,
-                    MONITORINFOEXW,
-                    REDRAW_WINDOW_FLAGS,
-                },
-            },
-            System::{
-                Com::{
-                    CoCreateInstance,
-                    CoInitializeEx,
-                    CoTaskMemAlloc,
-                    CoTaskMemFree,
-                    CoUninitialize,
-                    IDataObject,
-                    IDropTarget,
-                    OleInitialize,
-                    OleUninitialize,
-                    RegisterDragDrop,
-                    RevokeDragDrop,
-                    CLSCTX,
-                    DROPEFFECT_COPY,
-                    DROPEFFECT_NONE,
-                    DVASPECT,
-                    FORMATETC,
-                    TYMED,
-                },
-                Console::{
-                    FillConsoleOutputAttribute,
-                    FillConsoleOutputCharacterA,
-                    GetConsoleCursorInfo,
-                    GetConsoleMode,
-                    GetConsoleScreenBufferInfo,
-                    GetNumberOfConsoleInputEvents,
-                    GetStdHandle,
-                    ReadConsoleInputW,
-                    SetConsoleCursorInfo,
-                    SetConsoleCursorPosition,
-                    SetConsoleMode,
-                    SetConsoleTitleW,
-                    CONSOLE_CURSOR_INFO,
-                    CONSOLE_MODE,
-                    CONSOLE_SCREEN_BUFFER_INFO,
-                    COORD,
-                    INPUT_RECORD,
-                    KEY_EVENT,
-                    KEY_EVENT_RECORD,
-                    STD_HANDLE,
-                },
-                DataExchange::*,
-                Diagnostics::Debug::{
-                    FlashWindowEx,
-                    FLASHWINFO,
-                    FLASHWINFO_FLAGS,
-                },
-                LibraryLoader::*,
-                Memory::{
-                    GlobalAlloc,
-                    GlobalFlags,
-                    GlobalFree,
-                    GlobalLock,
-                    GlobalReAlloc,
-                    GlobalSize,
-                    GlobalUnlock,
-                    GLOBAL_ALLOC_FLAGS,
-                },
-                SystemServices::{
-                    CLIPBOARD_FORMATS,
-                    DPI_AWARENESS_CONTEXT,
-                    LANG_JAPANESE,
-                    LANG_KOREAN,
-                },
-                Threading::{
-                    MsgWaitForMultipleObjectsEx,
-                    GetCurrentThreadId,
-                    MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS,
-                    WAIT_RETURN_CAUSE,
-                },
-                WindowsProgramming::INFINITE,
-                WinRT::EventRegistrationToken,
-            },
-            UI::{
-                Accessibility::*,
-                Controls::*,
-                DisplayDevices::DEVMODEW,
-                HiDpi::*,
-                KeyboardAndMouseInput::*,
-                PointerInput::*,
-                Shell::{
-                    DefSubclassProc,
-                    DragFinish,
-                    DragQueryFileW,
-                    ITaskbarList,
-                    ITaskbarList2,
-                    RemoveWindowSubclass,
-                    SetWindowSubclass,
-                    Shell_NotifyIconW,
-                    Shell_NotifyIconGetRect,
-                    TaskbarList,
-                    HDROP,
-                    NOTIFY_ICON_DATA_FLAGS,
-                    NOTIFY_ICON_MESSAGE,
-                    NOTIFYICONDATAW,
-                    NOTIFYICONIDENTIFIER,
-                },
-                TextServices::HKL,
-                TouchInput::*,
-                WindowsAndMessaging::*,
-            },
-        }
-    };
-
     if let Ok(package_root) = webview2_nuget::install() {
         webview2_nuget::update_windows(&package_root)?;
         webview2_nuget::update_browser_version(&package_root)?;
         webview2_nuget::update_callback_interfaces(&package_root)?;
     }
+
+    windows::runtime::build! {
+        Microsoft::Web::WebView2::Win32::*,
+    };
 
     Ok(())
 }
@@ -192,7 +30,7 @@ mod webview2_nuget {
     include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.961.33";
+    const WEBVIEW2_VERSION: &str = "1.0.1020.30";
 
     #[cfg(not(windows))]
     pub fn install() -> Result<PathBuf> {
