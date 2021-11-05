@@ -66,7 +66,7 @@ impl<I: Interface> ClosureArg for Option<I> {
     type Output = Self;
 }
 
-impl<'a, I: 'a + Interface> InvokeArg<'a> for Option<I> {
+impl<'a, I: 'a + Interface + Clone> InvokeArg<'a> for Option<I> {
     type Input = &'a Self;
 
     fn convert(input: &'a Self) -> <Self as ClosureArg>::Output {
