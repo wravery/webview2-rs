@@ -19,8 +19,7 @@ use windows::{
     Win32::{
         Foundation::{E_POINTER, HWND, LPARAM, LRESULT, PSTR, PWSTR, RECT, SIZE, WPARAM},
         Graphics::Gdi,
-        System::Com::*,
-        System::{LibraryLoader, Threading, WinRT::EventRegistrationToken},
+        System::{Com::*, LibraryLoader, Threading, WinRT::EventRegistrationToken},
         UI::{
             HiDpi,
             Input::KeyboardAndMouse,
