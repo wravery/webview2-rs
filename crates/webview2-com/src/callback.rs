@@ -1,7 +1,6 @@
 use std::sync::mpsc;
 
 use windows::{
-    self as Windows,
     core::{implement, IUnknown, Interface, HRESULT},
     Win32::{
         Foundation::{BOOL, PWSTR},
@@ -12,6 +11,7 @@ use windows::{
 use crate::{
     pwstr::string_from_pwstr,
     Microsoft::{self, Web::WebView2::Win32::*},
+    Windows,
 };
 
 pub trait ClosureArg {
