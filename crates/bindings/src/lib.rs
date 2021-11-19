@@ -1,4 +1,4 @@
-windows::runtime::include_bindings!();
+windows::core::include_bindings!();
 
 pub mod browser_version;
 pub mod callback_interfaces;

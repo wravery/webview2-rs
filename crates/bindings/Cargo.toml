@@ -9,11 +9,15 @@ keywords = [ "win32", "webview2" ]
 categories = [ "os::windows-apis" ]
 
 [dependencies.windows]
-version = "0.25.0"
+git = "https://github.com/microsoft/windows-rs"
+rev = "3866b6d477a7d75836fd612a90a0f5eb78be0ab0"
 features = [
+    "alloc",
     "Win32_Foundation",
     "Win32_System_Com",
+    "Win32_System_Ole",
     "Win32_System_WinRT",
+    "Win32_UI_WindowsAndMessaging",
 ]
 
 [build-dependencies]
@@ -21,4 +25,14 @@ regex = "1.5.4"
 serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 thiserror = "1.0.26"
-windows = { version = "0.25.0", features = [ "build" ] }
+
+[build-dependencies.windows]
+git = "https://github.com/microsoft/windows-rs"
+rev = "3866b6d477a7d75836fd612a90a0f5eb78be0ab0"
+features = [
+    "build",
+    "Win32_Foundation",
+    "Win32_System_Com",
+    "Win32_System_Ole",
+    "Win32_System_WinRT",
+]

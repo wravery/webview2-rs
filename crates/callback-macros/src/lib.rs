@@ -97,7 +97,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                 ) -> crate::Result<()> {
                     let (tx, rx) = mpsc::channel();
                     let completed: #closure =
-                        Box::new(move |arg_1, arg_2| -> ::windows::runtime::Result<()> {
+                        Box::new(move |arg_1, arg_2| -> ::windows::core::Result<()> {
                             let result = completed(arg_1, arg_2).map_err(crate::Error::WindowsError);
                             tx.send(result).expect("send over mpsc channel");
                             Ok(())
@@ -112,7 +112,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     &mut self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                     arg_2: <#arg_2 as InvokeArg<'a>>::Input,
-                ) -> ::windows::runtime::Result<()> {
+                ) -> ::windows::core::Result<()> {
                     match self.0.take() {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
@@ -124,7 +124,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             }
         },
         None => quote! {
-            type #closure = Box<dyn FnOnce(<#arg_1 as ClosureArg>::Output) -> ::windows::runtime::Result<()>>;
+            type #closure = Box<dyn FnOnce(<#arg_1 as ClosureArg>::Output) -> ::windows::core::Result<()>>;
 
             #[doc = #msg]
             #[implement(Microsoft::Web::WebView2::Win32::#interface)]
@@ -146,7 +146,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                 ) -> crate::Result<()> {
                     let (tx, rx) = mpsc::channel();
                     let completed: #closure =
-                        Box::new(move |arg_1| -> ::windows::runtime::Result<()> {
+                        Box::new(move |arg_1| -> ::windows::core::Result<()> {
                             let result = completed(arg_1).map_err(crate::Error::WindowsError);
                             tx.send(result).expect("send over mpsc channel");
                             Ok(())
@@ -160,7 +160,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                 fn Invoke<'a>(
                     &mut self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
-                ) -> ::windows::runtime::Result<()> {
+                ) -> ::windows::core::Result<()> {
                     match self.0.take() {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
@@ -221,7 +221,7 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
                 &mut self,
                 arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                 arg_2: <#arg_2 as InvokeArg<'a>>::Input,
-            ) -> ::windows::runtime::Result<()> {
+            ) -> ::windows::core::Result<()> {
                 self.0(
                     <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                     <#arg_2 as InvokeArg<'a>>::convert(arg_2),

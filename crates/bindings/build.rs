@@ -5,7 +5,7 @@ fn main() -> webview2_nuget::Result<()> {
         webview2_nuget::update_callback_interfaces(&package_root)?;
     }
 
-    windows::runtime::build! {
+    windows::core::build! {
         Microsoft::Web::WebView2::Win32::*,
     };
 

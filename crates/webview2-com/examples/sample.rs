@@ -15,11 +15,12 @@ use std::{
 use serde::Deserialize;
 use serde_json::{Number, Value};
 use windows::{
-    runtime::*,
+    core::*,
     Win32::{
-        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, PSTR, SIZE, WPARAM},
+        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, PSTR, PWSTR, RECT, SIZE, WPARAM},
         Graphics::Gdi,
-        System::{Com::*, LibraryLoader, Threading},
+        System::Com::*,
+        System::{LibraryLoader, Threading, WinRT::EventRegistrationToken},
         UI::{
             HiDpi,
             Input::KeyboardAndMouse,
@@ -28,14 +29,7 @@ use windows::{
     },
 };
 
-use webview2_com::{
-    Microsoft::Web::WebView2::Win32::*,
-    Windows::Win32::{
-        Foundation::{PWSTR, RECT},
-        System::WinRT::EventRegistrationToken,
-    },
-    *,
-};
+use webview2_com::{Microsoft::Web::WebView2::Win32::*, *};
 
 fn main() -> Result<()> {
     unsafe {
@@ -77,7 +71,7 @@ fn main() -> Result<()> {
 #[derive(Debug)]
 pub enum Error {
     WebView2Error(webview2_com::Error),
-    WindowsError(windows::runtime::Error),
+    WindowsError(windows::core::Error),
     JsonError(serde_json::Error),
     LockError,
 }
@@ -94,15 +88,15 @@ impl From<webview2_com::Error> for Error {
     }
 }
 
-impl From<windows::runtime::Error> for Error {
-    fn from(err: windows::runtime::Error) -> Self {
+impl From<windows::core::Error> for Error {
+    fn from(err: windows::core::Error) -> Self {
         Self::WindowsError(err)
     }
 }
 
 impl From<HRESULT> for Error {
     fn from(err: HRESULT) -> Self {
-        Self::WindowsError(windows::runtime::Error::fast_error(err))
+        Self::WindowsError(windows::core::Error::fast_error(err))
     }
 }
 
@@ -233,10 +227,8 @@ impl WebView {
                 }),
                 Box::new(move |error_code, environment| {
                     error_code?;
-                    tx.send(
-                        environment.ok_or_else(|| windows::runtime::Error::fast_error(E_POINTER)),
-                    )
-                    .expect("send over mpsc channel");
+                    tx.send(environment.ok_or_else(|| windows::core::Error::fast_error(E_POINTER)))
+                        .expect("send over mpsc channel");
                     Ok(())
                 }),
             )?;
@@ -251,18 +243,13 @@ impl WebView {
             CreateCoreWebView2ControllerCompletedHandler::wait_for_async_operation(
                 Box::new(move |handler| unsafe {
                     environment
-                        .CreateCoreWebView2Controller(
-                            webview2_com_sys::Windows::Win32::Foundation::HWND(parent.0),
-                            handler,
-                        )
+                        .CreateCoreWebView2Controller(parent, handler)
                         .map_err(webview2_com::Error::WindowsError)
                 }),
                 Box::new(move |error_code, controller| {
                     error_code?;
-                    tx.send(
-                        controller.ok_or_else(|| windows::runtime::Error::fast_error(E_POINTER)),
-                    )
-                    .expect("send over mpsc channel");
+                    tx.send(controller.ok_or_else(|| windows::core::Error::fast_error(E_POINTER)))
+                        .expect("send over mpsc channel");
                     Ok(())
                 }),
             )?;
@@ -400,7 +387,7 @@ impl WebView {
                 let result = WindowsAndMessaging::GetMessageA(&mut msg, h_wnd, 0, 0).0;
 
                 match result {
-                    -1 => break Err(windows::runtime::Error::from_win32().into()),
+                    -1 => break Err(windows::core::Error::from_win32().into()),
                     0 => break Ok(()),
                     _ => match msg.message {
                         WindowsAndMessaging::WM_APP => (),

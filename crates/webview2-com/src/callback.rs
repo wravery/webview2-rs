@@ -1,17 +1,17 @@
 use std::sync::mpsc;
 
-use windows::runtime::{implement, IUnknown, Interface, HRESULT};
+use windows::{
+    self as Windows,
+    core::{implement, IUnknown, Interface, HRESULT},
+    Win32::{
+        Foundation::{BOOL, PWSTR},
+        System::Com::IStream,
+    },
+};
 
 use crate::{
     pwstr::string_from_pwstr,
     Microsoft::{self, Web::WebView2::Win32::*},
-    Windows::{
-        self,
-        Win32::{
-            Foundation::{BOOL, PWSTR},
-            System::Com::IStream,
-        },
-    },
 };
 
 pub trait ClosureArg {
@@ -27,13 +27,13 @@ pub trait InvokeArg<'a> {
 }
 
 impl ClosureArg for HRESULT {
-    type Output = windows::runtime::Result<()>;
+    type Output = windows::core::Result<()>;
 }
 
 impl<'a> InvokeArg<'a> for HRESULT {
     type Input = Self;
 
-    fn convert(input: HRESULT) -> windows::runtime::Result<()> {
+    fn convert(input: HRESULT) -> windows::core::Result<()> {
         input.ok()
     }
 }
@@ -79,7 +79,7 @@ pub type CompletedClosure<Arg1, Arg2> = Box<
     dyn FnOnce(
         <Arg1 as ClosureArg>::Output,
         <Arg2 as ClosureArg>::Output,
-    ) -> ::windows::runtime::Result<()>,
+    ) -> ::windows::core::Result<()>,
 >;
 
 /// Generic closure signature for [`event_callback`].
@@ -87,7 +87,7 @@ pub type EventClosure<Arg1, Arg2> = Box<
     dyn FnMut(
         <Arg1 as ClosureArg>::Output,
         <Arg2 as ClosureArg>::Output,
-    ) -> windows::runtime::Result<()>,
+    ) -> windows::core::Result<()>,
 >;
 
 #[completed_callback]
