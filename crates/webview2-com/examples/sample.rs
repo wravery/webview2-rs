@@ -64,11 +64,11 @@ fn main() -> Result<()> {
 
     // Configure the target URL and add an init script to trigger the calculator callback.
     webview
-        .set_title("WebView2-Win32 Example (examples/webview2-win32)")?
+        .set_title("webview2-com example (crates/webview2-com/examples)")?
         .init(
             r#"window.hostCallback("Add", 2, 6).then(result => console.log(`Result: ${result}`));"#,
         )?
-        .navigate("https://github.com/microsoft/windows-rs")?;
+        .navigate("https://github.com/wravery/webview2-rs")?;
 
     // Off we go....
     webview.run()
