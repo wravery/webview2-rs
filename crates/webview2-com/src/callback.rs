@@ -413,7 +413,7 @@ mod test {
             .lines()
             .filter_map(|line| pattern.captures(line))
             .filter_map(|captures| captures.get(1))
-            .filter_map(|match_1| Some(match_1.as_str()))
+            .map(|match_1| match_1.as_str())
             .collect();
         assert_eq!(
             implemented,
