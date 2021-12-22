@@ -499,8 +499,8 @@ impl WebView {
             WindowsAndMessaging::PostThreadMessageA(
                 self.thread_id,
                 WindowsAndMessaging::WM_APP,
-                WPARAM(0),
-                LPARAM(0),
+                WPARAM::default(),
+                LPARAM::default(),
             );
         }
         Ok(self)
@@ -627,19 +627,19 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
                     .unwrap();
             }
             *frame.size.lock().expect("lock size") = size;
-            LRESULT(0)
+            LRESULT::default()
         }
 
         WindowsAndMessaging::WM_CLOSE => {
             unsafe {
                 WindowsAndMessaging::DestroyWindow(hwnd);
             }
-            LRESULT(0)
+            LRESULT::default()
         }
 
         WindowsAndMessaging::WM_DESTROY => {
             webview.terminate().expect("window is gone");
-            LRESULT(0)
+            LRESULT::default()
         }
 
         _ => unsafe { WindowsAndMessaging::DefWindowProcA(hwnd, msg, w_param, l_param) },

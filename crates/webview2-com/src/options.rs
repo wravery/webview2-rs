@@ -1,15 +1,16 @@
 use std::default::Default;
 
 use windows::{
-    core::{implement, Result},
+    core::Result,
     Win32::Foundation::{BOOL, PWSTR},
 };
+
+use windows_macros::implement;
 
 use crate::{
     browser_version::CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
     pwstr::{pwstr_from_str, string_from_pwstr},
-    Microsoft,
-    Windows,
+    Microsoft, Windows,
 };
 
 #[implement(Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions)]

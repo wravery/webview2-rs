@@ -1,12 +1,14 @@
 use std::sync::mpsc;
 
 use windows::{
-    core::{implement, IUnknown, Interface, HRESULT},
+    core::{IUnknown, Interface, HRESULT},
     Win32::{
         Foundation::{BOOL, PWSTR},
         System::Com::IStream,
     },
 };
+
+use windows_macros::implement;
 
 use crate::{
     pwstr::string_from_pwstr,
