@@ -36,6 +36,16 @@ impl ::core::clone::Clone for COREWEBVIEW2_COLOR {
         *self
     }
 }
+impl ::core::fmt::Debug for COREWEBVIEW2_COLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COREWEBVIEW2_COLOR")
+            .field("A", &self.A)
+            .field("R", &self.R)
+            .field("G", &self.G)
+            .field("B", &self.B)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Abi for COREWEBVIEW2_COLOR {
     type Abi = Self;
 }
@@ -202,6 +212,18 @@ impl ::core::marker::Copy for COREWEBVIEW2_PHYSICAL_KEY_STATUS {}
 impl ::core::clone::Clone for COREWEBVIEW2_PHYSICAL_KEY_STATUS {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_PHYSICAL_KEY_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COREWEBVIEW2_PHYSICAL_KEY_STATUS")
+            .field("RepeatCount", &self.RepeatCount)
+            .field("ScanCode", &self.ScanCode)
+            .field("IsExtendedKey", &self.IsExtendedKey)
+            .field("IsMenuKeyDown", &self.IsMenuKeyDown)
+            .field("WasKeyDown", &self.WasKeyDown)
+            .field("IsKeyReleased", &self.IsKeyReleased)
+            .finish()
     }
 }
 unsafe impl ::windows::core::Abi for COREWEBVIEW2_PHYSICAL_KEY_STATUS {
@@ -1291,6 +1313,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2 {}
+impl ::core::fmt::Debug for ICoreWebView2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2 {
     type Vtable = ICoreWebView2Vtbl;
     const IID: ::windows::core::GUID =
@@ -1402,6 +1429,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2AcceleratorKeyPressedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2AcceleratorKeyPressedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2AcceleratorKeyPressedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2AcceleratorKeyPressedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2AcceleratorKeyPressedEventArgs {
     type Vtable = ICoreWebView2AcceleratorKeyPressedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -1501,6 +1535,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2AcceleratorKeyPressedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2AcceleratorKeyPressedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2AcceleratorKeyPressedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2AcceleratorKeyPressedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2AcceleratorKeyPressedEventHandler {
     type Vtable = ICoreWebView2AcceleratorKeyPressedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -1585,6 +1626,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2AddScriptToExecuteOnDocumentCreated
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface
     for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
 {
@@ -1668,6 +1716,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2BrowserProcessExitedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2BrowserProcessExitedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2BrowserProcessExitedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2BrowserProcessExitedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2BrowserProcessExitedEventArgs {
     type Vtable = ICoreWebView2BrowserProcessExitedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -1751,6 +1806,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2BrowserProcessExitedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2BrowserProcessExitedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2BrowserProcessExitedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2BrowserProcessExitedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2BrowserProcessExitedEventHandler {
     type Vtable = ICoreWebView2BrowserProcessExitedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -1831,6 +1893,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2BytesReceivedChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2BytesReceivedChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2BytesReceivedChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2BytesReceivedChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2BytesReceivedChangedEventHandler {
     type Vtable = ICoreWebView2BytesReceivedChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -1913,6 +1982,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CallDevToolsProtocolMethodCompleted
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CallDevToolsProtocolMethodCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
     type Vtable = ICoreWebView2CallDevToolsProtocolMethodCompletedHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -1987,6 +2063,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CapturePreviewCompletedHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CapturePreviewCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2CapturePreviewCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CapturePreviewCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2CapturePreviewCompletedHandler {
     type Vtable = ICoreWebView2CapturePreviewCompletedHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -2130,6 +2213,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ClientCertificate {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ClientCertificate {}
+impl ::core::fmt::Debug for ICoreWebView2ClientCertificate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ClientCertificate")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificate {
     type Vtable = ICoreWebView2ClientCertificateVtbl;
     const IID: ::windows::core::GUID =
@@ -2242,6 +2332,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ClientCertificateCollection {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ClientCertificateCollection {}
+impl ::core::fmt::Debug for ICoreWebView2ClientCertificateCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ClientCertificateCollection")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificateCollection {
     type Vtable = ICoreWebView2ClientCertificateCollectionVtbl;
     const IID: ::windows::core::GUID =
@@ -2440,6 +2537,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ClientCertificateRequestedEventArgs
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ClientCertificateRequestedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2ClientCertificateRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ClientCertificateRequestedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificateRequestedEventArgs {
     type Vtable = ICoreWebView2ClientCertificateRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -2563,6 +2667,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ClientCertificateRequestedEventHand
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ClientCertificateRequestedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ClientCertificateRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ClientCertificateRequestedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificateRequestedEventHandler {
     type Vtable = ICoreWebView2ClientCertificateRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -2729,6 +2840,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CompositionController {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CompositionController {}
+impl ::core::fmt::Debug for ICoreWebView2CompositionController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CompositionController")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2CompositionController {
     type Vtable = ICoreWebView2CompositionControllerVtbl;
     const IID: ::windows::core::GUID =
@@ -2918,6 +3036,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CompositionController2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CompositionController2 {}
+impl ::core::fmt::Debug for ICoreWebView2CompositionController2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CompositionController2")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2CompositionController2 {
     type Vtable = ICoreWebView2CompositionController2Vtbl;
     const IID: ::windows::core::GUID =
@@ -2985,6 +3110,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ContainsFullScreenElementChangedEve
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ContainsFullScreenElementChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ContainsFullScreenElementChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ContainsFullScreenElementChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface
     for ICoreWebView2ContainsFullScreenElementChangedEventHandler
 {
@@ -3064,6 +3196,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ContentLoadingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ContentLoadingEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2ContentLoadingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ContentLoadingEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ContentLoadingEventArgs {
     type Vtable = ICoreWebView2ContentLoadingEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -3143,6 +3282,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ContentLoadingEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ContentLoadingEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ContentLoadingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ContentLoadingEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ContentLoadingEventHandler {
     type Vtable = ICoreWebView2ContentLoadingEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -3488,6 +3634,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Controller {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Controller {}
+impl ::core::fmt::Debug for ICoreWebView2Controller {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Controller")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Controller {
     type Vtable = ICoreWebView2ControllerVtbl;
     const IID: ::windows::core::GUID =
@@ -3863,6 +4016,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Controller2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Controller2 {}
+impl ::core::fmt::Debug for ICoreWebView2Controller2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Controller2")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Controller2 {
     type Vtable = ICoreWebView2Controller2Vtbl;
     const IID: ::windows::core::GUID =
@@ -4349,6 +4509,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Controller3 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Controller3 {}
+impl ::core::fmt::Debug for ICoreWebView2Controller3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Controller3")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Controller3 {
     type Vtable = ICoreWebView2Controller3Vtbl;
     const IID: ::windows::core::GUID =
@@ -4544,6 +4711,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2Cookie {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Cookie {}
+impl ::core::fmt::Debug for ICoreWebView2Cookie {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Cookie").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Cookie {
     type Vtable = ICoreWebView2CookieVtbl;
     const IID: ::windows::core::GUID =
@@ -4670,6 +4842,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CookieList {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CookieList {}
+impl ::core::fmt::Debug for ICoreWebView2CookieList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CookieList")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2CookieList {
     type Vtable = ICoreWebView2CookieListVtbl;
     const IID: ::windows::core::GUID =
@@ -4873,6 +5052,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CookieManager {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CookieManager {}
+impl ::core::fmt::Debug for ICoreWebView2CookieManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CookieManager")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2CookieManager {
     type Vtable = ICoreWebView2CookieManagerVtbl;
     const IID: ::windows::core::GUID =
@@ -4989,6 +5175,13 @@ impl ::core::cmp::PartialEq
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface
     for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler
 {
@@ -5067,6 +5260,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CreateCoreWebView2ControllerComplet
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CreateCoreWebView2ControllerCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface
     for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler
 {
@@ -5145,6 +5345,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CreateCoreWebView2EnvironmentComple
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface
     for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler
 {
@@ -5223,6 +5430,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2CursorChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2CursorChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2CursorChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CursorChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2CursorChangedEventHandler {
     type Vtable = ICoreWebView2CursorChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -5290,6 +5504,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DOMContentLoadedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DOMContentLoadedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2DOMContentLoadedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DOMContentLoadedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DOMContentLoadedEventArgs {
     type Vtable = ICoreWebView2DOMContentLoadedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -5369,6 +5590,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DOMContentLoadedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DOMContentLoadedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2DOMContentLoadedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DOMContentLoadedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DOMContentLoadedEventHandler {
     type Vtable = ICoreWebView2DOMContentLoadedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -5428,6 +5656,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Deferral {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Deferral {}
+impl ::core::fmt::Debug for ICoreWebView2Deferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Deferral")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Deferral {
     type Vtable = ICoreWebView2DeferralVtbl;
     const IID: ::windows::core::GUID =
@@ -5498,6 +5733,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DevToolsProtocolEventReceivedEventA
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DevToolsProtocolEventReceivedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DevToolsProtocolEventReceivedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
     type Vtable = ICoreWebView2DevToolsProtocolEventReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -5577,6 +5819,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DevToolsProtocolEventReceivedEventH
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DevToolsProtocolEventReceivedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2DevToolsProtocolEventReceivedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DevToolsProtocolEventReceivedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DevToolsProtocolEventReceivedEventHandler {
     type Vtable = ICoreWebView2DevToolsProtocolEventReceivedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -5672,6 +5921,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DevToolsProtocolEventReceiver {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DevToolsProtocolEventReceiver {}
+impl ::core::fmt::Debug for ICoreWebView2DevToolsProtocolEventReceiver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DevToolsProtocolEventReceiver")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DevToolsProtocolEventReceiver {
     type Vtable = ICoreWebView2DevToolsProtocolEventReceiverVtbl;
     const IID: ::windows::core::GUID =
@@ -5739,6 +5995,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DocumentTitleChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DocumentTitleChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2DocumentTitleChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DocumentTitleChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DocumentTitleChangedEventHandler {
     type Vtable = ICoreWebView2DocumentTitleChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -5998,6 +6261,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DownloadOperation {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DownloadOperation {}
+impl ::core::fmt::Debug for ICoreWebView2DownloadOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DownloadOperation")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DownloadOperation {
     type Vtable = ICoreWebView2DownloadOperationVtbl;
     const IID: ::windows::core::GUID =
@@ -6141,6 +6411,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DownloadStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DownloadStartingEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2DownloadStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DownloadStartingEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DownloadStartingEventArgs {
     type Vtable = ICoreWebView2DownloadStartingEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -6248,6 +6525,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2DownloadStartingEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2DownloadStartingEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2DownloadStartingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2DownloadStartingEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2DownloadStartingEventHandler {
     type Vtable = ICoreWebView2DownloadStartingEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -6396,6 +6680,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Environment {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Environment {}
+impl ::core::fmt::Debug for ICoreWebView2Environment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Environment {
     type Vtable = ICoreWebView2EnvironmentVtbl;
     const IID: ::windows::core::GUID =
@@ -6587,6 +6878,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Environment2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Environment2 {}
+impl ::core::fmt::Debug for ICoreWebView2Environment2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment2")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Environment2 {
     type Vtable = ICoreWebView2Environment2Vtbl;
     const IID: ::windows::core::GUID =
@@ -6830,6 +7128,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Environment3 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Environment3 {}
+impl ::core::fmt::Debug for ICoreWebView2Environment3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment3")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Environment3 {
     type Vtable = ICoreWebView2Environment3Vtbl;
     const IID: ::windows::core::GUID =
@@ -7111,6 +7416,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Environment4 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Environment4 {}
+impl ::core::fmt::Debug for ICoreWebView2Environment4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment4")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Environment4 {
     type Vtable = ICoreWebView2Environment4Vtbl;
     const IID: ::windows::core::GUID =
@@ -7443,6 +7755,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Environment5 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Environment5 {}
+impl ::core::fmt::Debug for ICoreWebView2Environment5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment5")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Environment5 {
     type Vtable = ICoreWebView2Environment5Vtbl;
     const IID: ::windows::core::GUID =
@@ -7805,6 +8124,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Environment6 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Environment6 {}
+impl ::core::fmt::Debug for ICoreWebView2Environment6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment6")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Environment6 {
     type Vtable = ICoreWebView2Environment6Vtbl;
     const IID: ::windows::core::GUID =
@@ -8197,6 +8523,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Environment7 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Environment7 {}
+impl ::core::fmt::Debug for ICoreWebView2Environment7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment7")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Environment7 {
     type Vtable = ICoreWebView2Environment7Vtbl;
     const IID: ::windows::core::GUID =
@@ -8348,6 +8681,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2EnvironmentOptions {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2EnvironmentOptions {}
+impl ::core::fmt::Debug for ICoreWebView2EnvironmentOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2EnvironmentOptions")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2EnvironmentOptions {
     type Vtable = ICoreWebView2EnvironmentOptionsVtbl;
     const IID: ::windows::core::GUID =
@@ -8455,6 +8795,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2EstimatedEndTimeChangedEventHandler
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2EstimatedEndTimeChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2EstimatedEndTimeChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2EstimatedEndTimeChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2EstimatedEndTimeChangedEventHandler {
     type Vtable = ICoreWebView2EstimatedEndTimeChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -8537,6 +8884,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ExecuteScriptCompletedHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ExecuteScriptCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ExecuteScriptCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ExecuteScriptCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ExecuteScriptCompletedHandler {
     type Vtable = ICoreWebView2ExecuteScriptCompletedHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -8613,6 +8967,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FocusChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FocusChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2FocusChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FocusChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FocusChangedEventHandler {
     type Vtable = ICoreWebView2FocusChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -8789,6 +9150,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2Frame {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Frame {}
+impl ::core::fmt::Debug for ICoreWebView2Frame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Frame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Frame {
     type Vtable = ICoreWebView2FrameVtbl;
     const IID: ::windows::core::GUID =
@@ -8844,6 +9210,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FrameCreatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FrameCreatedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2FrameCreatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FrameCreatedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FrameCreatedEventArgs {
     type Vtable = ICoreWebView2FrameCreatedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -8919,6 +9292,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FrameCreatedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FrameCreatedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2FrameCreatedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FrameCreatedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FrameCreatedEventHandler {
     type Vtable = ICoreWebView2FrameCreatedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -8995,6 +9375,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FrameDestroyedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FrameDestroyedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2FrameDestroyedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FrameDestroyedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FrameDestroyedEventHandler {
     type Vtable = ICoreWebView2FrameDestroyedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -9071,6 +9458,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FrameInfo {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FrameInfo {}
+impl ::core::fmt::Debug for ICoreWebView2FrameInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FrameInfo")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FrameInfo {
     type Vtable = ICoreWebView2FrameInfoVtbl;
     const IID: ::windows::core::GUID =
@@ -9144,6 +9538,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FrameInfoCollection {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FrameInfoCollection {}
+impl ::core::fmt::Debug for ICoreWebView2FrameInfoCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FrameInfoCollection")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FrameInfoCollection {
     type Vtable = ICoreWebView2FrameInfoCollectionVtbl;
     const IID: ::windows::core::GUID =
@@ -9233,6 +9634,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FrameInfoCollectionIterator {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FrameInfoCollectionIterator {}
+impl ::core::fmt::Debug for ICoreWebView2FrameInfoCollectionIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FrameInfoCollectionIterator")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FrameInfoCollectionIterator {
     type Vtable = ICoreWebView2FrameInfoCollectionIteratorVtbl;
     const IID: ::windows::core::GUID =
@@ -9320,6 +9728,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2FrameNameChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2FrameNameChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2FrameNameChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2FrameNameChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2FrameNameChangedEventHandler {
     type Vtable = ICoreWebView2FrameNameChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -9392,6 +9807,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2GetCookiesCompletedHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2GetCookiesCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2GetCookiesCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2GetCookiesCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2GetCookiesCompletedHandler {
     type Vtable = ICoreWebView2GetCookiesCompletedHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -9468,6 +9890,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2HistoryChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2HistoryChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2HistoryChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2HistoryChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2HistoryChangedEventHandler {
     type Vtable = ICoreWebView2HistoryChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -9564,6 +9993,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2HttpHeadersCollectionIterator {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2HttpHeadersCollectionIterator {}
+impl ::core::fmt::Debug for ICoreWebView2HttpHeadersCollectionIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2HttpHeadersCollectionIterator")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2HttpHeadersCollectionIterator {
     type Vtable = ICoreWebView2HttpHeadersCollectionIteratorVtbl;
     const IID: ::windows::core::GUID =
@@ -9734,6 +10170,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2HttpRequestHeaders {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2HttpRequestHeaders {}
+impl ::core::fmt::Debug for ICoreWebView2HttpRequestHeaders {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2HttpRequestHeaders")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2HttpRequestHeaders {
     type Vtable = ICoreWebView2HttpRequestHeadersVtbl;
     const IID: ::windows::core::GUID =
@@ -9903,6 +10346,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2HttpResponseHeaders {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2HttpResponseHeaders {}
+impl ::core::fmt::Debug for ICoreWebView2HttpResponseHeaders {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2HttpResponseHeaders")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2HttpResponseHeaders {
     type Vtable = ICoreWebView2HttpResponseHeadersVtbl;
     const IID: ::windows::core::GUID =
@@ -10020,6 +10470,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2MoveFocusRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2MoveFocusRequestedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2MoveFocusRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2MoveFocusRequestedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2MoveFocusRequestedEventArgs {
     type Vtable = ICoreWebView2MoveFocusRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -10107,6 +10564,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2MoveFocusRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2MoveFocusRequestedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2MoveFocusRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2MoveFocusRequestedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2MoveFocusRequestedEventHandler {
     type Vtable = ICoreWebView2MoveFocusRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -10198,6 +10662,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NavigationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NavigationCompletedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2NavigationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NavigationCompletedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NavigationCompletedEventArgs {
     type Vtable = ICoreWebView2NavigationCompletedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -10285,6 +10756,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NavigationCompletedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NavigationCompletedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2NavigationCompletedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NavigationCompletedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NavigationCompletedEventHandler {
     type Vtable = ICoreWebView2NavigationCompletedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -10420,6 +10898,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NavigationStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NavigationStartingEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2NavigationStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NavigationStartingEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NavigationStartingEventArgs {
     type Vtable = ICoreWebView2NavigationStartingEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -10523,6 +11008,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NavigationStartingEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NavigationStartingEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2NavigationStartingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NavigationStartingEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NavigationStartingEventHandler {
     type Vtable = ICoreWebView2NavigationStartingEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -10603,6 +11095,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NewBrowserVersionAvailableEventHand
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NewBrowserVersionAvailableEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2NewBrowserVersionAvailableEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NewBrowserVersionAvailableEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NewBrowserVersionAvailableEventHandler {
     type Vtable = ICoreWebView2NewBrowserVersionAvailableEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -10745,6 +11244,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NewWindowRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NewWindowRequestedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2NewWindowRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NewWindowRequestedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NewWindowRequestedEventArgs {
     type Vtable = ICoreWebView2NewWindowRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -10954,6 +11460,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NewWindowRequestedEventArgs2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NewWindowRequestedEventArgs2 {}
+impl ::core::fmt::Debug for ICoreWebView2NewWindowRequestedEventArgs2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NewWindowRequestedEventArgs2")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NewWindowRequestedEventArgs2 {
     type Vtable = ICoreWebView2NewWindowRequestedEventArgs2Vtbl;
     const IID: ::windows::core::GUID =
@@ -11065,6 +11578,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2NewWindowRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2NewWindowRequestedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2NewWindowRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NewWindowRequestedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2NewWindowRequestedEventHandler {
     type Vtable = ICoreWebView2NewWindowRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -11187,6 +11707,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2PermissionRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2PermissionRequestedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2PermissionRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PermissionRequestedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2PermissionRequestedEventArgs {
     type Vtable = ICoreWebView2PermissionRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -11286,6 +11813,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2PermissionRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2PermissionRequestedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2PermissionRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PermissionRequestedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2PermissionRequestedEventHandler {
     type Vtable = ICoreWebView2PermissionRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -11839,6 +12373,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2PointerInfo {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2PointerInfo {}
+impl ::core::fmt::Debug for ICoreWebView2PointerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PointerInfo")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2PointerInfo {
     type Vtable = ICoreWebView2PointerInfoVtbl;
     const IID: ::windows::core::GUID =
@@ -12362,6 +12903,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2PrintSettings {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2PrintSettings {}
+impl ::core::fmt::Debug for ICoreWebView2PrintSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PrintSettings")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2PrintSettings {
     type Vtable = ICoreWebView2PrintSettingsVtbl;
     const IID: ::windows::core::GUID =
@@ -12427,6 +12975,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2PrintToPdfCompletedHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2PrintToPdfCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2PrintToPdfCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PrintToPdfCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2PrintToPdfCompletedHandler {
     type Vtable = ICoreWebView2PrintToPdfCompletedHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -12497,6 +13052,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ProcessFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ProcessFailedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2ProcessFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ProcessFailedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ProcessFailedEventArgs {
     type Vtable = ICoreWebView2ProcessFailedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -12631,6 +13193,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ProcessFailedEventArgs2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ProcessFailedEventArgs2 {}
+impl ::core::fmt::Debug for ICoreWebView2ProcessFailedEventArgs2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ProcessFailedEventArgs2")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ProcessFailedEventArgs2 {
     type Vtable = ICoreWebView2ProcessFailedEventArgs2Vtbl;
     const IID: ::windows::core::GUID =
@@ -12722,6 +13291,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ProcessFailedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ProcessFailedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ProcessFailedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ProcessFailedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ProcessFailedEventHandler {
     type Vtable = ICoreWebView2ProcessFailedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -12802,6 +13378,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2RasterizationScaleChangedEventHandl
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2RasterizationScaleChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2RasterizationScaleChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2RasterizationScaleChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2RasterizationScaleChangedEventHandler {
     type Vtable = ICoreWebView2RasterizationScaleChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -12943,6 +13526,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ScriptDialogOpeningEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ScriptDialogOpeningEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2ScriptDialogOpeningEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ScriptDialogOpeningEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ScriptDialogOpeningEventArgs {
     type Vtable = ICoreWebView2ScriptDialogOpeningEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -13047,6 +13637,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ScriptDialogOpeningEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ScriptDialogOpeningEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ScriptDialogOpeningEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ScriptDialogOpeningEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ScriptDialogOpeningEventHandler {
     type Vtable = ICoreWebView2ScriptDialogOpeningEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -13337,6 +13934,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Settings {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Settings {}
+impl ::core::fmt::Debug for ICoreWebView2Settings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Settings")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Settings {
     type Vtable = ICoreWebView2SettingsVtbl;
     const IID: ::windows::core::GUID =
@@ -13660,6 +14264,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Settings2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Settings2 {}
+impl ::core::fmt::Debug for ICoreWebView2Settings2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Settings2")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Settings2 {
     type Vtable = ICoreWebView2Settings2Vtbl;
     const IID: ::windows::core::GUID =
@@ -14029,6 +14640,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Settings3 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Settings3 {}
+impl ::core::fmt::Debug for ICoreWebView2Settings3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Settings3")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Settings3 {
     type Vtable = ICoreWebView2Settings3Vtbl;
     const IID: ::windows::core::GUID =
@@ -14470,6 +15088,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Settings4 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Settings4 {}
+impl ::core::fmt::Debug for ICoreWebView2Settings4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Settings4")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Settings4 {
     type Vtable = ICoreWebView2Settings4Vtbl;
     const IID: ::windows::core::GUID =
@@ -14957,6 +15582,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Settings5 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Settings5 {}
+impl ::core::fmt::Debug for ICoreWebView2Settings5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Settings5")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Settings5 {
     type Vtable = ICoreWebView2Settings5Vtbl;
     const IID: ::windows::core::GUID =
@@ -15490,6 +16122,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2Settings6 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2Settings6 {}
+impl ::core::fmt::Debug for ICoreWebView2Settings6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Settings6")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2Settings6 {
     type Vtable = ICoreWebView2Settings6Vtbl;
     const IID: ::windows::core::GUID =
@@ -15547,6 +16186,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2SourceChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2SourceChangedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2SourceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2SourceChangedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2SourceChangedEventArgs {
     type Vtable = ICoreWebView2SourceChangedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -15622,6 +16268,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2SourceChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2SourceChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2SourceChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2SourceChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2SourceChangedEventHandler {
     type Vtable = ICoreWebView2SourceChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -15698,6 +16351,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2StateChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2StateChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2StateChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2StateChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2StateChangedEventHandler {
     type Vtable = ICoreWebView2StateChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -15777,6 +16437,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2StringCollection {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2StringCollection {}
+impl ::core::fmt::Debug for ICoreWebView2StringCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2StringCollection")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2StringCollection {
     type Vtable = ICoreWebView2StringCollectionVtbl;
     const IID: ::windows::core::GUID =
@@ -15859,6 +16526,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2TrySuspendCompletedHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2TrySuspendCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2TrySuspendCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2TrySuspendCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2TrySuspendCompletedHandler {
     type Vtable = ICoreWebView2TrySuspendCompletedHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -15951,6 +16625,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebMessageReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebMessageReceivedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2WebMessageReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebMessageReceivedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebMessageReceivedEventArgs {
     type Vtable = ICoreWebView2WebMessageReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -16038,6 +16719,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebMessageReceivedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebMessageReceivedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2WebMessageReceivedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebMessageReceivedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebMessageReceivedEventHandler {
     type Vtable = ICoreWebView2WebMessageReceivedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -16185,6 +16873,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceRequest {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceRequest {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceRequest")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceRequest {
     type Vtable = ICoreWebView2WebResourceRequestVtbl;
     const IID: ::windows::core::GUID =
@@ -16319,6 +17014,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceRequestedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceRequestedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceRequestedEventArgs {
     type Vtable = ICoreWebView2WebResourceRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -16414,6 +17116,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceRequestedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceRequestedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceRequestedEventHandler {
     type Vtable = ICoreWebView2WebResourceRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -16549,6 +17258,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceResponse {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceResponse {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceResponse")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponse {
     type Vtable = ICoreWebView2WebResourceResponseVtbl;
     const IID: ::windows::core::GUID =
@@ -16652,6 +17368,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceResponseReceivedEventArg
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceResponseReceivedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceResponseReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceResponseReceivedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponseReceivedEventArgs {
     type Vtable = ICoreWebView2WebResourceResponseReceivedEventArgsVtbl;
     const IID: ::windows::core::GUID =
@@ -16735,6 +17458,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceResponseReceivedEventHan
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceResponseReceivedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceResponseReceivedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceResponseReceivedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponseReceivedEventHandler {
     type Vtable = ICoreWebView2WebResourceResponseReceivedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -16836,6 +17566,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceResponseView {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceResponseView {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceResponseView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceResponseView")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponseView {
     type Vtable = ICoreWebView2WebResourceResponseViewVtbl;
     const IID: ::windows::core::GUID =
@@ -16931,6 +17668,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WebResourceResponseViewGetContentCo
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WebResourceResponseViewGetContentCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface
     for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler
 {
@@ -17013,6 +17757,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WindowCloseRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WindowCloseRequestedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2WindowCloseRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WindowCloseRequestedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WindowCloseRequestedEventHandler {
     type Vtable = ICoreWebView2WindowCloseRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -17159,6 +17910,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2WindowFeatures {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2WindowFeatures {}
+impl ::core::fmt::Debug for ICoreWebView2WindowFeatures {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2WindowFeatures")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2WindowFeatures {
     type Vtable = ICoreWebView2WindowFeaturesVtbl;
     const IID: ::windows::core::GUID =
@@ -17274,6 +18032,13 @@ impl ::core::cmp::PartialEq for ICoreWebView2ZoomFactorChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2ZoomFactorChangedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ZoomFactorChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ZoomFactorChangedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2ZoomFactorChangedEventHandler {
     type Vtable = ICoreWebView2ZoomFactorChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID =
@@ -18272,6 +19037,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2_2 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2_2 {}
+impl ::core::fmt::Debug for ICoreWebView2_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2_2 {
     type Vtable = ICoreWebView2_2Vtbl;
     const IID: ::windows::core::GUID =
@@ -19343,6 +20113,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2_3 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2_3 {}
+impl ::core::fmt::Debug for ICoreWebView2_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2_3 {
     type Vtable = ICoreWebView2_3Vtbl;
     const IID: ::windows::core::GUID =
@@ -20496,6 +21271,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2_4 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2_4 {}
+impl ::core::fmt::Debug for ICoreWebView2_4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2_4 {
     type Vtable = ICoreWebView2_4Vtbl;
     const IID: ::windows::core::GUID =
@@ -21700,6 +22480,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2_5 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2_5 {}
+impl ::core::fmt::Debug for ICoreWebView2_5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2_5 {
     type Vtable = ICoreWebView2_5Vtbl;
     const IID: ::windows::core::GUID =
@@ -22927,6 +23712,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2_6 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2_6 {}
+impl ::core::fmt::Debug for ICoreWebView2_6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2_6 {
     type Vtable = ICoreWebView2_6Vtbl;
     const IID: ::windows::core::GUID =
@@ -24196,6 +24986,11 @@ impl ::core::cmp::PartialEq for ICoreWebView2_7 {
     }
 }
 impl ::core::cmp::Eq for ICoreWebView2_7 {}
+impl ::core::fmt::Debug for ICoreWebView2_7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreWebView2_7 {
     type Vtable = ICoreWebView2_7Vtbl;
     const IID: ::windows::core::GUID =
