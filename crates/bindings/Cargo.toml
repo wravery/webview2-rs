@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com-sys"
-version = "0.10.0"
+version = "0.11.0"
 edition = "2018"
 description = "Bindings generated with the windows crate for the WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"
