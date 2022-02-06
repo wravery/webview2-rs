@@ -1,12 +1,15 @@
 extern crate windows_bindgen;
 
-fn main() -> crate::Result<()> {
-    if let Ok(package_root) = webview2_nuget::install() {
-        webview2_nuget::update_windows(&package_root)?;
-        webview2_nuget::update_rustc_flags()?;
-        webview2_nuget::update_browser_version(&package_root)?;
-        webview2_nuget::update_callback_interfaces(&package_root)?;
-    }
+fn main() -> Result<()> {
+    match webview2_nuget::install() {
+        Ok(package_root) => {
+            webview2_nuget::update_windows(&package_root)?;
+            webview2_nuget::update_rustc_flags()?;
+            webview2_nuget::update_browser_version(&package_root)?;
+            webview2_nuget::update_callback_interfaces(&package_root)?;
+        }
+        Err(e) => panic!("{}", e.to_string()),
+    }    
 
     webview2_bindgen::update_bindings()?;
 
@@ -29,6 +32,8 @@ pub enum Error {
     MissingTypedef,
     #[error("Missing Path")]
     MissingPath(std::path::PathBuf),
+    #[error("Failed to run nuget CLI.\n{0}")]
+    NugetCli(String),
 }
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -110,7 +115,7 @@ mod webview2_nuget {
                 None => return Err(super::Error::MissingPath(nuget_path)),
             };
 
-            Command::new(nuget_tool)
+            let output = Command::new(nuget_tool)
                 .args(&[
                     "install",
                     WEBVIEW2_NAME,
@@ -118,8 +123,14 @@ mod webview2_nuget {
                     install_root,
                     "-Version",
                     WEBVIEW2_VERSION,
+                    "-Source",
+                    "https://api.nuget.org/v3/index.json"
                 ])
                 .output()?;
+
+            if !output.status.success() {
+                return Err(super::Error::NugetCli(format!("{}\n{}", String::from_utf8_lossy(&output.stdout), String::from_utf8_lossy(&output.stderr))));
+            }
 
             if !check_nuget_dir(install_root)? {
                 return Err(super::Error::MissingPath(package_root));
