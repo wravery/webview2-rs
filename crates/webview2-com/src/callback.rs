@@ -92,6 +92,27 @@ pub type EventClosure<Arg1, Arg2> = Box<
     ) -> windows::core::Result<()>,
 >;
 
+#[event_callback]
+pub struct IsDefaultDownloadDialogOpenChangedEventHandler(
+    ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct IsDocumentPlayingAudioChangedEventHandler(
+    ICoreWebView2IsDocumentPlayingAudioChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct IsMutedChangedEventHandler(
+    ICoreWebView2IsMutedChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
 #[completed_callback]
 pub struct CreateCoreWebView2EnvironmentCompletedHandler(
     ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,

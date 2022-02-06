@@ -5,7 +5,6 @@ fn main() -> Result<()> {
         Ok(package_root) => {
             webview2_nuget::update_windows(&package_root)?;
             webview2_nuget::update_rustc_flags()?;
-            webview2_nuget::update_browser_version(&package_root)?;
             webview2_nuget::update_callback_interfaces(&package_root)?;
         }
         Err(e) => panic!("{}", e.to_string()),
@@ -83,11 +82,10 @@ mod webview2_nuget {
 
     use super::webview2_path::*;
 
-    include!("./src/browser_version.rs");
     include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.1054.31";
+    const WEBVIEW2_VERSION: &str = "1.0.1072.54";
 
     #[cfg(not(windows))]
     pub fn install() -> super::Result<PathBuf> {
@@ -229,52 +227,6 @@ mod webview2_nuget {
         };
 
         Ok(())
-    }
-
-    #[cfg(not(windows))]
-    pub fn update_browser_version(_: &PathBuf) -> super::Result<bool> {
-        Ok(false)
-    }
-
-    #[cfg(windows)]
-    pub fn update_browser_version(package_root: &Path) -> super::Result<bool> {
-        let version = get_target_broweser_version(package_root)?;
-        if version == CORE_WEBVIEW_TARGET_PRODUCT_VERSION {
-            return Ok(false);
-        }
-
-        let mut source_path = get_manifest_dir()?;
-        source_path.push("src");
-        source_path.push("browser_version.rs");
-        let mut source_file = fs::File::create(source_path)?;
-        writeln!(
-            source_file,
-            r#"pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: &str = "{}";"#,
-            version
-        )?;
-        Ok(true)
-    }
-
-    #[cfg(windows)]
-    fn get_target_broweser_version(package_root: &Path) -> super::Result<String> {
-        let mut include_path = package_root.to_path_buf();
-        include_path.push("build");
-        include_path.push("native");
-        include_path.push("include");
-        include_path.push("WebView2EnvironmentOptions.h");
-        let mut contents = String::new();
-        fs::File::open(include_path)?.read_to_string(&mut contents)?;
-        let pattern =
-            Regex::new(r#"^\s*#define\s+CORE_WEBVIEW_TARGET_PRODUCT_VERSION\s+L"(.*)"\s*$"#)?;
-        match contents
-            .lines()
-            .filter_map(|line| pattern.captures(line))
-            .filter_map(|captures| captures.get(1))
-            .next()
-        {
-            Some(capture) => Ok(capture.as_str().into()),
-            None => Err(super::Error::MissingVersion),
-        }
     }
 
     #[cfg(not(windows))]
