@@ -327,6 +327,8 @@ mod webview2_bindgen {
         path::{Path, PathBuf},
     };
 
+    use regex::Regex;
+
     use windows_bindgen::{gen_namespace, Gen};
 
     use super::webview2_path::*;
@@ -361,8 +363,16 @@ mod webview2_bindgen {
             namespace: "Microsoft.Web.WebView2.Win32",
             ..Default::default()
         };
-        source_file.write_all(gen_namespace(&gen).as_bytes())?;
+        source_file.write_all(patch_bindings(gen_namespace(&gen))?.as_bytes())?;
         Ok(source_path)
+    }
+
+    fn patch_bindings(bindings: String) -> super::Result<String> {
+        let pattern = Regex::new(
+            r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"WebView2LoaderStatic"\s*,\s*kind\s*=\s*"static"\s*\)\s*\]"#,
+        )?;
+        let replacement = r#"#[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))] #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]"#;
+        Ok(pattern.replace_all(&bindings, replacement).to_string())
     }
 
     fn format_bindings(source_path: &Path) -> super::Result<()> {

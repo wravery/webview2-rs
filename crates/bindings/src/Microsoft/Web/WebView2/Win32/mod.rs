@@ -358,7 +358,11 @@ pub unsafe fn CompareBrowserVersions<
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "WebView2LoaderStatic", kind = "static")]
+        #[cfg_attr(
+            target_env = "msvc",
+            link(name = "WebView2LoaderStatic", kind = "static")
+        )]
+        #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]
         extern "system" {
             fn CompareBrowserVersions(
                 version1: super::super::super::super::Windows::Win32::Foundation::PWSTR,
@@ -385,7 +389,11 @@ pub unsafe fn CreateCoreWebView2Environment<
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "WebView2LoaderStatic", kind = "static")]
+        #[cfg_attr(
+            target_env = "msvc",
+            link(name = "WebView2LoaderStatic", kind = "static")
+        )]
+        #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]
         extern "system" {
             fn CreateCoreWebView2Environment(
                 environmentcreatedhandler: ::windows::core::RawPtr,
@@ -411,7 +419,11 @@ pub unsafe fn CreateCoreWebView2EnvironmentWithOptions<
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "WebView2LoaderStatic", kind = "static")]
+        #[cfg_attr(
+            target_env = "msvc",
+            link(name = "WebView2LoaderStatic", kind = "static")
+        )]
+        #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]
         extern "system" {
             fn CreateCoreWebView2EnvironmentWithOptions(
                 browserexecutablefolder : super::super::super::super::Windows::Win32::Foundation:: PWSTR,
@@ -441,7 +453,11 @@ pub unsafe fn GetAvailableCoreWebView2BrowserVersionString<
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "WebView2LoaderStatic", kind = "static")]
+        #[cfg_attr(
+            target_env = "msvc",
+            link(name = "WebView2LoaderStatic", kind = "static")
+        )]
+        #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]
         extern "system" {
             fn GetAvailableCoreWebView2BrowserVersionString(
                 browserexecutablefolder : super::super::super::super::Windows::Win32::Foundation:: PWSTR,
