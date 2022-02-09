@@ -7,10 +7,6 @@ fn main() -> Result<()> {
             webview2_nuget::update_callback_interfaces(&package_root)?;
         }
         Err(e) => {
-            #[cfg(not(windows))]
-            eprintln!("{}", e.to_string());
-
-            #[cfg(windows)]
             panic!("{}", e.to_string());
         }
     }
@@ -39,6 +35,9 @@ pub enum Error {
     MissingPath(std::path::PathBuf),
     #[error("Failed to run nuget CLI.\n{0}")]
     NugetCli(String),
+    #[cfg(not(windows))]
+    #[error("The nuget CLI requires mono to run on this host.")]
+    MissingMono,
 }
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -81,7 +80,7 @@ mod webview2_nuget {
         fs,
         io::{Read, Write},
         path::{Path, PathBuf},
-        process::Command,
+        process::{Command, Output},
     };
 
     use regex::Regex;
@@ -113,34 +112,7 @@ mod webview2_nuget {
                 None => return Err(super::Error::MissingPath(nuget_path)),
             };
 
-            #[cfg(not(windows))]
-            let output = Command::new("mono")
-                .args(&[
-                    nuget_tool,
-                    "install",
-                    WEBVIEW2_NAME,
-                    "-OutputDirectory",
-                    install_root,
-                    "-Version",
-                    WEBVIEW2_VERSION,
-                    "-Source",
-                    "https://api.nuget.org/v3/index.json",
-                ])
-                .output()?;
-
-            #[cfg(windows)]
-            let output = Command::new(nuget_tool)
-                .args(&[
-                    "install",
-                    WEBVIEW2_NAME,
-                    "-OutputDirectory",
-                    install_root,
-                    "-Version",
-                    WEBVIEW2_VERSION,
-                    "-Source",
-                    "https://api.nuget.org/v3/index.json",
-                ])
-                .output()?;
+            let output = install_sdk_package(nuget_tool, install_root)?;
 
             if !output.status.success() {
                 return Err(super::Error::NugetCli(format!(
@@ -174,6 +146,41 @@ mod webview2_nuget {
             Err(_) => false,
         });
         Ok(dir_iter.next().is_some())
+    }
+
+    #[cfg(not(windows))]
+    fn install_sdk_package(nuget_tool: &str, install_root: &str) -> super::Result<Output> {
+        Ok(Command::new("mono")
+            .args(&[
+                nuget_tool,
+                "install",
+                WEBVIEW2_NAME,
+                "-OutputDirectory",
+                install_root,
+                "-Version",
+                WEBVIEW2_VERSION,
+                "-Source",
+                "https://api.nuget.org/v3/index.json",
+            ])
+            .output()
+            .map_err(|_| super::Error::MissingMono)?)
+    }
+
+    #[cfg(windows)]
+    fn install_sdk_package(nuget_tool: &str, install_root: &str) -> super::Result<Output> {
+        Ok(Command::new(nuget_tool)
+            .args(&[
+                "install",
+                WEBVIEW2_NAME,
+                "-OutputDirectory",
+                install_root,
+                "-Version",
+                WEBVIEW2_VERSION,
+                "-Source",
+                "https://api.nuget.org/v3/index.json",
+            ])
+            .output()
+            .map_err(|_| super::Error::NugetCli(String::from("nuget.exe not found")))?)
     }
 
     pub fn update_windows(package_root: &Path) -> super::Result<()> {
