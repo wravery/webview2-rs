@@ -1,3 +1,8 @@
 /target
 Cargo.lock
+
+# These files are automatically copied to /.windows/... and /crates/bindings/.windows/... by
+# /crates/bindings/build.rs. They should not be committed to the repo.
+WebView2Loader.dll
+WebView2Loader.dll.lib
 WebView2LoaderStatic.lib

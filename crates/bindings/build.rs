@@ -184,7 +184,11 @@ mod webview2_nuget {
     }
 
     pub fn update_windows(package_root: &Path) -> super::Result<()> {
-        const WEBVIEW2_STATIC_LIB: &str = "WebView2LoaderStatic.lib";
+        const WEBVIEW2_LIBS: &[&str] = &[
+            "WebView2Loader.dll",
+            "WebView2Loader.dll.lib",
+            "WebView2LoaderStatic.lib",
+        ];
         const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
 
         let mut workspace_windows_dir = get_workspace_dir()?;
@@ -197,29 +201,31 @@ mod webview2_nuget {
         native_dir.push("build");
         native_dir.push("native");
         for target in WEBVIEW2_TARGETS {
-            let mut lib_src = native_dir.clone();
-            lib_src.push(target);
-            lib_src.push(WEBVIEW2_STATIC_LIB);
+            for lib in WEBVIEW2_LIBS {
+                let mut lib_src = native_dir.clone();
+                lib_src.push(target);
+                lib_src.push(lib);
 
-            let mut lib_dest = workspace_windows_dir.clone();
-            lib_dest.push(target);
-            if !lib_dest.is_dir() {
-                fs::create_dir(lib_dest.as_path())?;
+                let mut lib_dest = workspace_windows_dir.clone();
+                lib_dest.push(target);
+                if !lib_dest.is_dir() {
+                    fs::create_dir(lib_dest.as_path())?;
+                }
+
+                lib_dest.push(lib);
+                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
+                fs::copy(lib_src.as_path(), lib_dest.as_path())?;
+
+                let mut lib_dest = bindings_windows_dir.clone();
+                lib_dest.push(target);
+                if !lib_dest.is_dir() {
+                    fs::create_dir(lib_dest.as_path())?;
+                }
+
+                lib_dest.push(lib);
+                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
+                fs::copy(lib_src.as_path(), lib_dest.as_path())?;
             }
-
-            lib_dest.push(WEBVIEW2_STATIC_LIB);
-            eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
-            fs::copy(lib_src.as_path(), lib_dest.as_path())?;
-
-            let mut lib_dest = bindings_windows_dir.clone();
-            lib_dest.push(target);
-            if !lib_dest.is_dir() {
-                fs::create_dir(lib_dest.as_path())?;
-            }
-
-            lib_dest.push(WEBVIEW2_STATIC_LIB);
-            eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
-            fs::copy(lib_src.as_path(), lib_dest.as_path())?;
         }
 
         println!("cargo:rerun-if-changed={}", bindings_windows_dir.display());
