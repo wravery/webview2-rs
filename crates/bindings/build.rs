@@ -8,7 +8,7 @@ fn main() -> Result<()> {
             webview2_nuget::update_callback_interfaces(&package_root)?;
         }
         Err(e) => panic!("{}", e.to_string()),
-    }    
+    }
 
     webview2_bindgen::update_bindings()?;
 
@@ -72,7 +72,7 @@ mod webview2_path {
 mod webview2_nuget {
     use std::{
         convert::From,
-        fs,
+        env, fs,
         io::{Read, Write},
         path::{Path, PathBuf},
         process::Command,
@@ -87,12 +87,6 @@ mod webview2_nuget {
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
     const WEBVIEW2_VERSION: &str = "1.0.1072.54";
 
-    #[cfg(not(windows))]
-    pub fn install() -> super::Result<PathBuf> {
-        get_manifest_dir()
-    }
-
-    #[cfg(windows)]
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir()?;
         let install_root = match out_dir.to_str() {
@@ -113,6 +107,22 @@ mod webview2_nuget {
                 None => return Err(super::Error::MissingPath(nuget_path)),
             };
 
+            #[cfg(not(windows))]
+            let output = Command::new("mono")
+                .args(&[
+                    nuget_tool,
+                    "install",
+                    WEBVIEW2_NAME,
+                    "-OutputDirectory",
+                    install_root,
+                    "-Version",
+                    WEBVIEW2_VERSION,
+                    "-Source",
+                    "https://api.nuget.org/v3/index.json",
+                ])
+                .output()?;
+
+            #[cfg(windows)]
             let output = Command::new(nuget_tool)
                 .args(&[
                     "install",
@@ -122,12 +132,16 @@ mod webview2_nuget {
                     "-Version",
                     WEBVIEW2_VERSION,
                     "-Source",
-                    "https://api.nuget.org/v3/index.json"
+                    "https://api.nuget.org/v3/index.json",
                 ])
                 .output()?;
 
             if !output.status.success() {
-                return Err(super::Error::NugetCli(format!("{}\n{}", String::from_utf8_lossy(&output.stdout), String::from_utf8_lossy(&output.stderr))));
+                return Err(super::Error::NugetCli(format!(
+                    "{}\n{}",
+                    String::from_utf8_lossy(&output.stdout),
+                    String::from_utf8_lossy(&output.stderr)
+                )));
             }
 
             if !check_nuget_dir(install_root)? {
@@ -138,7 +152,6 @@ mod webview2_nuget {
         Ok(package_root)
     }
 
-    #[cfg(windows)]
     fn check_nuget_dir(install_root: &str) -> super::Result<bool> {
         let nuget_path = format!("{}.{}", WEBVIEW2_NAME, WEBVIEW2_VERSION);
         let mut dir_iter = fs::read_dir(install_root)?.filter(|dir| match dir {
@@ -157,12 +170,6 @@ mod webview2_nuget {
         Ok(dir_iter.next().is_some())
     }
 
-    #[cfg(not(windows))]
-    pub fn update_windows(_: &Path) -> super::Result<()> {
-        Ok(())
-    }
-
-    #[cfg(windows)]
     pub fn update_windows(package_root: &Path) -> super::Result<()> {
         const WEBVIEW2_STATIC_LIB: &str = "WebView2LoaderStatic.lib";
         const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
@@ -199,17 +206,11 @@ mod webview2_nuget {
         Ok(())
     }
 
-    #[cfg(not(windows))]
-    pub fn update_rustc_flags() -> super::Result<()> {
-        Ok(())
-    }
-
-    #[cfg(windows)]
     pub fn update_rustc_flags() -> super::Result<()> {
         let mut lib_path = get_manifest_dir()?;
         lib_path.push(".windows");
 
-        let target_arch = match ::std::env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
+        let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
             "x86_64" => "x64",
             "x86" => "x86",
             "arm" => "arm",
@@ -229,12 +230,6 @@ mod webview2_nuget {
         Ok(())
     }
 
-    #[cfg(not(windows))]
-    pub fn update_callback_interfaces(_: &PathBuf) -> super::Result<bool> {
-        Ok(false)
-    }
-
-    #[cfg(windows)]
     pub fn update_callback_interfaces(package_root: &Path) -> super::Result<bool> {
         let interfaces = get_callback_interfaces(package_root)?;
         let declared = all_declared().into_iter().map(String::from).collect();
@@ -268,7 +263,6 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
         Ok(true)
     }
 
-    #[cfg(windows)]
     fn get_callback_interfaces(package_root: &Path) -> super::Result<BTreeSet<String>> {
         let mut include_path = package_root.to_path_buf();
         include_path.push("build");
@@ -304,12 +298,6 @@ mod webview2_bindgen {
 
     use super::webview2_path::*;
 
-    #[cfg(not(windows))]
-    pub fn update_bindings() -> super::Result<bool> {
-        Ok(false)
-    }
-
-    #[cfg(windows)]
     pub fn update_bindings() -> super::Result<bool> {
         let source_path = generate_bindings()?;
         format_bindings(&source_path)?;
@@ -332,7 +320,6 @@ mod webview2_bindgen {
         }
     }
 
-    #[cfg(windows)]
     fn generate_bindings() -> super::Result<PathBuf> {
         let mut source_path = get_out_dir()?;
         source_path.push("mod.rs");
@@ -345,7 +332,6 @@ mod webview2_bindgen {
         Ok(source_path)
     }
 
-    #[cfg(windows)]
     fn format_bindings(source_path: &Path) -> super::Result<()> {
         let mut cmd = ::std::process::Command::new("rustfmt");
         cmd.arg(&source_path);
@@ -353,7 +339,6 @@ mod webview2_bindgen {
         Ok(())
     }
 
-    #[cfg(windows)]
     fn read_bindings(source_path: &Path) -> super::Result<String> {
         let mut source_file = fs::File::open(source_path)?;
         let mut updated = String::default();
