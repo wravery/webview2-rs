@@ -5,6 +5,7 @@ fn main() -> Result<()> {
         Ok(package_root) => {
             webview2_nuget::update_windows(&package_root)?;
             webview2_nuget::update_callback_interfaces(&package_root)?;
+            webview2_link::update_rustc_flags(&package_root)?;
         }
         Err(e) => {
             panic!("{}", e.to_string());
@@ -12,7 +13,6 @@ fn main() -> Result<()> {
     }
 
     webview2_bindgen::update_bindings()?;
-    webview2_link::update_rustc_flags()?;
 
     Ok(())
 }
@@ -291,13 +291,12 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
 }
 
 mod webview2_link {
-    use std::env;
+    use std::{env, path::Path};
 
-    use super::webview2_path::*;
-
-    pub fn update_rustc_flags() -> super::Result<()> {
-        let mut lib_path = get_manifest_dir()?;
-        lib_path.push(".windows");
+    pub fn update_rustc_flags(package_root: &Path) -> super::Result<()> {
+        let mut lib_path = package_root.to_path_buf();
+        lib_path.push("build");
+        lib_path.push("native");
 
         let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
             "x86_64" => "x64",
