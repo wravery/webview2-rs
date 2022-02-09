@@ -203,12 +203,20 @@ mod webview2_nuget {
 
             let mut lib_dest = workspace_windows_dir.clone();
             lib_dest.push(target);
+            if !lib_dest.is_dir() {
+                fs::create_dir(lib_dest.as_path())?;
+            }
+
             lib_dest.push(WEBVIEW2_STATIC_LIB);
             eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
             fs::copy(lib_src.as_path(), lib_dest.as_path())?;
 
             let mut lib_dest = bindings_windows_dir.clone();
             lib_dest.push(target);
+            if !lib_dest.is_dir() {
+                fs::create_dir(lib_dest.as_path())?;
+            }
+
             lib_dest.push(WEBVIEW2_STATIC_LIB);
             eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
             fs::copy(lib_src.as_path(), lib_dest.as_path())?;
