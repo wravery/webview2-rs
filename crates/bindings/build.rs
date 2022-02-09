@@ -4,13 +4,19 @@ fn main() -> Result<()> {
     match webview2_nuget::install() {
         Ok(package_root) => {
             webview2_nuget::update_windows(&package_root)?;
-            webview2_nuget::update_rustc_flags()?;
             webview2_nuget::update_callback_interfaces(&package_root)?;
         }
-        Err(e) => panic!("{}", e.to_string()),
+        Err(e) => {
+            #[cfg(not(windows))]
+            eprintln!("{}", e.to_string());
+
+            #[cfg(windows)]
+            panic!("{}", e.to_string());
+        }
     }
 
     webview2_bindgen::update_bindings()?;
+    webview2_link::update_rustc_flags()?;
 
     Ok(())
 }
@@ -72,7 +78,7 @@ mod webview2_path {
 mod webview2_nuget {
     use std::{
         convert::From,
-        env, fs,
+        fs,
         io::{Read, Write},
         path::{Path, PathBuf},
         process::Command,
@@ -206,30 +212,6 @@ mod webview2_nuget {
         Ok(())
     }
 
-    pub fn update_rustc_flags() -> super::Result<()> {
-        let mut lib_path = get_manifest_dir()?;
-        lib_path.push(".windows");
-
-        let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
-            "x86_64" => "x64",
-            "x86" => "x86",
-            "arm" => "arm",
-            "aarch64" => "arm64",
-            unimplemented => unimplemented!(
-                "`{}` architecture set by `CARGO_CFG_TARGET_ARCH`",
-                unimplemented
-            ),
-        };
-        lib_path.push(target_arch);
-
-        match lib_path.to_str() {
-            Some(path) if lib_path.exists() => println!("cargo:rustc-link-search=native={}", path),
-            _ => unimplemented!("`{}` is not supported by WebView2", target_arch),
-        };
-
-        Ok(())
-    }
-
     pub fn update_callback_interfaces(package_root: &Path) -> super::Result<bool> {
         let interfaces = get_callback_interfaces(package_root)?;
         let declared = all_declared().into_iter().map(String::from).collect();
@@ -284,6 +266,36 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
         } else {
             Ok(interfaces)
         }
+    }
+}
+
+mod webview2_link {
+    use std::env;
+
+    use super::webview2_path::*;
+
+    pub fn update_rustc_flags() -> super::Result<()> {
+        let mut lib_path = get_manifest_dir()?;
+        lib_path.push(".windows");
+
+        let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
+            "x86_64" => "x64",
+            "x86" => "x86",
+            "arm" => "arm",
+            "aarch64" => "arm64",
+            unimplemented => unimplemented!(
+                "`{}` architecture set by `CARGO_CFG_TARGET_ARCH`",
+                unimplemented
+            ),
+        };
+        lib_path.push(target_arch);
+
+        match lib_path.to_str() {
+            Some(path) if lib_path.exists() => println!("cargo:rustc-link-search=native={}", path),
+            _ => unimplemented!("`{}` is not supported by WebView2", target_arch),
+        };
+
+        Ok(())
     }
 }
 
