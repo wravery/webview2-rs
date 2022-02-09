@@ -1,6 +1,5 @@
 extern crate webview2_com_sys;
 pub use webview2_com_sys::*;
-pub(crate) use windows as Windows;
 
 #[macro_use]
 extern crate webview2_com_macros;

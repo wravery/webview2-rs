@@ -8,12 +8,11 @@ use windows::{
     },
 };
 
-use windows_macros::implement;
+use windows_implement::implement;
 
 use crate::{
     pwstr::string_from_pwstr,
     Microsoft::{self, Web::WebView2::Win32::*},
-    Windows,
 };
 
 pub trait ClosureArg {

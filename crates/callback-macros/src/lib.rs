@@ -64,14 +64,17 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
     let name = &ast.ident;
     let closure = get_closure(name);
     let interface = &ast.args.interface;
+    let interface = interface
+        .path
+        .segments
+        .last()
+        .expect("completed_callback should always specify an interface");
+    let interface_impl = format_ident!("{}_Impl", interface.ident);
 
     let arg_1 = &ast.args.arg_1;
     let arg_2 = &ast.args.arg_2;
 
-    let msg = match interface.path.segments.last() {
-        Some(interface) => format!("Implementation of [`{}`].", interface.ident),
-        None => String::from("Implementation of unknown [`completed_callback`] interface."),
-    };
+    let msg = format!("Implementation of [`{}`].", interface.ident);
 
     let gen = match arg_2 {
         Some(arg_2) => quote! {
@@ -81,7 +84,6 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             #[implement(Microsoft::Web::WebView2::Win32::#interface)]
             #vis struct #name(Option<#closure>);
 
-            #[allow(non_snake_case)]
             impl #name {
                 pub fn create(
                     closure: #closure,
@@ -107,7 +109,10 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     closure(callback)?;
                     crate::wait_with_pump(rx)?
                 }
+            }
 
+            #[allow(non_snake_case)]
+            impl #interface_impl for #name {
                 fn Invoke<'a>(
                     &mut self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
@@ -130,7 +135,6 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             #[implement(Microsoft::Web::WebView2::Win32::#interface)]
             #vis struct #name(Option<#closure>);
 
-            #[allow(non_snake_case)]
             impl #name {
                 pub fn create(
                     closure: #closure,
@@ -156,7 +160,10 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     closure(callback)?;
                     crate::wait_with_pump(rx)?
                 }
+            }
 
+            #[allow(non_snake_case)]
+            impl #interface_impl for #name {
                 fn Invoke<'a>(
                     &mut self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
@@ -189,6 +196,12 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
     let closure = get_closure(name);
 
     let interface = &ast.args.interface;
+    let interface = interface
+        .path
+        .segments
+        .last()
+        .expect("event_callback should always specify an interface");
+    let interface_impl = format_ident!("{}_Impl", interface.ident);
 
     let arg_1 = &ast.args.arg_1;
     let arg_2 = &ast
@@ -197,10 +210,7 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
         .as_ref()
         .expect("event_callback should always have 2 arguments");
 
-    let msg = match interface.path.segments.last() {
-        Some(interface) => format!("Implementation of [`{}`].", interface.ident),
-        None => String::from("Implementation of unknown [`event_callback`] interface."),
-    };
+    let msg = format!("Implementation of [`{}`].", interface.ident);
 
     let gen = quote! {
         type #closure = EventClosure<#arg_1, #arg_2>;
@@ -209,14 +219,16 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
         #[implement(Microsoft::Web::WebView2::Win32::#interface)]
         #vis struct #name(#closure);
 
-        #[allow(non_snake_case)]
         impl #name {
             pub fn create(
                 closure: #closure,
             ) -> #interface {
                 Self(closure).into()
             }
+        }
 
+        #[allow(non_snake_case)]
+        impl #interface_impl for  #name {
             fn Invoke<'a>(
                 &mut self,
                 arg_1: <#arg_1 as InvokeArg<'a>>::Input,

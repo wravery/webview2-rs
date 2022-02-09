@@ -300,7 +300,7 @@ mod webview2_bindgen {
         path::{Path, PathBuf},
     };
 
-    use windows_bindgen::{gen_namespace, Gen};
+    use windows_bindgen::{gen_namespace, gen_namespace_impl, Gen};
 
     use super::webview2_path::*;
 
@@ -342,6 +342,7 @@ mod webview2_bindgen {
             ..Default::default()
         };
         source_file.write_all(gen_namespace(&gen).as_bytes())?;
+        source_file.write_all(gen_namespace_impl(&gen).as_bytes())?;
         Ok(source_path)
     }
 
