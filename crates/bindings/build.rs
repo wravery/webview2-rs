@@ -3,7 +3,6 @@ extern crate windows_bindgen;
 fn main() -> Result<()> {
     match webview2_nuget::install() {
         Ok(package_root) => {
-            webview2_nuget::update_windows(&package_root)?;
             webview2_nuget::update_callback_interfaces(&package_root)?;
             webview2_link::update_rustc_flags(&package_root)?;
         }
@@ -46,7 +45,7 @@ pub type Result<T> = std::result::Result<T, Error>;
 extern crate thiserror;
 
 mod webview2_path {
-    use std::{convert::From, env, path::PathBuf, process::Command};
+    use std::{convert::From, env, path::PathBuf};
 
     pub fn get_out_dir() -> super::Result<PathBuf> {
         Ok(PathBuf::from(env::var("OUT_DIR")?))
@@ -54,23 +53,6 @@ mod webview2_path {
 
     pub fn get_manifest_dir() -> super::Result<PathBuf> {
         Ok(PathBuf::from(env::var("CARGO_MANIFEST_DIR")?))
-    }
-
-    pub fn get_workspace_dir() -> super::Result<PathBuf> {
-        use serde::Deserialize;
-
-        #[derive(Deserialize)]
-        struct CargoMetadata {
-            workspace_root: String,
-        }
-
-        let output = Command::new(env::var("CARGO")?)
-            .args(&["metadata", "--format-version=1", "--no-deps", "--offline"])
-            .output()?;
-
-        let metadata: CargoMetadata = serde_json::from_slice(&output.stdout)?;
-
-        Ok(PathBuf::from(metadata.workspace_root))
     }
 }
 
@@ -181,56 +163,6 @@ mod webview2_nuget {
             ])
             .output()
             .map_err(|_| super::Error::NugetCli(String::from("nuget.exe not found")))?)
-    }
-
-    pub fn update_windows(package_root: &Path) -> super::Result<()> {
-        const WEBVIEW2_LIBS: &[&str] = &[
-            "WebView2Loader.dll",
-            "WebView2Loader.dll.lib",
-            "WebView2LoaderStatic.lib",
-        ];
-        const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
-
-        let mut workspace_windows_dir = get_workspace_dir()?;
-        workspace_windows_dir.push(".windows");
-
-        let mut bindings_windows_dir = get_manifest_dir()?;
-        bindings_windows_dir.push(".windows");
-
-        let mut native_dir = package_root.to_path_buf();
-        native_dir.push("build");
-        native_dir.push("native");
-        for target in WEBVIEW2_TARGETS {
-            for lib in WEBVIEW2_LIBS {
-                let mut lib_src = native_dir.clone();
-                lib_src.push(target);
-                lib_src.push(lib);
-
-                let mut lib_dest = workspace_windows_dir.clone();
-                lib_dest.push(target);
-                if !lib_dest.is_dir() {
-                    fs::create_dir(lib_dest.as_path())?;
-                }
-
-                lib_dest.push(lib);
-                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
-                fs::copy(lib_src.as_path(), lib_dest.as_path())?;
-
-                let mut lib_dest = bindings_windows_dir.clone();
-                lib_dest.push(target);
-                if !lib_dest.is_dir() {
-                    fs::create_dir(lib_dest.as_path())?;
-                }
-
-                lib_dest.push(lib);
-                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
-                fs::copy(lib_src.as_path(), lib_dest.as_path())?;
-            }
-        }
-
-        println!("cargo:rerun-if-changed={}", bindings_windows_dir.display());
-
-        Ok(())
     }
 
     pub fn update_callback_interfaces(package_root: &Path) -> super::Result<bool> {

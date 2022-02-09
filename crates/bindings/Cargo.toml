@@ -7,7 +7,6 @@ repository = "https://github.com/wravery/webview2-rs"
 license = "MIT"
 keywords = [ "win32", "webview2" ]
 categories = [ "os::windows-apis" ]
-include = [ "*", "!*.lib" ]
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
