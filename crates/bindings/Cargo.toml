@@ -8,6 +8,14 @@ license = "MIT"
 keywords = [ "win32", "webview2" ]
 categories = [ "os::windows-apis" ]
 
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = [
+    "i686-pc-windows-msvc",
+    "x86_64-pc-windows-gnu",
+    "i686-pc-windows-gnu",
+]
+
 [dependencies.windows]
 version = "0.32.0"
 features = [

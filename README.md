@@ -23,8 +23,13 @@ Or run the sample app from anywhere in the repo:
 
 See the [README.md](./crates/webview2-com/README.md) in `webview2-com` for more details about using that crate in your own project.
 
+## Cross-compilation
+The `webview2-com-sys` [build.rs](./crates/bindings/build.rs) script automatically downloads and extracts the NuGet package for the SDK and links against the libraries from that package. If you build on a Windows machine, you probably won't need to do anything special to enable this, but if you are building on a Linux or macOS machine, you need to have [mono](https://www.mono-project.com/) installed and on your `$PATH` to execute the `nuget.exe` CLI tool.
+
+By default this crate uses the `WebView2LoaderStatic.lib` static library and does not need to redistribute `WebView2Loader.dll`. However, this doesn't work with the `*-pc-windows-gnu` targets instead of `*-pc-windows-msvc` (for example, when cross-compiling). For the `gnu` targets, it will link against the import lib for `WebView2Loader.dll` instead, and you will need to place this DLL next to your executable or in your `$PATH` so it can find the DLL at runtime.
+
 ## Updating the WebView2 SDK
-The `webview2-com-sys` [build.rs](./crates/bindings/build.rs) script automatically downloads the NuGet package for the SDK and updates the static libs (`WebView2LoaderStatic.lib`) for each architecture under `**/.windows/`, if you build on a Windows machine. You can tell the build script to use a different version by updating `WEBVIEW2_VERSION` in `build.rs`:
+You can tell the build script to use a different version by updating `WEBVIEW2_VERSION` in `build.rs`:
 ```rust
     const WEBVIEW2_VERSION: &str = "1.0.1072.54";
 ```

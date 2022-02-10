@@ -1,8 +1,17 @@
 #![feature(const_fn_fn_ptr_basics)]
 #![feature(const_fn_trait_bound)]
 
-#![allow(non_snake_case)]
-pub mod Microsoft;
+#[allow(non_snake_case)]
+pub mod Microsoft {
+    #[allow(non_snake_case)]
+    pub mod Web {
+        #[allow(non_snake_case)]
+        pub mod WebView2 {
+            #[allow(non_snake_case)]
+            pub mod Win32;
+        }
+    }
+}
 
 pub(crate) use ::windows as Windows;
 
