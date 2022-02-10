@@ -3,12 +3,13 @@ extern crate windows_bindgen;
 fn main() -> Result<()> {
     match webview2_nuget::install() {
         Ok(package_root) => {
-            webview2_nuget::update_windows(&package_root)?;
-            webview2_nuget::update_rustc_flags()?;
             webview2_nuget::update_callback_interfaces(&package_root)?;
+            webview2_link::update_rustc_flags(&package_root)?;
         }
-        Err(e) => panic!("{}", e.to_string()),
-    }    
+        Err(e) => {
+            panic!("{}", e.to_string());
+        }
+    }
 
     webview2_bindgen::update_bindings()?;
 
@@ -33,6 +34,9 @@ pub enum Error {
     MissingPath(std::path::PathBuf),
     #[error("Failed to run nuget CLI.\n{0}")]
     NugetCli(String),
+    #[cfg(not(windows))]
+    #[error("The nuget CLI requires mono to run on this host.")]
+    MissingMono,
 }
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -41,7 +45,7 @@ pub type Result<T> = std::result::Result<T, Error>;
 extern crate thiserror;
 
 mod webview2_path {
-    use std::{convert::From, env, path::PathBuf, process::Command};
+    use std::{convert::From, env, path::PathBuf};
 
     pub fn get_out_dir() -> super::Result<PathBuf> {
         Ok(PathBuf::from(env::var("OUT_DIR")?))
@@ -49,23 +53,6 @@ mod webview2_path {
 
     pub fn get_manifest_dir() -> super::Result<PathBuf> {
         Ok(PathBuf::from(env::var("CARGO_MANIFEST_DIR")?))
-    }
-
-    pub fn get_workspace_dir() -> super::Result<PathBuf> {
-        use serde::Deserialize;
-
-        #[derive(Deserialize)]
-        struct CargoMetadata {
-            workspace_root: String,
-        }
-
-        let output = Command::new(env::var("CARGO")?)
-            .args(&["metadata", "--format-version=1", "--no-deps", "--offline"])
-            .output()?;
-
-        let metadata: CargoMetadata = serde_json::from_slice(&output.stdout)?;
-
-        Ok(PathBuf::from(metadata.workspace_root))
     }
 }
 
@@ -75,7 +62,7 @@ mod webview2_nuget {
         fs,
         io::{Read, Write},
         path::{Path, PathBuf},
-        process::Command,
+        process::{Command, Output},
     };
 
     use regex::Regex;
@@ -87,12 +74,6 @@ mod webview2_nuget {
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
     const WEBVIEW2_VERSION: &str = "1.0.1072.54";
 
-    #[cfg(not(windows))]
-    pub fn install() -> super::Result<PathBuf> {
-        get_manifest_dir()
-    }
-
-    #[cfg(windows)]
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir()?;
         let install_root = match out_dir.to_str() {
@@ -113,21 +94,14 @@ mod webview2_nuget {
                 None => return Err(super::Error::MissingPath(nuget_path)),
             };
 
-            let output = Command::new(nuget_tool)
-                .args(&[
-                    "install",
-                    WEBVIEW2_NAME,
-                    "-OutputDirectory",
-                    install_root,
-                    "-Version",
-                    WEBVIEW2_VERSION,
-                    "-Source",
-                    "https://api.nuget.org/v3/index.json"
-                ])
-                .output()?;
+            let output = install_sdk_package(nuget_tool, install_root)?;
 
             if !output.status.success() {
-                return Err(super::Error::NugetCli(format!("{}\n{}", String::from_utf8_lossy(&output.stdout), String::from_utf8_lossy(&output.stderr))));
+                return Err(super::Error::NugetCli(format!(
+                    "{}\n{}",
+                    String::from_utf8_lossy(&output.stdout),
+                    String::from_utf8_lossy(&output.stderr)
+                )));
             }
 
             if !check_nuget_dir(install_root)? {
@@ -138,7 +112,6 @@ mod webview2_nuget {
         Ok(package_root)
     }
 
-    #[cfg(windows)]
     fn check_nuget_dir(install_root: &str) -> super::Result<bool> {
         let nuget_path = format!("{}.{}", WEBVIEW2_NAME, WEBVIEW2_VERSION);
         let mut dir_iter = fs::read_dir(install_root)?.filter(|dir| match dir {
@@ -158,83 +131,40 @@ mod webview2_nuget {
     }
 
     #[cfg(not(windows))]
-    pub fn update_windows(_: &Path) -> super::Result<()> {
-        Ok(())
+    fn install_sdk_package(nuget_tool: &str, install_root: &str) -> super::Result<Output> {
+        Ok(Command::new("mono")
+            .args(&[
+                nuget_tool,
+                "install",
+                WEBVIEW2_NAME,
+                "-OutputDirectory",
+                install_root,
+                "-Version",
+                WEBVIEW2_VERSION,
+                "-Source",
+                "https://api.nuget.org/v3/index.json",
+            ])
+            .output()
+            .map_err(|_| super::Error::MissingMono)?)
     }
 
     #[cfg(windows)]
-    pub fn update_windows(package_root: &Path) -> super::Result<()> {
-        const WEBVIEW2_STATIC_LIB: &str = "WebView2LoaderStatic.lib";
-        const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
-
-        let mut workspace_windows_dir = get_workspace_dir()?;
-        workspace_windows_dir.push(".windows");
-
-        let mut bindings_windows_dir = get_manifest_dir()?;
-        bindings_windows_dir.push(".windows");
-
-        let mut native_dir = package_root.to_path_buf();
-        native_dir.push("build");
-        native_dir.push("native");
-        for target in WEBVIEW2_TARGETS {
-            let mut lib_src = native_dir.clone();
-            lib_src.push(target);
-            lib_src.push(WEBVIEW2_STATIC_LIB);
-
-            let mut lib_dest = workspace_windows_dir.clone();
-            lib_dest.push(target);
-            lib_dest.push(WEBVIEW2_STATIC_LIB);
-            eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
-            fs::copy(lib_src.as_path(), lib_dest.as_path())?;
-
-            let mut lib_dest = bindings_windows_dir.clone();
-            lib_dest.push(target);
-            lib_dest.push(WEBVIEW2_STATIC_LIB);
-            eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
-            fs::copy(lib_src.as_path(), lib_dest.as_path())?;
-        }
-
-        println!("cargo:rerun-if-changed={}", bindings_windows_dir.display());
-
-        Ok(())
+    fn install_sdk_package(nuget_tool: &str, install_root: &str) -> super::Result<Output> {
+        Ok(Command::new(nuget_tool)
+            .args(&[
+                "install",
+                WEBVIEW2_NAME,
+                "-OutputDirectory",
+                install_root,
+                "-Version",
+                WEBVIEW2_VERSION,
+                "-Source",
+                "https://api.nuget.org/v3/index.json",
+            ])
+            .output()
+            .map_err(|_| super::Error::NugetCli(String::from("nuget.exe not found")))?)
     }
 
-    #[cfg(not(windows))]
-    pub fn update_rustc_flags() -> super::Result<()> {
-        Ok(())
-    }
-
-    #[cfg(windows)]
-    pub fn update_rustc_flags() -> super::Result<()> {
-        let mut lib_path = get_manifest_dir()?;
-        lib_path.push(".windows");
-
-        let target_arch = match ::std::env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
-            "x86_64" => "x64",
-            "x86" => "x86",
-            "arm" => "arm",
-            "aarch64" => "arm64",
-            unimplemented => unimplemented!(
-                "`{}` architecture set by `CARGO_CFG_TARGET_ARCH`",
-                unimplemented
-            ),
-        };
-        lib_path.push(target_arch);
-
-        match lib_path.to_str() {
-            Some(path) if lib_path.exists() => println!("cargo:rustc-link-search=native={}", path),
-            _ => unimplemented!("`{}` is not supported by WebView2", target_arch),
-        };
-
-        Ok(())
-    }
-
-    #[cfg(not(windows))]
-    pub fn update_callback_interfaces(_: &PathBuf) -> super::Result<bool> {
-        Ok(false)
-    }
-
-    #[cfg(windows)]
     pub fn update_callback_interfaces(package_root: &Path) -> super::Result<bool> {
         let interfaces = get_callback_interfaces(package_root)?;
         let declared = all_declared().into_iter().map(String::from).collect();
@@ -268,7 +198,6 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
         Ok(true)
     }
 
-    #[cfg(windows)]
     fn get_callback_interfaces(package_root: &Path) -> super::Result<BTreeSet<String>> {
         let mut include_path = package_root.to_path_buf();
         include_path.push("build");
@@ -293,6 +222,35 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
     }
 }
 
+mod webview2_link {
+    use std::{env, path::Path};
+
+    pub fn update_rustc_flags(package_root: &Path) -> super::Result<()> {
+        let mut lib_path = package_root.to_path_buf();
+        lib_path.push("build");
+        lib_path.push("native");
+
+        let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
+            "x86_64" => "x64",
+            "x86" => "x86",
+            "arm" => "arm",
+            "aarch64" => "arm64",
+            unimplemented => unimplemented!(
+                "`{}` architecture set by `CARGO_CFG_TARGET_ARCH`",
+                unimplemented
+            ),
+        };
+        lib_path.push(target_arch);
+
+        match lib_path.to_str() {
+            Some(path) if lib_path.exists() => println!("cargo:rustc-link-search=native={}", path),
+            _ => unimplemented!("`{}` is not supported by WebView2", target_arch),
+        };
+
+        Ok(())
+    }
+}
+
 mod webview2_bindgen {
     use std::{
         fs,
@@ -300,16 +258,12 @@ mod webview2_bindgen {
         path::{Path, PathBuf},
     };
 
+    use regex::Regex;
+
     use windows_bindgen::{gen_namespace, Gen};
 
     use super::webview2_path::*;
 
-    #[cfg(not(windows))]
-    pub fn update_bindings() -> super::Result<bool> {
-        Ok(false)
-    }
-
-    #[cfg(windows)]
     pub fn update_bindings() -> super::Result<bool> {
         let source_path = generate_bindings()?;
         format_bindings(&source_path)?;
@@ -332,7 +286,6 @@ mod webview2_bindgen {
         }
     }
 
-    #[cfg(windows)]
     fn generate_bindings() -> super::Result<PathBuf> {
         let mut source_path = get_out_dir()?;
         source_path.push("mod.rs");
@@ -341,11 +294,18 @@ mod webview2_bindgen {
             namespace: "Microsoft.Web.WebView2.Win32",
             ..Default::default()
         };
-        source_file.write_all(gen_namespace(&gen).as_bytes())?;
+        source_file.write_all(patch_bindings(gen_namespace(&gen))?.as_bytes())?;
         Ok(source_path)
     }
 
-    #[cfg(windows)]
+    fn patch_bindings(bindings: String) -> super::Result<String> {
+        let pattern = Regex::new(
+            r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"WebView2LoaderStatic"\s*,\s*kind\s*=\s*"static"\s*\)\s*\]"#,
+        )?;
+        let replacement = r#"#[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))] #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]"#;
+        Ok(pattern.replace_all(&bindings, replacement).to_string())
+    }
+
     fn format_bindings(source_path: &Path) -> super::Result<()> {
         let mut cmd = ::std::process::Command::new("rustfmt");
         cmd.arg(&source_path);
@@ -353,7 +313,6 @@ mod webview2_bindgen {
         Ok(())
     }
 
-    #[cfg(windows)]
     fn read_bindings(source_path: &Path) -> super::Result<String> {
         let mut source_file = fs::File::open(source_path)?;
         let mut updated = String::default();
