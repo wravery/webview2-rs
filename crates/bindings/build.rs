@@ -1,15 +1,24 @@
 extern crate windows_bindgen;
 
 fn main() -> Result<()> {
+    #[cfg(feature = "nuget")]
     match webview2_nuget::install() {
         Ok(package_root) => {
+            webview2_nuget::update_libs(&package_root)?;
             webview2_nuget::update_callback_interfaces(&package_root)?;
-            webview2_link::update_rustc_flags(&package_root)?;
+
+            let mut lib_path = package_root.to_path_buf();
+            lib_path.push("build");
+            lib_path.push("native");
+            webview2_link::update_rustc_flags(lib_path)?;
         }
         Err(e) => {
             panic!("{}", e.to_string());
         }
     }
+
+    #[cfg(not(feature = "nuget"))]
+    webview2_link::update_rustc_flags(webview2_path::get_manifest_dir()?)?;
 
     webview2_bindgen::update_bindings()?;
 
@@ -165,6 +174,40 @@ mod webview2_nuget {
             .map_err(|_| super::Error::NugetCli(String::from("nuget.exe not found")))?)
     }
 
+    #[cfg(feature = "nuget")]
+    pub fn update_libs(package_root: &Path) -> super::Result<()> {
+        const WEBVIEW2_LIBS: &[&str] = &[
+            "WebView2Loader.dll",
+            "WebView2Loader.dll.lib",
+            "WebView2LoaderStatic.lib",
+        ];
+        const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
+
+        let mut native_dir = package_root.to_path_buf();
+        native_dir.push("build");
+        native_dir.push("native");
+        let manifest_dir = get_manifest_dir()?;
+        for target in WEBVIEW2_TARGETS {
+            for lib in WEBVIEW2_LIBS {
+                let mut lib_src = native_dir.clone();
+                lib_src.push(target);
+                lib_src.push(lib);
+
+                let mut lib_dest = manifest_dir.clone();
+                lib_dest.push(target);
+                if !lib_dest.is_dir() {
+                    fs::create_dir(lib_dest.as_path())?;
+                }
+
+                lib_dest.push(lib);
+                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
+                fs::copy(lib_src.as_path(), lib_dest.as_path())?;
+            }
+        }
+
+        Ok(())
+    }
+
     pub fn update_callback_interfaces(package_root: &Path) -> super::Result<bool> {
         let interfaces = get_callback_interfaces(package_root)?;
         let declared = all_declared().into_iter().map(String::from).collect();
@@ -223,13 +266,9 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
 }
 
 mod webview2_link {
-    use std::{env, path::Path};
+    use std::{env, path::PathBuf};
 
-    pub fn update_rustc_flags(package_root: &Path) -> super::Result<()> {
-        let mut lib_path = package_root.to_path_buf();
-        lib_path.push("build");
-        lib_path.push("native");
-
+    pub fn update_rustc_flags(lib_path: PathBuf) -> super::Result<()> {
         let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
             "x86_64" => "x64",
             "x86" => "x86",
@@ -240,6 +279,7 @@ mod webview2_link {
                 unimplemented
             ),
         };
+        let mut lib_path = lib_path;
         lib_path.push(target_arch);
 
         match lib_path.to_str() {
@@ -303,7 +343,10 @@ mod webview2_bindgen {
         let pattern = Regex::new(
             r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"WebView2LoaderStatic"\s*,\s*kind\s*=\s*"static"\s*\)\s*\]"#,
         )?;
-        let replacement = r#"#[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))] #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]"#;
+        let replacement = r#"
+            #[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))]
+            #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]
+        "#;
         Ok(pattern.replace_all(&bindings, replacement).to_string())
     }
 

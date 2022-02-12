@@ -59,7 +59,7 @@ impl<'a> InvokeArg<'a> for PWSTR {
     type Input = Self;
 
     fn convert(input: PWSTR) -> String {
-        string_from_pwstr(input)
+        string_from_pwstr(&input)
     }
 }
 
