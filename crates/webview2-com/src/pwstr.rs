@@ -1,30 +1,29 @@
 use std::{mem, ptr};
 
-use windows::Win32::{Foundation::PWSTR, System::Com};
+use windows::Win32::{Foundation::PWSTR, Globalization::lstrlenW, System::Com};
 
 /// Copy a [`PWSTR`] from an input param to a [`String`].
-pub fn string_from_pwstr(source: PWSTR) -> String {
+pub fn string_from_pwstr(source: &PWSTR) -> String {
     if source.0.is_null() {
         String::new()
     } else {
-        let mut buffer = Vec::new();
-        let mut pwz = source.0;
+        let len = unsafe { lstrlenW(source) };
 
-        unsafe {
-            while *pwz != 0 {
-                buffer.push(*pwz);
-                pwz = pwz.add(1);
+        if len > 0 {
+            unsafe {
+                let buffer = ptr::slice_from_raw_parts(source.0, len as usize);
+                String::from_utf16_lossy(&*buffer)
             }
+        } else {
+            String::new()
         }
-
-        String::from_utf16(&buffer).expect("string_from_pwstr")
     }
 }
 
 /// Copy a [`PWSTR`] allocated with [`Com::CoTaskMemAlloc`] from an input param to a [`String`]
 /// and free the original buffer with [`Com::CoTaskMemFree`].
 pub fn take_pwstr(source: PWSTR) -> String {
-    let result = string_from_pwstr(source);
+    let result = string_from_pwstr(&source);
 
     if !source.0.is_null() {
         unsafe {

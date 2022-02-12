@@ -39,7 +39,7 @@ impl CoreWebView2EnvironmentOptions {
     }
 
     fn SetAdditionalBrowserArguments(&mut self, value: PWSTR) -> Result<()> {
-        self.additional_browser_arguments = string_from_pwstr(value);
+        self.additional_browser_arguments = string_from_pwstr(&value);
         Ok(())
     }
 
@@ -49,7 +49,7 @@ impl CoreWebView2EnvironmentOptions {
     }
 
     fn SetLanguage(&mut self, value: PWSTR) -> Result<()> {
-        self.language = string_from_pwstr(value);
+        self.language = string_from_pwstr(&value);
         Ok(())
     }
 
@@ -59,7 +59,7 @@ impl CoreWebView2EnvironmentOptions {
     }
 
     fn SetTargetCompatibleBrowserVersion(&mut self, value: PWSTR) -> Result<()> {
-        self.target_compatible_browser_version = string_from_pwstr(value);
+        self.target_compatible_browser_version = string_from_pwstr(&value);
         Ok(())
     }
 
