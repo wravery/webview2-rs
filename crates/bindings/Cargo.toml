@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com-sys"
-version = "0.12.2"
+version = "0.12.3"
 edition = "2018"
 description = "Bindings generated with the windows crate for the WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"
@@ -9,6 +9,7 @@ keywords = [ "win32", "webview2" ]
 categories = [ "os::windows-apis" ]
 
 [package.metadata.docs.rs]
+no-default-features = true
 default-target = "x86_64-pc-windows-msvc"
 targets = [
     "i686-pc-windows-msvc",
