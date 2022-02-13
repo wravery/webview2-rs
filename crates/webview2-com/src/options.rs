@@ -33,6 +33,7 @@ impl Default for CoreWebView2EnvironmentOptions {
 }
 
 #[allow(non_snake_case)]
+#[allow(clippy::not_unsafe_ptr_arg_deref)]
 impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
     for CoreWebView2EnvironmentOptions
 {
