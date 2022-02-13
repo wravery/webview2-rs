@@ -2,7 +2,7 @@ use std::default::Default;
 
 use windows::{
     core::Result,
-    Win32::Foundation::{BOOL, PWSTR},
+    Win32::Foundation::{BOOL, E_POINTER, PWSTR},
 };
 
 use windows_implement::implement;
@@ -38,8 +38,12 @@ impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
     for CoreWebView2EnvironmentOptions
 {
     fn AdditionalBrowserArguments(&mut self, result: *mut PWSTR) -> Result<()> {
-        unsafe { *result = pwstr_from_str(&self.additional_browser_arguments) };
-        Ok(())
+        if result.is_null() {
+            E_POINTER.ok()
+        } else {
+            unsafe { *result = pwstr_from_str(&self.additional_browser_arguments) };
+            Ok(())
+        }
     }
 
     fn SetAdditionalBrowserArguments(&mut self, value: PWSTR) -> Result<()> {
@@ -48,8 +52,12 @@ impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
     }
 
     fn Language(&mut self, result: *mut PWSTR) -> Result<()> {
-        unsafe { *result = pwstr_from_str(&self.language) };
-        Ok(())
+        if result.is_null() {
+            E_POINTER.ok()
+        } else {
+            unsafe { *result = pwstr_from_str(&self.language) };
+            Ok(())
+        }
     }
 
     fn SetLanguage(&mut self, value: PWSTR) -> Result<()> {
@@ -58,8 +66,12 @@ impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
     }
 
     fn TargetCompatibleBrowserVersion(&mut self, result: *mut PWSTR) -> Result<()> {
-        unsafe { *result = pwstr_from_str(&self.target_compatible_browser_version) };
-        Ok(())
+        if result.is_null() {
+            E_POINTER.ok()
+        } else {
+            unsafe { *result = pwstr_from_str(&self.target_compatible_browser_version) };
+            Ok(())
+        }
     }
 
     fn SetTargetCompatibleBrowserVersion(&mut self, value: PWSTR) -> Result<()> {
@@ -68,8 +80,12 @@ impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
     }
 
     fn AllowSingleSignOnUsingOSPrimaryAccount(&mut self, result: *mut BOOL) -> Result<()> {
-        unsafe { *result = self.allow_single_sign_on_using_os_primary_account.into() };
-        Ok(())
+        if result.is_null() {
+            E_POINTER.ok()
+        } else {
+            unsafe { *result = self.allow_single_sign_on_using_os_primary_account.into() };
+            Ok(())
+        }
     }
 
     fn SetAllowSingleSignOnUsingOSPrimaryAccount(&mut self, value: BOOL) -> Result<()> {
