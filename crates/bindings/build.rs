@@ -7,7 +7,7 @@ fn main() -> Result<()> {
             webview2_nuget::update_libs(&package_root)?;
             webview2_nuget::update_callback_interfaces(&package_root)?;
 
-            let mut lib_path = package_root.to_path_buf();
+            let mut lib_path = package_root;
             lib_path.push("build");
             lib_path.push("native");
             webview2_link::update_rustc_flags(lib_path)?;
@@ -18,7 +18,10 @@ fn main() -> Result<()> {
     }
 
     #[cfg(any(doc, not(feature = "nuget")))]
-    webview2_link::update_rustc_flags(webview2_path::get_manifest_dir()?)?;
+    webview2_link::update_rustc_flags(webview2_link::output_libs(
+        webview2_path::get_manifest_dir()?,
+        webview2_path::get_out_dir()?,
+    )?)?;
 
     webview2_bindgen::update_bindings()?;
 
@@ -142,7 +145,7 @@ mod webview2_nuget {
 
     #[cfg(not(windows))]
     fn install_sdk_package(nuget_tool: &str, install_root: &str) -> super::Result<Output> {
-        Ok(Command::new("mono")
+        Command::new("mono")
             .args(&[
                 nuget_tool,
                 "install",
@@ -155,12 +158,12 @@ mod webview2_nuget {
                 "https://api.nuget.org/v3/index.json",
             ])
             .output()
-            .map_err(|_| super::Error::MissingMono)?)
+            .map_err(|_| super::Error::MissingMono)
     }
 
     #[cfg(windows)]
     fn install_sdk_package(nuget_tool: &str, install_root: &str) -> super::Result<Output> {
-        Ok(Command::new(nuget_tool)
+        Command::new(nuget_tool)
             .args(&[
                 "install",
                 WEBVIEW2_NAME,
@@ -172,7 +175,7 @@ mod webview2_nuget {
                 "https://api.nuget.org/v3/index.json",
             ])
             .output()
-            .map_err(|_| super::Error::NugetCli(String::from("nuget.exe not found")))?)
+            .map_err(|_| super::Error::NugetCli(String::from("nuget.exe not found")))
     }
 
     pub fn update_libs(package_root: &Path) -> super::Result<()> {
@@ -267,6 +270,38 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
 
 mod webview2_link {
     use std::{env, path::PathBuf};
+
+    #[cfg(any(doc, not(feature = "nuget")))]
+    pub fn output_libs(manifest_dir: PathBuf, out_dir: PathBuf) -> super::Result<PathBuf> {
+        const WEBVIEW2_LIBS: &[&str] = &[
+            "WebView2Loader.dll",
+            "WebView2Loader.dll.lib",
+            "WebView2LoaderStatic.lib",
+        ];
+        const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
+
+        for target in WEBVIEW2_TARGETS {
+            for lib in WEBVIEW2_LIBS {
+                use std::fs;
+
+                let mut lib_src = manifest_dir.clone();
+                lib_src.push(target);
+                lib_src.push(lib);
+
+                let mut lib_dest = out_dir.clone();
+                lib_dest.push(target);
+                if !lib_dest.is_dir() {
+                    fs::create_dir(lib_dest.as_path())?;
+                }
+
+                lib_dest.push(lib);
+                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
+                fs::copy(lib_src.as_path(), lib_dest.as_path())?;
+            }
+        }
+
+        Ok(out_dir)
+    }
 
     pub fn update_rustc_flags(lib_path: PathBuf) -> super::Result<()> {
         let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
