@@ -414,7 +414,7 @@ mod test {
 
     use regex::Regex;
 
-    use crate::callback_interfaces;
+    use webview2_com_sys::callback_interfaces;
 
     #[test]
     fn all_implemented() {

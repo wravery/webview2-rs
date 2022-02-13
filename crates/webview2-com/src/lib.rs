@@ -1,5 +1,5 @@
 extern crate webview2_com_sys;
-pub use webview2_com_sys::*;
+pub use webview2_com_sys::Microsoft;
 
 #[macro_use]
 extern crate webview2_com_macros;

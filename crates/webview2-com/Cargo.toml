@@ -12,12 +12,13 @@ categories = [ "os::windows-apis" ]
 default-target = "x86_64-pc-windows-msvc"
 targets = [
     "i686-pc-windows-msvc",
+    "aarch64-pc-windows-msvc",
     "x86_64-pc-windows-gnu",
     "i686-pc-windows-gnu",
 ]
 
 [dependencies]
-webview2-com-sys = "0.13.0"
+webview2-com-sys = { version = "0.13.0", default-features = false }
 webview2-com-macros = "0.6.0"
 windows-implement = "0.32.0"
 
