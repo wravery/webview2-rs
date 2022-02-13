@@ -1,6 +1,5 @@
 extern crate webview2_com_sys;
-pub use webview2_com_sys::*;
-pub(crate) use windows as Windows;
+pub use webview2_com_sys::Microsoft;
 
 #[macro_use]
 extern crate webview2_com_macros;
@@ -11,6 +10,7 @@ mod pwstr;
 
 use std::{fmt, sync::mpsc};
 
+pub(crate) use windows as Windows;
 use windows::{
     core::HRESULT,
     Win32::{

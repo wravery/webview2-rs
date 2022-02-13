@@ -1,7 +1,7 @@
 extern crate windows_bindgen;
 
 fn main() -> Result<()> {
-    #[cfg(feature = "nuget")]
+    #[cfg(all(not(doc), feature = "nuget"))]
     match webview2_nuget::install() {
         Ok(package_root) => {
             webview2_nuget::update_libs(&package_root)?;
@@ -17,7 +17,7 @@ fn main() -> Result<()> {
         }
     }
 
-    #[cfg(not(feature = "nuget"))]
+    #[cfg(any(doc, not(feature = "nuget")))]
     webview2_link::update_rustc_flags(webview2_path::get_manifest_dir()?)?;
 
     webview2_bindgen::update_bindings()?;
@@ -65,6 +65,7 @@ mod webview2_path {
     }
 }
 
+#[cfg(all(not(doc), feature = "nuget"))]
 mod webview2_nuget {
     use std::{
         convert::From,
@@ -174,7 +175,6 @@ mod webview2_nuget {
             .map_err(|_| super::Error::NugetCli(String::from("nuget.exe not found")))?)
     }
 
-    #[cfg(feature = "nuget")]
     pub fn update_libs(package_root: &Path) -> super::Result<()> {
         const WEBVIEW2_LIBS: &[&str] = &[
             "WebView2Loader.dll",
