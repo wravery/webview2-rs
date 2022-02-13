@@ -408,7 +408,7 @@ pub struct GetCookiesCompletedHandler(
 #[completed_callback]
 pub struct TrySuspendCompletedHandler(ICoreWebView2TrySuspendCompletedHandler, HRESULT, BOOL);
 
-#[cfg(all(test, windows))]
+#[cfg(test)]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
 
