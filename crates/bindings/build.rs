@@ -85,7 +85,7 @@ mod webview2_nuget {
     include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.1072.54";
+    const WEBVIEW2_VERSION: &str = "1.0.1108.44";
 
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir()?;

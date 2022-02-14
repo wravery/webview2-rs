@@ -25,9 +25,14 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2EstimatedEndTimeChangedEventHandler");
     interfaces.insert("ICoreWebView2ExecuteScriptCompletedHandler");
     interfaces.insert("ICoreWebView2FocusChangedEventHandler");
+    interfaces.insert("ICoreWebView2FrameContentLoadingEventHandler");
     interfaces.insert("ICoreWebView2FrameCreatedEventHandler");
+    interfaces.insert("ICoreWebView2FrameDOMContentLoadedEventHandler");
     interfaces.insert("ICoreWebView2FrameDestroyedEventHandler");
     interfaces.insert("ICoreWebView2FrameNameChangedEventHandler");
+    interfaces.insert("ICoreWebView2FrameNavigationCompletedEventHandler");
+    interfaces.insert("ICoreWebView2FrameNavigationStartingEventHandler");
+    interfaces.insert("ICoreWebView2FrameWebMessageReceivedEventHandler");
     interfaces.insert("ICoreWebView2GetCookiesCompletedHandler");
     interfaces.insert("ICoreWebView2HistoryChangedEventHandler");
     interfaces.insert("ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler");
@@ -41,6 +46,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2PermissionRequestedEventHandler");
     interfaces.insert("ICoreWebView2PrintToPdfCompletedHandler");
     interfaces.insert("ICoreWebView2ProcessFailedEventHandler");
+    interfaces.insert("ICoreWebView2ProcessInfosChangedEventHandler");
     interfaces.insert("ICoreWebView2RasterizationScaleChangedEventHandler");
     interfaces.insert("ICoreWebView2ScriptDialogOpeningEventHandler");
     interfaces.insert("ICoreWebView2SourceChangedEventHandler");
