@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com"
-version = "0.13.0"
+version = "0.14.0"
 edition = "2018"
 description = "Rust bindings for the WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"
@@ -18,7 +18,7 @@ targets = [
 ]
 
 [dependencies]
-webview2-com-sys = { version = "0.13.0", default-features = false }
+webview2-com-sys = { version = "0.14.0", default-features = false }
 webview2-com-macros = "0.6.0"
 windows-implement = "0.32.0"
 

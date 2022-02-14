@@ -176,6 +176,13 @@ pub struct AcceleratorKeyPressedEventHandler(
 );
 
 #[event_callback]
+pub struct ProcessInfosChangedEventHandler(
+    ICoreWebView2ProcessInfosChangedEventHandler,
+    Option<ICoreWebView2Environment>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
 pub struct RasterizationScaleChangedEventHandler(
     ICoreWebView2RasterizationScaleChangedEventHandler,
     Option<ICoreWebView2Controller>,
@@ -371,10 +378,24 @@ pub struct DevToolsProtocolEventReceivedEventHandler(
 );
 
 #[event_callback]
+pub struct FrameContentLoadingEventHandler(
+    ICoreWebView2FrameContentLoadingEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2ContentLoadingEventArgs>,
+);
+
+#[event_callback]
 pub struct FrameCreatedEventHandler(
     ICoreWebView2FrameCreatedEventHandler,
     Option<ICoreWebView2>,
     Option<ICoreWebView2FrameCreatedEventArgs>,
+);
+
+#[event_callback]
+pub struct FrameDOMContentLoadedEventHandler(
+    ICoreWebView2FrameDOMContentLoadedEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2DOMContentLoadedEventArgs>,
 );
 
 #[event_callback]
@@ -396,6 +417,27 @@ pub struct ClientCertificateRequestedEventHandler(
     ICoreWebView2ClientCertificateRequestedEventHandler,
     Option<ICoreWebView2>,
     Option<ICoreWebView2ClientCertificateRequestedEventArgs>,
+);
+
+#[completed_callback]
+pub struct FrameNavigationCompletedEventHandler(
+    ICoreWebView2FrameNavigationCompletedEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2NavigationCompletedEventArgs>,
+);
+
+#[event_callback]
+pub struct FrameNavigationStartingEventHandler(
+    ICoreWebView2FrameNavigationStartingEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2NavigationStartingEventArgs>,
+);
+
+#[event_callback]
+pub struct FrameWebMessageReceivedEventHandler(
+    ICoreWebView2FrameWebMessageReceivedEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2WebMessageReceivedEventArgs>,
 );
 
 #[completed_callback]
