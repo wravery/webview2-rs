@@ -1,19 +1,11 @@
-use std::sync::mpsc;
-
 use windows::{
-    core::{IUnknown, Interface, HRESULT},
-    Win32::{
-        Foundation::{BOOL, PWSTR},
-        System::Com::IStream,
-    },
+    core::{IUnknown, Interface, HRESULT, PCWSTR},
+    Win32::{Foundation::BOOL, System::Com::IStream},
 };
 
 use windows_implement::implement;
 
-use crate::{
-    pwstr::string_from_pwstr,
-    Microsoft::{self, Web::WebView2::Win32::*},
-};
+use crate::{pwstr::string_from_pcwstr, Microsoft::Web::WebView2::Win32::*};
 
 pub trait ClosureArg {
     type Output: Sized;
@@ -51,15 +43,15 @@ impl<'a> InvokeArg<'a> for BOOL {
     }
 }
 
-impl ClosureArg for PWSTR {
+impl ClosureArg for PCWSTR {
     type Output = String;
 }
 
-impl<'a> InvokeArg<'a> for PWSTR {
-    type Input = Self;
+impl<'a> InvokeArg<'a> for PCWSTR {
+    type Input = &'a Self;
 
-    fn convert(input: PWSTR) -> String {
-        string_from_pwstr(&input)
+    fn convert(input: &PCWSTR) -> String {
+        string_from_pcwstr(input)
     }
 }
 
@@ -259,14 +251,14 @@ pub struct PrintToPdfCompletedHandler(ICoreWebView2PrintToPdfCompletedHandler, H
 pub struct AddScriptToExecuteOnDocumentCreatedCompletedHandler(
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
     HRESULT,
-    PWSTR,
+    PCWSTR,
 );
 
 #[completed_callback]
 pub struct ExecuteScriptCompletedHandler(
     ICoreWebView2ExecuteScriptCompletedHandler,
     HRESULT,
-    PWSTR,
+    PCWSTR,
 );
 
 #[completed_callback]
@@ -283,7 +275,7 @@ pub struct WebMessageReceivedEventHandler(
 pub struct CallDevToolsProtocolMethodCompletedHandler(
     ICoreWebView2CallDevToolsProtocolMethodCompletedHandler,
     HRESULT,
-    PWSTR,
+    PCWSTR,
 );
 
 #[event_callback]

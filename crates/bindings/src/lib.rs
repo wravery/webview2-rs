@@ -13,8 +13,6 @@ pub mod Microsoft {
     }
 }
 
-pub(crate) use ::windows as Windows;
-
 pub mod callback_interfaces;
 
 #[cfg(test)]

@@ -19,7 +19,7 @@ Most of the code added by this crate consists of convenience types to implement 
 - [options.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/options.rs): Implements the `ICoreWebView2EnvironmentOptions` interface which is passed to `CreateCoreWebView2EnvironmentWithOptions` if you want to customize the environment.
 
 There are also some utilities for dealing with `PWSTR` in/out-params that may be useful:
-- [pwstr.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/pwstr.rs): `string_from_pwstr`, `take_pwstr`, and `pwstr_from_str`.
+- [pwstr.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/pwstr.rs): `string_from_pcwstr`, `take_pwstr`, and `pwstr_from_str`.
 
 ## Windows Metadata
 The Windows crate requires a Windows Metadata (`winmd`) file describing the API. The one used in this crate was generated with the [webview2-win32md](https://github.com/wravery/webview2-win32md) project. This crate needs it to use the `#[implement]` macro from the Windows crate. 

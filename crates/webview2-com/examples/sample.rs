@@ -17,7 +17,7 @@ use serde_json::{Number, Value};
 use windows::{
     core::*,
     Win32::{
-        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, PSTR, PWSTR, RECT, SIZE, WPARAM},
+        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, RECT, SIZE, WPARAM},
         Graphics::Gdi,
         System::{Com::*, LibraryLoader, Threading, WinRT::EventRegistrationToken},
         UI::{
@@ -142,7 +142,7 @@ impl FrameWindow {
             let c_class_name = CString::new(class_name).expect("lpszClassName");
             let window_class = WNDCLASSA {
                 lpfnWndProc: Some(window_proc),
-                lpszClassName: PSTR(c_class_name.as_ptr() as *mut _),
+                lpszClassName: PCSTR(c_class_name.as_ptr() as *mut _),
                 ..WNDCLASSA::default()
             };
 

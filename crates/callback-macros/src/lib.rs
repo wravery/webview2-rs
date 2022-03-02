@@ -81,14 +81,14 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             type #closure = CompletedClosure<#arg_1, #arg_2>;
 
             #[doc = #msg]
-            #[implement(Microsoft::Web::WebView2::Win32::#interface)]
-            #vis struct #name(Option<#closure>);
+            #[implement(#interface)]
+            #vis struct #name(::std::sync::Mutex<Option<#closure>>);
 
             impl #name {
                 pub fn create(
                     closure: #closure,
                 ) -> #interface {
-                    Self(Some(closure)).into()
+                    Self(::std::sync::Mutex::new(Some(closure))).into()
                 }
 
                 pub fn wait_for_async_operation(
@@ -97,7 +97,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     >,
                     completed: #closure,
                 ) -> crate::Result<()> {
-                    let (tx, rx) = mpsc::channel();
+                    let (tx, rx) = ::std::sync::mpsc::channel();
                     let completed: #closure =
                         Box::new(move |arg_1, arg_2| -> ::windows::core::Result<()> {
                             let result = completed(arg_1, arg_2).map_err(crate::Error::WindowsError);
@@ -114,11 +114,11 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             #[allow(non_snake_case)]
             impl #interface_impl for #name {
                 fn Invoke<'a>(
-                    &mut self,
+                    &self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                     arg_2: <#arg_2 as InvokeArg<'a>>::Input,
                 ) -> ::windows::core::Result<()> {
-                    match self.0.take() {
+                    match self.0.lock().expect("lock callback").take() {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                             <#arg_2 as InvokeArg<'a>>::convert(arg_2),
@@ -132,14 +132,14 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             type #closure = Box<dyn FnOnce(<#arg_1 as ClosureArg>::Output) -> ::windows::core::Result<()>>;
 
             #[doc = #msg]
-            #[implement(Microsoft::Web::WebView2::Win32::#interface)]
-            #vis struct #name(Option<#closure>);
+            #[implement(#interface)]
+            #vis struct #name(::std::sync::Mutex<Option<#closure>>);
 
             impl #name {
                 pub fn create(
                     closure: #closure,
                 ) -> #interface {
-                    Self(Some(closure)).into()
+                    Self(::std::sync::Mutex::new(Some(closure))).into()
                 }
 
                 pub fn wait_for_async_operation(
@@ -148,7 +148,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     >,
                     completed: #closure,
                 ) -> crate::Result<()> {
-                    let (tx, rx) = mpsc::channel();
+                    let (tx, rx) = ::std::sync::mpsc::channel();
                     let completed: #closure =
                         Box::new(move |arg_1| -> ::windows::core::Result<()> {
                             let result = completed(arg_1).map_err(crate::Error::WindowsError);
@@ -165,10 +165,10 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             #[allow(non_snake_case)]
             impl #interface_impl for #name {
                 fn Invoke<'a>(
-                    &mut self,
+                    &self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                 ) -> ::windows::core::Result<()> {
-                    match self.0.take() {
+                    match self.0.lock().expect("lock callback").take() {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                         ),
@@ -216,25 +216,25 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
         type #closure = EventClosure<#arg_1, #arg_2>;
 
         #[doc = #msg]
-        #[implement(Microsoft::Web::WebView2::Win32::#interface)]
-        #vis struct #name(#closure);
+        #[implement(#interface)]
+        #vis struct #name(::std::sync::Mutex<#closure>);
 
         impl #name {
             pub fn create(
                 closure: #closure,
             ) -> #interface {
-                Self(closure).into()
+                Self(::std::sync::Mutex::new(closure)).into()
             }
         }
 
         #[allow(non_snake_case)]
         impl #interface_impl for  #name {
             fn Invoke<'a>(
-                &mut self,
+                &self,
                 arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                 arg_2: <#arg_2 as InvokeArg<'a>>::Input,
             ) -> ::windows::core::Result<()> {
-                self.0(
+                self.0.lock().expect("lock callback")(
                     <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                     <#arg_2 as InvokeArg<'a>>::convert(arg_2),
                 )
