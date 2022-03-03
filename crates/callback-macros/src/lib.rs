@@ -82,13 +82,13 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
 
             #[doc = #msg]
             #[implement(#interface)]
-            #vis struct #name(::std::sync::Mutex<Option<#closure>>);
+            #vis struct #name(::std::cell::UnsafeCell<Option<#closure>>);
 
             impl #name {
                 pub fn create(
                     closure: #closure,
                 ) -> #interface {
-                    Self(::std::sync::Mutex::new(Some(closure))).into()
+                    Self(Some(closure).into()).into()
                 }
 
                 pub fn wait_for_async_operation(
@@ -118,7 +118,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                     arg_2: <#arg_2 as InvokeArg<'a>>::Input,
                 ) -> ::windows::core::Result<()> {
-                    match self.0.lock().expect("lock callback").take() {
+                    match unsafe { (*self.0.get()).take() } {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                             <#arg_2 as InvokeArg<'a>>::convert(arg_2),
@@ -133,13 +133,13 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
 
             #[doc = #msg]
             #[implement(#interface)]
-            #vis struct #name(::std::sync::Mutex<Option<#closure>>);
+            #vis struct #name(::std::cell::UnsafeCell<Option<#closure>>);
 
             impl #name {
                 pub fn create(
                     closure: #closure,
                 ) -> #interface {
-                    Self(::std::sync::Mutex::new(Some(closure))).into()
+                    Self(Some(closure).into()).into()
                 }
 
                 pub fn wait_for_async_operation(
@@ -168,7 +168,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     &self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                 ) -> ::windows::core::Result<()> {
-                    match self.0.lock().expect("lock callback").take() {
+                    match unsafe { (*self.0.get()).take() } {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                         ),
@@ -217,13 +217,13 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
 
         #[doc = #msg]
         #[implement(#interface)]
-        #vis struct #name(::std::sync::Mutex<#closure>);
+        #vis struct #name(::std::cell::UnsafeCell<#closure>);
 
         impl #name {
             pub fn create(
                 closure: #closure,
             ) -> #interface {
-                Self(::std::sync::Mutex::new(closure)).into()
+                Self(closure.into()).into()
             }
         }
 
@@ -234,10 +234,10 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
                 arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                 arg_2: <#arg_2 as InvokeArg<'a>>::Input,
             ) -> ::windows::core::Result<()> {
-                self.0.lock().expect("lock callback")(
+                unsafe { (*self.0.get())(
                     <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                     <#arg_2 as InvokeArg<'a>>::convert(arg_2),
-                )
+                ) }
             }
         }
     };

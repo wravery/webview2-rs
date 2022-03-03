@@ -1,4 +1,4 @@
-use std::{default::Default, sync::Mutex};
+use std::{cell::UnsafeCell, default::Default};
 
 use windows::{
     core::{Result, PCWSTR, PWSTR},
@@ -9,56 +9,49 @@ use windows_implement::implement;
 
 use crate::{
     pwstr::{pwstr_from_str, string_from_pcwstr},
-    Microsoft,
+    Microsoft::Web::WebView2::Win32::{
+        ICoreWebView2EnvironmentOptions, ICoreWebView2EnvironmentOptions_Impl,
+        CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
+    },
 };
 
-#[implement(Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions)]
+#[implement(ICoreWebView2EnvironmentOptions)]
 pub struct CoreWebView2EnvironmentOptions {
-    additional_browser_arguments: Mutex<String>,
-    language: Mutex<String>,
-    target_compatible_browser_version: Mutex<String>,
-    allow_single_sign_on_using_os_primary_account: Mutex<bool>,
+    additional_browser_arguments: UnsafeCell<String>,
+    language: UnsafeCell<String>,
+    target_compatible_browser_version: UnsafeCell<String>,
+    allow_single_sign_on_using_os_primary_account: UnsafeCell<bool>,
 }
 
 impl Default for CoreWebView2EnvironmentOptions {
     fn default() -> Self {
         Self {
-            additional_browser_arguments: Mutex::new(String::new()),
-            language: Mutex::new(String::new()),
-            target_compatible_browser_version: Mutex::new(
-                Microsoft::Web::WebView2::Win32::CORE_WEBVIEW_TARGET_PRODUCT_VERSION.into(),
-            ),
-            allow_single_sign_on_using_os_primary_account: Mutex::new(false),
+            additional_browser_arguments: String::new().into(),
+            language: String::new().into(),
+            target_compatible_browser_version: CORE_WEBVIEW_TARGET_PRODUCT_VERSION
+                .to_string()
+                .into(),
+            allow_single_sign_on_using_os_primary_account: false.into(),
         }
     }
 }
 
 #[allow(non_snake_case)]
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
-impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
-    for CoreWebView2EnvironmentOptions
-{
+impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
     fn AdditionalBrowserArguments(&self, result: *mut PWSTR) -> Result<()> {
         if result.is_null() {
             E_POINTER.ok()
         } else {
             unsafe {
-                *result = pwstr_from_str(
-                    self.additional_browser_arguments
-                        .lock()
-                        .expect("lock additional_browser_arguments")
-                        .as_str(),
-                )
+                *result = pwstr_from_str((*self.additional_browser_arguments.get()).as_str())
             };
             Ok(())
         }
     }
 
     fn SetAdditionalBrowserArguments(&self, value: &PCWSTR) -> Result<()> {
-        *self
-            .additional_browser_arguments
-            .lock()
-            .expect("lock additional_browser_arguments") = string_from_pcwstr(value);
+        unsafe { *self.additional_browser_arguments.get() = string_from_pcwstr(value) };
         Ok(())
     }
 
@@ -66,15 +59,13 @@ impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe {
-                *result = pwstr_from_str(self.language.lock().expect("lock language").as_str())
-            };
+            unsafe { *result = pwstr_from_str((*self.language.get()).as_str()) };
             Ok(())
         }
     }
 
     fn SetLanguage(&self, value: &PCWSTR) -> Result<()> {
-        *self.language.lock().expect("lock language") = string_from_pcwstr(value);
+        unsafe { *self.language.get() = string_from_pcwstr(value) };
         Ok(())
     }
 
@@ -83,22 +74,14 @@ impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
             E_POINTER.ok()
         } else {
             unsafe {
-                *result = pwstr_from_str(
-                    self.target_compatible_browser_version
-                        .lock()
-                        .expect("lock target_compatible_browser_version")
-                        .as_str(),
-                )
+                *result = pwstr_from_str((*self.target_compatible_browser_version.get()).as_str())
             };
             Ok(())
         }
     }
 
     fn SetTargetCompatibleBrowserVersion(&self, value: &PCWSTR) -> Result<()> {
-        *self
-            .target_compatible_browser_version
-            .lock()
-            .expect("lock target_compatible_browser_version") = string_from_pcwstr(value);
+        unsafe { *self.target_compatible_browser_version.get() = string_from_pcwstr(value) };
         Ok(())
     }
 
@@ -106,22 +89,15 @@ impl Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions_Impl
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe {
-                *result = (*self
-                    .allow_single_sign_on_using_os_primary_account
-                    .lock()
-                    .expect("lock allow_single_sign_on_using_os_primary_account"))
-                .into()
-            };
+            unsafe { *result = (*self.allow_single_sign_on_using_os_primary_account.get()).into() };
             Ok(())
         }
     }
 
     fn SetAllowSingleSignOnUsingOSPrimaryAccount(&self, value: BOOL) -> Result<()> {
-        *self
-            .allow_single_sign_on_using_os_primary_account
-            .lock()
-            .expect("lock allow_single_sign_on_using_os_primary_account") = value.into();
+        unsafe {
+            *self.allow_single_sign_on_using_os_primary_account.get() = value.into();
+        }
         Ok(())
     }
 }
@@ -131,7 +107,10 @@ mod test {
     use std::ptr;
 
     use crate::{
-        pwstr::take_pwstr, Microsoft::Web::WebView2::Win32::ICoreWebView2EnvironmentOptions,
+        pwstr::take_pwstr,
+        Microsoft::Web::WebView2::Win32::{
+            ICoreWebView2EnvironmentOptions, CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
+        },
     };
 
     use super::*;
@@ -170,19 +149,13 @@ mod test {
         let mut result = PWSTR(ptr::null_mut::<u16>());
         unsafe { options.TargetCompatibleBrowserVersion(&mut result) }.unwrap();
         let result = take_pwstr(result);
-        assert_eq!(
-            &result,
-            Microsoft::Web::WebView2::Win32::CORE_WEBVIEW_TARGET_PRODUCT_VERSION
-        );
+        assert_eq!(&result, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
     }
 
     #[test]
     fn override_version() {
         const OVERRIDE_VERSION: &str = "FakeVersion";
-        assert_ne!(
-            OVERRIDE_VERSION,
-            Microsoft::Web::WebView2::Win32::CORE_WEBVIEW_TARGET_PRODUCT_VERSION
-        );
+        assert_ne!(OVERRIDE_VERSION, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
         let options: ICoreWebView2EnvironmentOptions =
             CoreWebView2EnvironmentOptions::default().into();
         unsafe {
