@@ -442,6 +442,13 @@ pub struct GetCookiesCompletedHandler(
 #[completed_callback]
 pub struct TrySuspendCompletedHandler(ICoreWebView2TrySuspendCompletedHandler, HRESULT, BOOL);
 
+#[event_callback]
+pub struct BasicAuthenticationRequestedEventHandler(
+    ICoreWebView2BasicAuthenticationRequestedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2BasicAuthenticationRequestedEventArgs>,
+);
+
 #[cfg(test)]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
