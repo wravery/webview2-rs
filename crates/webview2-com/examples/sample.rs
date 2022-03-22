@@ -95,7 +95,7 @@ impl From<windows::core::Error> for Error {
 
 impl From<HRESULT> for Error {
     fn from(err: HRESULT) -> Self {
-        Self::WindowsError(windows::core::Error::fast_error(err))
+        Self::WindowsError(windows::core::Error::from(err))
     }
 }
 
@@ -226,7 +226,7 @@ impl WebView {
                 }),
                 Box::new(move |error_code, environment| {
                     error_code?;
-                    tx.send(environment.ok_or_else(|| windows::core::Error::fast_error(E_POINTER)))
+                    tx.send(environment.ok_or_else(|| windows::core::Error::from(E_POINTER)))
                         .expect("send over mpsc channel");
                     Ok(())
                 }),
@@ -247,7 +247,7 @@ impl WebView {
                 }),
                 Box::new(move |error_code, controller| {
                     error_code?;
-                    tx.send(controller.ok_or_else(|| windows::core::Error::fast_error(E_POINTER)))
+                    tx.send(controller.ok_or_else(|| windows::core::Error::from(E_POINTER)))
                         .expect("send over mpsc channel");
                     Ok(())
                 }),

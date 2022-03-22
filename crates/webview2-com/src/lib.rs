@@ -44,7 +44,7 @@ impl From<windows::core::Error> for Error {
 
 impl From<HRESULT> for Error {
     fn from(err: HRESULT) -> Self {
-        Self::WindowsError(windows::core::Error::fast_error(err))
+        Self::WindowsError(windows::core::Error::from(err))
     }
 }
 
