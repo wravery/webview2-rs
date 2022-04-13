@@ -1,7 +1,7 @@
 [package]
 name = "webview2-com"
 version = "0.16.0"
-edition = "2018"
+edition = "2021"
 rust-version = "1.61"
 description = "Rust bindings for the WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"
