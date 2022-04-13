@@ -2046,7 +2046,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Settings: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         settings: *mut ::windows::core::RawPtr,
@@ -2416,7 +2416,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2AcceleratorKeyPressedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub KeyEventKind: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         keyeventkind: *mut COREWEBVIEW2_KEY_EVENT_KIND,
@@ -2516,7 +2516,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2AcceleratorKeyPressedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -2597,7 +2597,7 @@ unsafe impl ::windows::core::Interface
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -2720,7 +2720,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2BasicAuthenticationReque
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Uri: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -2820,7 +2820,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2BasicAuthenticationReque
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -2929,7 +2929,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2BasicAuthenticationRespo
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BasicAuthenticationResponse_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub UserName: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         username: *mut ::windows::core::PWSTR,
@@ -3022,7 +3022,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2BrowserProcessExitedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub BrowserProcessExitKind: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         browserprocessexitkind: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND,
@@ -3106,7 +3106,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2BrowserProcessExitedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -3187,7 +3187,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2BytesReceivedChangedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -3264,7 +3264,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CallDevToolsProtocolMeth
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -3339,7 +3339,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CapturePreviewCompletedH
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -3480,7 +3480,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ClientCertificate_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Subject: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -3594,7 +3594,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificateCollect
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ClientCertificateCollection_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Count: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut u32,
@@ -3784,7 +3784,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificateRequest
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Host: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -3908,7 +3908,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ClientCertificateRequest
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -4069,7 +4069,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CompositionController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CompositionController_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub RootVisualTarget: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         target: *mut *mut ::core::ffi::c_void,
@@ -4114,7 +4114,7 @@ impl ICoreWebView2CompositionController2 {
     pub unsafe fn RootVisualTarget(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RootVisualTarget)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -4129,7 +4129,7 @@ impl ICoreWebView2CompositionController2 {
         target: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetRootVisualTarget)(
             ::core::mem::transmute_copy(self), target.into_param().abi()
         )
@@ -4145,7 +4145,9 @@ impl ICoreWebView2CompositionController2 {
         mousedata: u32,
         point: Param3,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SendMouseInput)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .SendMouseInput)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(eventkind),
             ::core::mem::transmute(virtualkeys),
@@ -4163,7 +4165,7 @@ impl ICoreWebView2CompositionController2 {
         pointerinfo: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SendPointerInput)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(eventkind),
@@ -4175,14 +4177,16 @@ impl ICoreWebView2CompositionController2 {
         &self,
         cursor: *mut ::windows::Win32::UI::WindowsAndMessaging::HCURSOR,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Cursor)(
+        (::windows::core::Interface::vtable(self).base__.Cursor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cursor),
         )
         .ok()
     }
     pub unsafe fn SystemCursorId(&self, systemcursorid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SystemCursorId)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .SystemCursorId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(systemcursorid),
         )
@@ -4196,7 +4200,9 @@ impl ICoreWebView2CompositionController2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CursorChanged)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .CursorChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -4211,7 +4217,7 @@ impl ICoreWebView2CompositionController2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveCursorChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -4304,7 +4310,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CompositionController2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CompositionController2_Vtbl {
-    pub base: ICoreWebView2CompositionController_Vtbl,
+    pub base__: ICoreWebView2CompositionController_Vtbl,
     pub AutomationProvider: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         provider: *mut *mut ::core::ffi::c_void,
@@ -4386,7 +4392,7 @@ unsafe impl ::windows::core::Interface
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -4464,7 +4470,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ContentLoadingEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContentLoadingEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsErrorPage: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         iserrorpage: *mut ::windows::Win32::Foundation::BOOL,
@@ -4544,7 +4550,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ContentLoadingEventHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContentLoadingEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -4738,7 +4744,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ContextMenuItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContextMenuItem_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Name: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -4888,7 +4894,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ContextMenuItemCollectio
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContextMenuItemCollection_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Count: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut u32,
@@ -5041,7 +5047,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ContextMenuRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub MenuItems: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::RawPtr,
@@ -5149,7 +5155,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ContextMenuRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -5340,7 +5346,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ContextMenuTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ContextMenuTarget_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Kind: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND,
@@ -5709,7 +5715,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Controller {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Controller_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsVisible: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         isvisible: *mut ::windows::Win32::Foundation::BOOL,
@@ -5812,7 +5818,7 @@ impl ICoreWebView2Controller2 {
         &self,
         isvisible: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsVisible)(
+        (::windows::core::Interface::vtable(self).base__.IsVisible)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isvisible),
         )
@@ -5825,7 +5831,7 @@ impl ICoreWebView2Controller2 {
         &self,
         isvisible: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetIsVisible)(
+        (::windows::core::Interface::vtable(self).base__.SetIsVisible)(
             ::core::mem::transmute_copy(self),
             isvisible.into_param().abi(),
         )
@@ -5835,7 +5841,7 @@ impl ICoreWebView2Controller2 {
         &self,
         bounds: *mut ::windows::Win32::Foundation::RECT,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Bounds)(
+        (::windows::core::Interface::vtable(self).base__.Bounds)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(bounds),
         )
@@ -5848,21 +5854,23 @@ impl ICoreWebView2Controller2 {
         &self,
         bounds: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetBounds)(
+        (::windows::core::Interface::vtable(self).base__.SetBounds)(
             ::core::mem::transmute_copy(self),
             bounds.into_param().abi(),
         )
         .ok()
     }
     pub unsafe fn ZoomFactor(&self, zoomfactor: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ZoomFactor)(
+        (::windows::core::Interface::vtable(self).base__.ZoomFactor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(zoomfactor),
         )
         .ok()
     }
     pub unsafe fn SetZoomFactor(&self, zoomfactor: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetZoomFactor)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .SetZoomFactor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(zoomfactor),
         )
@@ -5877,7 +5885,7 @@ impl ICoreWebView2Controller2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ZoomFactorChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -5893,7 +5901,7 @@ impl ICoreWebView2Controller2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveZoomFactorChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -5908,7 +5916,7 @@ impl ICoreWebView2Controller2 {
         zoomfactor: f64,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetBoundsAndZoomFactor)(
             ::core::mem::transmute_copy(self),
             bounds.into_param().abi(),
@@ -5920,7 +5928,7 @@ impl ICoreWebView2Controller2 {
         &self,
         reason: COREWEBVIEW2_MOVE_FOCUS_REASON,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.MoveFocus)(
+        (::windows::core::Interface::vtable(self).base__.MoveFocus)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(reason),
         )
@@ -5935,7 +5943,7 @@ impl ICoreWebView2Controller2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .MoveFocusRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -5951,7 +5959,7 @@ impl ICoreWebView2Controller2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveMoveFocusRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -5965,7 +5973,7 @@ impl ICoreWebView2Controller2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GotFocus)(
+        (::windows::core::Interface::vtable(self).base__.GotFocus)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -5979,10 +5987,9 @@ impl ICoreWebView2Controller2 {
         &self,
         token: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RemoveGotFocus)(
-            ::core::mem::transmute_copy(self),
-            token.into_param().abi(),
-        )
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .RemoveGotFocus)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
     pub unsafe fn LostFocus<
@@ -5993,7 +6000,7 @@ impl ICoreWebView2Controller2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.LostFocus)(
+        (::windows::core::Interface::vtable(self).base__.LostFocus)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -6008,7 +6015,7 @@ impl ICoreWebView2Controller2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveLostFocus)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -6021,7 +6028,7 @@ impl ICoreWebView2Controller2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AcceleratorKeyPressed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6037,7 +6044,7 @@ impl ICoreWebView2Controller2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveAcceleratorKeyPressed)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -6048,7 +6055,7 @@ impl ICoreWebView2Controller2 {
         &self,
         parentwindow: *mut ::windows::Win32::Foundation::HWND,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ParentWindow)(
+        (::windows::core::Interface::vtable(self).base__.ParentWindow)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(parentwindow),
         )
@@ -6062,7 +6069,7 @@ impl ICoreWebView2Controller2 {
         parentwindow: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetParentWindow)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -6071,17 +6078,17 @@ impl ICoreWebView2Controller2 {
     }
     pub unsafe fn NotifyParentWindowPositionChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NotifyParentWindowPositionChanged)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Close)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.Close)(::core::mem::transmute_copy(self))
             .ok()
     }
     pub unsafe fn CoreWebView2(&self) -> ::windows::core::Result<ICoreWebView2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CoreWebView2)(
+        (::windows::core::Interface::vtable(self).base__.CoreWebView2)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -6179,7 +6186,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Controller2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Controller2_Vtbl {
-    pub base: ICoreWebView2Controller_Vtbl,
+    pub base__: ICoreWebView2Controller_Vtbl,
     pub DefaultBackgroundColor: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         backgroundcolor: *mut COREWEBVIEW2_COLOR,
@@ -6196,7 +6203,10 @@ impl ICoreWebView2Controller3 {
         &self,
         isvisible: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.IsVisible)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .IsVisible)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isvisible),
         )
@@ -6210,8 +6220,8 @@ impl ICoreWebView2Controller3 {
         isvisible: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsVisible)(
             ::core::mem::transmute_copy(self),
             isvisible.into_param().abi(),
@@ -6222,7 +6232,10 @@ impl ICoreWebView2Controller3 {
         &self,
         bounds: *mut ::windows::Win32::Foundation::RECT,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Bounds)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Bounds)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(bounds),
         )
@@ -6235,16 +6248,16 @@ impl ICoreWebView2Controller3 {
         &self,
         bounds: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetBounds)(
-            ::core::mem::transmute_copy(self),
-            bounds.into_param().abi(),
-        )
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .SetBounds)(::core::mem::transmute_copy(self), bounds.into_param().abi())
         .ok()
     }
     pub unsafe fn ZoomFactor(&self, zoomfactor: *mut f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ZoomFactor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(zoomfactor),
@@ -6253,8 +6266,8 @@ impl ICoreWebView2Controller3 {
     }
     pub unsafe fn SetZoomFactor(&self, zoomfactor: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetZoomFactor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(zoomfactor),
@@ -6270,8 +6283,8 @@ impl ICoreWebView2Controller3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ZoomFactorChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6287,8 +6300,8 @@ impl ICoreWebView2Controller3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveZoomFactorChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -6303,8 +6316,8 @@ impl ICoreWebView2Controller3 {
         zoomfactor: f64,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetBoundsAndZoomFactor)(
             ::core::mem::transmute_copy(self),
             bounds.into_param().abi(),
@@ -6316,7 +6329,10 @@ impl ICoreWebView2Controller3 {
         &self,
         reason: COREWEBVIEW2_MOVE_FOCUS_REASON,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.MoveFocus)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .MoveFocus)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(reason),
         )
@@ -6331,8 +6347,8 @@ impl ICoreWebView2Controller3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .MoveFocusRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6348,8 +6364,8 @@ impl ICoreWebView2Controller3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveMoveFocusRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -6363,7 +6379,10 @@ impl ICoreWebView2Controller3 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GotFocus)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .GotFocus)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -6378,8 +6397,8 @@ impl ICoreWebView2Controller3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveGotFocus)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -6391,7 +6410,10 @@ impl ICoreWebView2Controller3 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.LostFocus)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .LostFocus)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -6406,8 +6428,8 @@ impl ICoreWebView2Controller3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveLostFocus)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -6420,8 +6442,8 @@ impl ICoreWebView2Controller3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AcceleratorKeyPressed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6437,8 +6459,8 @@ impl ICoreWebView2Controller3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveAcceleratorKeyPressed)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -6450,8 +6472,8 @@ impl ICoreWebView2Controller3 {
         parentwindow: *mut ::windows::Win32::Foundation::HWND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ParentWindow)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(parentwindow),
@@ -6466,8 +6488,8 @@ impl ICoreWebView2Controller3 {
         parentwindow: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetParentWindow)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -6476,13 +6498,13 @@ impl ICoreWebView2Controller3 {
     }
     pub unsafe fn NotifyParentWindowPositionChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NotifyParentWindowPositionChanged)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Close)(::core::mem::transmute_copy(
+        (::windows::core::Interface::vtable(self).base__.base__.Close)(::core::mem::transmute_copy(
             self,
         ))
         .ok()
@@ -6490,8 +6512,8 @@ impl ICoreWebView2Controller3 {
     pub unsafe fn CoreWebView2(&self) -> ::windows::core::Result<ICoreWebView2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CoreWebView2)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -6503,7 +6525,7 @@ impl ICoreWebView2Controller3 {
         backgroundcolor: *mut COREWEBVIEW2_COLOR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .DefaultBackgroundColor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(backgroundcolor),
@@ -6518,7 +6540,7 @@ impl ICoreWebView2Controller3 {
         backgroundcolor: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetDefaultBackgroundColor)(
             ::core::mem::transmute_copy(self),
             backgroundcolor.into_param().abi(),
@@ -6699,7 +6721,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Controller3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Controller3_Vtbl {
-    pub base: ICoreWebView2Controller2_Vtbl,
+    pub base__: ICoreWebView2Controller2_Vtbl,
     pub RasterizationScale: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         scale: *mut f64,
@@ -6743,9 +6765,9 @@ impl ICoreWebView2Controller4 {
         isvisible: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsVisible)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isvisible),
@@ -6760,9 +6782,9 @@ impl ICoreWebView2Controller4 {
         isvisible: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsVisible)(
             ::core::mem::transmute_copy(self),
             isvisible.into_param().abi(),
@@ -6774,9 +6796,9 @@ impl ICoreWebView2Controller4 {
         bounds: *mut ::windows::Win32::Foundation::RECT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Bounds)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(bounds),
@@ -6791,17 +6813,17 @@ impl ICoreWebView2Controller4 {
         bounds: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetBounds)(::core::mem::transmute_copy(self), bounds.into_param().abi())
         .ok()
     }
     pub unsafe fn ZoomFactor(&self, zoomfactor: *mut f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ZoomFactor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(zoomfactor),
@@ -6810,9 +6832,9 @@ impl ICoreWebView2Controller4 {
     }
     pub unsafe fn SetZoomFactor(&self, zoomfactor: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetZoomFactor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(zoomfactor),
@@ -6828,9 +6850,9 @@ impl ICoreWebView2Controller4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ZoomFactorChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6846,9 +6868,9 @@ impl ICoreWebView2Controller4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveZoomFactorChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -6863,9 +6885,9 @@ impl ICoreWebView2Controller4 {
         zoomfactor: f64,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetBoundsAndZoomFactor)(
             ::core::mem::transmute_copy(self),
             bounds.into_param().abi(),
@@ -6878,9 +6900,9 @@ impl ICoreWebView2Controller4 {
         reason: COREWEBVIEW2_MOVE_FOCUS_REASON,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .MoveFocus)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(reason),
@@ -6896,9 +6918,9 @@ impl ICoreWebView2Controller4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .MoveFocusRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6914,9 +6936,9 @@ impl ICoreWebView2Controller4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveMoveFocusRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -6931,9 +6953,9 @@ impl ICoreWebView2Controller4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .GotFocus)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6949,9 +6971,9 @@ impl ICoreWebView2Controller4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveGotFocus)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -6964,9 +6986,9 @@ impl ICoreWebView2Controller4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .LostFocus)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -6982,9 +7004,9 @@ impl ICoreWebView2Controller4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveLostFocus)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -6997,9 +7019,9 @@ impl ICoreWebView2Controller4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AcceleratorKeyPressed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -7015,9 +7037,9 @@ impl ICoreWebView2Controller4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveAcceleratorKeyPressed)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -7029,9 +7051,9 @@ impl ICoreWebView2Controller4 {
         parentwindow: *mut ::windows::Win32::Foundation::HWND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ParentWindow)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(parentwindow),
@@ -7046,9 +7068,9 @@ impl ICoreWebView2Controller4 {
         parentwindow: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetParentWindow)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -7057,26 +7079,26 @@ impl ICoreWebView2Controller4 {
     }
     pub unsafe fn NotifyParentWindowPositionChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .NotifyParentWindowPositionChanged)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Close)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn CoreWebView2(&self) -> ::windows::core::Result<ICoreWebView2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CoreWebView2)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -7088,8 +7110,8 @@ impl ICoreWebView2Controller4 {
         backgroundcolor: *mut COREWEBVIEW2_COLOR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .DefaultBackgroundColor)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(backgroundcolor),
@@ -7104,8 +7126,8 @@ impl ICoreWebView2Controller4 {
         backgroundcolor: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetDefaultBackgroundColor)(
             ::core::mem::transmute_copy(self),
             backgroundcolor.into_param().abi(),
@@ -7114,7 +7136,7 @@ impl ICoreWebView2Controller4 {
     }
     pub unsafe fn RasterizationScale(&self, scale: *mut f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RasterizationScale)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(scale),
@@ -7123,7 +7145,7 @@ impl ICoreWebView2Controller4 {
     }
     pub unsafe fn SetRasterizationScale(&self, scale: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetRasterizationScale)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(scale),
@@ -7135,7 +7157,7 @@ impl ICoreWebView2Controller4 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ShouldDetectMonitorScaleChanges)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -7150,7 +7172,7 @@ impl ICoreWebView2Controller4 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetShouldDetectMonitorScaleChanges)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -7166,7 +7188,7 @@ impl ICoreWebView2Controller4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RasterizationScaleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -7182,7 +7204,7 @@ impl ICoreWebView2Controller4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveRasterizationScaleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -7193,7 +7215,7 @@ impl ICoreWebView2Controller4 {
         &self,
         boundsmode: *mut COREWEBVIEW2_BOUNDS_MODE,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.BoundsMode)(
+        (::windows::core::Interface::vtable(self).base__.BoundsMode)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(boundsmode),
         )
@@ -7203,7 +7225,9 @@ impl ICoreWebView2Controller4 {
         &self,
         boundsmode: COREWEBVIEW2_BOUNDS_MODE,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetBoundsMode)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .SetBoundsMode)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(boundsmode),
         )
@@ -7341,7 +7365,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Controller4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Controller4_Vtbl {
-    pub base: ICoreWebView2Controller3_Vtbl,
+    pub base__: ICoreWebView2Controller3_Vtbl,
     pub AllowExternalDrop: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::Win32::Foundation::BOOL,
@@ -7530,7 +7554,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Cookie {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Cookie_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Name: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         name: *mut ::windows::core::PWSTR,
@@ -7657,7 +7681,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CookieList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CookieList_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Count: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         count: *mut u32,
@@ -7836,7 +7860,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CookieManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CookieManager_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateCookie: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         name: ::windows::core::PCWSTR,
@@ -7956,7 +7980,7 @@ unsafe impl ::windows::core::Interface
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -8035,7 +8059,7 @@ unsafe impl ::windows::core::Interface
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -8114,7 +8138,7 @@ unsafe impl ::windows::core::Interface
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -8191,7 +8215,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CursorChangedEventHandle
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CursorChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -8272,7 +8296,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CustomItemSelectedEventH
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CustomItemSelectedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -8340,7 +8364,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DOMContentLoadedEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub NavigationId: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         navigationid: *mut u64,
@@ -8420,7 +8444,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DOMContentLoadedEventHan
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DOMContentLoadedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -8480,7 +8504,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Deferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Deferral_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Complete:
         unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -8552,7 +8576,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DevToolsProtocolEventRec
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ParameterObjectAsJson: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         parameterobjectasjson: *mut ::windows::core::PWSTR,
@@ -8566,7 +8590,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {
         parameterobjectasjson: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ParameterObjectAsJson)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(parameterobjectasjson),
@@ -8670,7 +8694,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DevToolsProtocolEventRec
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {
-    pub base: ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl,
+    pub base__: ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl,
     pub SessionId: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sessionid: *mut ::windows::core::PWSTR,
@@ -8750,7 +8774,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DevToolsProtocolEventRec
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -8843,7 +8867,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DevToolsProtocolEventRec
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub DevToolsProtocolEventReceived: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         handler: ::windows::core::RawPtr,
@@ -8929,7 +8953,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DocumentTitleChangedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -9177,7 +9201,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DownloadOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DownloadOperation_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub BytesReceivedChanged: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -9393,7 +9417,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DownloadStartingEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub DownloadOperation: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         downloadoperation: *mut ::windows::core::RawPtr,
@@ -9501,7 +9525,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2DownloadStartingEventHan
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2DownloadStartingEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -9637,7 +9661,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub CreateCoreWebView2Controller: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         parentwindow: ::windows::Win32::Foundation::HWND,
@@ -9679,7 +9703,7 @@ impl ICoreWebView2Environment2 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -9701,7 +9725,7 @@ impl ICoreWebView2Environment2 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -9717,7 +9741,7 @@ impl ICoreWebView2Environment2 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -9733,7 +9757,7 @@ impl ICoreWebView2Environment2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -9749,7 +9773,7 @@ impl ICoreWebView2Environment2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -9851,7 +9875,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment2_Vtbl {
-    pub base: ICoreWebView2Environment_Vtbl,
+    pub base__: ICoreWebView2Environment_Vtbl,
     pub CreateWebResourceRequest: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         uri: ::windows::core::PCWSTR,
@@ -9874,8 +9898,8 @@ impl ICoreWebView2Environment3 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -9897,8 +9921,8 @@ impl ICoreWebView2Environment3 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -9914,8 +9938,8 @@ impl ICoreWebView2Environment3 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -9931,8 +9955,8 @@ impl ICoreWebView2Environment3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -9948,8 +9972,8 @@ impl ICoreWebView2Environment3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -9971,7 +9995,7 @@ impl ICoreWebView2Environment3 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CreateWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -10104,7 +10128,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment3_Vtbl {
-    pub base: ICoreWebView2Environment2_Vtbl,
+    pub base__: ICoreWebView2Environment2_Vtbl,
     pub CreateCoreWebView2CompositionController:
         unsafe extern "system" fn(
             this: *mut ::core::ffi::c_void,
@@ -10129,9 +10153,9 @@ impl ICoreWebView2Environment4 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -10153,9 +10177,9 @@ impl ICoreWebView2Environment4 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -10171,9 +10195,9 @@ impl ICoreWebView2Environment4 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -10189,9 +10213,9 @@ impl ICoreWebView2Environment4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -10207,9 +10231,9 @@ impl ICoreWebView2Environment4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -10231,8 +10255,8 @@ impl ICoreWebView2Environment4 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CreateWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -10256,7 +10280,7 @@ impl ICoreWebView2Environment4 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CreateCoreWebView2CompositionController)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -10269,7 +10293,7 @@ impl ICoreWebView2Environment4 {
     ) -> ::windows::core::Result<ICoreWebView2PointerInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CreateCoreWebView2PointerInfo)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -10406,7 +10430,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment4_Vtbl {
-    pub base: ICoreWebView2Environment3_Vtbl,
+    pub base__: ICoreWebView2Environment3_Vtbl,
     pub GetAutomationProviderForWindow: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         hwnd: ::windows::Win32::Foundation::HWND,
@@ -10426,10 +10450,10 @@ impl ICoreWebView2Environment5 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -10451,10 +10475,10 @@ impl ICoreWebView2Environment5 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -10470,10 +10494,10 @@ impl ICoreWebView2Environment5 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -10489,10 +10513,10 @@ impl ICoreWebView2Environment5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -10508,10 +10532,10 @@ impl ICoreWebView2Environment5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -10533,9 +10557,9 @@ impl ICoreWebView2Environment5 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CreateWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -10559,8 +10583,8 @@ impl ICoreWebView2Environment5 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CreateCoreWebView2CompositionController)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -10573,8 +10597,8 @@ impl ICoreWebView2Environment5 {
     ) -> ::windows::core::Result<ICoreWebView2PointerInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CreateCoreWebView2PointerInfo)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -10590,7 +10614,7 @@ impl ICoreWebView2Environment5 {
     ) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .GetAutomationProviderForWindow)(
             ::core::mem::transmute_copy(self),
             hwnd.into_param().abi(),
@@ -10763,7 +10787,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment5_Vtbl {
-    pub base: ICoreWebView2Environment4_Vtbl,
+    pub base__: ICoreWebView2Environment4_Vtbl,
     pub BrowserProcessExited: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -10787,11 +10811,11 @@ impl ICoreWebView2Environment6 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -10813,11 +10837,11 @@ impl ICoreWebView2Environment6 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -10833,11 +10857,11 @@ impl ICoreWebView2Environment6 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -10853,11 +10877,11 @@ impl ICoreWebView2Environment6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -10873,11 +10897,11 @@ impl ICoreWebView2Environment6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -10899,10 +10923,10 @@ impl ICoreWebView2Environment6 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -10926,9 +10950,9 @@ impl ICoreWebView2Environment6 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2CompositionController)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -10941,9 +10965,9 @@ impl ICoreWebView2Environment6 {
     ) -> ::windows::core::Result<ICoreWebView2PointerInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2PointerInfo)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -10959,8 +10983,8 @@ impl ICoreWebView2Environment6 {
     ) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .GetAutomationProviderForWindow)(
             ::core::mem::transmute_copy(self),
             hwnd.into_param().abi(),
@@ -10977,7 +11001,7 @@ impl ICoreWebView2Environment6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .BrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -10993,7 +11017,7 @@ impl ICoreWebView2Environment6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveBrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -11169,7 +11193,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment6_Vtbl {
-    pub base: ICoreWebView2Environment5_Vtbl,
+    pub base__: ICoreWebView2Environment5_Vtbl,
     pub CreatePrintSettings: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         printsettings: *mut ::windows::core::RawPtr,
@@ -11188,12 +11212,12 @@ impl ICoreWebView2Environment7 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -11215,12 +11239,12 @@ impl ICoreWebView2Environment7 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -11236,12 +11260,12 @@ impl ICoreWebView2Environment7 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -11257,12 +11281,12 @@ impl ICoreWebView2Environment7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -11278,12 +11302,12 @@ impl ICoreWebView2Environment7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -11305,11 +11329,11 @@ impl ICoreWebView2Environment7 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -11333,10 +11357,10 @@ impl ICoreWebView2Environment7 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2CompositionController)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -11349,10 +11373,10 @@ impl ICoreWebView2Environment7 {
     ) -> ::windows::core::Result<ICoreWebView2PointerInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2PointerInfo)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -11368,9 +11392,9 @@ impl ICoreWebView2Environment7 {
     ) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .GetAutomationProviderForWindow)(
             ::core::mem::transmute_copy(self),
             hwnd.into_param().abi(),
@@ -11387,8 +11411,8 @@ impl ICoreWebView2Environment7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .BrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -11404,8 +11428,8 @@ impl ICoreWebView2Environment7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveBrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -11417,7 +11441,7 @@ impl ICoreWebView2Environment7 {
     ) -> ::windows::core::Result<ICoreWebView2PrintSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CreatePrintSettings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -11615,7 +11639,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment7_Vtbl {
-    pub base: ICoreWebView2Environment6_Vtbl,
+    pub base__: ICoreWebView2Environment6_Vtbl,
     pub UserDataFolder: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -11634,13 +11658,13 @@ impl ICoreWebView2Environment8 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -11662,13 +11686,13 @@ impl ICoreWebView2Environment8 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -11684,13 +11708,13 @@ impl ICoreWebView2Environment8 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -11706,13 +11730,13 @@ impl ICoreWebView2Environment8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -11728,13 +11752,13 @@ impl ICoreWebView2Environment8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -11756,12 +11780,12 @@ impl ICoreWebView2Environment8 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -11785,11 +11809,11 @@ impl ICoreWebView2Environment8 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2CompositionController)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -11802,11 +11826,11 @@ impl ICoreWebView2Environment8 {
     ) -> ::windows::core::Result<ICoreWebView2PointerInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2PointerInfo)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -11822,10 +11846,10 @@ impl ICoreWebView2Environment8 {
     ) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .GetAutomationProviderForWindow)(
             ::core::mem::transmute_copy(self),
             hwnd.into_param().abi(),
@@ -11842,9 +11866,9 @@ impl ICoreWebView2Environment8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .BrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -11860,9 +11884,9 @@ impl ICoreWebView2Environment8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveBrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -11874,8 +11898,8 @@ impl ICoreWebView2Environment8 {
     ) -> ::windows::core::Result<ICoreWebView2PrintSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CreatePrintSettings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -11886,7 +11910,9 @@ impl ICoreWebView2Environment8 {
         &self,
         value: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.UserDataFolder)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .UserDataFolder)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
         )
@@ -12133,7 +12159,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment8_Vtbl {
-    pub base: ICoreWebView2Environment7_Vtbl,
+    pub base__: ICoreWebView2Environment7_Vtbl,
     pub ProcessInfosChanged: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -12161,14 +12187,14 @@ impl ICoreWebView2Environment9 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2Controller)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -12190,14 +12216,14 @@ impl ICoreWebView2Environment9 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceResponse)(
             ::core::mem::transmute_copy(self),
             content.into_param().abi(),
@@ -12213,14 +12239,14 @@ impl ICoreWebView2Environment9 {
         versioninfo: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserVersionString)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(versioninfo),
@@ -12236,14 +12262,14 @@ impl ICoreWebView2Environment9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -12259,14 +12285,14 @@ impl ICoreWebView2Environment9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewBrowserVersionAvailable)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -12288,13 +12314,13 @@ impl ICoreWebView2Environment9 {
     ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -12318,12 +12344,12 @@ impl ICoreWebView2Environment9 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2CompositionController)(
             ::core::mem::transmute_copy(self),
             parentwindow.into_param().abi(),
@@ -12336,12 +12362,12 @@ impl ICoreWebView2Environment9 {
     ) -> ::windows::core::Result<ICoreWebView2PointerInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CreateCoreWebView2PointerInfo)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -12357,11 +12383,11 @@ impl ICoreWebView2Environment9 {
     ) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetAutomationProviderForWindow)(
             ::core::mem::transmute_copy(self),
             hwnd.into_param().abi(),
@@ -12378,10 +12404,10 @@ impl ICoreWebView2Environment9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -12397,10 +12423,10 @@ impl ICoreWebView2Environment9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveBrowserProcessExited)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -12412,9 +12438,9 @@ impl ICoreWebView2Environment9 {
     ) -> ::windows::core::Result<ICoreWebView2PrintSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CreatePrintSettings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -12426,8 +12452,8 @@ impl ICoreWebView2Environment9 {
         value: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .UserDataFolder)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -12443,7 +12469,7 @@ impl ICoreWebView2Environment9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ProcessInfosChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -12459,7 +12485,7 @@ impl ICoreWebView2Environment9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveProcessInfosChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -12470,7 +12496,7 @@ impl ICoreWebView2Environment9 {
     ) -> ::windows::core::Result<ICoreWebView2ProcessInfoCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .GetProcessInfos)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -12722,7 +12748,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Environment9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Environment9_Vtbl {
-    pub base: ICoreWebView2Environment8_Vtbl,
+    pub base__: ICoreWebView2Environment8_Vtbl,
     pub CreateContextMenuItem: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         label: ::windows::core::PCWSTR,
@@ -12877,7 +12903,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2EnvironmentOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub AdditionalBrowserArguments: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -12991,7 +13017,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2EnvironmentOptions2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2EnvironmentOptions2_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ExclusiveUserDataFolderAccess: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::Win32::Foundation::BOOL,
@@ -13076,7 +13102,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2EstimatedEndTimeChangedE
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -13153,7 +13179,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ExecuteScriptCompletedHa
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -13230,7 +13256,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FocusChangedEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FocusChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -13390,7 +13416,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Frame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Frame_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Name: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         name: *mut ::windows::core::PWSTR,
@@ -13434,7 +13460,7 @@ pub struct ICoreWebView2Frame_Vtbl {
 pub struct ICoreWebView2Frame2(::windows::core::IUnknown);
 impl ICoreWebView2Frame2 {
     pub unsafe fn Name(&self, name: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Name)(
+        (::windows::core::Interface::vtable(self).base__.Name)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(name),
         )
@@ -13448,7 +13474,7 @@ impl ICoreWebView2Frame2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.NameChanged)(
+        (::windows::core::Interface::vtable(self).base__.NameChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -13463,7 +13489,7 @@ impl ICoreWebView2Frame2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveNameChanged)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -13478,7 +13504,7 @@ impl ICoreWebView2Frame2 {
         origins: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AddHostObjectToScriptWithOrigins)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -13496,7 +13522,7 @@ impl ICoreWebView2Frame2 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -13510,7 +13536,7 @@ impl ICoreWebView2Frame2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Destroyed)(
+        (::windows::core::Interface::vtable(self).base__.Destroyed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -13525,7 +13551,7 @@ impl ICoreWebView2Frame2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveDestroyed)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -13533,7 +13559,7 @@ impl ICoreWebView2Frame2 {
         &self,
         destroyed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsDestroyed)(
+        (::windows::core::Interface::vtable(self).base__.IsDestroyed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(destroyed),
         )
@@ -13786,7 +13812,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Frame2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Frame2_Vtbl {
-    pub base: ICoreWebView2Frame_Vtbl,
+    pub base__: ICoreWebView2Frame_Vtbl,
     pub NavigationStarting: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -13850,7 +13876,7 @@ pub struct ICoreWebView2Frame2_Vtbl {
 pub struct ICoreWebView2Frame3(::windows::core::IUnknown);
 impl ICoreWebView2Frame3 {
     pub unsafe fn Name(&self, name: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Name)(
+        (::windows::core::Interface::vtable(self).base__.base__.Name)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(name),
         )
@@ -13865,8 +13891,8 @@ impl ICoreWebView2Frame3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NameChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -13882,8 +13908,8 @@ impl ICoreWebView2Frame3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveNameChanged)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -13898,8 +13924,8 @@ impl ICoreWebView2Frame3 {
         origins: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AddHostObjectToScriptWithOrigins)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -13917,8 +13943,8 @@ impl ICoreWebView2Frame3 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -13932,7 +13958,10 @@ impl ICoreWebView2Frame3 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Destroyed)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Destroyed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -13947,8 +13976,8 @@ impl ICoreWebView2Frame3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveDestroyed)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -13957,8 +13986,8 @@ impl ICoreWebView2Frame3 {
         destroyed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsDestroyed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(destroyed),
@@ -13974,7 +14003,7 @@ impl ICoreWebView2Frame3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -13990,7 +14019,7 @@ impl ICoreWebView2Frame3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -14004,7 +14033,9 @@ impl ICoreWebView2Frame3 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ContentLoading)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -14019,7 +14050,7 @@ impl ICoreWebView2Frame3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -14034,7 +14065,7 @@ impl ICoreWebView2Frame3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -14050,7 +14081,7 @@ impl ICoreWebView2Frame3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -14065,7 +14096,7 @@ impl ICoreWebView2Frame3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -14081,7 +14112,7 @@ impl ICoreWebView2Frame3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -14096,7 +14127,9 @@ impl ICoreWebView2Frame3 {
         javascript: Param0,
         handler: Param1,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ExecuteScript)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
             handler.into_param().abi(),
@@ -14111,7 +14144,7 @@ impl ICoreWebView2Frame3 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -14126,7 +14159,7 @@ impl ICoreWebView2Frame3 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -14142,7 +14175,7 @@ impl ICoreWebView2Frame3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -14158,7 +14191,7 @@ impl ICoreWebView2Frame3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -14277,7 +14310,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Frame3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Frame3_Vtbl {
-    pub base: ICoreWebView2Frame2_Vtbl,
+    pub base__: ICoreWebView2Frame2_Vtbl,
     pub PermissionRequested: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         handler: ::windows::core::RawPtr,
@@ -14362,7 +14395,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameContentLoadingEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameContentLoadingEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -14431,7 +14464,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameCreatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameCreatedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Frame: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         frame: *mut ::windows::core::RawPtr,
@@ -14507,7 +14540,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameCreatedEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameCreatedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -14588,7 +14621,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameDOMContentLoadedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -14665,7 +14698,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameDestroyedEventHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameDestroyedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -14739,7 +14772,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Name: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         name: *mut ::windows::core::PWSTR,
@@ -14813,7 +14846,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameInfoCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameInfoCollection_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetIterator: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         iterator: *mut ::windows::core::RawPtr,
@@ -14903,7 +14936,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameInfoCollectionItera
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameInfoCollectionIterator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub HasCurrent: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         hascurrent: *mut ::windows::Win32::Foundation::BOOL,
@@ -14991,7 +15024,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameNameChangedEventHan
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameNameChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -15072,7 +15105,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameNavigationCompleted
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -15153,7 +15186,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameNavigationStartingE
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -15234,7 +15267,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FramePermissionRequested
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -15315,7 +15348,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2FrameWebMessageReceivedE
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -15388,7 +15421,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2GetCookiesCompletedHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2GetCookiesCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         result: ::windows::core::HRESULT,
@@ -15465,7 +15498,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2HistoryChangedEventHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2HistoryChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -15562,7 +15595,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2HttpHeadersCollectionIte
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetCurrentHeader: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         name: *mut ::windows::core::PWSTR,
@@ -15709,7 +15742,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2HttpRequestHeaders {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2HttpRequestHeaders_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub GetHeader: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         name: ::windows::core::PCWSTR,
@@ -15858,7 +15891,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2HttpResponseHeaders {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2HttpResponseHeaders_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub AppendHeader: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         name: ::windows::core::PCWSTR,
@@ -15960,7 +15993,7 @@ unsafe impl ::windows::core::Interface
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -16041,7 +16074,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2IsDocumentPlayingAudioCh
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -16118,7 +16151,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2IsMutedChangedEventHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2IsMutedChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -16214,7 +16247,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2MoveFocusRequestedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Reason: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         reason: *mut COREWEBVIEW2_MOVE_FOCUS_REASON,
@@ -16302,7 +16335,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2MoveFocusRequestedEventH
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -16394,7 +16427,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NavigationCompletedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NavigationCompletedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsSuccess: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         issuccess: *mut ::windows::Win32::Foundation::BOOL,
@@ -16482,7 +16515,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NavigationCompletedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NavigationCompletedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -16612,7 +16645,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NavigationStartingEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NavigationStartingEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Uri: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         uri: *mut ::windows::core::PWSTR,
@@ -16646,7 +16679,7 @@ pub struct ICoreWebView2NavigationStartingEventArgs_Vtbl {
 pub struct ICoreWebView2NavigationStartingEventArgs2(::windows::core::IUnknown);
 impl ICoreWebView2NavigationStartingEventArgs2 {
     pub unsafe fn Uri(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Uri)(
+        (::windows::core::Interface::vtable(self).base__.Uri)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
         )
@@ -16657,7 +16690,7 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
         isuserinitiated: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsUserInitiated)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isuserinitiated),
@@ -16668,7 +16701,7 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
         &self,
         isredirected: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsRedirected)(
+        (::windows::core::Interface::vtable(self).base__.IsRedirected)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isredirected),
         )
@@ -16678,7 +16711,9 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
         &self,
     ) -> ::windows::core::Result<ICoreWebView2HttpRequestHeaders> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.RequestHeaders)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .RequestHeaders)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -16688,7 +16723,7 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
         &self,
         cancel: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Cancel)(
+        (::windows::core::Interface::vtable(self).base__.Cancel)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cancel),
         )
@@ -16701,14 +16736,14 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
         &self,
         cancel: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetCancel)(
+        (::windows::core::Interface::vtable(self).base__.SetCancel)(
             ::core::mem::transmute_copy(self),
             cancel.into_param().abi(),
         )
         .ok()
     }
     pub unsafe fn NavigationId(&self, navigationid: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.NavigationId)(
+        (::windows::core::Interface::vtable(self).base__.NavigationId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(navigationid),
         )
@@ -16820,7 +16855,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NavigationStartingEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NavigationStartingEventArgs2_Vtbl {
-    pub base: ICoreWebView2NavigationStartingEventArgs_Vtbl,
+    pub base__: ICoreWebView2NavigationStartingEventArgs_Vtbl,
     pub AdditionalAllowedFrameAncestors: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -16905,7 +16940,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NavigationStartingEventH
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NavigationStartingEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -16986,7 +17021,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NewBrowserVersionAvailab
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -17123,7 +17158,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NewWindowRequestedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Uri: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         uri: *mut ::windows::core::PWSTR,
@@ -17161,7 +17196,7 @@ pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
 pub struct ICoreWebView2NewWindowRequestedEventArgs2(::windows::core::IUnknown);
 impl ICoreWebView2NewWindowRequestedEventArgs2 {
     pub unsafe fn Uri(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Uri)(
+        (::windows::core::Interface::vtable(self).base__.Uri)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
         )
@@ -17171,7 +17206,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
         &self,
         newwindow: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetNewWindow)(
+        (::windows::core::Interface::vtable(self).base__.SetNewWindow)(
             ::core::mem::transmute_copy(self),
             newwindow.into_param().abi(),
         )
@@ -17179,7 +17214,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
     }
     pub unsafe fn NewWindow(&self) -> ::windows::core::Result<ICoreWebView2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.NewWindow)(
+        (::windows::core::Interface::vtable(self).base__.NewWindow)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -17192,7 +17227,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
         &self,
         handled: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetHandled)(
+        (::windows::core::Interface::vtable(self).base__.SetHandled)(
             ::core::mem::transmute_copy(self),
             handled.into_param().abi(),
         )
@@ -17202,7 +17237,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
         &self,
         handled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Handled)(
+        (::windows::core::Interface::vtable(self).base__.Handled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(handled),
         )
@@ -17213,7 +17248,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
         isuserinitiated: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsUserInitiated)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isuserinitiated),
@@ -17222,7 +17257,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
     }
     pub unsafe fn GetDeferral(&self) -> ::windows::core::Result<ICoreWebView2Deferral> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetDeferral)(
+        (::windows::core::Interface::vtable(self).base__.GetDeferral)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -17230,7 +17265,9 @@ impl ICoreWebView2NewWindowRequestedEventArgs2 {
     }
     pub unsafe fn WindowFeatures(&self) -> ::windows::core::Result<ICoreWebView2WindowFeatures> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.WindowFeatures)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .WindowFeatures)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -17326,7 +17363,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NewWindowRequestedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs2_Vtbl {
-    pub base: ICoreWebView2NewWindowRequestedEventArgs_Vtbl,
+    pub base__: ICoreWebView2NewWindowRequestedEventArgs_Vtbl,
     pub Name: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::core::PWSTR,
@@ -17406,7 +17443,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2NewWindowRequestedEventH
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -17526,7 +17563,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2PermissionRequestedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PermissionRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Uri: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         uri: *mut ::windows::core::PWSTR,
@@ -17556,7 +17593,7 @@ pub struct ICoreWebView2PermissionRequestedEventArgs_Vtbl {
 pub struct ICoreWebView2PermissionRequestedEventArgs2(::windows::core::IUnknown);
 impl ICoreWebView2PermissionRequestedEventArgs2 {
     pub unsafe fn Uri(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Uri)(
+        (::windows::core::Interface::vtable(self).base__.Uri)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
         )
@@ -17566,7 +17603,9 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
         &self,
         permissionkind: *mut COREWEBVIEW2_PERMISSION_KIND,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.PermissionKind)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .PermissionKind)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(permissionkind),
         )
@@ -17577,7 +17616,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
         isuserinitiated: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsUserInitiated)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isuserinitiated),
@@ -17588,7 +17627,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
         &self,
         state: *mut COREWEBVIEW2_PERMISSION_STATE,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.State)(
+        (::windows::core::Interface::vtable(self).base__.State)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(state),
         )
@@ -17598,7 +17637,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
         &self,
         state: COREWEBVIEW2_PERMISSION_STATE,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetState)(
+        (::windows::core::Interface::vtable(self).base__.SetState)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(state),
         )
@@ -17606,7 +17645,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
     }
     pub unsafe fn GetDeferral(&self) -> ::windows::core::Result<ICoreWebView2Deferral> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetDeferral)(
+        (::windows::core::Interface::vtable(self).base__.GetDeferral)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -17718,7 +17757,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2PermissionRequestedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
-    pub base: ICoreWebView2PermissionRequestedEventArgs_Vtbl,
+    pub base__: ICoreWebView2PermissionRequestedEventArgs_Vtbl,
     pub Handled: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         handled: *mut ::windows::Win32::Foundation::BOOL,
@@ -17802,7 +17841,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2PermissionRequestedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PermissionRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -18334,7 +18373,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2PointerInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PointerInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub PointerKind: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         pointerkind: *mut u32,
@@ -18845,7 +18884,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2PrintSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PrintSettings_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Orientation: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         orientation: *mut COREWEBVIEW2_PRINT_ORIENTATION,
@@ -19020,7 +19059,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2PrintToPdfCompletedHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -19091,7 +19130,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ProcessFailedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProcessFailedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ProcessFailedKind: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         processfailedkind: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
@@ -19105,7 +19144,7 @@ impl ICoreWebView2ProcessFailedEventArgs2 {
         processfailedkind: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ProcessFailedKind)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(processfailedkind),
@@ -19228,7 +19267,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ProcessFailedEventArgs2 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProcessFailedEventArgs2_Vtbl {
-    pub base: ICoreWebView2ProcessFailedEventArgs_Vtbl,
+    pub base__: ICoreWebView2ProcessFailedEventArgs_Vtbl,
     pub Reason: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         reason: *mut COREWEBVIEW2_PROCESS_FAILED_REASON,
@@ -19316,7 +19355,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ProcessFailedEventHandle
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProcessFailedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -19389,7 +19428,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ProcessInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProcessInfo_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub ProcessId: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut i32,
@@ -19472,7 +19511,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ProcessInfoCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProcessInfoCollection_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Count: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         count: *mut u32,
@@ -19557,7 +19596,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ProcessInfosChangedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -19638,7 +19677,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2RasterizationScaleChange
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -19774,7 +19813,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ScriptDialogOpeningEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Uri: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         uri: *mut ::windows::core::PWSTR,
@@ -19880,7 +19919,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ScriptDialogOpeningEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -20144,7 +20183,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Settings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Settings_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsScriptEnabled: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         isscriptenabled: *mut ::windows::Win32::Foundation::BOOL,
@@ -20228,7 +20267,7 @@ impl ICoreWebView2Settings2 {
         isscriptenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isscriptenabled),
@@ -20243,7 +20282,7 @@ impl ICoreWebView2Settings2 {
         isscriptenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             isscriptenabled.into_param().abi(),
@@ -20255,7 +20294,7 @@ impl ICoreWebView2Settings2 {
         iswebmessageenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(iswebmessageenabled),
@@ -20270,7 +20309,7 @@ impl ICoreWebView2Settings2 {
         iswebmessageenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             iswebmessageenabled.into_param().abi(),
@@ -20282,7 +20321,7 @@ impl ICoreWebView2Settings2 {
         aredefaultscriptdialogsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredefaultscriptdialogsenabled),
@@ -20297,7 +20336,7 @@ impl ICoreWebView2Settings2 {
         aredefaultscriptdialogsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetAreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             aredefaultscriptdialogsenabled.into_param().abi(),
@@ -20309,7 +20348,7 @@ impl ICoreWebView2Settings2 {
         isstatusbarenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isstatusbarenabled),
@@ -20324,7 +20363,7 @@ impl ICoreWebView2Settings2 {
         isstatusbarenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             isstatusbarenabled.into_param().abi(),
@@ -20336,7 +20375,7 @@ impl ICoreWebView2Settings2 {
         aredevtoolsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredevtoolsenabled),
@@ -20351,7 +20390,7 @@ impl ICoreWebView2Settings2 {
         aredevtoolsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetAreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             aredevtoolsenabled.into_param().abi(),
@@ -20363,7 +20402,7 @@ impl ICoreWebView2Settings2 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -20378,7 +20417,7 @@ impl ICoreWebView2Settings2 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetAreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -20390,7 +20429,7 @@ impl ICoreWebView2Settings2 {
         allowed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(allowed),
@@ -20405,7 +20444,7 @@ impl ICoreWebView2Settings2 {
         allowed: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetAreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             allowed.into_param().abi(),
@@ -20417,7 +20456,7 @@ impl ICoreWebView2Settings2 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -20432,7 +20471,7 @@ impl ICoreWebView2Settings2 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -20444,7 +20483,7 @@ impl ICoreWebView2Settings2 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -20459,7 +20498,7 @@ impl ICoreWebView2Settings2 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -20556,7 +20595,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Settings2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Settings2_Vtbl {
-    pub base: ICoreWebView2Settings_Vtbl,
+    pub base__: ICoreWebView2Settings_Vtbl,
     pub UserAgent: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         useragent: *mut ::windows::core::PWSTR,
@@ -20574,8 +20613,8 @@ impl ICoreWebView2Settings3 {
         isscriptenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isscriptenabled),
@@ -20590,8 +20629,8 @@ impl ICoreWebView2Settings3 {
         isscriptenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             isscriptenabled.into_param().abi(),
@@ -20603,8 +20642,8 @@ impl ICoreWebView2Settings3 {
         iswebmessageenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(iswebmessageenabled),
@@ -20619,8 +20658,8 @@ impl ICoreWebView2Settings3 {
         iswebmessageenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             iswebmessageenabled.into_param().abi(),
@@ -20632,8 +20671,8 @@ impl ICoreWebView2Settings3 {
         aredefaultscriptdialogsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredefaultscriptdialogsenabled),
@@ -20648,8 +20687,8 @@ impl ICoreWebView2Settings3 {
         aredefaultscriptdialogsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetAreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             aredefaultscriptdialogsenabled.into_param().abi(),
@@ -20661,8 +20700,8 @@ impl ICoreWebView2Settings3 {
         isstatusbarenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isstatusbarenabled),
@@ -20677,8 +20716,8 @@ impl ICoreWebView2Settings3 {
         isstatusbarenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             isstatusbarenabled.into_param().abi(),
@@ -20690,8 +20729,8 @@ impl ICoreWebView2Settings3 {
         aredevtoolsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredevtoolsenabled),
@@ -20706,8 +20745,8 @@ impl ICoreWebView2Settings3 {
         aredevtoolsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetAreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             aredevtoolsenabled.into_param().abi(),
@@ -20719,8 +20758,8 @@ impl ICoreWebView2Settings3 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -20735,8 +20774,8 @@ impl ICoreWebView2Settings3 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetAreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -20748,8 +20787,8 @@ impl ICoreWebView2Settings3 {
         allowed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(allowed),
@@ -20764,8 +20803,8 @@ impl ICoreWebView2Settings3 {
         allowed: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetAreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             allowed.into_param().abi(),
@@ -20777,8 +20816,8 @@ impl ICoreWebView2Settings3 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -20793,8 +20832,8 @@ impl ICoreWebView2Settings3 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -20806,8 +20845,8 @@ impl ICoreWebView2Settings3 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -20822,8 +20861,8 @@ impl ICoreWebView2Settings3 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -20834,7 +20873,7 @@ impl ICoreWebView2Settings3 {
         &self,
         useragent: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.UserAgent)(
+        (::windows::core::Interface::vtable(self).base__.UserAgent)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(useragent),
         )
@@ -20847,7 +20886,7 @@ impl ICoreWebView2Settings3 {
         &self,
         useragent: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetUserAgent)(
+        (::windows::core::Interface::vtable(self).base__.SetUserAgent)(
             ::core::mem::transmute_copy(self),
             useragent.into_param().abi(),
         )
@@ -20963,7 +21002,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Settings3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Settings3_Vtbl {
-    pub base: ICoreWebView2Settings2_Vtbl,
+    pub base__: ICoreWebView2Settings2_Vtbl,
     pub AreBrowserAcceleratorKeysEnabled: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         arebrowseracceleratorkeysenabled: *mut ::windows::Win32::Foundation::BOOL,
@@ -20983,9 +21022,9 @@ impl ICoreWebView2Settings4 {
         isscriptenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isscriptenabled),
@@ -21000,9 +21039,9 @@ impl ICoreWebView2Settings4 {
         isscriptenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             isscriptenabled.into_param().abi(),
@@ -21014,9 +21053,9 @@ impl ICoreWebView2Settings4 {
         iswebmessageenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(iswebmessageenabled),
@@ -21031,9 +21070,9 @@ impl ICoreWebView2Settings4 {
         iswebmessageenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             iswebmessageenabled.into_param().abi(),
@@ -21045,9 +21084,9 @@ impl ICoreWebView2Settings4 {
         aredefaultscriptdialogsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredefaultscriptdialogsenabled),
@@ -21062,9 +21101,9 @@ impl ICoreWebView2Settings4 {
         aredefaultscriptdialogsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetAreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             aredefaultscriptdialogsenabled.into_param().abi(),
@@ -21076,9 +21115,9 @@ impl ICoreWebView2Settings4 {
         isstatusbarenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isstatusbarenabled),
@@ -21093,9 +21132,9 @@ impl ICoreWebView2Settings4 {
         isstatusbarenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             isstatusbarenabled.into_param().abi(),
@@ -21107,9 +21146,9 @@ impl ICoreWebView2Settings4 {
         aredevtoolsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredevtoolsenabled),
@@ -21124,9 +21163,9 @@ impl ICoreWebView2Settings4 {
         aredevtoolsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetAreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             aredevtoolsenabled.into_param().abi(),
@@ -21138,9 +21177,9 @@ impl ICoreWebView2Settings4 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -21155,9 +21194,9 @@ impl ICoreWebView2Settings4 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetAreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -21169,9 +21208,9 @@ impl ICoreWebView2Settings4 {
         allowed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(allowed),
@@ -21186,9 +21225,9 @@ impl ICoreWebView2Settings4 {
         allowed: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetAreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             allowed.into_param().abi(),
@@ -21200,9 +21239,9 @@ impl ICoreWebView2Settings4 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -21217,9 +21256,9 @@ impl ICoreWebView2Settings4 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -21231,9 +21270,9 @@ impl ICoreWebView2Settings4 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -21248,9 +21287,9 @@ impl ICoreWebView2Settings4 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -21261,7 +21300,10 @@ impl ICoreWebView2Settings4 {
         &self,
         useragent: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.UserAgent)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .UserAgent)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(useragent),
         )
@@ -21275,8 +21317,8 @@ impl ICoreWebView2Settings4 {
         useragent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetUserAgent)(
             ::core::mem::transmute_copy(self),
             useragent.into_param().abi(),
@@ -21288,7 +21330,7 @@ impl ICoreWebView2Settings4 {
         arebrowseracceleratorkeysenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(arebrowseracceleratorkeysenabled),
@@ -21303,7 +21345,7 @@ impl ICoreWebView2Settings4 {
         arebrowseracceleratorkeysenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetAreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             arebrowseracceleratorkeysenabled.into_param().abi(),
@@ -21463,7 +21505,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Settings4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Settings4_Vtbl {
-    pub base: ICoreWebView2Settings3_Vtbl,
+    pub base__: ICoreWebView2Settings3_Vtbl,
     pub IsPasswordAutosaveEnabled: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::Win32::Foundation::BOOL,
@@ -21489,10 +21531,10 @@ impl ICoreWebView2Settings5 {
         isscriptenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isscriptenabled),
@@ -21507,10 +21549,10 @@ impl ICoreWebView2Settings5 {
         isscriptenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             isscriptenabled.into_param().abi(),
@@ -21522,10 +21564,10 @@ impl ICoreWebView2Settings5 {
         iswebmessageenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(iswebmessageenabled),
@@ -21540,10 +21582,10 @@ impl ICoreWebView2Settings5 {
         iswebmessageenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             iswebmessageenabled.into_param().abi(),
@@ -21555,10 +21597,10 @@ impl ICoreWebView2Settings5 {
         aredefaultscriptdialogsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredefaultscriptdialogsenabled),
@@ -21573,10 +21615,10 @@ impl ICoreWebView2Settings5 {
         aredefaultscriptdialogsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             aredefaultscriptdialogsenabled.into_param().abi(),
@@ -21588,10 +21630,10 @@ impl ICoreWebView2Settings5 {
         isstatusbarenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isstatusbarenabled),
@@ -21606,10 +21648,10 @@ impl ICoreWebView2Settings5 {
         isstatusbarenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             isstatusbarenabled.into_param().abi(),
@@ -21621,10 +21663,10 @@ impl ICoreWebView2Settings5 {
         aredevtoolsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredevtoolsenabled),
@@ -21639,10 +21681,10 @@ impl ICoreWebView2Settings5 {
         aredevtoolsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             aredevtoolsenabled.into_param().abi(),
@@ -21654,10 +21696,10 @@ impl ICoreWebView2Settings5 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -21672,10 +21714,10 @@ impl ICoreWebView2Settings5 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -21687,10 +21729,10 @@ impl ICoreWebView2Settings5 {
         allowed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(allowed),
@@ -21705,10 +21747,10 @@ impl ICoreWebView2Settings5 {
         allowed: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             allowed.into_param().abi(),
@@ -21720,10 +21762,10 @@ impl ICoreWebView2Settings5 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -21738,10 +21780,10 @@ impl ICoreWebView2Settings5 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -21753,10 +21795,10 @@ impl ICoreWebView2Settings5 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -21771,10 +21813,10 @@ impl ICoreWebView2Settings5 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -21786,9 +21828,9 @@ impl ICoreWebView2Settings5 {
         useragent: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .UserAgent)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(useragent),
@@ -21803,9 +21845,9 @@ impl ICoreWebView2Settings5 {
         useragent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetUserAgent)(
             ::core::mem::transmute_copy(self),
             useragent.into_param().abi(),
@@ -21817,8 +21859,8 @@ impl ICoreWebView2Settings5 {
         arebrowseracceleratorkeysenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(arebrowseracceleratorkeysenabled),
@@ -21833,8 +21875,8 @@ impl ICoreWebView2Settings5 {
         arebrowseracceleratorkeysenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetAreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             arebrowseracceleratorkeysenabled.into_param().abi(),
@@ -21846,7 +21888,7 @@ impl ICoreWebView2Settings5 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsPasswordAutosaveEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -21861,7 +21903,7 @@ impl ICoreWebView2Settings5 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsPasswordAutosaveEnabled)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -21873,7 +21915,7 @@ impl ICoreWebView2Settings5 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsGeneralAutofillEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -21888,7 +21930,7 @@ impl ICoreWebView2Settings5 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsGeneralAutofillEnabled)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -22045,7 +22087,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Settings5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Settings5_Vtbl {
-    pub base: ICoreWebView2Settings4_Vtbl,
+    pub base__: ICoreWebView2Settings4_Vtbl,
     pub IsPinchZoomEnabled: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         enabled: *mut ::windows::Win32::Foundation::BOOL,
@@ -22063,11 +22105,11 @@ impl ICoreWebView2Settings6 {
         isscriptenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isscriptenabled),
@@ -22082,11 +22124,11 @@ impl ICoreWebView2Settings6 {
         isscriptenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             isscriptenabled.into_param().abi(),
@@ -22098,11 +22140,11 @@ impl ICoreWebView2Settings6 {
         iswebmessageenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(iswebmessageenabled),
@@ -22117,11 +22159,11 @@ impl ICoreWebView2Settings6 {
         iswebmessageenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             iswebmessageenabled.into_param().abi(),
@@ -22133,11 +22175,11 @@ impl ICoreWebView2Settings6 {
         aredefaultscriptdialogsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredefaultscriptdialogsenabled),
@@ -22152,11 +22194,11 @@ impl ICoreWebView2Settings6 {
         aredefaultscriptdialogsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             aredefaultscriptdialogsenabled.into_param().abi(),
@@ -22168,11 +22210,11 @@ impl ICoreWebView2Settings6 {
         isstatusbarenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isstatusbarenabled),
@@ -22187,11 +22229,11 @@ impl ICoreWebView2Settings6 {
         isstatusbarenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             isstatusbarenabled.into_param().abi(),
@@ -22203,11 +22245,11 @@ impl ICoreWebView2Settings6 {
         aredevtoolsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredevtoolsenabled),
@@ -22222,11 +22264,11 @@ impl ICoreWebView2Settings6 {
         aredevtoolsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             aredevtoolsenabled.into_param().abi(),
@@ -22238,11 +22280,11 @@ impl ICoreWebView2Settings6 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -22257,11 +22299,11 @@ impl ICoreWebView2Settings6 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -22273,11 +22315,11 @@ impl ICoreWebView2Settings6 {
         allowed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(allowed),
@@ -22292,11 +22334,11 @@ impl ICoreWebView2Settings6 {
         allowed: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             allowed.into_param().abi(),
@@ -22308,11 +22350,11 @@ impl ICoreWebView2Settings6 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -22327,11 +22369,11 @@ impl ICoreWebView2Settings6 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -22343,11 +22385,11 @@ impl ICoreWebView2Settings6 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -22362,11 +22404,11 @@ impl ICoreWebView2Settings6 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -22378,10 +22420,10 @@ impl ICoreWebView2Settings6 {
         useragent: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .UserAgent)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(useragent),
@@ -22396,10 +22438,10 @@ impl ICoreWebView2Settings6 {
         useragent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetUserAgent)(
             ::core::mem::transmute_copy(self),
             useragent.into_param().abi(),
@@ -22411,9 +22453,9 @@ impl ICoreWebView2Settings6 {
         arebrowseracceleratorkeysenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(arebrowseracceleratorkeysenabled),
@@ -22428,9 +22470,9 @@ impl ICoreWebView2Settings6 {
         arebrowseracceleratorkeysenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetAreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             arebrowseracceleratorkeysenabled.into_param().abi(),
@@ -22442,8 +22484,8 @@ impl ICoreWebView2Settings6 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsPasswordAutosaveEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -22458,8 +22500,8 @@ impl ICoreWebView2Settings6 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsPasswordAutosaveEnabled)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -22471,8 +22513,8 @@ impl ICoreWebView2Settings6 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsGeneralAutofillEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -22487,8 +22529,8 @@ impl ICoreWebView2Settings6 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsGeneralAutofillEnabled)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -22500,7 +22542,7 @@ impl ICoreWebView2Settings6 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsPinchZoomEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -22515,7 +22557,7 @@ impl ICoreWebView2Settings6 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsPinchZoomEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -22692,7 +22734,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Settings6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Settings6_Vtbl {
-    pub base: ICoreWebView2Settings5_Vtbl,
+    pub base__: ICoreWebView2Settings5_Vtbl,
     pub IsSwipeNavigationEnabled: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         enabled: *mut ::windows::Win32::Foundation::BOOL,
@@ -22710,12 +22752,12 @@ impl ICoreWebView2Settings7 {
         isscriptenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isscriptenabled),
@@ -22730,12 +22772,12 @@ impl ICoreWebView2Settings7 {
         isscriptenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsScriptEnabled)(
             ::core::mem::transmute_copy(self),
             isscriptenabled.into_param().abi(),
@@ -22747,12 +22789,12 @@ impl ICoreWebView2Settings7 {
         iswebmessageenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(iswebmessageenabled),
@@ -22767,12 +22809,12 @@ impl ICoreWebView2Settings7 {
         iswebmessageenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsWebMessageEnabled)(
             ::core::mem::transmute_copy(self),
             iswebmessageenabled.into_param().abi(),
@@ -22784,12 +22826,12 @@ impl ICoreWebView2Settings7 {
         aredefaultscriptdialogsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredefaultscriptdialogsenabled),
@@ -22804,12 +22846,12 @@ impl ICoreWebView2Settings7 {
         aredefaultscriptdialogsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDefaultScriptDialogsEnabled)(
             ::core::mem::transmute_copy(self),
             aredefaultscriptdialogsenabled.into_param().abi(),
@@ -22821,12 +22863,12 @@ impl ICoreWebView2Settings7 {
         isstatusbarenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(isstatusbarenabled),
@@ -22841,12 +22883,12 @@ impl ICoreWebView2Settings7 {
         isstatusbarenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsStatusBarEnabled)(
             ::core::mem::transmute_copy(self),
             isstatusbarenabled.into_param().abi(),
@@ -22858,12 +22900,12 @@ impl ICoreWebView2Settings7 {
         aredevtoolsenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(aredevtoolsenabled),
@@ -22878,12 +22920,12 @@ impl ICoreWebView2Settings7 {
         aredevtoolsenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDevToolsEnabled)(
             ::core::mem::transmute_copy(self),
             aredevtoolsenabled.into_param().abi(),
@@ -22895,12 +22937,12 @@ impl ICoreWebView2Settings7 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -22915,12 +22957,12 @@ impl ICoreWebView2Settings7 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreDefaultContextMenusEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -22932,12 +22974,12 @@ impl ICoreWebView2Settings7 {
         allowed: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(allowed),
@@ -22952,12 +22994,12 @@ impl ICoreWebView2Settings7 {
         allowed: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreHostObjectsAllowed)(
             ::core::mem::transmute_copy(self),
             allowed.into_param().abi(),
@@ -22969,12 +23011,12 @@ impl ICoreWebView2Settings7 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -22989,12 +23031,12 @@ impl ICoreWebView2Settings7 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsZoomControlEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -23006,12 +23048,12 @@ impl ICoreWebView2Settings7 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -23026,12 +23068,12 @@ impl ICoreWebView2Settings7 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsBuiltInErrorPageEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -23043,11 +23085,11 @@ impl ICoreWebView2Settings7 {
         useragent: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .UserAgent)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(useragent),
@@ -23062,11 +23104,11 @@ impl ICoreWebView2Settings7 {
         useragent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetUserAgent)(
             ::core::mem::transmute_copy(self),
             useragent.into_param().abi(),
@@ -23078,10 +23120,10 @@ impl ICoreWebView2Settings7 {
         arebrowseracceleratorkeysenabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(arebrowseracceleratorkeysenabled),
@@ -23096,10 +23138,10 @@ impl ICoreWebView2Settings7 {
         arebrowseracceleratorkeysenabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetAreBrowserAcceleratorKeysEnabled)(
             ::core::mem::transmute_copy(self),
             arebrowseracceleratorkeysenabled.into_param().abi(),
@@ -23111,9 +23153,9 @@ impl ICoreWebView2Settings7 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsPasswordAutosaveEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -23128,9 +23170,9 @@ impl ICoreWebView2Settings7 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsPasswordAutosaveEnabled)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -23142,9 +23184,9 @@ impl ICoreWebView2Settings7 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsGeneralAutofillEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -23159,9 +23201,9 @@ impl ICoreWebView2Settings7 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsGeneralAutofillEnabled)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -23173,8 +23215,8 @@ impl ICoreWebView2Settings7 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsPinchZoomEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -23189,8 +23231,8 @@ impl ICoreWebView2Settings7 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsPinchZoomEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -23202,7 +23244,7 @@ impl ICoreWebView2Settings7 {
         enabled: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsSwipeNavigationEnabled)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(enabled),
@@ -23217,7 +23259,7 @@ impl ICoreWebView2Settings7 {
         enabled: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetIsSwipeNavigationEnabled)(
             ::core::mem::transmute_copy(self),
             enabled.into_param().abi(),
@@ -23411,7 +23453,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2Settings7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2Settings7_Vtbl {
-    pub base: ICoreWebView2Settings6_Vtbl,
+    pub base__: ICoreWebView2Settings6_Vtbl,
     pub HiddenPdfToolbarItems: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         hidden_pdf_toolbar_items: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
@@ -23485,7 +23527,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2SourceChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2SourceChangedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub IsNewDocument: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         isnewdocument: *mut ::windows::Win32::Foundation::BOOL,
@@ -23561,7 +23603,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2SourceChangedEventHandle
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2SourceChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -23638,7 +23680,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2StateChangedEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2StateChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -23719,7 +23761,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2StatusBarTextChangedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -23799,7 +23841,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2StringCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2StringCollection_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Count: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut u32,
@@ -23879,7 +23921,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2TrySuspendCompletedHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2TrySuspendCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -23972,7 +24014,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebMessageReceivedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Source: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         source: *mut ::windows::core::PWSTR,
@@ -24060,7 +24102,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebMessageReceivedEventH
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -24189,7 +24231,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceRequest_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Uri: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         uri: *mut ::windows::core::PWSTR,
@@ -24324,7 +24366,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Request: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         request: *mut ::windows::core::RawPtr,
@@ -24420,7 +24462,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -24549,7 +24591,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponse {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponse_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Content: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         content: *mut ::windows::core::RawPtr,
@@ -24653,7 +24695,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponseRecei
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Request: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         request: *mut ::windows::core::RawPtr,
@@ -24737,7 +24779,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponseRecei
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -24839,7 +24881,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WebResourceResponseView 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseView_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Headers: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         headers: *mut ::windows::core::RawPtr,
@@ -24934,7 +24976,7 @@ unsafe impl ::windows::core::Interface
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
@@ -25015,7 +25057,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WindowCloseRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -25162,7 +25204,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2WindowFeatures {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WindowFeatures_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub HasPosition: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: *mut ::windows::Win32::Foundation::BOOL,
@@ -25278,7 +25320,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ZoomFactorChangedEventHa
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sender: ::windows::core::RawPtr,
@@ -25291,15 +25333,15 @@ impl ICoreWebView2_10 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -25308,15 +25350,15 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -25328,15 +25370,15 @@ impl ICoreWebView2_10 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -25348,15 +25390,15 @@ impl ICoreWebView2_10 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -25372,15 +25414,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25396,15 +25438,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25419,15 +25461,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25443,15 +25485,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25466,15 +25508,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25490,15 +25532,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25513,15 +25555,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25537,15 +25579,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25560,15 +25602,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25584,15 +25626,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25607,15 +25649,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25631,15 +25673,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -25655,15 +25697,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25679,15 +25721,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -25703,15 +25745,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25727,15 +25769,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25750,15 +25792,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25774,15 +25816,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25797,15 +25839,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -25821,15 +25863,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -25848,15 +25890,15 @@ impl ICoreWebView2_10 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -25872,15 +25914,15 @@ impl ICoreWebView2_10 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -25897,15 +25939,15 @@ impl ICoreWebView2_10 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -25924,15 +25966,15 @@ impl ICoreWebView2_10 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -25943,15 +25985,15 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -25963,15 +26005,15 @@ impl ICoreWebView2_10 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -25986,15 +26028,15 @@ impl ICoreWebView2_10 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -26010,15 +26052,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -26034,15 +26076,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -26060,15 +26102,15 @@ impl ICoreWebView2_10 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -26079,15 +26121,15 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -26099,15 +26141,15 @@ impl ICoreWebView2_10 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -26119,15 +26161,15 @@ impl ICoreWebView2_10 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -26136,29 +26178,29 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -26171,15 +26213,15 @@ impl ICoreWebView2_10 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -26189,15 +26231,15 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -26210,15 +26252,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26234,15 +26276,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -26257,15 +26299,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26281,15 +26323,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -26301,15 +26343,15 @@ impl ICoreWebView2_10 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -26325,15 +26367,15 @@ impl ICoreWebView2_10 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -26349,15 +26391,15 @@ impl ICoreWebView2_10 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -26365,15 +26407,15 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -26386,15 +26428,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26410,15 +26452,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -26430,15 +26472,15 @@ impl ICoreWebView2_10 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -26454,15 +26496,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26478,15 +26520,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -26502,15 +26544,15 @@ impl ICoreWebView2_10 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -26527,15 +26569,15 @@ impl ICoreWebView2_10 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -26552,15 +26594,15 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26576,15 +26618,15 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -26600,14 +26642,14 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26623,14 +26665,14 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -26645,14 +26687,14 @@ impl ICoreWebView2_10 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -26668,14 +26710,14 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26691,14 +26733,14 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -26707,14 +26749,14 @@ impl ICoreWebView2_10 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -26724,14 +26766,14 @@ impl ICoreWebView2_10 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -26746,13 +26788,13 @@ impl ICoreWebView2_10 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -26761,13 +26803,13 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -26776,13 +26818,13 @@ impl ICoreWebView2_10 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -26800,13 +26842,13 @@ impl ICoreWebView2_10 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -26823,13 +26865,13 @@ impl ICoreWebView2_10 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -26845,12 +26887,12 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26866,12 +26908,12 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -26884,12 +26926,12 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26905,12 +26947,12 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -26925,11 +26967,11 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -26945,11 +26987,11 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -26958,10 +27000,10 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenTaskManagerWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -26977,9 +27019,9 @@ impl ICoreWebView2_10 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .PrintToPdf)(
             ::core::mem::transmute_copy(self),
             resultfilepath.into_param().abi(),
@@ -26997,8 +27039,8 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsMutedChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27014,8 +27056,8 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveIsMutedChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27025,7 +27067,10 @@ impl ICoreWebView2_10 {
         &self,
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.IsMuted)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .IsMuted)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
         )
@@ -27039,8 +27084,8 @@ impl ICoreWebView2_10 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetIsMuted)(::core::mem::transmute_copy(self), value.into_param().abi())
         .ok()
     }
@@ -27053,8 +27098,8 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27070,8 +27115,8 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveIsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -27083,8 +27128,8 @@ impl ICoreWebView2_10 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsDocumentPlayingAudio)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -27100,7 +27145,7 @@ impl ICoreWebView2_10 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsDefaultDownloadDialogOpenChanged)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -27116,7 +27161,7 @@ impl ICoreWebView2_10 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveIsDefaultDownloadDialogOpenChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -27128,7 +27173,7 @@ impl ICoreWebView2_10 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsDefaultDownloadDialogOpen)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -27137,13 +27182,13 @@ impl ICoreWebView2_10 {
     }
     pub unsafe fn OpenDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .OpenDefaultDownloadDialog)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn CloseDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CloseDefaultDownloadDialog)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -27152,7 +27197,7 @@ impl ICoreWebView2_10 {
         value: *mut COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .DefaultDownloadDialogCornerAlignment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -27164,7 +27209,7 @@ impl ICoreWebView2_10 {
         value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetDefaultDownloadDialogCornerAlignment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -27176,7 +27221,7 @@ impl ICoreWebView2_10 {
         value: *mut ::windows::Win32::Foundation::POINT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .DefaultDownloadDialogMargin)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -27191,7 +27236,7 @@ impl ICoreWebView2_10 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetDefaultDownloadDialogMargin)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -27451,7 +27496,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_10 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_10_Vtbl {
-    pub base: ICoreWebView2_9_Vtbl,
+    pub base__: ICoreWebView2_9_Vtbl,
     pub BasicAuthenticationRequested: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -27469,16 +27514,16 @@ impl ICoreWebView2_11 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -27487,16 +27532,16 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -27508,16 +27553,16 @@ impl ICoreWebView2_11 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -27529,16 +27574,16 @@ impl ICoreWebView2_11 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -27554,16 +27599,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27579,16 +27624,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27603,16 +27648,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27628,16 +27673,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27652,16 +27697,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27677,16 +27722,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27701,16 +27746,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27726,16 +27771,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27750,16 +27795,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27775,16 +27820,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27799,16 +27844,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27824,16 +27869,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -27849,16 +27894,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27874,16 +27919,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -27899,16 +27944,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27924,16 +27969,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27948,16 +27993,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -27973,16 +28018,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -27997,16 +28042,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28022,16 +28067,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -28050,16 +28095,16 @@ impl ICoreWebView2_11 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -28075,16 +28120,16 @@ impl ICoreWebView2_11 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -28101,16 +28146,16 @@ impl ICoreWebView2_11 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -28129,16 +28174,16 @@ impl ICoreWebView2_11 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -28149,16 +28194,16 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -28170,16 +28215,16 @@ impl ICoreWebView2_11 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -28194,16 +28239,16 @@ impl ICoreWebView2_11 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -28219,16 +28264,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -28244,16 +28289,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -28271,16 +28316,16 @@ impl ICoreWebView2_11 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -28291,16 +28336,16 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -28312,16 +28357,16 @@ impl ICoreWebView2_11 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -28333,16 +28378,16 @@ impl ICoreWebView2_11 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -28351,31 +28396,31 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -28388,16 +28433,16 @@ impl ICoreWebView2_11 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -28407,16 +28452,16 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -28429,16 +28474,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28454,16 +28499,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -28478,16 +28523,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28503,16 +28548,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -28524,16 +28569,16 @@ impl ICoreWebView2_11 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -28549,16 +28594,16 @@ impl ICoreWebView2_11 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -28574,16 +28619,16 @@ impl ICoreWebView2_11 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -28591,16 +28636,16 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -28613,16 +28658,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28638,16 +28683,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -28659,16 +28704,16 @@ impl ICoreWebView2_11 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -28684,16 +28729,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28709,16 +28754,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -28734,16 +28779,16 @@ impl ICoreWebView2_11 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -28760,16 +28805,16 @@ impl ICoreWebView2_11 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -28786,16 +28831,16 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28811,16 +28856,16 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -28836,15 +28881,15 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28860,15 +28905,15 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -28883,15 +28928,15 @@ impl ICoreWebView2_11 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -28907,15 +28952,15 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -28931,15 +28976,15 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -28948,15 +28993,15 @@ impl ICoreWebView2_11 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -28966,15 +29011,15 @@ impl ICoreWebView2_11 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -28989,14 +29034,14 @@ impl ICoreWebView2_11 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -29005,14 +29050,14 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -29021,14 +29066,14 @@ impl ICoreWebView2_11 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -29046,14 +29091,14 @@ impl ICoreWebView2_11 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -29070,14 +29115,14 @@ impl ICoreWebView2_11 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -29093,13 +29138,13 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29115,13 +29160,13 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -29134,13 +29179,13 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29156,13 +29201,13 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -29177,12 +29222,12 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29198,12 +29243,12 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -29212,11 +29257,11 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenTaskManagerWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -29232,10 +29277,10 @@ impl ICoreWebView2_11 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .PrintToPdf)(
             ::core::mem::transmute_copy(self),
             resultfilepath.into_param().abi(),
@@ -29253,9 +29298,9 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsMutedChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29271,9 +29316,9 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveIsMutedChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -29284,9 +29329,9 @@ impl ICoreWebView2_11 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsMuted)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -29301,9 +29346,9 @@ impl ICoreWebView2_11 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetIsMuted)(::core::mem::transmute_copy(self), value.into_param().abi())
         .ok()
     }
@@ -29316,9 +29361,9 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29334,9 +29379,9 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveIsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -29348,9 +29393,9 @@ impl ICoreWebView2_11 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsDocumentPlayingAudio)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -29366,8 +29411,8 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsDefaultDownloadDialogOpenChanged)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -29383,8 +29428,8 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveIsDefaultDownloadDialogOpenChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -29396,8 +29441,8 @@ impl ICoreWebView2_11 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsDefaultDownloadDialogOpen)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -29406,15 +29451,15 @@ impl ICoreWebView2_11 {
     }
     pub unsafe fn OpenDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .OpenDefaultDownloadDialog)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn CloseDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CloseDefaultDownloadDialog)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -29423,8 +29468,8 @@ impl ICoreWebView2_11 {
         value: *mut COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .DefaultDownloadDialogCornerAlignment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -29436,8 +29481,8 @@ impl ICoreWebView2_11 {
         value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetDefaultDownloadDialogCornerAlignment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -29449,8 +29494,8 @@ impl ICoreWebView2_11 {
         value: *mut ::windows::Win32::Foundation::POINT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .DefaultDownloadDialogMargin)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -29465,8 +29510,8 @@ impl ICoreWebView2_11 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetDefaultDownloadDialogMargin)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -29482,7 +29527,7 @@ impl ICoreWebView2_11 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .BasicAuthenticationRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29498,7 +29543,7 @@ impl ICoreWebView2_11 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveBasicAuthenticationRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -29800,7 +29845,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_11 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_11_Vtbl {
-    pub base: ICoreWebView2_10_Vtbl,
+    pub base__: ICoreWebView2_10_Vtbl,
     pub CallDevToolsProtocolMethodForSession: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         sessionid: ::windows::core::PCWSTR,
@@ -29825,17 +29870,17 @@ impl ICoreWebView2_12 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -29844,17 +29889,17 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -29866,17 +29911,17 @@ impl ICoreWebView2_12 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -29888,17 +29933,17 @@ impl ICoreWebView2_12 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -29914,17 +29959,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29940,17 +29985,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -29965,17 +30010,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -29991,17 +30036,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30016,17 +30061,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30042,17 +30087,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30067,17 +30112,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30093,17 +30138,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30118,17 +30163,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30144,17 +30189,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30169,17 +30214,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30195,17 +30240,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -30221,17 +30266,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30247,17 +30292,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -30273,17 +30318,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30299,17 +30344,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30324,17 +30369,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30350,17 +30395,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30375,17 +30420,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30401,17 +30446,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30430,17 +30475,17 @@ impl ICoreWebView2_12 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -30456,17 +30501,17 @@ impl ICoreWebView2_12 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -30483,17 +30528,17 @@ impl ICoreWebView2_12 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -30512,17 +30557,17 @@ impl ICoreWebView2_12 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -30533,17 +30578,17 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -30555,17 +30600,17 @@ impl ICoreWebView2_12 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -30580,17 +30625,17 @@ impl ICoreWebView2_12 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -30606,17 +30651,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -30632,17 +30677,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30660,17 +30705,17 @@ impl ICoreWebView2_12 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -30681,17 +30726,17 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -30703,17 +30748,17 @@ impl ICoreWebView2_12 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -30725,17 +30770,17 @@ impl ICoreWebView2_12 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -30744,33 +30789,33 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -30783,17 +30828,17 @@ impl ICoreWebView2_12 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -30803,17 +30848,17 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -30826,17 +30871,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30852,17 +30897,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -30877,17 +30922,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -30903,17 +30948,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -30925,17 +30970,17 @@ impl ICoreWebView2_12 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -30951,17 +30996,17 @@ impl ICoreWebView2_12 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -30977,17 +31022,17 @@ impl ICoreWebView2_12 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -30995,17 +31040,17 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -31018,17 +31063,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31044,17 +31089,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31066,17 +31111,17 @@ impl ICoreWebView2_12 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -31092,17 +31137,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31118,17 +31163,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31144,17 +31189,17 @@ impl ICoreWebView2_12 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -31171,17 +31216,17 @@ impl ICoreWebView2_12 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -31198,17 +31243,17 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31224,17 +31269,17 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31250,16 +31295,16 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31275,16 +31320,16 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31299,16 +31344,16 @@ impl ICoreWebView2_12 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -31324,16 +31369,16 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31349,16 +31394,16 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -31367,16 +31412,16 @@ impl ICoreWebView2_12 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -31386,16 +31431,16 @@ impl ICoreWebView2_12 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -31410,15 +31455,15 @@ impl ICoreWebView2_12 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -31427,15 +31472,15 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -31444,15 +31489,15 @@ impl ICoreWebView2_12 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -31470,15 +31515,15 @@ impl ICoreWebView2_12 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -31495,15 +31540,15 @@ impl ICoreWebView2_12 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -31519,14 +31564,14 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31542,14 +31587,14 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -31562,14 +31607,14 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31585,14 +31630,14 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -31607,13 +31652,13 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31629,13 +31674,13 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31644,12 +31689,12 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenTaskManagerWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -31665,11 +31710,11 @@ impl ICoreWebView2_12 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PrintToPdf)(
             ::core::mem::transmute_copy(self),
             resultfilepath.into_param().abi(),
@@ -31687,10 +31732,10 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsMutedChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31706,10 +31751,10 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveIsMutedChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -31720,10 +31765,10 @@ impl ICoreWebView2_12 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsMuted)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -31738,10 +31783,10 @@ impl ICoreWebView2_12 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetIsMuted)(::core::mem::transmute_copy(self), value.into_param().abi())
         .ok()
     }
@@ -31754,10 +31799,10 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31773,10 +31818,10 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveIsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31788,10 +31833,10 @@ impl ICoreWebView2_12 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsDocumentPlayingAudio)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -31807,9 +31852,9 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsDefaultDownloadDialogOpenChanged)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -31825,9 +31870,9 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveIsDefaultDownloadDialogOpenChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31839,9 +31884,9 @@ impl ICoreWebView2_12 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsDefaultDownloadDialogOpen)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -31850,17 +31895,17 @@ impl ICoreWebView2_12 {
     }
     pub unsafe fn OpenDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .OpenDefaultDownloadDialog)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn CloseDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CloseDefaultDownloadDialog)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -31869,9 +31914,9 @@ impl ICoreWebView2_12 {
         value: *mut COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .DefaultDownloadDialogCornerAlignment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -31883,9 +31928,9 @@ impl ICoreWebView2_12 {
         value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetDefaultDownloadDialogCornerAlignment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -31897,9 +31942,9 @@ impl ICoreWebView2_12 {
         value: *mut ::windows::Win32::Foundation::POINT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .DefaultDownloadDialogMargin)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -31914,9 +31959,9 @@ impl ICoreWebView2_12 {
         value: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetDefaultDownloadDialogMargin)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
@@ -31932,8 +31977,8 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .BasicAuthenticationRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -31949,8 +31994,8 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveBasicAuthenticationRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -31971,7 +32016,7 @@ impl ICoreWebView2_12 {
         handler: Param3,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CallDevToolsProtocolMethodForSession)(
             ::core::mem::transmute_copy(self),
             sessionid.into_param().abi(),
@@ -31990,7 +32035,7 @@ impl ICoreWebView2_12 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ContextMenuRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32006,7 +32051,7 @@ impl ICoreWebView2_12 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveContextMenuRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -32316,7 +32361,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_12 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_12_Vtbl {
-    pub base: ICoreWebView2_11_Vtbl,
+    pub base__: ICoreWebView2_11_Vtbl,
     pub StatusBarTextChanged: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -32336,14 +32381,14 @@ pub struct ICoreWebView2_2(::windows::core::IUnknown);
 impl ICoreWebView2_2 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.Settings)(
+        (::windows::core::Interface::vtable(self).base__.Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
         .from_abi::<ICoreWebView2Settings>(result__)
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Source)(
+        (::windows::core::Interface::vtable(self).base__.Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
         )
@@ -32353,7 +32398,7 @@ impl ICoreWebView2_2 {
         &self,
         uri: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Navigate)(
+        (::windows::core::Interface::vtable(self).base__.Navigate)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
         )
@@ -32367,7 +32412,7 @@ impl ICoreWebView2_2 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -32383,7 +32428,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32399,7 +32444,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32413,7 +32458,9 @@ impl ICoreWebView2_2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ContentLoading)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -32428,7 +32475,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32442,7 +32489,9 @@ impl ICoreWebView2_2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SourceChanged)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -32457,7 +32506,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32471,7 +32520,9 @@ impl ICoreWebView2_2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.HistoryChanged)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -32486,7 +32537,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32501,7 +32552,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32517,7 +32568,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32532,7 +32583,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32548,7 +32599,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -32564,7 +32615,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32580,7 +32631,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -32596,7 +32647,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32612,7 +32663,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32627,7 +32678,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32643,7 +32694,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32657,7 +32708,9 @@ impl ICoreWebView2_2 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ProcessFailed)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -32672,7 +32725,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32691,7 +32744,7 @@ impl ICoreWebView2_2 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -32707,7 +32760,7 @@ impl ICoreWebView2_2 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -32723,7 +32776,9 @@ impl ICoreWebView2_2 {
         javascript: Param0,
         handler: Param1,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ExecuteScript)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
             handler.into_param().abi(),
@@ -32740,7 +32795,9 @@ impl ICoreWebView2_2 {
         imagestream: Param1,
         handler: Param2,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CapturePreview)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
             imagestream.into_param().abi(),
@@ -32749,7 +32806,7 @@ impl ICoreWebView2_2 {
         .ok()
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Reload)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.Reload)(::core::mem::transmute_copy(self))
             .ok()
     }
     pub unsafe fn PostWebMessageAsJson<
@@ -32760,7 +32817,7 @@ impl ICoreWebView2_2 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -32775,7 +32832,7 @@ impl ICoreWebView2_2 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -32791,7 +32848,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -32807,7 +32864,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32825,7 +32882,7 @@ impl ICoreWebView2_2 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -32836,7 +32893,7 @@ impl ICoreWebView2_2 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -32847,7 +32904,7 @@ impl ICoreWebView2_2 {
         &self,
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CanGoBack)(
+        (::windows::core::Interface::vtable(self).base__.CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
         )
@@ -32857,19 +32914,21 @@ impl ICoreWebView2_2 {
         &self,
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CanGoForward)(
+        (::windows::core::Interface::vtable(self).base__.CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
         )
         .ok()
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GoBack)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.GoBack)(::core::mem::transmute_copy(self))
             .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GoForward)(::core::mem::transmute_copy(self))
-            .ok()
+        (::windows::core::Interface::vtable(self).base__.GoForward)(::core::mem::transmute_copy(
+            self,
+        ))
+        .ok()
     }
     pub unsafe fn GetDevToolsProtocolEventReceiver<
         'a,
@@ -32880,7 +32939,7 @@ impl ICoreWebView2_2 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -32889,7 +32948,8 @@ impl ICoreWebView2_2 {
         .from_abi::<ICoreWebView2DevToolsProtocolEventReceiver>(result__)
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Stop)(::core::mem::transmute_copy(self))
+            .ok()
     }
     pub unsafe fn NewWindowRequested<
         'a,
@@ -32900,7 +32960,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32916,7 +32976,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -32931,7 +32991,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -32947,7 +33007,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -32958,7 +33018,9 @@ impl ICoreWebView2_2 {
         &self,
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.DocumentTitle)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
         )
@@ -32973,7 +33035,7 @@ impl ICoreWebView2_2 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -32989,7 +33051,7 @@ impl ICoreWebView2_2 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -32997,7 +33059,7 @@ impl ICoreWebView2_2 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -33010,7 +33072,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33026,7 +33088,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -33038,7 +33100,7 @@ impl ICoreWebView2_2 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -33054,7 +33116,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33070,7 +33132,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -33086,7 +33148,7 @@ impl ICoreWebView2_2 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -33103,7 +33165,7 @@ impl ICoreWebView2_2 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -33120,7 +33182,7 @@ impl ICoreWebView2_2 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33136,7 +33198,7 @@ impl ICoreWebView2_2 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -33293,7 +33355,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_2_Vtbl {
-    pub base: ICoreWebView2_Vtbl,
+    pub base__: ICoreWebView2_Vtbl,
     pub WebResourceResponseReceived: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -33331,14 +33393,20 @@ pub struct ICoreWebView2_3(::windows::core::IUnknown);
 impl ICoreWebView2_3 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.Settings)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
         .from_abi::<ICoreWebView2Settings>(result__)
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Source)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
         )
@@ -33348,10 +33416,10 @@ impl ICoreWebView2_3 {
         &self,
         uri: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Navigate)(
-            ::core::mem::transmute_copy(self),
-            uri.into_param().abi(),
-        )
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
     pub unsafe fn NavigateToString<
@@ -33362,8 +33430,8 @@ impl ICoreWebView2_3 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -33379,8 +33447,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33396,8 +33464,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33412,8 +33480,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33429,8 +33497,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33445,8 +33513,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33462,8 +33530,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33478,8 +33546,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33495,8 +33563,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33511,8 +33579,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33528,8 +33596,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33544,8 +33612,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33561,8 +33629,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -33578,8 +33646,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33595,8 +33663,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -33612,8 +33680,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33629,8 +33697,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33645,8 +33713,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33662,8 +33730,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33678,8 +33746,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33695,8 +33763,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33715,8 +33783,8 @@ impl ICoreWebView2_3 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -33732,8 +33800,8 @@ impl ICoreWebView2_3 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -33750,8 +33818,8 @@ impl ICoreWebView2_3 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -33770,8 +33838,8 @@ impl ICoreWebView2_3 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -33781,9 +33849,10 @@ impl ICoreWebView2_3 {
         .ok()
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Reload)(::core::mem::transmute_copy(
-            self,
-        ))
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn PostWebMessageAsJson<
@@ -33794,8 +33863,8 @@ impl ICoreWebView2_3 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -33810,8 +33879,8 @@ impl ICoreWebView2_3 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -33827,8 +33896,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -33844,8 +33913,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33863,8 +33932,8 @@ impl ICoreWebView2_3 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -33875,8 +33944,8 @@ impl ICoreWebView2_3 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -33887,7 +33956,10 @@ impl ICoreWebView2_3 {
         &self,
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.CanGoBack)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
         )
@@ -33898,8 +33970,8 @@ impl ICoreWebView2_3 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -33907,15 +33979,17 @@ impl ICoreWebView2_3 {
         .ok()
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GoBack)(::core::mem::transmute_copy(
-            self,
-        ))
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GoForward)(::core::mem::transmute_copy(
-            self,
-        ))
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GetDevToolsProtocolEventReceiver<
@@ -33927,8 +34001,8 @@ impl ICoreWebView2_3 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -33937,8 +34011,10 @@ impl ICoreWebView2_3 {
         .from_abi::<ICoreWebView2DevToolsProtocolEventReceiver>(result__)
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Stop)(::core::mem::transmute_copy(self))
-            .ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Stop)(::core::mem::transmute_copy(
+            self,
+        ))
+        .ok()
     }
     pub unsafe fn NewWindowRequested<
         'a,
@@ -33949,8 +34025,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33966,8 +34042,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -33982,8 +34058,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -33999,8 +34075,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -34012,8 +34088,8 @@ impl ICoreWebView2_3 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -34029,8 +34105,8 @@ impl ICoreWebView2_3 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -34046,8 +34122,8 @@ impl ICoreWebView2_3 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -34055,8 +34131,8 @@ impl ICoreWebView2_3 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -34069,8 +34145,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34086,8 +34162,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -34099,8 +34175,8 @@ impl ICoreWebView2_3 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -34116,8 +34192,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34133,8 +34209,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -34150,8 +34226,8 @@ impl ICoreWebView2_3 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -34168,8 +34244,8 @@ impl ICoreWebView2_3 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -34186,8 +34262,8 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34203,8 +34279,8 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -34220,7 +34296,7 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34236,7 +34312,7 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -34251,7 +34327,7 @@ impl ICoreWebView2_3 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -34267,7 +34343,7 @@ impl ICoreWebView2_3 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34283,7 +34359,7 @@ impl ICoreWebView2_3 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34291,7 +34367,9 @@ impl ICoreWebView2_3 {
     }
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CookieManager)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -34299,7 +34377,7 @@ impl ICoreWebView2_3 {
     }
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.Environment)(
+        (::windows::core::Interface::vtable(self).base__.Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
         )
@@ -34447,7 +34525,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_3_Vtbl {
-    pub base: ICoreWebView2_2_Vtbl,
+    pub base__: ICoreWebView2_2_Vtbl,
     pub TrySuspend: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         handler: ::windows::core::RawPtr,
@@ -34477,9 +34555,9 @@ impl ICoreWebView2_4 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -34488,9 +34566,9 @@ impl ICoreWebView2_4 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -34502,9 +34580,9 @@ impl ICoreWebView2_4 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -34516,9 +34594,9 @@ impl ICoreWebView2_4 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -34534,9 +34612,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34552,9 +34630,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34569,9 +34647,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34587,9 +34665,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34604,9 +34682,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34622,9 +34700,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34639,9 +34717,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34657,9 +34735,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34674,9 +34752,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34692,9 +34770,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34709,9 +34787,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34727,9 +34805,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -34745,9 +34823,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34763,9 +34841,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -34781,9 +34859,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34799,9 +34877,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34816,9 +34894,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34834,9 +34912,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34851,9 +34929,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -34869,9 +34947,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -34890,9 +34968,9 @@ impl ICoreWebView2_4 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -34908,9 +34986,9 @@ impl ICoreWebView2_4 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -34927,9 +35005,9 @@ impl ICoreWebView2_4 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -34948,9 +35026,9 @@ impl ICoreWebView2_4 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -34961,9 +35039,9 @@ impl ICoreWebView2_4 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -34975,9 +35053,9 @@ impl ICoreWebView2_4 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -34992,9 +35070,9 @@ impl ICoreWebView2_4 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -35010,9 +35088,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -35028,9 +35106,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -35048,9 +35126,9 @@ impl ICoreWebView2_4 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -35061,9 +35139,9 @@ impl ICoreWebView2_4 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -35075,9 +35153,9 @@ impl ICoreWebView2_4 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -35089,9 +35167,9 @@ impl ICoreWebView2_4 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -35100,17 +35178,17 @@ impl ICoreWebView2_4 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -35123,9 +35201,9 @@ impl ICoreWebView2_4 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -35134,9 +35212,11 @@ impl ICoreWebView2_4 {
         .from_abi::<ICoreWebView2DevToolsProtocolEventReceiver>(result__)
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.Stop)(::core::mem::transmute_copy(
-            self,
-        ))
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn NewWindowRequested<
@@ -35148,9 +35228,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35166,9 +35246,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -35183,9 +35263,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35201,9 +35281,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -35215,9 +35295,9 @@ impl ICoreWebView2_4 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -35233,9 +35313,9 @@ impl ICoreWebView2_4 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -35251,9 +35331,9 @@ impl ICoreWebView2_4 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -35261,9 +35341,9 @@ impl ICoreWebView2_4 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -35276,9 +35356,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35294,9 +35374,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -35308,9 +35388,9 @@ impl ICoreWebView2_4 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -35326,9 +35406,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35344,9 +35424,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -35362,9 +35442,9 @@ impl ICoreWebView2_4 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -35381,9 +35461,9 @@ impl ICoreWebView2_4 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -35400,9 +35480,9 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35418,9 +35498,9 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -35436,8 +35516,8 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35453,8 +35533,8 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -35469,8 +35549,8 @@ impl ICoreWebView2_4 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -35486,8 +35566,8 @@ impl ICoreWebView2_4 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35503,8 +35583,8 @@ impl ICoreWebView2_4 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -35513,8 +35593,8 @@ impl ICoreWebView2_4 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -35524,8 +35604,8 @@ impl ICoreWebView2_4 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -35539,21 +35619,21 @@ impl ICoreWebView2_4 {
         &self,
         handler: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.TrySuspend)(
+        (::windows::core::Interface::vtable(self).base__.TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
         )
         .ok()
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Resume)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.Resume)(::core::mem::transmute_copy(self))
             .ok()
     }
     pub unsafe fn IsSuspended(
         &self,
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsSuspended)(
+        (::windows::core::Interface::vtable(self).base__.IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
         )
@@ -35570,7 +35650,7 @@ impl ICoreWebView2_4 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -35587,7 +35667,7 @@ impl ICoreWebView2_4 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -35755,7 +35835,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_4_Vtbl {
-    pub base: ICoreWebView2_3_Vtbl,
+    pub base__: ICoreWebView2_3_Vtbl,
     pub FrameCreated: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -35781,10 +35861,10 @@ impl ICoreWebView2_5 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -35793,10 +35873,10 @@ impl ICoreWebView2_5 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -35808,10 +35888,10 @@ impl ICoreWebView2_5 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -35823,10 +35903,10 @@ impl ICoreWebView2_5 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -35842,10 +35922,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35861,10 +35941,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -35879,10 +35959,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35898,10 +35978,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -35916,10 +35996,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35935,10 +36015,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -35953,10 +36033,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -35972,10 +36052,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -35990,10 +36070,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36009,10 +36089,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -36027,10 +36107,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36046,10 +36126,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -36065,10 +36145,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36084,10 +36164,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -36103,10 +36183,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36122,10 +36202,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -36140,10 +36220,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36159,10 +36239,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -36177,10 +36257,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36196,10 +36276,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -36218,10 +36298,10 @@ impl ICoreWebView2_5 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -36237,10 +36317,10 @@ impl ICoreWebView2_5 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -36257,10 +36337,10 @@ impl ICoreWebView2_5 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -36279,10 +36359,10 @@ impl ICoreWebView2_5 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -36293,10 +36373,10 @@ impl ICoreWebView2_5 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -36308,10 +36388,10 @@ impl ICoreWebView2_5 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -36326,10 +36406,10 @@ impl ICoreWebView2_5 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -36345,10 +36425,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -36364,10 +36444,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -36385,10 +36465,10 @@ impl ICoreWebView2_5 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -36399,10 +36479,10 @@ impl ICoreWebView2_5 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -36414,10 +36494,10 @@ impl ICoreWebView2_5 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -36429,10 +36509,10 @@ impl ICoreWebView2_5 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -36441,19 +36521,19 @@ impl ICoreWebView2_5 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -36466,10 +36546,10 @@ impl ICoreWebView2_5 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -36479,10 +36559,10 @@ impl ICoreWebView2_5 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -36495,10 +36575,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36514,10 +36594,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -36532,10 +36612,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36551,10 +36631,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -36566,10 +36646,10 @@ impl ICoreWebView2_5 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -36585,10 +36665,10 @@ impl ICoreWebView2_5 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -36604,10 +36684,10 @@ impl ICoreWebView2_5 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -36615,10 +36695,10 @@ impl ICoreWebView2_5 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -36631,10 +36711,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36650,10 +36730,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -36665,10 +36745,10 @@ impl ICoreWebView2_5 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -36684,10 +36764,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36703,10 +36783,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -36722,10 +36802,10 @@ impl ICoreWebView2_5 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -36742,10 +36822,10 @@ impl ICoreWebView2_5 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -36762,10 +36842,10 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36781,10 +36861,10 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -36800,9 +36880,9 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36818,9 +36898,9 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -36835,9 +36915,9 @@ impl ICoreWebView2_5 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -36853,9 +36933,9 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -36871,9 +36951,9 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -36882,9 +36962,9 @@ impl ICoreWebView2_5 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -36894,9 +36974,9 @@ impl ICoreWebView2_5 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -36911,8 +36991,8 @@ impl ICoreWebView2_5 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -36920,9 +37000,10 @@ impl ICoreWebView2_5 {
         .ok()
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Resume)(::core::mem::transmute_copy(
-            self,
-        ))
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn IsSuspended(
@@ -36930,8 +37011,8 @@ impl ICoreWebView2_5 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -36949,8 +37030,8 @@ impl ICoreWebView2_5 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -36967,8 +37048,8 @@ impl ICoreWebView2_5 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -36983,7 +37064,7 @@ impl ICoreWebView2_5 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.FrameCreated)(
+        (::windows::core::Interface::vtable(self).base__.FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -36998,7 +37079,7 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -37011,7 +37092,7 @@ impl ICoreWebView2_5 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37027,7 +37108,7 @@ impl ICoreWebView2_5 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37186,7 +37267,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_5_Vtbl {
-    pub base: ICoreWebView2_4_Vtbl,
+    pub base__: ICoreWebView2_4_Vtbl,
     pub ClientCertificateRequested: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -37204,11 +37285,11 @@ impl ICoreWebView2_6 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -37217,11 +37298,11 @@ impl ICoreWebView2_6 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -37233,11 +37314,11 @@ impl ICoreWebView2_6 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -37249,11 +37330,11 @@ impl ICoreWebView2_6 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -37269,11 +37350,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37289,11 +37370,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37308,11 +37389,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37328,11 +37409,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37347,11 +37428,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37367,11 +37448,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37386,11 +37467,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37406,11 +37487,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37425,11 +37506,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37445,11 +37526,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37464,11 +37545,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37484,11 +37565,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -37504,11 +37585,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37524,11 +37605,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -37544,11 +37625,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37564,11 +37645,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37583,11 +37664,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37603,11 +37684,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37622,11 +37703,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37642,11 +37723,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37665,11 +37746,11 @@ impl ICoreWebView2_6 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -37685,11 +37766,11 @@ impl ICoreWebView2_6 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -37706,11 +37787,11 @@ impl ICoreWebView2_6 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -37729,11 +37810,11 @@ impl ICoreWebView2_6 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -37744,11 +37825,11 @@ impl ICoreWebView2_6 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -37760,11 +37841,11 @@ impl ICoreWebView2_6 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -37779,11 +37860,11 @@ impl ICoreWebView2_6 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -37799,11 +37880,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -37819,11 +37900,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37841,11 +37922,11 @@ impl ICoreWebView2_6 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -37856,11 +37937,11 @@ impl ICoreWebView2_6 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -37872,11 +37953,11 @@ impl ICoreWebView2_6 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -37888,11 +37969,11 @@ impl ICoreWebView2_6 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -37901,21 +37982,21 @@ impl ICoreWebView2_6 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -37928,11 +38009,11 @@ impl ICoreWebView2_6 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -37942,11 +38023,11 @@ impl ICoreWebView2_6 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -37959,11 +38040,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -37979,11 +38060,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -37998,11 +38079,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38018,11 +38099,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -38034,11 +38115,11 @@ impl ICoreWebView2_6 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -38054,11 +38135,11 @@ impl ICoreWebView2_6 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -38074,11 +38155,11 @@ impl ICoreWebView2_6 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -38086,11 +38167,11 @@ impl ICoreWebView2_6 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -38103,11 +38184,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38123,11 +38204,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -38139,11 +38220,11 @@ impl ICoreWebView2_6 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -38159,11 +38240,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38179,11 +38260,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -38199,11 +38280,11 @@ impl ICoreWebView2_6 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -38220,11 +38301,11 @@ impl ICoreWebView2_6 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -38241,11 +38322,11 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38261,11 +38342,11 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -38281,10 +38362,10 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38300,10 +38381,10 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -38318,10 +38399,10 @@ impl ICoreWebView2_6 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -38337,10 +38418,10 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38356,10 +38437,10 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -38368,10 +38449,10 @@ impl ICoreWebView2_6 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -38381,10 +38462,10 @@ impl ICoreWebView2_6 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -38399,9 +38480,9 @@ impl ICoreWebView2_6 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -38410,9 +38491,9 @@ impl ICoreWebView2_6 {
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -38421,9 +38502,9 @@ impl ICoreWebView2_6 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -38441,9 +38522,9 @@ impl ICoreWebView2_6 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -38460,9 +38541,9 @@ impl ICoreWebView2_6 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -38478,8 +38559,8 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38495,8 +38576,8 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -38509,8 +38590,8 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38526,8 +38607,8 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -38542,7 +38623,7 @@ impl ICoreWebView2_6 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .ClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38558,7 +38639,7 @@ impl ICoreWebView2_6 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -38716,7 +38797,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_6_Vtbl {
-    pub base: ICoreWebView2_5_Vtbl,
+    pub base__: ICoreWebView2_5_Vtbl,
     pub OpenTaskManagerWindow:
         unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -38726,12 +38807,12 @@ impl ICoreWebView2_7 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -38740,12 +38821,12 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -38757,12 +38838,12 @@ impl ICoreWebView2_7 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -38774,12 +38855,12 @@ impl ICoreWebView2_7 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -38795,12 +38876,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38816,12 +38897,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -38836,12 +38917,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38857,12 +38938,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -38877,12 +38958,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38898,12 +38979,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -38918,12 +38999,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38939,12 +39020,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -38959,12 +39040,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -38980,12 +39061,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -39000,12 +39081,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39021,12 +39102,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -39042,12 +39123,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39063,12 +39144,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -39084,12 +39165,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39105,12 +39186,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -39125,12 +39206,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39146,12 +39227,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -39166,12 +39247,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39187,12 +39268,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -39211,12 +39292,12 @@ impl ICoreWebView2_7 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -39232,12 +39313,12 @@ impl ICoreWebView2_7 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -39254,12 +39335,12 @@ impl ICoreWebView2_7 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -39278,12 +39359,12 @@ impl ICoreWebView2_7 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -39294,12 +39375,12 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -39311,12 +39392,12 @@ impl ICoreWebView2_7 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -39331,12 +39412,12 @@ impl ICoreWebView2_7 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -39352,12 +39433,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -39373,12 +39454,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -39396,12 +39477,12 @@ impl ICoreWebView2_7 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -39412,12 +39493,12 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -39429,12 +39510,12 @@ impl ICoreWebView2_7 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -39446,12 +39527,12 @@ impl ICoreWebView2_7 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -39460,23 +39541,23 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -39489,12 +39570,12 @@ impl ICoreWebView2_7 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -39504,12 +39585,12 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -39522,12 +39603,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39543,12 +39624,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -39563,12 +39644,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39584,12 +39665,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -39601,12 +39682,12 @@ impl ICoreWebView2_7 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -39622,12 +39703,12 @@ impl ICoreWebView2_7 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -39643,12 +39724,12 @@ impl ICoreWebView2_7 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -39656,12 +39737,12 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -39674,12 +39755,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39695,12 +39776,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -39712,12 +39793,12 @@ impl ICoreWebView2_7 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -39733,12 +39814,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39754,12 +39835,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -39775,12 +39856,12 @@ impl ICoreWebView2_7 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -39797,12 +39878,12 @@ impl ICoreWebView2_7 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -39819,12 +39900,12 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39840,12 +39921,12 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -39861,11 +39942,11 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39881,11 +39962,11 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -39900,11 +39981,11 @@ impl ICoreWebView2_7 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -39920,11 +40001,11 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -39940,11 +40021,11 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -39953,11 +40034,11 @@ impl ICoreWebView2_7 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -39967,11 +40048,11 @@ impl ICoreWebView2_7 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -39986,10 +40067,10 @@ impl ICoreWebView2_7 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -39998,10 +40079,10 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -40010,10 +40091,10 @@ impl ICoreWebView2_7 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -40031,10 +40112,10 @@ impl ICoreWebView2_7 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -40051,10 +40132,10 @@ impl ICoreWebView2_7 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -40070,9 +40151,9 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40088,9 +40169,9 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -40103,9 +40184,9 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40121,9 +40202,9 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40138,8 +40219,8 @@ impl ICoreWebView2_7 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .ClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40155,8 +40236,8 @@ impl ICoreWebView2_7 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .RemoveClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -40165,7 +40246,7 @@ impl ICoreWebView2_7 {
     }
     pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .OpenTaskManagerWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -40353,7 +40434,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_7_Vtbl {
-    pub base: ICoreWebView2_6_Vtbl,
+    pub base__: ICoreWebView2_6_Vtbl,
     pub PrintToPdf: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         resultfilepath: ::windows::core::PCWSTR,
@@ -40367,13 +40448,13 @@ impl ICoreWebView2_8 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -40382,13 +40463,13 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -40400,13 +40481,13 @@ impl ICoreWebView2_8 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -40418,13 +40499,13 @@ impl ICoreWebView2_8 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -40440,13 +40521,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40462,13 +40543,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40483,13 +40564,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40505,13 +40586,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40526,13 +40607,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40548,13 +40629,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40569,13 +40650,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40591,13 +40672,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40612,13 +40693,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40634,13 +40715,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40655,13 +40736,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40677,13 +40758,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -40699,13 +40780,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40721,13 +40802,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -40743,13 +40824,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40765,13 +40846,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40786,13 +40867,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40808,13 +40889,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40829,13 +40910,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -40851,13 +40932,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -40876,13 +40957,13 @@ impl ICoreWebView2_8 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -40898,13 +40979,13 @@ impl ICoreWebView2_8 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -40921,13 +41002,13 @@ impl ICoreWebView2_8 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -40946,13 +41027,13 @@ impl ICoreWebView2_8 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -40963,13 +41044,13 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -40981,13 +41062,13 @@ impl ICoreWebView2_8 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -41002,13 +41083,13 @@ impl ICoreWebView2_8 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -41024,13 +41105,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -41046,13 +41127,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -41070,13 +41151,13 @@ impl ICoreWebView2_8 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -41087,13 +41168,13 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -41105,13 +41186,13 @@ impl ICoreWebView2_8 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -41123,13 +41204,13 @@ impl ICoreWebView2_8 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -41138,25 +41219,25 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -41169,13 +41250,13 @@ impl ICoreWebView2_8 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -41185,13 +41266,13 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -41204,13 +41285,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41226,13 +41307,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -41247,13 +41328,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41269,13 +41350,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -41287,13 +41368,13 @@ impl ICoreWebView2_8 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -41309,13 +41390,13 @@ impl ICoreWebView2_8 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -41331,13 +41412,13 @@ impl ICoreWebView2_8 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -41345,13 +41426,13 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -41364,13 +41445,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41386,13 +41467,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -41404,13 +41485,13 @@ impl ICoreWebView2_8 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -41426,13 +41507,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41448,13 +41529,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -41470,13 +41551,13 @@ impl ICoreWebView2_8 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -41493,13 +41574,13 @@ impl ICoreWebView2_8 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -41516,13 +41597,13 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41538,13 +41619,13 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -41560,12 +41641,12 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41581,12 +41662,12 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -41601,12 +41682,12 @@ impl ICoreWebView2_8 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -41622,12 +41703,12 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41643,12 +41724,12 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -41657,12 +41738,12 @@ impl ICoreWebView2_8 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -41672,12 +41753,12 @@ impl ICoreWebView2_8 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -41692,11 +41773,11 @@ impl ICoreWebView2_8 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -41705,11 +41786,11 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -41718,11 +41799,11 @@ impl ICoreWebView2_8 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -41740,11 +41821,11 @@ impl ICoreWebView2_8 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -41761,11 +41842,11 @@ impl ICoreWebView2_8 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -41781,10 +41862,10 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41800,10 +41881,10 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -41816,10 +41897,10 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41835,10 +41916,10 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -41853,9 +41934,9 @@ impl ICoreWebView2_8 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .ClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -41871,9 +41952,9 @@ impl ICoreWebView2_8 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .RemoveClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -41882,8 +41963,8 @@ impl ICoreWebView2_8 {
     }
     pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .OpenTaskManagerWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -41898,7 +41979,7 @@ impl ICoreWebView2_8 {
         printsettings: Param1,
         handler: Param2,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.PrintToPdf)(
+        (::windows::core::Interface::vtable(self).base__.PrintToPdf)(
             ::core::mem::transmute_copy(self),
             resultfilepath.into_param().abi(),
             printsettings.into_param().abi(),
@@ -42180,7 +42261,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_8_Vtbl {
-    pub base: ICoreWebView2_7_Vtbl,
+    pub base__: ICoreWebView2_7_Vtbl,
     pub IsMutedChanged: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         eventhandler: ::windows::core::RawPtr,
@@ -42219,14 +42300,14 @@ impl ICoreWebView2_9 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Settings)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -42235,14 +42316,14 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Source)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(uri),
@@ -42254,14 +42335,14 @@ impl ICoreWebView2_9 {
         uri: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Navigate)(::core::mem::transmute_copy(self), uri.into_param().abi())
         .ok()
     }
@@ -42273,14 +42354,14 @@ impl ICoreWebView2_9 {
         htmlcontent: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateToString)(
             ::core::mem::transmute_copy(self),
             htmlcontent.into_param().abi(),
@@ -42296,14 +42377,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42319,14 +42400,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42341,14 +42422,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContentLoading)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42364,14 +42445,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContentLoading)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42386,14 +42467,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SourceChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42409,14 +42490,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveSourceChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42431,14 +42512,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .HistoryChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42454,14 +42535,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHistoryChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42476,14 +42557,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42499,14 +42580,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNavigationCompleted)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42521,14 +42602,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42544,14 +42625,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationStarting)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -42567,14 +42648,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42590,14 +42671,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameNavigationCompleted)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -42613,14 +42694,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ScriptDialogOpening)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42636,14 +42717,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptDialogOpening)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42658,14 +42739,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PermissionRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42681,14 +42762,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemovePermissionRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42703,14 +42784,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ProcessFailed)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -42726,14 +42807,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveProcessFailed)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42752,14 +42833,14 @@ impl ICoreWebView2_9 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -42775,14 +42856,14 @@ impl ICoreWebView2_9 {
         id: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveScriptToExecuteOnDocumentCreated)(
             ::core::mem::transmute_copy(self),
             id.into_param().abi(),
@@ -42799,14 +42880,14 @@ impl ICoreWebView2_9 {
         handler: Param1,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ExecuteScript)(
             ::core::mem::transmute_copy(self),
             javascript.into_param().abi(),
@@ -42825,14 +42906,14 @@ impl ICoreWebView2_9 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CapturePreview)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(imageformat),
@@ -42843,14 +42924,14 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Reload)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -42862,14 +42943,14 @@ impl ICoreWebView2_9 {
         webmessageasjson: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsJson)(
             ::core::mem::transmute_copy(self),
             webmessageasjson.into_param().abi(),
@@ -42884,14 +42965,14 @@ impl ICoreWebView2_9 {
         webmessageasstring: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .PostWebMessageAsString)(
             ::core::mem::transmute_copy(self),
             webmessageasstring.into_param().abi(),
@@ -42907,14 +42988,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebMessageReceived)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -42930,14 +43011,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebMessageReceived)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -42955,14 +43036,14 @@ impl ICoreWebView2_9 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CallDevToolsProtocolMethod)(
             ::core::mem::transmute_copy(self),
             methodname.into_param().abi(),
@@ -42973,14 +43054,14 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .BrowserProcessId)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -42992,14 +43073,14 @@ impl ICoreWebView2_9 {
         cangoback: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoBack)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoback),
@@ -43011,14 +43092,14 @@ impl ICoreWebView2_9 {
         cangoforward: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CanGoForward)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(cangoforward),
@@ -43027,27 +43108,27 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoBack)(::core::mem::transmute_copy(self))
         .ok()
     }
     pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GoForward)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -43060,14 +43141,14 @@ impl ICoreWebView2_9 {
     ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .GetDevToolsProtocolEventReceiver)(
             ::core::mem::transmute_copy(self),
             eventname.into_param().abi(),
@@ -43077,14 +43158,14 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Stop)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -43097,14 +43178,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NewWindowRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43120,14 +43201,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveNewWindowRequested)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -43142,14 +43223,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43165,14 +43246,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDocumentTitleChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -43184,14 +43265,14 @@ impl ICoreWebView2_9 {
         title: *mut ::windows::core::PWSTR,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DocumentTitle)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(title),
@@ -43207,14 +43288,14 @@ impl ICoreWebView2_9 {
         object: *mut ::windows::Win32::System::Com::VARIANT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddHostObjectToScript)(
             ::core::mem::transmute_copy(self),
             name.into_param().abi(),
@@ -43230,14 +43311,14 @@ impl ICoreWebView2_9 {
         name: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveHostObjectFromScript)(
             ::core::mem::transmute_copy(self), name.into_param().abi()
         )
@@ -43245,14 +43326,14 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .OpenDevToolsWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -43265,14 +43346,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43288,14 +43369,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveContainsFullScreenElementChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -43307,14 +43388,14 @@ impl ICoreWebView2_9 {
         containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ContainsFullScreenElement)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(containsfullscreenelement),
@@ -43330,14 +43411,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43353,14 +43434,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -43376,14 +43457,14 @@ impl ICoreWebView2_9 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .AddWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -43400,14 +43481,14 @@ impl ICoreWebView2_9 {
         resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceRequestedFilter)(
             ::core::mem::transmute_copy(self),
             uri.into_param().abi(),
@@ -43424,14 +43505,14 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43447,14 +43528,14 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWindowCloseRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -43470,13 +43551,13 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .WebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43492,13 +43573,13 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveWebResourceResponseReceived)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -43513,13 +43594,13 @@ impl ICoreWebView2_9 {
         request: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .NavigateWithWebResourceRequest)(
             ::core::mem::transmute_copy(self),
             request.into_param().abi(),
@@ -43535,13 +43616,13 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DOMContentLoaded)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43557,13 +43638,13 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDOMContentLoaded)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -43572,13 +43653,13 @@ impl ICoreWebView2_9 {
     pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .CookieManager)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -43588,13 +43669,13 @@ impl ICoreWebView2_9 {
     pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Environment)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(&mut result__),
@@ -43609,12 +43690,12 @@ impl ICoreWebView2_9 {
         handler: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .TrySuspend)(
             ::core::mem::transmute_copy(self),
             handler.into_param().abi(),
@@ -43623,12 +43704,12 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .Resume)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -43637,12 +43718,12 @@ impl ICoreWebView2_9 {
         issuspended: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .IsSuspended)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(issuspended),
@@ -43660,12 +43741,12 @@ impl ICoreWebView2_9 {
         accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .SetVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -43682,12 +43763,12 @@ impl ICoreWebView2_9 {
         hostname: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .ClearVirtualHostNameToFolderMapping)(
             ::core::mem::transmute_copy(self),
             hostname.into_param().abi(),
@@ -43703,11 +43784,11 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .FrameCreated)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43723,11 +43804,11 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveFrameCreated)(::core::mem::transmute_copy(self), token.into_param().abi())
         .ok()
     }
@@ -43740,11 +43821,11 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .DownloadStarting)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43760,11 +43841,11 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveDownloadStarting)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -43779,10 +43860,10 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .ClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43798,10 +43879,10 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
+            .base__
             .RemoveClientCertificateRequested)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -43810,9 +43891,9 @@ impl ICoreWebView2_9 {
     }
     pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
-            .base
+            .base__
+            .base__
+            .base__
             .OpenTaskManagerWindow)(::core::mem::transmute_copy(self))
         .ok()
     }
@@ -43828,8 +43909,8 @@ impl ICoreWebView2_9 {
         handler: Param2,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
-            .base
+            .base__
+            .base__
             .PrintToPdf)(
             ::core::mem::transmute_copy(self),
             resultfilepath.into_param().abi(),
@@ -43846,7 +43927,9 @@ impl ICoreWebView2_9 {
         eventhandler: Param0,
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsMutedChanged)(
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .IsMutedChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
             ::core::mem::transmute(token),
@@ -43861,7 +43944,7 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveIsMutedChanged)(
             ::core::mem::transmute_copy(self), token.into_param().abi()
         )
@@ -43871,7 +43954,7 @@ impl ICoreWebView2_9 {
         &self,
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.IsMuted)(
+        (::windows::core::Interface::vtable(self).base__.IsMuted)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
         )
@@ -43884,7 +43967,7 @@ impl ICoreWebView2_9 {
         &self,
         value: Param0,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetIsMuted)(
+        (::windows::core::Interface::vtable(self).base__.SetIsMuted)(
             ::core::mem::transmute_copy(self),
             value.into_param().abi(),
         )
@@ -43899,7 +43982,7 @@ impl ICoreWebView2_9 {
         token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             eventhandler.into_param().abi(),
@@ -43915,7 +43998,7 @@ impl ICoreWebView2_9 {
         token: Param0,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .RemoveIsDocumentPlayingAudioChanged)(
             ::core::mem::transmute_copy(self),
             token.into_param().abi(),
@@ -43927,7 +44010,7 @@ impl ICoreWebView2_9 {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self)
-            .base
+            .base__
             .IsDocumentPlayingAudio)(
             ::core::mem::transmute_copy(self),
             ::core::mem::transmute(value),
@@ -44232,7 +44315,7 @@ unsafe impl ::windows::core::Interface for ICoreWebView2_9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2_9_Vtbl {
-    pub base: ICoreWebView2_8_Vtbl,
+    pub base__: ICoreWebView2_8_Vtbl,
     pub IsDefaultDownloadDialogOpenChanged: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         handler: ::windows::core::RawPtr,
@@ -45409,7 +45492,7 @@ impl ICoreWebView2_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Settings: Settings::<Identity, Impl, OFFSET>,
             Source: Source::<Identity, Impl, OFFSET>,
             Navigate: Navigate::<Identity, Impl, OFFSET>,
@@ -45609,7 +45692,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             KeyEventKind: KeyEventKind::<Identity, Impl, OFFSET>,
             VirtualKey: VirtualKey::<Identity, Impl, OFFSET>,
             KeyEventLParam: KeyEventLParam::<Identity, Impl, OFFSET>,
@@ -45654,7 +45737,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -45694,7 +45777,7 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -45808,7 +45891,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, Impl, OFFSET>,
             Challenge: Challenge::<Identity, Impl, OFFSET>,
             Response: Response::<Identity, Impl, OFFSET>,
@@ -45853,7 +45936,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -45930,7 +46013,7 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             UserName: UserName::<Identity, Impl, OFFSET>,
             SetUserName: SetUserName::<Identity, Impl, OFFSET>,
             Password: Password::<Identity, Impl, OFFSET>,
@@ -45983,7 +46066,7 @@ impl ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BrowserProcessExitKind: BrowserProcessExitKind::<Identity, Impl, OFFSET>,
             BrowserProcessId: BrowserProcessId::<Identity, Impl, OFFSET>,
         }
@@ -46024,7 +46107,7 @@ impl ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -46064,7 +46147,7 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -46104,7 +46187,7 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -46136,7 +46219,7 @@ impl ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -46293,7 +46376,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
             (*this).Kind(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Subject: Subject::<Identity, Impl, OFFSET>,
             Issuer: Issuer::<Identity, Impl, OFFSET>,
             ValidFrom: ValidFrom::<Identity, Impl, OFFSET>,
@@ -46358,7 +46441,7 @@ impl ICoreWebView2ClientCertificateCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetValueAtIndex: GetValueAtIndex::<Identity, Impl, OFFSET>,
         }
@@ -46576,7 +46659,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Host: Host::<Identity, Impl, OFFSET>,
             Port: Port::<Identity, Impl, OFFSET>,
             IsProxy: IsProxy::<Identity, Impl, OFFSET>,
@@ -46627,7 +46710,7 @@ impl ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -46805,7 +46888,7 @@ impl ICoreWebView2CompositionController_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             RootVisualTarget: RootVisualTarget::<Identity, Impl, OFFSET>,
             SetRootVisualTarget: SetRootVisualTarget::<Identity, Impl, OFFSET>,
             SendMouseInput: SendMouseInput::<Identity, Impl, OFFSET>,
@@ -46850,7 +46933,7 @@ impl ICoreWebView2CompositionController2_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2CompositionController_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2CompositionController_Vtbl::new::<Identity, Impl, OFFSET>(),
             AutomationProvider: AutomationProvider::<Identity, Impl, OFFSET>,
         }
     }
@@ -46891,7 +46974,7 @@ impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -46941,7 +47024,7 @@ impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsErrorPage: IsErrorPage::<Identity, Impl, OFFSET>,
             NavigationId: NavigationId::<Identity, Impl, OFFSET>,
         }
@@ -46982,7 +47065,7 @@ impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -47222,7 +47305,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Label: Label::<Identity, Impl, OFFSET>,
             CommandId: CommandId::<Identity, Impl, OFFSET>,
@@ -47322,7 +47405,7 @@ impl ICoreWebView2ContextMenuItemCollection_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetValueAtIndex: GetValueAtIndex::<Identity, Impl, OFFSET>,
             RemoveValueAtIndex: RemoveValueAtIndex::<Identity, Impl, OFFSET>,
@@ -47476,7 +47559,7 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             MenuItems: MenuItems::<Identity, Impl, OFFSET>,
             ContextMenuTarget: ContextMenuTarget::<Identity, Impl, OFFSET>,
             Location: Location::<Identity, Impl, OFFSET>,
@@ -47523,7 +47606,7 @@ impl ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -47746,7 +47829,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Kind: Kind::<Identity, Impl, OFFSET>,
             IsEditable: IsEditable::<Identity, Impl, OFFSET>,
             IsRequestedForMainFrame: IsRequestedForMainFrame::<Identity, Impl, OFFSET>,
@@ -48193,7 +48276,7 @@ impl ICoreWebView2Controller_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsVisible: IsVisible::<Identity, Impl, OFFSET>,
             SetIsVisible: SetIsVisible::<Identity, Impl, OFFSET>,
             Bounds: Bounds::<Identity, Impl, OFFSET>,
@@ -48272,7 +48355,7 @@ impl ICoreWebView2Controller2_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Controller_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Controller_Vtbl::new::<Identity, Impl, OFFSET>(),
             DefaultBackgroundColor: DefaultBackgroundColor::<Identity, Impl, OFFSET>,
             SetDefaultBackgroundColor: SetDefaultBackgroundColor::<Identity, Impl, OFFSET>,
         }
@@ -48430,7 +48513,7 @@ impl ICoreWebView2Controller3_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Controller2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Controller2_Vtbl::new::<Identity, Impl, OFFSET>(),
             RasterizationScale: RasterizationScale::<Identity, Impl, OFFSET>,
             SetRasterizationScale: SetRasterizationScale::<Identity, Impl, OFFSET>,
             ShouldDetectMonitorScaleChanges: ShouldDetectMonitorScaleChanges::<
@@ -48506,7 +48589,7 @@ impl ICoreWebView2Controller4_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Controller3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Controller3_Vtbl::new::<Identity, Impl, OFFSET>(),
             AllowExternalDrop: AllowExternalDrop::<Identity, Impl, OFFSET>,
             SetAllowExternalDrop: SetAllowExternalDrop::<Identity, Impl, OFFSET>,
         }
@@ -48748,7 +48831,7 @@ impl ICoreWebView2Cookie_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
@@ -48811,7 +48894,7 @@ impl ICoreWebView2CookieList_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetValueAtIndex: GetValueAtIndex::<Identity, Impl, OFFSET>,
         }
@@ -49001,7 +49084,7 @@ impl ICoreWebView2CookieManager_Vtbl {
             (*this).DeleteAllCookies().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateCookie: CreateCookie::<Identity, Impl, OFFSET>,
             CopyCookie: CopyCookie::<Identity, Impl, OFFSET>,
             GetCookies: GetCookies::<Identity, Impl, OFFSET>,
@@ -49048,7 +49131,7 @@ impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49088,7 +49171,7 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49128,7 +49211,7 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49168,7 +49251,7 @@ impl ICoreWebView2CursorChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49208,7 +49291,7 @@ impl ICoreWebView2CustomItemSelectedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49240,7 +49323,7 @@ impl ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NavigationId: NavigationId::<Identity, Impl, OFFSET>,
         }
     }
@@ -49280,7 +49363,7 @@ impl ICoreWebView2DOMContentLoadedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49309,7 +49392,7 @@ impl ICoreWebView2Deferral_Vtbl {
             (*this).Complete().into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Complete: Complete::<Identity, Impl, OFFSET>,
         }
     }
@@ -49344,7 +49427,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ParameterObjectAsJson: ParameterObjectAsJson::<Identity, Impl, OFFSET>,
         }
     }
@@ -49378,7 +49461,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl::new::<
+            base__: ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl::new::<
                 Identity,
                 Impl,
                 OFFSET,
@@ -49422,7 +49505,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49480,7 +49563,7 @@ impl ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DevToolsProtocolEventReceived: DevToolsProtocolEventReceived::<Identity, Impl, OFFSET>,
             RemoveDevToolsProtocolEventReceived: RemoveDevToolsProtocolEventReceived::<
                 Identity,
@@ -49525,7 +49608,7 @@ impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -49865,7 +49948,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             BytesReceivedChanged: BytesReceivedChanged::<Identity, Impl, OFFSET>,
             RemoveBytesReceivedChanged: RemoveBytesReceivedChanged::<Identity, Impl, OFFSET>,
             EstimatedEndTimeChanged: EstimatedEndTimeChanged::<Identity, Impl, OFFSET>,
@@ -50041,7 +50124,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             DownloadOperation: DownloadOperation::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             SetCancel: SetCancel::<Identity, Impl, OFFSET>,
@@ -50088,7 +50171,7 @@ impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -50221,7 +50304,7 @@ impl ICoreWebView2Environment_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             CreateCoreWebView2Controller: CreateCoreWebView2Controller::<Identity, Impl, OFFSET>,
             CreateWebResourceResponse: CreateWebResourceResponse::<Identity, Impl, OFFSET>,
             BrowserVersionString: BrowserVersionString::<Identity, Impl, OFFSET>,
@@ -50280,7 +50363,7 @@ impl ICoreWebView2Environment2_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2Environment_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateWebResourceRequest: CreateWebResourceRequest::<Identity, Impl, OFFSET>,
         }
     }
@@ -50344,7 +50427,7 @@ impl ICoreWebView2Environment3_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2Environment2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment2_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateCoreWebView2CompositionController: CreateCoreWebView2CompositionController::<
                 Identity,
                 Impl,
@@ -50396,7 +50479,7 @@ impl ICoreWebView2Environment4_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2Environment3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment3_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetAutomationProviderForWindow: GetAutomationProviderForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -50463,7 +50546,7 @@ impl ICoreWebView2Environment5_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Environment4_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment4_Vtbl::new::<Identity, Impl, OFFSET>(),
             BrowserProcessExited: BrowserProcessExited::<Identity, Impl, OFFSET>,
             RemoveBrowserProcessExited: RemoveBrowserProcessExited::<Identity, Impl, OFFSET>,
         }
@@ -50511,7 +50594,7 @@ impl ICoreWebView2Environment6_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2Environment5_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment5_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreatePrintSettings: CreatePrintSettings::<Identity, Impl, OFFSET>,
         }
     }
@@ -50556,7 +50639,7 @@ impl ICoreWebView2Environment7_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Environment6_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment6_Vtbl::new::<Identity, Impl, OFFSET>(),
             UserDataFolder: UserDataFolder::<Identity, Impl, OFFSET>,
         }
     }
@@ -50648,7 +50731,7 @@ impl ICoreWebView2Environment8_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2Environment7_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment7_Vtbl::new::<Identity, Impl, OFFSET>(),
             ProcessInfosChanged: ProcessInfosChanged::<Identity, Impl, OFFSET>,
             RemoveProcessInfosChanged: RemoveProcessInfosChanged::<Identity, Impl, OFFSET>,
             GetProcessInfos: GetProcessInfos::<Identity, Impl, OFFSET>,
@@ -50715,7 +50798,7 @@ impl ICoreWebView2Environment9_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2Environment8_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Environment8_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateContextMenuItem: CreateContextMenuItem::<Identity, Impl, OFFSET>,
         }
     }
@@ -50874,7 +50957,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AdditionalBrowserArguments: AdditionalBrowserArguments::<Identity, Impl, OFFSET>,
             SetAdditionalBrowserArguments: SetAdditionalBrowserArguments::<Identity, Impl, OFFSET>,
             Language: Language::<Identity, Impl, OFFSET>,
@@ -50946,7 +51029,7 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ExclusiveUserDataFolderAccess: ExclusiveUserDataFolderAccess::<Identity, Impl, OFFSET>,
             SetExclusiveUserDataFolderAccess: SetExclusiveUserDataFolderAccess::<
                 Identity,
@@ -50991,7 +51074,7 @@ impl ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -51031,7 +51114,7 @@ impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -51071,7 +51154,7 @@ impl ICoreWebView2FocusChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -51248,7 +51331,7 @@ impl ICoreWebView2Frame_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             NameChanged: NameChanged::<Identity, Impl, OFFSET>,
             RemoveNameChanged: RemoveNameChanged::<Identity, Impl, OFFSET>,
@@ -51540,7 +51623,7 @@ impl ICoreWebView2Frame2_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Frame_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Frame_Vtbl::new::<Identity, Impl, OFFSET>(),
             NavigationStarting: NavigationStarting::<Identity, Impl, OFFSET>,
             RemoveNavigationStarting: RemoveNavigationStarting::<Identity, Impl, OFFSET>,
             ContentLoading: ContentLoading::<Identity, Impl, OFFSET>,
@@ -51613,7 +51696,7 @@ impl ICoreWebView2Frame3_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Frame2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Frame2_Vtbl::new::<Identity, Impl, OFFSET>(),
             PermissionRequested: PermissionRequested::<Identity, Impl, OFFSET>,
             RemovePermissionRequested: RemovePermissionRequested::<Identity, Impl, OFFSET>,
         }
@@ -51656,7 +51739,7 @@ impl ICoreWebView2FrameContentLoadingEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -51692,7 +51775,7 @@ impl ICoreWebView2FrameCreatedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Frame: Frame::<Identity, Impl, OFFSET>,
         }
     }
@@ -51732,7 +51815,7 @@ impl ICoreWebView2FrameCreatedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -51772,7 +51855,7 @@ impl ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -51812,7 +51895,7 @@ impl ICoreWebView2FrameDestroyedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -51855,7 +51938,7 @@ impl ICoreWebView2FrameInfo_Vtbl {
             (*this).Source(::core::mem::transmute_copy(&source)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             Source: Source::<Identity, Impl, OFFSET>,
         }
@@ -51892,7 +51975,7 @@ impl ICoreWebView2FrameInfoCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetIterator: GetIterator::<Identity, Impl, OFFSET>,
         }
     }
@@ -51964,7 +52047,7 @@ impl ICoreWebView2FrameInfoCollectionIterator_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             HasCurrent: HasCurrent::<Identity, Impl, OFFSET>,
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -52006,7 +52089,7 @@ impl ICoreWebView2FrameNameChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52046,7 +52129,7 @@ impl ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52086,7 +52169,7 @@ impl ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52126,7 +52209,7 @@ impl ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52166,7 +52249,7 @@ impl ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52206,7 +52289,7 @@ impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52246,7 +52329,7 @@ impl ICoreWebView2HistoryChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52322,7 +52405,7 @@ impl ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetCurrentHeader: GetCurrentHeader::<Identity, Impl, OFFSET>,
             HasCurrentHeader: HasCurrentHeader::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -52465,7 +52548,7 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             GetHeader: GetHeader::<Identity, Impl, OFFSET>,
             GetHeaders: GetHeaders::<Identity, Impl, OFFSET>,
             Contains: Contains::<Identity, Impl, OFFSET>,
@@ -52598,7 +52681,7 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             AppendHeader: AppendHeader::<Identity, Impl, OFFSET>,
             Contains: Contains::<Identity, Impl, OFFSET>,
             GetHeader: GetHeader::<Identity, Impl, OFFSET>,
@@ -52642,7 +52725,7 @@ impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52682,7 +52765,7 @@ impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52722,7 +52805,7 @@ impl ICoreWebView2IsMutedChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52783,7 +52866,7 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Reason: Reason::<Identity, Impl, OFFSET>,
             Handled: Handled::<Identity, Impl, OFFSET>,
             SetHandled: SetHandled::<Identity, Impl, OFFSET>,
@@ -52825,7 +52908,7 @@ impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -52893,7 +52976,7 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsSuccess: IsSuccess::<Identity, Impl, OFFSET>,
             WebErrorStatus: WebErrorStatus::<Identity, Impl, OFFSET>,
             NavigationId: NavigationId::<Identity, Impl, OFFSET>,
@@ -52935,7 +53018,7 @@ impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -53066,7 +53149,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, Impl, OFFSET>,
             IsUserInitiated: IsUserInitiated::<Identity, Impl, OFFSET>,
             IsRedirected: IsRedirected::<Identity, Impl, OFFSET>,
@@ -53127,7 +53210,7 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2NavigationStartingEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2NavigationStartingEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
             AdditionalAllowedFrameAncestors: AdditionalAllowedFrameAncestors::<
                 Identity,
                 Impl,
@@ -53177,7 +53260,7 @@ impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -53217,7 +53300,7 @@ impl ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -53376,7 +53459,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, Impl, OFFSET>,
             SetNewWindow: SetNewWindow::<Identity, Impl, OFFSET>,
             NewWindow: NewWindow::<Identity, Impl, OFFSET>,
@@ -53415,7 +53498,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2_Vtbl {
             (*this).Name(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: ICoreWebView2NewWindowRequestedEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2NewWindowRequestedEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
         }
     }
@@ -53456,7 +53539,7 @@ impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -53567,7 +53650,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, Impl, OFFSET>,
             PermissionKind: PermissionKind::<Identity, Impl, OFFSET>,
             IsUserInitiated: IsUserInitiated::<Identity, Impl, OFFSET>,
@@ -53627,7 +53710,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2PermissionRequestedEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2PermissionRequestedEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Handled: Handled::<Identity, Impl, OFFSET>,
             SetHandled: SetHandled::<Identity, Impl, OFFSET>,
         }
@@ -53670,7 +53753,7 @@ impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -54571,7 +54654,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             PointerKind: PointerKind::<Identity, Impl, OFFSET>,
             SetPointerKind: SetPointerKind::<Identity, Impl, OFFSET>,
             PointerId: PointerId::<Identity, Impl, OFFSET>,
@@ -55061,7 +55144,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Orientation: Orientation::<Identity, Impl, OFFSET>,
             SetOrientation: SetOrientation::<Identity, Impl, OFFSET>,
             ScaleFactor: ScaleFactor::<Identity, Impl, OFFSET>,
@@ -55126,7 +55209,7 @@ impl ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -55161,7 +55244,7 @@ impl ICoreWebView2ProcessFailedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProcessFailedKind: ProcessFailedKind::<Identity, Impl, OFFSET>,
         }
     }
@@ -55250,7 +55333,7 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2ProcessFailedEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2ProcessFailedEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
             Reason: Reason::<Identity, Impl, OFFSET>,
             ExitCode: ExitCode::<Identity, Impl, OFFSET>,
             ProcessDescription: ProcessDescription::<Identity, Impl, OFFSET>,
@@ -55294,7 +55377,7 @@ impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -55339,7 +55422,7 @@ impl ICoreWebView2ProcessInfo_Vtbl {
             (*this).Kind(::core::mem::transmute_copy(&kind)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             ProcessId: ProcessId::<Identity, Impl, OFFSET>,
             Kind: Kind::<Identity, Impl, OFFSET>,
         }
@@ -55390,7 +55473,7 @@ impl ICoreWebView2ProcessInfoCollection_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetValueAtIndex: GetValueAtIndex::<Identity, Impl, OFFSET>,
         }
@@ -55431,7 +55514,7 @@ impl ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -55471,7 +55554,7 @@ impl ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -55605,7 +55688,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, Impl, OFFSET>,
             Kind: Kind::<Identity, Impl, OFFSET>,
             Message: Message::<Identity, Impl, OFFSET>,
@@ -55652,7 +55735,7 @@ impl ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -55997,7 +56080,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsScriptEnabled: IsScriptEnabled::<Identity, Impl, OFFSET>,
             SetIsScriptEnabled: SetIsScriptEnabled::<Identity, Impl, OFFSET>,
             IsWebMessageEnabled: IsWebMessageEnabled::<Identity, Impl, OFFSET>,
@@ -56069,7 +56152,7 @@ impl ICoreWebView2Settings2_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Settings_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Settings_Vtbl::new::<Identity, Impl, OFFSET>(),
             UserAgent: UserAgent::<Identity, Impl, OFFSET>,
             SetUserAgent: SetUserAgent::<Identity, Impl, OFFSET>,
         }
@@ -56130,7 +56213,7 @@ impl ICoreWebView2Settings3_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Settings2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Settings2_Vtbl::new::<Identity, Impl, OFFSET>(),
             AreBrowserAcceleratorKeysEnabled: AreBrowserAcceleratorKeysEnabled::<
                 Identity,
                 Impl,
@@ -56232,7 +56315,7 @@ impl ICoreWebView2Settings4_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Settings3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Settings3_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsPasswordAutosaveEnabled: IsPasswordAutosaveEnabled::<Identity, Impl, OFFSET>,
             SetIsPasswordAutosaveEnabled: SetIsPasswordAutosaveEnabled::<Identity, Impl, OFFSET>,
             IsGeneralAutofillEnabled: IsGeneralAutofillEnabled::<Identity, Impl, OFFSET>,
@@ -56297,7 +56380,7 @@ impl ICoreWebView2Settings5_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Settings4_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Settings4_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsPinchZoomEnabled: IsPinchZoomEnabled::<Identity, Impl, OFFSET>,
             SetIsPinchZoomEnabled: SetIsPinchZoomEnabled::<Identity, Impl, OFFSET>,
         }
@@ -56362,7 +56445,7 @@ impl ICoreWebView2Settings6_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Settings5_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Settings5_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsSwipeNavigationEnabled: IsSwipeNavigationEnabled::<Identity, Impl, OFFSET>,
             SetIsSwipeNavigationEnabled: SetIsSwipeNavigationEnabled::<Identity, Impl, OFFSET>,
         }
@@ -56429,7 +56512,7 @@ impl ICoreWebView2Settings7_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2Settings6_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2Settings6_Vtbl::new::<Identity, Impl, OFFSET>(),
             HiddenPdfToolbarItems: HiddenPdfToolbarItems::<Identity, Impl, OFFSET>,
             SetHiddenPdfToolbarItems: SetHiddenPdfToolbarItems::<Identity, Impl, OFFSET>,
         }
@@ -56471,7 +56554,7 @@ impl ICoreWebView2SourceChangedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             IsNewDocument: IsNewDocument::<Identity, Impl, OFFSET>,
         }
     }
@@ -56511,7 +56594,7 @@ impl ICoreWebView2SourceChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -56551,7 +56634,7 @@ impl ICoreWebView2StateChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -56591,7 +56674,7 @@ impl ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -56644,7 +56727,7 @@ impl ICoreWebView2StringCollection_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetValueAtIndex: GetValueAtIndex::<Identity, Impl, OFFSET>,
         }
@@ -56685,7 +56768,7 @@ impl ICoreWebView2TrySuspendCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -56751,7 +56834,7 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Source: Source::<Identity, Impl, OFFSET>,
             WebMessageAsJson: WebMessageAsJson::<Identity, Impl, OFFSET>,
             TryGetWebMessageAsString: TryGetWebMessageAsString::<Identity, Impl, OFFSET>,
@@ -56793,7 +56876,7 @@ impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -56916,7 +56999,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, Impl, OFFSET>,
             SetUri: SetUri::<Identity, Impl, OFFSET>,
             Method: Method::<Identity, Impl, OFFSET>,
@@ -57032,7 +57115,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Request: Request::<Identity, Impl, OFFSET>,
             Response: Response::<Identity, Impl, OFFSET>,
             SetResponse: SetResponse::<Identity, Impl, OFFSET>,
@@ -57076,7 +57159,7 @@ impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -57213,7 +57296,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Content: Content::<Identity, Impl, OFFSET>,
             SetContent: SetContent::<Identity, Impl, OFFSET>,
             Headers: Headers::<Identity, Impl, OFFSET>,
@@ -57274,7 +57357,7 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
             }
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Request: Request::<Identity, Impl, OFFSET>,
             Response: Response::<Identity, Impl, OFFSET>,
         }
@@ -57315,7 +57398,7 @@ impl ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -57402,7 +57485,7 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
             (*this).GetContent(::core::mem::transmute(&handler)).into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Headers: Headers::<Identity, Impl, OFFSET>,
             StatusCode: StatusCode::<Identity, Impl, OFFSET>,
             ReasonPhrase: ReasonPhrase::<Identity, Impl, OFFSET>,
@@ -57445,7 +57528,7 @@ impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -57485,7 +57568,7 @@ impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -57660,7 +57743,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             HasPosition: HasPosition::<Identity, Impl, OFFSET>,
             HasSize: HasSize::<Identity, Impl, OFFSET>,
             Left: Left::<Identity, Impl, OFFSET>,
@@ -57709,7 +57792,7 @@ impl ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {
                 .into()
         }
         Self {
-            base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
@@ -57780,7 +57863,7 @@ impl ICoreWebView2_10_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_9_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_9_Vtbl::new::<Identity, Impl, OFFSET>(),
             BasicAuthenticationRequested: BasicAuthenticationRequested::<Identity, Impl, OFFSET>,
             RemoveBasicAuthenticationRequested: RemoveBasicAuthenticationRequested::<
                 Identity,
@@ -57893,7 +57976,7 @@ impl ICoreWebView2_11_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_10_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_10_Vtbl::new::<Identity, Impl, OFFSET>(),
             CallDevToolsProtocolMethodForSession: CallDevToolsProtocolMethodForSession::<
                 Identity,
                 Impl,
@@ -57995,7 +58078,7 @@ impl ICoreWebView2_12_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_11_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_11_Vtbl::new::<Identity, Impl, OFFSET>(),
             StatusBarTextChanged: StatusBarTextChanged::<Identity, Impl, OFFSET>,
             RemoveStatusBarTextChanged: RemoveStatusBarTextChanged::<Identity, Impl, OFFSET>,
             StatusBarText: StatusBarText::<Identity, Impl, OFFSET>,
@@ -58163,7 +58246,7 @@ impl ICoreWebView2_2_Vtbl {
             }
         }
         Self {
-            base: ICoreWebView2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_Vtbl::new::<Identity, Impl, OFFSET>(),
             WebResourceResponseReceived: WebResourceResponseReceived::<Identity, Impl, OFFSET>,
             RemoveWebResourceResponseReceived: RemoveWebResourceResponseReceived::<
                 Identity,
@@ -58281,7 +58364,7 @@ impl ICoreWebView2_3_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_2_Vtbl::new::<Identity, Impl, OFFSET>(),
             TrySuspend: TrySuspend::<Identity, Impl, OFFSET>,
             Resume: Resume::<Identity, Impl, OFFSET>,
             IsSuspended: IsSuspended::<Identity, Impl, OFFSET>,
@@ -58396,7 +58479,7 @@ impl ICoreWebView2_4_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_3_Vtbl::new::<Identity, Impl, OFFSET>(),
             FrameCreated: FrameCreated::<Identity, Impl, OFFSET>,
             RemoveFrameCreated: RemoveFrameCreated::<Identity, Impl, OFFSET>,
             DownloadStarting: DownloadStarting::<Identity, Impl, OFFSET>,
@@ -58462,7 +58545,7 @@ impl ICoreWebView2_5_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_4_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_4_Vtbl::new::<Identity, Impl, OFFSET>(),
             ClientCertificateRequested: ClientCertificateRequested::<Identity, Impl, OFFSET>,
             RemoveClientCertificateRequested: RemoveClientCertificateRequested::<
                 Identity,
@@ -58507,7 +58590,7 @@ impl ICoreWebView2_6_Vtbl {
             (*this).OpenTaskManagerWindow().into()
         }
         Self {
-            base: ICoreWebView2_5_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_5_Vtbl::new::<Identity, Impl, OFFSET>(),
             OpenTaskManagerWindow: OpenTaskManagerWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -58563,7 +58646,7 @@ impl ICoreWebView2_7_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_6_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_6_Vtbl::new::<Identity, Impl, OFFSET>(),
             PrintToPdf: PrintToPdf::<Identity, Impl, OFFSET>,
         }
     }
@@ -58728,7 +58811,7 @@ impl ICoreWebView2_8_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_7_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_7_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsMutedChanged: IsMutedChanged::<Identity, Impl, OFFSET>,
             RemoveIsMutedChanged: RemoveIsMutedChanged::<Identity, Impl, OFFSET>,
             IsMuted: IsMuted::<Identity, Impl, OFFSET>,
@@ -58929,7 +59012,7 @@ impl ICoreWebView2_9_Vtbl {
                 .into()
         }
         Self {
-            base: ICoreWebView2_8_Vtbl::new::<Identity, Impl, OFFSET>(),
+            base__: ICoreWebView2_8_Vtbl::new::<Identity, Impl, OFFSET>(),
             IsDefaultDownloadDialogOpenChanged: IsDefaultDownloadDialogOpenChanged::<
                 Identity,
                 Impl,
