@@ -31,7 +31,7 @@ By default this crate uses the `WebView2LoaderStatic.lib` static library and doe
 ## Updating the WebView2 SDK
 You can tell the build script to use a different version by updating `WEBVIEW2_VERSION` in `build.rs`:
 ```rust
-    const WEBVIEW2_VERSION: &str = "1.0.1150.38";
+    const WEBVIEW2_VERSION: &str = "1.0.1185.39";
 ```
 It will also regenerate [callback_interfaces.rs](./crates/bindings/src/callback_interfaces.rs) if they change in a new version. This file is used in `webview2-com`, and in particular, the tests in [callback.rs](./crates/webview2-com/src/callback.rs) verify that all of the interfaces listed in `callback_interfaces.rs` are implemented. If a new version of the SDK declared additional callback interfaces, you will need to add those interfaces to `callback.rs` using the `#[completed_callback]` (for `ICoreWebView2...CompletedHandler` interfaces) and `#[event_callback]` (for `ICoreWebView2...EventHandler` interfaces) macros.
 

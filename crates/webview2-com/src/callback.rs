@@ -458,6 +458,34 @@ pub struct BasicAuthenticationRequestedEventHandler(
     Option<ICoreWebView2BasicAuthenticationRequestedEventArgs>,
 );
 
+#[event_callback]
+pub struct ContextMenuRequestedEventHandler(
+    ICoreWebView2ContextMenuRequestedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2ContextMenuRequestedEventArgs>,
+);
+
+#[event_callback]
+pub struct CustomItemSelectedEventHandler(
+    ICoreWebView2CustomItemSelectedEventHandler,
+    Option<ICoreWebView2ContextMenuItem>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct FramePermissionRequestedEventHandler(
+    ICoreWebView2FramePermissionRequestedEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2PermissionRequestedEventArgs2>,
+);
+
+#[event_callback]
+pub struct StatusBarTextChangedEventHandler(
+    ICoreWebView2StatusBarTextChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
 #[cfg(all(test, windows))]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
