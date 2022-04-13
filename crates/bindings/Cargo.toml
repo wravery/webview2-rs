@@ -2,6 +2,7 @@
 name = "webview2-com-sys"
 version = "0.16.0"
 edition = "2018"
+rust-version = "1.61"
 description = "Bindings generated with the windows crate for the WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"
 license = "MIT"
