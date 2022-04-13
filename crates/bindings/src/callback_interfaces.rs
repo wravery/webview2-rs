@@ -15,10 +15,12 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2ClientCertificateRequestedEventHandler");
     interfaces.insert("ICoreWebView2ContainsFullScreenElementChangedEventHandler");
     interfaces.insert("ICoreWebView2ContentLoadingEventHandler");
+    interfaces.insert("ICoreWebView2ContextMenuRequestedEventHandler");
     interfaces.insert("ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler");
     interfaces.insert("ICoreWebView2CreateCoreWebView2ControllerCompletedHandler");
     interfaces.insert("ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler");
     interfaces.insert("ICoreWebView2CursorChangedEventHandler");
+    interfaces.insert("ICoreWebView2CustomItemSelectedEventHandler");
     interfaces.insert("ICoreWebView2DOMContentLoadedEventHandler");
     interfaces.insert("ICoreWebView2DevToolsProtocolEventReceivedEventHandler");
     interfaces.insert("ICoreWebView2DocumentTitleChangedEventHandler");
@@ -33,6 +35,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2FrameNameChangedEventHandler");
     interfaces.insert("ICoreWebView2FrameNavigationCompletedEventHandler");
     interfaces.insert("ICoreWebView2FrameNavigationStartingEventHandler");
+    interfaces.insert("ICoreWebView2FramePermissionRequestedEventHandler");
     interfaces.insert("ICoreWebView2FrameWebMessageReceivedEventHandler");
     interfaces.insert("ICoreWebView2GetCookiesCompletedHandler");
     interfaces.insert("ICoreWebView2HistoryChangedEventHandler");
@@ -52,6 +55,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2ScriptDialogOpeningEventHandler");
     interfaces.insert("ICoreWebView2SourceChangedEventHandler");
     interfaces.insert("ICoreWebView2StateChangedEventHandler");
+    interfaces.insert("ICoreWebView2StatusBarTextChangedEventHandler");
     interfaces.insert("ICoreWebView2TrySuspendCompletedHandler");
     interfaces.insert("ICoreWebView2WebMessageReceivedEventHandler");
     interfaces.insert("ICoreWebView2WebResourceRequestedEventHandler");
