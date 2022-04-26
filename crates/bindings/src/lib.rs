@@ -5,6 +5,9 @@ pub mod Microsoft {
         #[allow(non_snake_case)]
         pub mod WebView2 {
             #[allow(non_snake_case)]
+            #[allow(non_camel_case_types)]
+            #[allow(clippy::missing_safety_doc)]
+            #[allow(clippy::derivable_impls)]
             pub mod Win32;
         }
     }

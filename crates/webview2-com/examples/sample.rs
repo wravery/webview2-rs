@@ -160,7 +160,7 @@ impl FrameWindow {
                     WindowsAndMessaging::CW_USEDEFAULT,
                     None,
                     None,
-                    LibraryLoader::GetModuleHandleA(None),
+                    LibraryLoader::GetModuleHandleA(None).unwrap_or_default(),
                     ptr::null_mut(),
                 )
             }

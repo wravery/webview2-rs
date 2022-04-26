@@ -1,10 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_camel_case_types,
-    non_upper_case_globals,
-    clashing_extern_declarations,
-    clippy::all
-)]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct COREWEBVIEW2_BOUNDS_MODE(pub i32);
@@ -1135,7 +1128,7 @@ impl ::core::fmt::Debug for COREWEBVIEW2_WEB_RESOURCE_CONTEXT {
             .finish()
     }
 }
-pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: &'static str = "100.0.1185.39";
+pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: &str = "100.0.1185.39";
 #[inline]
 pub unsafe fn CompareBrowserVersions<
     'a,
