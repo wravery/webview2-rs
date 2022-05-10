@@ -308,7 +308,7 @@ impl WebView {
         let bound = webview.clone();
         unsafe {
             let mut _token = EventRegistrationToken::default();
-            webview.webview.WebMessageReceived(
+            webview.webview.add_WebMessageReceived(
                 WebMessageReceivedEventHandler::create(Box::new(move |_webview, args| {
                     if let Some(args) = args {
                         let mut message = PWSTR::default();
@@ -357,10 +357,10 @@ impl WebView {
                 }));
             let mut token = EventRegistrationToken::default();
             unsafe {
-                webview.NavigationCompleted(handler, &mut token)?;
+                webview.add_NavigationCompleted(handler, &mut token)?;
                 webview.Navigate(url)?;
                 let result = webview2_com::wait_with_pump(rx);
-                webview.RemoveNavigationCompleted(token)?;
+                webview.remove_NavigationCompleted(token)?;
                 result?;
             }
         }
