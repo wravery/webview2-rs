@@ -27,6 +27,7 @@ targets = [
 version = "0.37.0"
 features = [
     "alloc",
+    "implement",
     "Win32_Foundation",
     "Win32_Globalization",
     "Win32_System_Com",
