@@ -1,7 +1,8 @@
 [package]
 name = "webview2-com"
-version = "0.15.0"
-edition = "2018"
+version = "0.16.0"
+edition = "2021"
+rust-version = "1.61"
 description = "Rust bindings for the WebView2 COM APIs"
 repository = "https://github.com/wravery/webview2-rs"
 license = "MIT"
@@ -18,10 +19,13 @@ targets = [
 ]
 
 [dependencies]
-webview2-com-sys = { version = "0.15.0", default-features = false }
-webview2-com-macros = "0.5.0"
-windows = "0.30.0"
-windows_macros = "0.30.0"
+webview2-com-sys = { version = "0.16.0", default-features = false }
+webview2-com-macros = "0.6.0"
+windows-implement = "0.37.0"
+
+[dependencies.windows]
+version = "0.37.0"
+features = [ "implement" ]
 
 [dev-dependencies]
 regex = "1.5.4"
@@ -29,7 +33,7 @@ serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 
 [dev-dependencies.windows]
-version = "0.30.0"
+version = "0.37.0"
 features = [
     "alloc",
     "Win32_Graphics_Gdi",

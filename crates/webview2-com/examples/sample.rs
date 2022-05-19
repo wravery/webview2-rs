@@ -17,7 +17,7 @@ use serde_json::{Number, Value};
 use windows::{
     core::*,
     Win32::{
-        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, PSTR, PWSTR, RECT, SIZE, WPARAM},
+        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, RECT, SIZE, WPARAM},
         Graphics::Gdi,
         System::{Com::*, LibraryLoader, Threading, WinRT::EventRegistrationToken},
         UI::{
@@ -95,7 +95,7 @@ impl From<windows::core::Error> for Error {
 
 impl From<HRESULT> for Error {
     fn from(err: HRESULT) -> Self {
-        Self::WindowsError(windows::core::Error::fast_error(err))
+        Self::WindowsError(windows::core::Error::from(err))
     }
 }
 
@@ -142,7 +142,7 @@ impl FrameWindow {
             let c_class_name = CString::new(class_name).expect("lpszClassName");
             let window_class = WNDCLASSA {
                 lpfnWndProc: Some(window_proc),
-                lpszClassName: PSTR(c_class_name.as_ptr() as *mut _),
+                lpszClassName: PCSTR(c_class_name.as_ptr() as *mut _),
                 ..WNDCLASSA::default()
             };
 
@@ -160,7 +160,7 @@ impl FrameWindow {
                     WindowsAndMessaging::CW_USEDEFAULT,
                     None,
                     None,
-                    LibraryLoader::GetModuleHandleA(None),
+                    LibraryLoader::GetModuleHandleA(None).unwrap_or_default(),
                     ptr::null_mut(),
                 )
             }
@@ -226,7 +226,7 @@ impl WebView {
                 }),
                 Box::new(move |error_code, environment| {
                     error_code?;
-                    tx.send(environment.ok_or_else(|| windows::core::Error::fast_error(E_POINTER)))
+                    tx.send(environment.ok_or_else(|| windows::core::Error::from(E_POINTER)))
                         .expect("send over mpsc channel");
                     Ok(())
                 }),
@@ -247,7 +247,7 @@ impl WebView {
                 }),
                 Box::new(move |error_code, controller| {
                     error_code?;
-                    tx.send(controller.ok_or_else(|| windows::core::Error::fast_error(E_POINTER)))
+                    tx.send(controller.ok_or_else(|| windows::core::Error::from(E_POINTER)))
                         .expect("send over mpsc channel");
                     Ok(())
                 }),
@@ -308,7 +308,7 @@ impl WebView {
         let bound = webview.clone();
         unsafe {
             let mut _token = EventRegistrationToken::default();
-            webview.webview.WebMessageReceived(
+            webview.webview.add_WebMessageReceived(
                 WebMessageReceivedEventHandler::create(Box::new(move |_webview, args| {
                     if let Some(args) = args {
                         let mut message = PWSTR::default();
@@ -357,10 +357,10 @@ impl WebView {
                 }));
             let mut token = EventRegistrationToken::default();
             unsafe {
-                webview.NavigationCompleted(handler, &mut token)?;
+                webview.add_NavigationCompleted(handler, &mut token)?;
                 webview.Navigate(url)?;
                 let result = webview2_com::wait_with_pump(rx);
-                webview.RemoveNavigationCompleted(token)?;
+                webview.remove_NavigationCompleted(token)?;
                 result?;
             }
         }

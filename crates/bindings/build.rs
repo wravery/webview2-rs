@@ -85,7 +85,7 @@ mod webview2_nuget {
     include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.1185.39";
+    const WEBVIEW2_VERSION: &str = "1.0.1210.39";
 
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir()?;
@@ -335,7 +335,7 @@ mod webview2_bindgen {
 
     use regex::Regex;
 
-    use windows_bindgen::{gen_namespace, Gen};
+    use windows_bindgen::{gen_namespace, gen_namespace_impl, Gen};
 
     use super::webview2_path::*;
 
@@ -370,6 +370,7 @@ mod webview2_bindgen {
             ..Default::default()
         };
         source_file.write_all(patch_bindings(gen_namespace(&gen))?.as_bytes())?;
+        source_file.write_all(gen_namespace_impl(&gen).as_bytes())?;
         Ok(source_path)
     }
 

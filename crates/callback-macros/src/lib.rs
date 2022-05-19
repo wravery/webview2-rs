@@ -64,29 +64,31 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
     let name = &ast.ident;
     let closure = get_closure(name);
     let interface = &ast.args.interface;
+    let interface = interface
+        .path
+        .segments
+        .last()
+        .expect("completed_callback should always specify an interface");
+    let interface_impl = format_ident!("{}_Impl", interface.ident);
 
     let arg_1 = &ast.args.arg_1;
     let arg_2 = &ast.args.arg_2;
 
-    let msg = match interface.path.segments.last() {
-        Some(interface) => format!("Implementation of [`{}`].", interface.ident),
-        None => String::from("Implementation of unknown [`completed_callback`] interface."),
-    };
+    let msg = format!("Implementation of [`{}`].", interface.ident);
 
     let gen = match arg_2 {
         Some(arg_2) => quote! {
             type #closure = CompletedClosure<#arg_1, #arg_2>;
 
             #[doc = #msg]
-            #[implement(Microsoft::Web::WebView2::Win32::#interface)]
-            #vis struct #name(Option<#closure>);
+            #[implement(#interface)]
+            #vis struct #name(::std::cell::UnsafeCell<Option<#closure>>);
 
-            #[allow(non_snake_case)]
             impl #name {
                 pub fn create(
                     closure: #closure,
                 ) -> #interface {
-                    Self(Some(closure)).into()
+                    Self(Some(closure).into()).into()
                 }
 
                 pub fn wait_for_async_operation(
@@ -95,7 +97,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     >,
                     completed: #closure,
                 ) -> crate::Result<()> {
-                    let (tx, rx) = mpsc::channel();
+                    let (tx, rx) = ::std::sync::mpsc::channel();
                     let completed: #closure =
                         Box::new(move |arg_1, arg_2| -> ::windows::core::Result<()> {
                             let result = completed(arg_1, arg_2).map_err(crate::Error::WindowsError);
@@ -107,13 +109,16 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     closure(callback)?;
                     crate::wait_with_pump(rx)?
                 }
+            }
 
+            #[allow(non_snake_case)]
+            impl #interface_impl for #name {
                 fn Invoke<'a>(
-                    &mut self,
+                    &self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                     arg_2: <#arg_2 as InvokeArg<'a>>::Input,
                 ) -> ::windows::core::Result<()> {
-                    match self.0.take() {
+                    match unsafe { (*self.0.get()).take() } {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                             <#arg_2 as InvokeArg<'a>>::convert(arg_2),
@@ -127,15 +132,14 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             type #closure = Box<dyn FnOnce(<#arg_1 as ClosureArg>::Output) -> ::windows::core::Result<()>>;
 
             #[doc = #msg]
-            #[implement(Microsoft::Web::WebView2::Win32::#interface)]
-            #vis struct #name(Option<#closure>);
+            #[implement(#interface)]
+            #vis struct #name(::std::cell::UnsafeCell<Option<#closure>>);
 
-            #[allow(non_snake_case)]
             impl #name {
                 pub fn create(
                     closure: #closure,
                 ) -> #interface {
-                    Self(Some(closure)).into()
+                    Self(Some(closure).into()).into()
                 }
 
                 pub fn wait_for_async_operation(
@@ -144,7 +148,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     >,
                     completed: #closure,
                 ) -> crate::Result<()> {
-                    let (tx, rx) = mpsc::channel();
+                    let (tx, rx) = ::std::sync::mpsc::channel();
                     let completed: #closure =
                         Box::new(move |arg_1| -> ::windows::core::Result<()> {
                             let result = completed(arg_1).map_err(crate::Error::WindowsError);
@@ -156,12 +160,15 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
                     closure(callback)?;
                     crate::wait_with_pump(rx)?
                 }
+            }
 
+            #[allow(non_snake_case)]
+            impl #interface_impl for #name {
                 fn Invoke<'a>(
-                    &mut self,
+                    &self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                 ) -> ::windows::core::Result<()> {
-                    match self.0.take() {
+                    match unsafe { (*self.0.get()).take() } {
                         Some(completed) => completed(
                             <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                         ),
@@ -189,6 +196,12 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
     let closure = get_closure(name);
 
     let interface = &ast.args.interface;
+    let interface = interface
+        .path
+        .segments
+        .last()
+        .expect("event_callback should always specify an interface");
+    let interface_impl = format_ident!("{}_Impl", interface.ident);
 
     let arg_1 = &ast.args.arg_1;
     let arg_2 = &ast
@@ -197,35 +210,34 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
         .as_ref()
         .expect("event_callback should always have 2 arguments");
 
-    let msg = match interface.path.segments.last() {
-        Some(interface) => format!("Implementation of [`{}`].", interface.ident),
-        None => String::from("Implementation of unknown [`event_callback`] interface."),
-    };
+    let msg = format!("Implementation of [`{}`].", interface.ident);
 
     let gen = quote! {
         type #closure = EventClosure<#arg_1, #arg_2>;
 
         #[doc = #msg]
-        #[implement(Microsoft::Web::WebView2::Win32::#interface)]
-        #vis struct #name(#closure);
+        #[implement(#interface)]
+        #vis struct #name(::std::cell::UnsafeCell<#closure>);
 
-        #[allow(non_snake_case)]
         impl #name {
             pub fn create(
                 closure: #closure,
             ) -> #interface {
-                Self(closure).into()
+                Self(closure.into()).into()
             }
+        }
 
+        #[allow(non_snake_case)]
+        impl #interface_impl for  #name {
             fn Invoke<'a>(
-                &mut self,
+                &self,
                 arg_1: <#arg_1 as InvokeArg<'a>>::Input,
                 arg_2: <#arg_2 as InvokeArg<'a>>::Input,
             ) -> ::windows::core::Result<()> {
-                self.0(
+                unsafe { (*self.0.get())(
                     <#arg_1 as InvokeArg<'a>>::convert(arg_1),
                     <#arg_2 as InvokeArg<'a>>::convert(arg_2),
-                )
+                ) }
             }
         }
     };

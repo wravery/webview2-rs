@@ -10,7 +10,6 @@ mod pwstr;
 
 use std::{fmt, sync::mpsc};
 
-pub(crate) use windows as Windows;
 use windows::{
     core::HRESULT,
     Win32::{
@@ -45,7 +44,7 @@ impl From<windows::core::Error> for Error {
 
 impl From<HRESULT> for Error {
     fn from(err: HRESULT) -> Self {
-        Self::WindowsError(windows::core::Error::fast_error(err))
+        Self::WindowsError(windows::core::Error::from(err))
     }
 }
 

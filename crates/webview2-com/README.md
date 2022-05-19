@@ -5,7 +5,7 @@ This crate implements Rust bindings for the [WebView2](https://aka.ms/webview2) 
 Include a reference to `webview2-com` in your `Cargo.toml`:
 ```toml
 [dependencies]
-webview2-com = "0.13.0"
+webview2-com = "0.16.0"
 ```
 
 See the [docs](https://docs.rs/webview2-com/) or take a look at the [sample.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/examples/sample.rs) example (adapted from [microsoft/windows-samples-rs](https://github.com/microsoft/windows-samples-rs/tree/master/webview2_win32)) for more details.
@@ -19,7 +19,7 @@ Most of the code added by this crate consists of convenience types to implement 
 - [options.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/options.rs): Implements the `ICoreWebView2EnvironmentOptions` interface which is passed to `CreateCoreWebView2EnvironmentWithOptions` if you want to customize the environment.
 
 There are also some utilities for dealing with `PWSTR` in/out-params that may be useful:
-- [pwstr.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/pwstr.rs): `string_from_pwstr`, `take_pwstr`, and `pwstr_from_str`.
+- [pwstr.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/pwstr.rs): `string_from_pcwstr`, `take_pwstr`, and `pwstr_from_str`.
 
 ## Windows Metadata
 The Windows crate requires a Windows Metadata (`winmd`) file describing the API. The one used in this crate was generated with the [webview2-win32md](https://github.com/wravery/webview2-win32md) project. This crate needs it to use the `#[implement]` macro from the Windows crate. 
