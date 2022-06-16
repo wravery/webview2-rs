@@ -56,6 +56,88 @@ impl ::core::fmt::Debug for COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND {
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COREWEBVIEW2_BROWSING_DATA_KINDS(pub u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(1u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(2u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(4u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(8u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(16u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(32u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(64u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(128u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(256u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(512u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(1024u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(2048u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(4096u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(8192u32);
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE: COREWEBVIEW2_BROWSING_DATA_KINDS =
+    COREWEBVIEW2_BROWSING_DATA_KINDS(16384u32);
+impl ::core::marker::Copy for COREWEBVIEW2_BROWSING_DATA_KINDS {}
+impl ::core::clone::Clone for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_BROWSING_DATA_KINDS")
+            .field(&self.0)
+            .finish()
+    }
+}
+impl ::core::ops::BitOr for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for COREWEBVIEW2_BROWSING_DATA_KINDS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT(pub i32);
 pub const COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_PNG: COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT =
     COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT(0i32);
@@ -1056,6 +1138,39 @@ impl ::core::fmt::Debug for COREWEBVIEW2_SCRIPT_DIALOG_KIND {
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(pub i32);
+pub const COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW:
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION =
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(0i32);
+pub const COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_CANCEL:
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION =
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(1i32);
+pub const COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_DEFAULT:
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION =
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(2i32);
+impl ::core::marker::Copy for COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION {}
+impl ::core::clone::Clone for COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION")
+            .field(&self.0)
+            .finish()
+    }
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct COREWEBVIEW2_WEB_ERROR_STATUS(pub i32);
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_UNKNOWN: COREWEBVIEW2_WEB_ERROR_STATUS =
     COREWEBVIEW2_WEB_ERROR_STATUS(0i32);
@@ -1174,7 +1289,7 @@ impl ::core::fmt::Debug for COREWEBVIEW2_WEB_RESOURCE_CONTEXT {
             .finish()
     }
 }
-pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: &str = "101.0.1210.39";
+pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: &str = "102.0.1245.22";
 #[inline]
 pub unsafe fn CompareBrowserVersions<
     'a,
@@ -3384,6 +3499,316 @@ unsafe impl ::windows::core::Interface for ICoreWebView2CapturePreviewCompletedH
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        errorcode: ::windows::core::HRESULT,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2Certificate(::windows::core::IUnknown);
+impl ICoreWebView2Certificate {
+    pub unsafe fn Subject(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Subject)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn Issuer(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Issuer)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn ValidFrom(&self, value: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ValidFrom)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn ValidTo(&self, value: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ValidTo)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn DerEncodedSerialNumber(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DerEncodedSerialNumber)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn DisplayName(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisplayName)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn ToPemEncoding(
+        &self,
+        pemencodeddata: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ToPemEncoding)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(pemencodeddata),
+        )
+        .ok()
+    }
+    pub unsafe fn PemEncodedIssuerCertificateChain(
+        &self,
+    ) -> ::windows::core::Result<ICoreWebView2StringCollection> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).PemEncodedIssuerCertificateChain)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2StringCollection>(result__)
+    }
+}
+impl ::core::convert::From<ICoreWebView2Certificate> for ::windows::core::IUnknown {
+    fn from(value: ICoreWebView2Certificate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2Certificate> for ::windows::core::IUnknown {
+    fn from(value: &ICoreWebView2Certificate) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreWebView2Certificate {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for &'a ICoreWebView2Certificate
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2Certificate {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2Certificate {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2Certificate {}
+impl ::core::fmt::Debug for ICoreWebView2Certificate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Certificate")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2Certificate {
+    type Vtable = ICoreWebView2Certificate_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0xc5fb2fce_1cac_4aee_9c79_5ed0362eaae0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2Certificate_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Subject: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub Issuer: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub ValidFrom: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut f64,
+    ) -> ::windows::core::HRESULT,
+    pub ValidTo: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut f64,
+    ) -> ::windows::core::HRESULT,
+    pub DerEncodedSerialNumber: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub ToPemEncoding: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        pemencodeddata: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub PemEncodedIssuerCertificateChain: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::RawPtr,
+    )
+        -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2ClearBrowsingDataCompletedHandler(::windows::core::IUnknown);
+impl ICoreWebView2ClearBrowsingDataCompletedHandler {
+    pub unsafe fn Invoke(
+        &self,
+        errorcode: ::windows::core::HRESULT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(errorcode),
+        )
+        .ok()
+    }
+}
+impl ::core::convert::From<ICoreWebView2ClearBrowsingDataCompletedHandler>
+    for ::windows::core::IUnknown
+{
+    fn from(value: ICoreWebView2ClearBrowsingDataCompletedHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2ClearBrowsingDataCompletedHandler>
+    for ::windows::core::IUnknown
+{
+    fn from(value: &ICoreWebView2ClearBrowsingDataCompletedHandler) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for ICoreWebView2ClearBrowsingDataCompletedHandler
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for &'a ICoreWebView2ClearBrowsingDataCompletedHandler
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2ClearBrowsingDataCompletedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2ClearBrowsingDataCompletedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2ClearBrowsingDataCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ClearBrowsingDataCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ClearBrowsingDataCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2ClearBrowsingDataCompletedHandler {
+    type Vtable = ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0xe9710a06_1d1d_49b2_8234_226f35846ae5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        errorcode: ::windows::core::HRESULT,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler(
+    ::windows::core::IUnknown,
+);
+impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
+    pub unsafe fn Invoke(
+        &self,
+        errorcode: ::windows::core::HRESULT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(errorcode),
+        )
+        .ok()
+    }
+}
+impl ::core::convert::From<ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler>
+    for ::windows::core::IUnknown
+{
+    fn from(value: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler>
+    for ::windows::core::IUnknown
+{
+    fn from(value: &ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for &'a ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface
+    for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler
+{
+    type Vtable = ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x3b40aac6_acfe_4ffd_8211_f607b96e2d5b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
@@ -17362,6 +17787,134 @@ pub struct ICoreWebView2NavigationCompletedEventArgs_Vtbl {
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
+pub struct ICoreWebView2NavigationCompletedEventArgs2(::windows::core::IUnknown);
+impl ICoreWebView2NavigationCompletedEventArgs2 {
+    pub unsafe fn IsSuccess(
+        &self,
+        issuccess: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.IsSuccess)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(issuccess),
+        )
+        .ok()
+    }
+    pub unsafe fn WebErrorStatus(
+        &self,
+        weberrorstatus: *mut COREWEBVIEW2_WEB_ERROR_STATUS,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .WebErrorStatus)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(weberrorstatus),
+        )
+        .ok()
+    }
+    pub unsafe fn NavigationId(&self, navigationid: *mut u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.NavigationId)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(navigationid),
+        )
+        .ok()
+    }
+    pub unsafe fn HttpStatusCode(&self, http_status_code: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HttpStatusCode)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(http_status_code),
+        )
+        .ok()
+    }
+}
+impl ::core::convert::From<ICoreWebView2NavigationCompletedEventArgs2>
+    for ::windows::core::IUnknown
+{
+    fn from(value: ICoreWebView2NavigationCompletedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2NavigationCompletedEventArgs2>
+    for ::windows::core::IUnknown
+{
+    fn from(value: &ICoreWebView2NavigationCompletedEventArgs2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for ICoreWebView2NavigationCompletedEventArgs2
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for &'a ICoreWebView2NavigationCompletedEventArgs2
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2NavigationCompletedEventArgs2>
+    for ICoreWebView2NavigationCompletedEventArgs
+{
+    fn from(value: ICoreWebView2NavigationCompletedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2NavigationCompletedEventArgs2>
+    for ICoreWebView2NavigationCompletedEventArgs
+{
+    fn from(value: &ICoreWebView2NavigationCompletedEventArgs2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2NavigationCompletedEventArgs>
+    for ICoreWebView2NavigationCompletedEventArgs2
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2NavigationCompletedEventArgs> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2NavigationCompletedEventArgs>
+    for &'a ICoreWebView2NavigationCompletedEventArgs2
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2NavigationCompletedEventArgs> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2NavigationCompletedEventArgs2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2NavigationCompletedEventArgs2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2NavigationCompletedEventArgs2 {}
+impl ::core::fmt::Debug for ICoreWebView2NavigationCompletedEventArgs2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2NavigationCompletedEventArgs2")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2NavigationCompletedEventArgs2 {
+    type Vtable = ICoreWebView2NavigationCompletedEventArgs2_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0xfdf8b738_ee1e_4db2_a329_8d7d7b74d792);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
+    pub base__: ICoreWebView2NavigationCompletedEventArgs_Vtbl,
+    pub HttpStatusCode: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        http_status_code: *mut i32,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
 pub struct ICoreWebView2NavigationCompletedEventHandler(::windows::core::IUnknown);
 impl ICoreWebView2NavigationCompletedEventHandler {
     pub unsafe fn Invoke<
@@ -20677,6 +21230,224 @@ pub struct ICoreWebView2Profile_Vtbl {
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
+pub struct ICoreWebView2Profile2(::windows::core::IUnknown);
+impl ICoreWebView2Profile2 {
+    pub unsafe fn ProfileName(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ProfileName)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn IsInPrivateModeEnabled(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .IsInPrivateModeEnabled)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn ProfilePath(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ProfilePath)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn DefaultDownloadFolderPath(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .DefaultDownloadFolderPath)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetDefaultDownloadFolderPath<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        value: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .SetDefaultDownloadFolderPath)(
+            ::windows::core::Interface::as_raw(self),
+            value.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn PreferredColorScheme(
+        &self,
+        value: *mut COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .PreferredColorScheme)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetPreferredColorScheme(
+        &self,
+        value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .SetPreferredColorScheme)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn ClearBrowsingData<
+        'a,
+        Param1: ::windows::core::IntoParam<'a, ICoreWebView2ClearBrowsingDataCompletedHandler>,
+    >(
+        &self,
+        datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+        handler: Param1,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ClearBrowsingData)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(datakinds),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn ClearBrowsingDataInTimeRange<
+        'a,
+        Param3: ::windows::core::IntoParam<'a, ICoreWebView2ClearBrowsingDataCompletedHandler>,
+    >(
+        &self,
+        datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+        starttime: f64,
+        endtime: f64,
+        handler: Param3,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ClearBrowsingDataInTimeRange)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(datakinds),
+            ::core::mem::transmute(starttime),
+            ::core::mem::transmute(endtime),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn ClearBrowsingDataAll<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ClearBrowsingDataCompletedHandler>,
+    >(
+        &self,
+        handler: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ClearBrowsingDataAll)(
+            ::windows::core::Interface::as_raw(self),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+}
+impl ::core::convert::From<ICoreWebView2Profile2> for ::windows::core::IUnknown {
+    fn from(value: ICoreWebView2Profile2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2Profile2> for ::windows::core::IUnknown {
+    fn from(value: &ICoreWebView2Profile2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreWebView2Profile2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICoreWebView2Profile2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2Profile2> for ICoreWebView2Profile {
+    fn from(value: ICoreWebView2Profile2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2Profile2> for ICoreWebView2Profile {
+    fn from(value: &ICoreWebView2Profile2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2Profile> for ICoreWebView2Profile2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2Profile> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2Profile> for &'a ICoreWebView2Profile2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2Profile> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2Profile2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2Profile2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2Profile2 {}
+impl ::core::fmt::Debug for ICoreWebView2Profile2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Profile2")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2Profile2 {
+    type Vtable = ICoreWebView2Profile2_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0xfa740d4b_5eae_4344_a8ad_74be31925397);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2Profile2_Vtbl {
+    pub base__: ICoreWebView2Profile_Vtbl,
+    pub ClearBrowsingData: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+        handler: ::windows::core::RawPtr,
+    ) -> ::windows::core::HRESULT,
+    pub ClearBrowsingDataInTimeRange: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+        starttime: f64,
+        endtime: f64,
+        handler: ::windows::core::RawPtr,
+    ) -> ::windows::core::HRESULT,
+    pub ClearBrowsingDataAll: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        handler: ::windows::core::RawPtr,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
 pub struct ICoreWebView2RasterizationScaleChangedEventHandler(::windows::core::IUnknown);
 impl ICoreWebView2RasterizationScaleChangedEventHandler {
     pub unsafe fn Invoke<
@@ -20993,6 +21764,227 @@ unsafe impl ::windows::core::Interface for ICoreWebView2ScriptDialogOpeningEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        sender: ::windows::core::RawPtr,
+        args: ::windows::core::RawPtr,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs(::windows::core::IUnknown);
+impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
+    pub unsafe fn ErrorStatus(
+        &self,
+        value: *mut COREWEBVIEW2_WEB_ERROR_STATUS,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ErrorStatus)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn RequestUri(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestUri)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn ServerCertificate(&self) -> ::windows::core::Result<ICoreWebView2Certificate> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).ServerCertificate)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Certificate>(result__)
+    }
+    pub unsafe fn Action(
+        &self,
+        value: *mut COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Action)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetAction(
+        &self,
+        value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAction)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn GetDeferral(&self) -> ::windows::core::Result<ICoreWebView2Deferral> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).GetDeferral)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Deferral>(result__)
+    }
+}
+impl ::core::convert::From<ICoreWebView2ServerCertificateErrorDetectedEventArgs>
+    for ::windows::core::IUnknown
+{
+    fn from(value: ICoreWebView2ServerCertificateErrorDetectedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2ServerCertificateErrorDetectedEventArgs>
+    for ::windows::core::IUnknown
+{
+    fn from(value: &ICoreWebView2ServerCertificateErrorDetectedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for ICoreWebView2ServerCertificateErrorDetectedEventArgs
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for &'a ICoreWebView2ServerCertificateErrorDetectedEventArgs
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2ServerCertificateErrorDetectedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2ServerCertificateErrorDetectedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2ServerCertificateErrorDetectedEventArgs {}
+impl ::core::fmt::Debug for ICoreWebView2ServerCertificateErrorDetectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ServerCertificateErrorDetectedEventArgs")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2ServerCertificateErrorDetectedEventArgs {
+    type Vtable = ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x012193ed_7c13_48ff_969d_a84c1f432a14);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub ErrorStatus: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut COREWEBVIEW2_WEB_ERROR_STATUS,
+    ) -> ::windows::core::HRESULT,
+    pub RequestUri: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub ServerCertificate: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::RawPtr,
+    ) -> ::windows::core::HRESULT,
+    pub Action: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+    ) -> ::windows::core::HRESULT,
+    pub SetAction: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+    ) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        deferral: *mut ::windows::core::RawPtr,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler(::windows::core::IUnknown);
+impl ICoreWebView2ServerCertificateErrorDetectedEventHandler {
+    pub unsafe fn Invoke<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2>,
+        Param1: ::windows::core::IntoParam<'a, ICoreWebView2ServerCertificateErrorDetectedEventArgs>,
+    >(
+        &self,
+        sender: Param0,
+        args: Param1,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(
+            ::windows::core::Interface::as_raw(self),
+            sender.into_param().abi(),
+            args.into_param().abi(),
+        )
+        .ok()
+    }
+}
+impl ::core::convert::From<ICoreWebView2ServerCertificateErrorDetectedEventHandler>
+    for ::windows::core::IUnknown
+{
+    fn from(value: ICoreWebView2ServerCertificateErrorDetectedEventHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2ServerCertificateErrorDetectedEventHandler>
+    for ::windows::core::IUnknown
+{
+    fn from(value: &ICoreWebView2ServerCertificateErrorDetectedEventHandler) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for ICoreWebView2ServerCertificateErrorDetectedEventHandler
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown>
+    for &'a ICoreWebView2ServerCertificateErrorDetectedEventHandler
+{
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2ServerCertificateErrorDetectedEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2ServerCertificateErrorDetectedEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2ServerCertificateErrorDetectedEventHandler {}
+impl ::core::fmt::Debug for ICoreWebView2ServerCertificateErrorDetectedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2ServerCertificateErrorDetectedEventHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2ServerCertificateErrorDetectedEventHandler {
+    type Vtable = ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x969b3a26_d85e_4795_8199_fef57344da22);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
@@ -36180,6 +37172,2843 @@ pub struct ICoreWebView2_13_Vtbl {
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
+pub struct ICoreWebView2_14(::windows::core::IUnknown);
+impl ICoreWebView2_14 {
+    pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Settings)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Settings>(result__)
+    }
+    pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Source)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(uri),
+        )
+        .ok()
+    }
+    pub unsafe fn Navigate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(
+        &self,
+        uri: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Navigate)(
+            ::windows::core::Interface::as_raw(self),
+            uri.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn NavigateToString<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        htmlcontent: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .NavigateToString)(
+            ::windows::core::Interface::as_raw(self),
+            htmlcontent.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_NavigationStarting<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2NavigationStartingEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_NavigationStarting)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_NavigationStarting<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_NavigationStarting)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ContentLoading<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ContentLoadingEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ContentLoading)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ContentLoading<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ContentLoading)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_SourceChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2SourceChangedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_SourceChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_SourceChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_SourceChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_HistoryChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2HistoryChangedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_HistoryChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_HistoryChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_HistoryChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_NavigationCompleted<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2NavigationCompletedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_NavigationCompleted)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_NavigationCompleted<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_NavigationCompleted)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_FrameNavigationStarting<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2NavigationStartingEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_FrameNavigationStarting)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_FrameNavigationStarting<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_FrameNavigationStarting)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_FrameNavigationCompleted<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2NavigationCompletedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_FrameNavigationCompleted)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_FrameNavigationCompleted<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_FrameNavigationCompleted)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ScriptDialogOpening<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ScriptDialogOpeningEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ScriptDialogOpening)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ScriptDialogOpening<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ScriptDialogOpening)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_PermissionRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2PermissionRequestedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_PermissionRequested)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_PermissionRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_PermissionRequested)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ProcessFailed<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ProcessFailedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ProcessFailed)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ProcessFailed<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ProcessFailed)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn AddScriptToExecuteOnDocumentCreated<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param1: ::windows::core::IntoParam<
+            'a,
+            ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+        >,
+    >(
+        &self,
+        javascript: Param0,
+        handler: Param1,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .AddScriptToExecuteOnDocumentCreated)(
+            ::windows::core::Interface::as_raw(self),
+            javascript.into_param().abi(),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn RemoveScriptToExecuteOnDocumentCreated<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        id: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .RemoveScriptToExecuteOnDocumentCreated)(
+            ::windows::core::Interface::as_raw(self),
+            id.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn ExecuteScript<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param1: ::windows::core::IntoParam<'a, ICoreWebView2ExecuteScriptCompletedHandler>,
+    >(
+        &self,
+        javascript: Param0,
+        handler: Param1,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .ExecuteScript)(
+            ::windows::core::Interface::as_raw(self),
+            javascript.into_param().abi(),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CapturePreview<
+        'a,
+        Param1: ::windows::core::IntoParam<'a, ::windows::Win32::System::Com::IStream>,
+        Param2: ::windows::core::IntoParam<'a, ICoreWebView2CapturePreviewCompletedHandler>,
+    >(
+        &self,
+        imageformat: COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT,
+        imagestream: Param1,
+        handler: Param2,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CapturePreview)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(imageformat),
+            imagestream.into_param().abi(),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Reload)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn PostWebMessageAsJson<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        webmessageasjson: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .PostWebMessageAsJson)(
+            ::windows::core::Interface::as_raw(self),
+            webmessageasjson.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn PostWebMessageAsString<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        webmessageasstring: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .PostWebMessageAsString)(
+            ::windows::core::Interface::as_raw(self),
+            webmessageasstring.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_WebMessageReceived<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2WebMessageReceivedEventHandler>,
+    >(
+        &self,
+        handler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WebMessageReceived)(
+            ::windows::core::Interface::as_raw(self),
+            handler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WebMessageReceived<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WebMessageReceived)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CallDevToolsProtocolMethod<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param2: ::windows::core::IntoParam<'a, ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
+    >(
+        &self,
+        methodname: Param0,
+        parametersasjson: Param1,
+        handler: Param2,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CallDevToolsProtocolMethod)(
+            ::windows::core::Interface::as_raw(self),
+            methodname.into_param().abi(),
+            parametersasjson.into_param().abi(),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .BrowserProcessId)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn CanGoBack(
+        &self,
+        cangoback: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CanGoBack)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(cangoback),
+        )
+        .ok()
+    }
+    pub unsafe fn CanGoForward(
+        &self,
+        cangoforward: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CanGoForward)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(cangoforward),
+        )
+        .ok()
+    }
+    pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .GoBack)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .GoForward)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn GetDevToolsProtocolEventReceiver<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        eventname: Param0,
+    ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .GetDevToolsProtocolEventReceiver)(
+            ::windows::core::Interface::as_raw(self),
+            eventname.into_param().abi(),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2DevToolsProtocolEventReceiver>(result__)
+    }
+    pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Stop)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn add_NewWindowRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2NewWindowRequestedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_NewWindowRequested)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_NewWindowRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_NewWindowRequested)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_DocumentTitleChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2DocumentTitleChangedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_DocumentTitleChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_DocumentTitleChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_DocumentTitleChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn DocumentTitle(
+        &self,
+        title: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .DocumentTitle)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(title),
+        )
+        .ok()
+    }
+    pub unsafe fn AddHostObjectToScript<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        name: Param0,
+        object: *mut ::windows::Win32::System::Com::VARIANT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .AddHostObjectToScript)(
+            ::windows::core::Interface::as_raw(self),
+            name.into_param().abi(),
+            ::core::mem::transmute(object),
+        )
+        .ok()
+    }
+    pub unsafe fn RemoveHostObjectFromScript<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        name: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .RemoveHostObjectFromScript)(
+            ::windows::core::Interface::as_raw(self),
+            name.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .OpenDevToolsWindow)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn add_ContainsFullScreenElementChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ContainsFullScreenElementChangedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ContainsFullScreenElementChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ContainsFullScreenElementChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ContainsFullScreenElementChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn ContainsFullScreenElement(
+        &self,
+        containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .ContainsFullScreenElement)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(containsfullscreenelement),
+        )
+        .ok()
+    }
+    pub unsafe fn add_WebResourceRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2WebResourceRequestedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WebResourceRequested)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WebResourceRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WebResourceRequested)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn AddWebResourceRequestedFilter<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        uri: Param0,
+        resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .AddWebResourceRequestedFilter)(
+            ::windows::core::Interface::as_raw(self),
+            uri.into_param().abi(),
+            ::core::mem::transmute(resourcecontext),
+        )
+        .ok()
+    }
+    pub unsafe fn RemoveWebResourceRequestedFilter<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        uri: Param0,
+        resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .RemoveWebResourceRequestedFilter)(
+            ::windows::core::Interface::as_raw(self),
+            uri.into_param().abi(),
+            ::core::mem::transmute(resourcecontext),
+        )
+        .ok()
+    }
+    pub unsafe fn add_WindowCloseRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2WindowCloseRequestedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WindowCloseRequested)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WindowCloseRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WindowCloseRequested)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_WebResourceResponseReceived<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2WebResourceResponseReceivedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WebResourceResponseReceived)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WebResourceResponseReceived<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WebResourceResponseReceived)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn NavigateWithWebResourceRequest<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2WebResourceRequest>,
+    >(
+        &self,
+        request: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .NavigateWithWebResourceRequest)(
+            ::windows::core::Interface::as_raw(self),
+            request.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_DOMContentLoaded<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2DOMContentLoadedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_DOMContentLoaded)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_DOMContentLoaded<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_DOMContentLoaded)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CookieManager)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2CookieManager>(result__)
+    }
+    pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Environment)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Environment>(result__)
+    }
+    pub unsafe fn TrySuspend<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2TrySuspendCompletedHandler>,
+    >(
+        &self,
+        handler: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .TrySuspend)(
+            ::windows::core::Interface::as_raw(self),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Resume)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn IsSuspended(
+        &self,
+        issuspended: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsSuspended)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(issuspended),
+        )
+        .ok()
+    }
+    pub unsafe fn SetVirtualHostNameToFolderMapping<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        hostname: Param0,
+        folderpath: Param1,
+        accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetVirtualHostNameToFolderMapping)(
+            ::windows::core::Interface::as_raw(self),
+            hostname.into_param().abi(),
+            folderpath.into_param().abi(),
+            ::core::mem::transmute(accesskind),
+        )
+        .ok()
+    }
+    pub unsafe fn ClearVirtualHostNameToFolderMapping<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+    >(
+        &self,
+        hostname: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .ClearVirtualHostNameToFolderMapping)(
+            ::windows::core::Interface::as_raw(self),
+            hostname.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_FrameCreated<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2FrameCreatedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_FrameCreated)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_FrameCreated<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_FrameCreated)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_DownloadStarting<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2DownloadStartingEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_DownloadStarting)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_DownloadStarting<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_DownloadStarting)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ClientCertificateRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ClientCertificateRequestedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ClientCertificateRequested)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ClientCertificateRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ClientCertificateRequested)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .OpenTaskManagerWindow)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn PrintToPdf<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param1: ::windows::core::IntoParam<'a, ICoreWebView2PrintSettings>,
+        Param2: ::windows::core::IntoParam<'a, ICoreWebView2PrintToPdfCompletedHandler>,
+    >(
+        &self,
+        resultfilepath: Param0,
+        printsettings: Param1,
+        handler: Param2,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .PrintToPdf)(
+            ::windows::core::Interface::as_raw(self),
+            resultfilepath.into_param().abi(),
+            printsettings.into_param().abi(),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_IsMutedChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2IsMutedChangedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_IsMutedChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_IsMutedChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_IsMutedChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn IsMuted(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsMuted)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetIsMuted<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::Foundation::BOOL>,
+    >(
+        &self,
+        value: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetIsMuted)(
+            ::windows::core::Interface::as_raw(self),
+            value.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_IsDocumentPlayingAudioChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2IsDocumentPlayingAudioChangedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_IsDocumentPlayingAudioChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_IsDocumentPlayingAudioChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_IsDocumentPlayingAudioChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn IsDocumentPlayingAudio(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsDocumentPlayingAudio)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn add_IsDefaultDownloadDialogOpenChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler>,
+    >(
+        &self,
+        handler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_IsDefaultDownloadDialogOpenChanged)(
+            ::windows::core::Interface::as_raw(self),
+            handler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_IsDefaultDownloadDialogOpenChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_IsDefaultDownloadDialogOpenChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn IsDefaultDownloadDialogOpen(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsDefaultDownloadDialogOpen)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn OpenDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .OpenDefaultDownloadDialog)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn CloseDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CloseDefaultDownloadDialog)(::windows::core::Interface::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn DefaultDownloadDialogCornerAlignment(
+        &self,
+        value: *mut COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .DefaultDownloadDialogCornerAlignment)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetDefaultDownloadDialogCornerAlignment(
+        &self,
+        value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetDefaultDownloadDialogCornerAlignment)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn DefaultDownloadDialogMargin(
+        &self,
+        value: *mut ::windows::Win32::Foundation::POINT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .DefaultDownloadDialogMargin)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetDefaultDownloadDialogMargin<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::Foundation::POINT>,
+    >(
+        &self,
+        value: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetDefaultDownloadDialogMargin)(
+            ::windows::core::Interface::as_raw(self),
+            value.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_BasicAuthenticationRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2BasicAuthenticationRequestedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_BasicAuthenticationRequested)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_BasicAuthenticationRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_BasicAuthenticationRequested)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CallDevToolsProtocolMethodForSession<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>,
+        Param3: ::windows::core::IntoParam<'a, ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
+    >(
+        &self,
+        sessionid: Param0,
+        methodname: Param1,
+        parametersasjson: Param2,
+        handler: Param3,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .CallDevToolsProtocolMethodForSession)(
+            ::windows::core::Interface::as_raw(self),
+            sessionid.into_param().abi(),
+            methodname.into_param().abi(),
+            parametersasjson.into_param().abi(),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ContextMenuRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ContextMenuRequestedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .add_ContextMenuRequested)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ContextMenuRequested<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .base__
+            .remove_ContextMenuRequested)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_StatusBarTextChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2StatusBarTextChangedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .add_StatusBarTextChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_StatusBarTextChanged<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .remove_StatusBarTextChanged)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn StatusBarText(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .StatusBarText)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn Profile(&self) -> ::windows::core::Result<ICoreWebView2Profile> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).base__.Profile)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Profile>(result__)
+    }
+    pub unsafe fn add_ServerCertificateErrorDetected<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ICoreWebView2ServerCertificateErrorDetectedEventHandler>,
+    >(
+        &self,
+        eventhandler: Param0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).add_ServerCertificateErrorDetected)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into_param().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ServerCertificateErrorDetected<
+        'a,
+        Param0: ::windows::core::IntoParam<'a, ::windows::Win32::System::WinRT::EventRegistrationToken>,
+    >(
+        &self,
+        token: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).remove_ServerCertificateErrorDetected)(
+            ::windows::core::Interface::as_raw(self),
+            token.into_param().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn ClearServerCertificateErrorActions<
+        'a,
+        Param0: ::windows::core::IntoParam<
+            'a,
+            ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
+        >,
+    >(
+        &self,
+        handler: Param0,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ClearServerCertificateErrorActions)(
+            ::windows::core::Interface::as_raw(self),
+            handler.into_param().abi(),
+        )
+        .ok()
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ::windows::core::IUnknown {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ::windows::core::IUnknown {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_2 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_2 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_2> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_2> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_3 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_3 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_3> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_3> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_4 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_4 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_4> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_4> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_4> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_5 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_5 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_5> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_5> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_5> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_5> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_6 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_6 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_6> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_6> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_6> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_6> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_7 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_7 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_7> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_7> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_7> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_7> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_8 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_8 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_8> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_8> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_8> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_8> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_9 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_9 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_9> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_9> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_9> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_10 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_10 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_10> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_10> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_10> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_10> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_11 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_11 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_11> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_11> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_11> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_11> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_12 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_12 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_12> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_12> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_12> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_12> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWebView2_14> for ICoreWebView2_13 {
+    fn from(value: ICoreWebView2_14) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2_14> for ICoreWebView2_13 {
+    fn from(value: &ICoreWebView2_14) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_13> for ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_13> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ICoreWebView2_13> for &'a ICoreWebView2_14 {
+    fn into_param(self) -> ::windows::core::Param<'a, ICoreWebView2_13> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2_14 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2_14 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2_14 {}
+impl ::core::fmt::Debug for ICoreWebView2_14 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_14").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2_14 {
+    type Vtable = ICoreWebView2_14_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x6daa4f10_4a90_4753_8898_77c5df534165);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2_14_Vtbl {
+    pub base__: ICoreWebView2_13_Vtbl,
+    pub add_ServerCertificateErrorDetected: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        eventhandler: ::windows::core::RawPtr,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    )
+        -> ::windows::core::HRESULT,
+    pub remove_ServerCertificateErrorDetected:
+        unsafe extern "system" fn(
+            this: *mut ::core::ffi::c_void,
+            token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+        ) -> ::windows::core::HRESULT,
+    pub ClearServerCertificateErrorActions: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        handler: ::windows::core::RawPtr,
+    )
+        -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
 pub struct ICoreWebView2_2(::windows::core::IUnknown);
 impl ICoreWebView2_2 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
@@ -50121,6 +53950,220 @@ impl ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
         iid == &<ICoreWebView2CapturePreviewCompletedHandler as ::windows::core::Interface>::IID
     }
 }
+pub trait ICoreWebView2Certificate_Impl: Sized {
+    fn Subject(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn Issuer(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn ValidFrom(&self, value: *mut f64) -> ::windows::core::Result<()>;
+    fn ValidTo(&self, value: *mut f64) -> ::windows::core::Result<()>;
+    fn DerEncodedSerialNumber(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()>;
+    fn DisplayName(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn ToPemEncoding(
+        &self,
+        pemencodeddata: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()>;
+    fn PemEncodedIssuerCertificateChain(
+        &self,
+    ) -> ::windows::core::Result<ICoreWebView2StringCollection>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2Certificate {}
+impl ICoreWebView2Certificate_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2Certificate_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2Certificate_Vtbl {
+        unsafe extern "system" fn Subject<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Subject(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn Issuer<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Issuer(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn ValidFrom<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut f64,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ValidFrom(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn ValidTo<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut f64,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ValidTo(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn DerEncodedSerialNumber<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DerEncodedSerialNumber(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        unsafe extern "system" fn DisplayName<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DisplayName(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn ToPemEncoding<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            pemencodeddata: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ToPemEncoding(::core::mem::transmute_copy(&pemencodeddata))
+                .into()
+        }
+        unsafe extern "system" fn PemEncodedIssuerCertificateChain<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Certificate_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.PemEncodedIssuerCertificateChain() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            Subject: Subject::<Identity, Impl, OFFSET>,
+            Issuer: Issuer::<Identity, Impl, OFFSET>,
+            ValidFrom: ValidFrom::<Identity, Impl, OFFSET>,
+            ValidTo: ValidTo::<Identity, Impl, OFFSET>,
+            DerEncodedSerialNumber: DerEncodedSerialNumber::<Identity, Impl, OFFSET>,
+            DisplayName: DisplayName::<Identity, Impl, OFFSET>,
+            ToPemEncoding: ToPemEncoding::<Identity, Impl, OFFSET>,
+            PemEncodedIssuerCertificateChain: PemEncodedIssuerCertificateChain::<
+                Identity,
+                Impl,
+                OFFSET,
+            >,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2Certificate as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2ClearBrowsingDataCompletedHandler_Impl: Sized {
+    fn Invoke(&self, errorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2ClearBrowsingDataCompletedHandler {}
+impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
+        unsafe extern "system" fn Invoke<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            errorcode: ::windows::core::HRESULT,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Invoke(::core::mem::transmute_copy(&errorcode)).into()
+        }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2ClearBrowsingDataCompletedHandler as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl: Sized {
+    fn Invoke(&self, errorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName
+    for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler
+{
+}
+impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
+        unsafe extern "system" fn Invoke<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            errorcode: ::windows::core::HRESULT,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Invoke(::core::mem::transmute_copy(&errorcode)).into()
+        }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == & < ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler < > as :: windows :: core :: Interface > :: IID
+    }
+}
 pub trait ICoreWebView2ClientCertificate_Impl: Sized {
     fn Subject(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn Issuer(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
@@ -56953,6 +60996,42 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
         iid == &<ICoreWebView2NavigationCompletedEventArgs as ::windows::core::Interface>::IID
     }
 }
+pub trait ICoreWebView2NavigationCompletedEventArgs2_Impl:
+    Sized + ICoreWebView2NavigationCompletedEventArgs_Impl
+{
+    fn HttpStatusCode(&self, http_status_code: *mut i32) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2NavigationCompletedEventArgs2 {}
+impl ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2NavigationCompletedEventArgs2_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
+        unsafe extern "system" fn HttpStatusCode<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2NavigationCompletedEventArgs2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            http_status_code: *mut i32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.HttpStatusCode(::core::mem::transmute_copy(&http_status_code))
+                .into()
+        }
+        Self {
+            base__: ICoreWebView2NavigationCompletedEventArgs_Vtbl::new::<Identity, Impl, OFFSET>(),
+            HttpStatusCode: HttpStatusCode::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2NavigationCompletedEventArgs2 as ::windows::core::Interface>::IID
+            || iid
+                == &<ICoreWebView2NavigationCompletedEventArgs as ::windows::core::Interface>::IID
+    }
+}
 pub trait ICoreWebView2NavigationCompletedEventHandler_Impl: Sized {
     fn Invoke(
         &self,
@@ -59526,6 +63605,94 @@ impl ICoreWebView2Profile_Vtbl {
         iid == &<ICoreWebView2Profile as ::windows::core::Interface>::IID
     }
 }
+pub trait ICoreWebView2Profile2_Impl: Sized + ICoreWebView2Profile_Impl {
+    fn ClearBrowsingData(
+        &self,
+        datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+        handler: &::core::option::Option<ICoreWebView2ClearBrowsingDataCompletedHandler>,
+    ) -> ::windows::core::Result<()>;
+    fn ClearBrowsingDataInTimeRange(
+        &self,
+        datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+        starttime: f64,
+        endtime: f64,
+        handler: &::core::option::Option<ICoreWebView2ClearBrowsingDataCompletedHandler>,
+    ) -> ::windows::core::Result<()>;
+    fn ClearBrowsingDataAll(
+        &self,
+        handler: &::core::option::Option<ICoreWebView2ClearBrowsingDataCompletedHandler>,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2Profile2 {}
+impl ICoreWebView2Profile2_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2Profile2_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2Profile2_Vtbl {
+        unsafe extern "system" fn ClearBrowsingData<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Profile2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+            handler: ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ClearBrowsingData(
+                ::core::mem::transmute_copy(&datakinds),
+                ::core::mem::transmute(&handler),
+            )
+            .into()
+        }
+        unsafe extern "system" fn ClearBrowsingDataInTimeRange<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Profile2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
+            starttime: f64,
+            endtime: f64,
+            handler: ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ClearBrowsingDataInTimeRange(
+                ::core::mem::transmute_copy(&datakinds),
+                ::core::mem::transmute_copy(&starttime),
+                ::core::mem::transmute_copy(&endtime),
+                ::core::mem::transmute(&handler),
+            )
+            .into()
+        }
+        unsafe extern "system" fn ClearBrowsingDataAll<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Profile2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            handler: ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ClearBrowsingDataAll(::core::mem::transmute(&handler))
+                .into()
+        }
+        Self {
+            base__: ICoreWebView2Profile_Vtbl::new::<Identity, Impl, OFFSET>(),
+            ClearBrowsingData: ClearBrowsingData::<Identity, Impl, OFFSET>,
+            ClearBrowsingDataInTimeRange: ClearBrowsingDataInTimeRange::<Identity, Impl, OFFSET>,
+            ClearBrowsingDataAll: ClearBrowsingDataAll::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2Profile2 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Profile as ::windows::core::Interface>::IID
+    }
+}
 pub trait ICoreWebView2RasterizationScaleChangedEventHandler_Impl: Sized {
     fn Invoke(
         &self,
@@ -59741,6 +63908,166 @@ impl ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreWebView2ScriptDialogOpeningEventHandler as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl: Sized {
+    fn ErrorStatus(&self, value: *mut COREWEBVIEW2_WEB_ERROR_STATUS)
+        -> ::windows::core::Result<()>;
+    fn RequestUri(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn ServerCertificate(&self) -> ::windows::core::Result<ICoreWebView2Certificate>;
+    fn Action(
+        &self,
+        value: *mut COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+    ) -> ::windows::core::Result<()>;
+    fn SetAction(
+        &self,
+        value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+    ) -> ::windows::core::Result<()>;
+    fn GetDeferral(&self) -> ::windows::core::Result<ICoreWebView2Deferral>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2ServerCertificateErrorDetectedEventArgs {}
+impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
+        unsafe extern "system" fn ErrorStatus<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut COREWEBVIEW2_WEB_ERROR_STATUS,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ErrorStatus(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn RequestUri<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RequestUri(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn ServerCertificate<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.ServerCertificate() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Action<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Action(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetAction<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetAction(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn GetDeferral<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            deferral: *mut ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetDeferral() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(deferral, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            ErrorStatus: ErrorStatus::<Identity, Impl, OFFSET>,
+            RequestUri: RequestUri::<Identity, Impl, OFFSET>,
+            ServerCertificate: ServerCertificate::<Identity, Impl, OFFSET>,
+            Action: Action::<Identity, Impl, OFFSET>,
+            SetAction: SetAction::<Identity, Impl, OFFSET>,
+            GetDeferral: GetDeferral::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == & < ICoreWebView2ServerCertificateErrorDetectedEventArgs < > as :: windows :: core :: Interface > :: IID
+    }
+}
+pub trait ICoreWebView2ServerCertificateErrorDetectedEventHandler_Impl: Sized {
+    fn Invoke(
+        &self,
+        sender: &::core::option::Option<ICoreWebView2>,
+        args: &::core::option::Option<ICoreWebView2ServerCertificateErrorDetectedEventArgs>,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2ServerCertificateErrorDetectedEventHandler {}
+impl ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2ServerCertificateErrorDetectedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
+        unsafe extern "system" fn Invoke<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2ServerCertificateErrorDetectedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            sender: ::windows::core::RawPtr,
+            args: ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Invoke(
+                ::core::mem::transmute(&sender),
+                ::core::mem::transmute(&args),
+            )
+            .into()
+        }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == & < ICoreWebView2ServerCertificateErrorDetectedEventHandler < > as :: windows :: core :: Interface > :: IID
     }
 }
 pub trait ICoreWebView2Settings_Impl: Sized {
@@ -62126,6 +66453,126 @@ impl ICoreWebView2_13_Vtbl {
             || iid == &<ICoreWebView2_10 as ::windows::core::Interface>::IID
             || iid == &<ICoreWebView2_11 as ::windows::core::Interface>::IID
             || iid == &<ICoreWebView2_12 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2_14_Impl:
+    Sized
+    + ICoreWebView2_Impl
+    + ICoreWebView2_2_Impl
+    + ICoreWebView2_3_Impl
+    + ICoreWebView2_4_Impl
+    + ICoreWebView2_5_Impl
+    + ICoreWebView2_6_Impl
+    + ICoreWebView2_7_Impl
+    + ICoreWebView2_8_Impl
+    + ICoreWebView2_9_Impl
+    + ICoreWebView2_10_Impl
+    + ICoreWebView2_11_Impl
+    + ICoreWebView2_12_Impl
+    + ICoreWebView2_13_Impl
+{
+    fn add_ServerCertificateErrorDetected(
+        &self,
+        eventhandler: &::core::option::Option<
+            ICoreWebView2ServerCertificateErrorDetectedEventHandler,
+        >,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>;
+    fn remove_ServerCertificateErrorDetected(
+        &self,
+        token: &::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>;
+    fn ClearServerCertificateErrorActions(
+        &self,
+        handler: &::core::option::Option<
+            ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
+        >,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2_14 {}
+impl ICoreWebView2_14_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2_14_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2_14_Vtbl {
+        unsafe extern "system" fn add_ServerCertificateErrorDetected<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2_14_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            eventhandler: ::windows::core::RawPtr,
+            token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.add_ServerCertificateErrorDetected(
+                ::core::mem::transmute(&eventhandler),
+                ::core::mem::transmute_copy(&token),
+            )
+            .into()
+        }
+        unsafe extern "system" fn remove_ServerCertificateErrorDetected<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2_14_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.remove_ServerCertificateErrorDetected(::core::mem::transmute(&token))
+                .into()
+        }
+        unsafe extern "system" fn ClearServerCertificateErrorActions<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2_14_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            handler: ::windows::core::RawPtr,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ClearServerCertificateErrorActions(::core::mem::transmute(&handler))
+                .into()
+        }
+        Self {
+            base__: ICoreWebView2_13_Vtbl::new::<Identity, Impl, OFFSET>(),
+            add_ServerCertificateErrorDetected: add_ServerCertificateErrorDetected::<
+                Identity,
+                Impl,
+                OFFSET,
+            >,
+            remove_ServerCertificateErrorDetected: remove_ServerCertificateErrorDetected::<
+                Identity,
+                Impl,
+                OFFSET,
+            >,
+            ClearServerCertificateErrorActions: ClearServerCertificateErrorActions::<
+                Identity,
+                Impl,
+                OFFSET,
+            >,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2_14 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_2 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_3 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_4 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_5 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_6 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_7 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_8 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_9 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_10 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_11 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_12 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_13 as ::windows::core::Interface>::IID
     }
 }
 pub trait ICoreWebView2_2_Impl: Sized + ICoreWebView2_Impl {

@@ -12,6 +12,8 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2BytesReceivedChangedEventHandler");
     interfaces.insert("ICoreWebView2CallDevToolsProtocolMethodCompletedHandler");
     interfaces.insert("ICoreWebView2CapturePreviewCompletedHandler");
+    interfaces.insert("ICoreWebView2ClearBrowsingDataCompletedHandler");
+    interfaces.insert("ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler");
     interfaces.insert("ICoreWebView2ClientCertificateRequestedEventHandler");
     interfaces.insert("ICoreWebView2ContainsFullScreenElementChangedEventHandler");
     interfaces.insert("ICoreWebView2ContentLoadingEventHandler");
@@ -53,6 +55,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2ProcessInfosChangedEventHandler");
     interfaces.insert("ICoreWebView2RasterizationScaleChangedEventHandler");
     interfaces.insert("ICoreWebView2ScriptDialogOpeningEventHandler");
+    interfaces.insert("ICoreWebView2ServerCertificateErrorDetectedEventHandler");
     interfaces.insert("ICoreWebView2SourceChangedEventHandler");
     interfaces.insert("ICoreWebView2StateChangedEventHandler");
     interfaces.insert("ICoreWebView2StatusBarTextChangedEventHandler");

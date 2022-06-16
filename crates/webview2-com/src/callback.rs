@@ -477,6 +477,25 @@ pub struct StatusBarTextChangedEventHandler(
     Option<IUnknown>,
 );
 
+#[completed_callback]
+pub struct ClearBrowsingDataCompletedHandler(
+    ICoreWebView2ClearBrowsingDataCompletedHandler,
+    HRESULT,
+);
+
+#[completed_callback]
+pub struct ClearServerCertificateErrorActionsCompletedHandler(
+    ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
+    HRESULT,
+);
+
+#[event_callback]
+pub struct ServerCertificateErrorDetectedEventHandler(
+    ICoreWebView2ServerCertificateErrorDetectedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2ServerCertificateErrorDetectedEventArgs>,
+);
+
 #[cfg(test)]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
