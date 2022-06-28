@@ -335,7 +335,8 @@ mod webview2_bindgen {
 
     use regex::Regex;
 
-    use windows_bindgen::{gen_namespace, gen_namespace_impl, Gen};
+    use windows_bindgen::{namespace, namespace_impl, Gen};
+    use windows_metadata::reader::{File, Reader};
 
     use super::webview2_path::*;
 
@@ -362,15 +363,37 @@ mod webview2_bindgen {
     }
 
     fn generate_bindings() -> super::Result<PathBuf> {
+        const WINMD_FILES: &[&str] = &[
+            "Windows.winmd",
+            "Windows.Win32.winmd",
+            "Windows.Win32.Interop.winmd",
+            "Microsoft.Web.WebView2.Win32.winmd",
+        ];
+
+        let mut winmd_path = get_manifest_dir()?;
+        winmd_path.push("winmd");
+        let winmd_files: Vec<_> = WINMD_FILES
+            .iter()
+            .map(|name| {
+                let mut winmd_path = winmd_path.clone();
+                winmd_path.push(name);
+                let winmd_path = winmd_path.to_str().expect("invalid winmd path");
+                File::new(winmd_path).expect(name)
+            })
+            .collect();
+        let metadata_reader = Reader::new(&winmd_files);
+        let tree = metadata_reader
+            .tree("Microsoft.Web.WebView2.Win32", &[])
+            .map_or_else(|| Err(super::Error::MissingPath(winmd_path)), Ok)?;
+        let mut gen = Gen::new(&metadata_reader);
+        gen.namespace = tree.namespace;
+
         let mut source_path = get_out_dir()?;
         source_path.push("mod.rs");
         let mut source_file = fs::File::create(source_path.clone())?;
-        let gen = Gen {
-            namespace: "Microsoft.Web.WebView2.Win32",
-            ..Default::default()
-        };
-        source_file.write_all(patch_bindings(gen_namespace(&gen))?.as_bytes())?;
-        source_file.write_all(gen_namespace_impl(&gen).as_bytes())?;
+
+        source_file.write_all(patch_bindings(namespace(&gen, &tree))?.as_bytes())?;
+        source_file.write_all(namespace_impl(&gen, &tree).as_bytes())?;
         Ok(source_path)
     }
 
