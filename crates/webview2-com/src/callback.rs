@@ -496,6 +496,20 @@ pub struct ServerCertificateErrorDetectedEventHandler(
     Option<ICoreWebView2ServerCertificateErrorDetectedEventArgs>,
 );
 
+#[event_callback]
+pub struct FaviconChangedEventHandler(
+    ICoreWebView2FaviconChangedEventHandler,
+    Option<ICoreWebView2>,
+    Option<IUnknown>,
+);
+
+#[completed_callback]
+pub struct GetFaviconCompletedHandler(
+    ICoreWebView2GetFaviconCompletedHandler,
+    HRESULT,
+    Option<IStream>,
+);
+
 #[cfg(test)]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
