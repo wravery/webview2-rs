@@ -1,16 +1,125 @@
-use std::{mem, ptr};
+use std::{fmt::Display, marker::PhantomData, mem, ptr};
 
 use windows::{
     core::{PCWSTR, PWSTR},
     Win32::{Globalization::lstrlenW, System::Com},
 };
 
+/// RAII holder for a [`PWSTR`] which is allocated with [`Com::CoTaskMemAlloc`] and freed
+/// with [`Com::CoTaskMemFree`] when dropped.
+pub struct CoTaskMemPWSTR<'a>(PWSTR, PhantomData<&'a PWSTR>);
+
+/// Constant guard object tied to the lifetime of the [`CoTaskMemPWSTR`] so that it
+/// is safe to dereference the [`PCWSTR`] as long as both are still in scope.
+pub struct CoTaskMemRef<'a>(PCWSTR, PhantomData<&'a PCWSTR>);
+
+impl<'a> CoTaskMemRef<'a> {
+    pub fn as_pcwstr(&self) -> &PCWSTR {
+        &self.0
+    }
+}
+
+impl<'a> From<&'a CoTaskMemPWSTR<'a>> for CoTaskMemRef<'a> {
+    fn from(value: &'a CoTaskMemPWSTR<'a>) -> Self {
+        Self(PCWSTR(value.0 .0), PhantomData)
+    }
+}
+
+/// Mutable guard object tied to the lifetime of the [`CoTaskMemPWSTR`] so that it
+/// is safe to dereference the [`PWSTR`] as long as both are still in scope.
+pub struct CoTaskMemMut<'a>(&'a PWSTR);
+
+impl<'a> CoTaskMemMut<'a> {
+    pub fn as_pwstr(&mut self) -> &'a PWSTR {
+        self.0
+    }
+}
+
+impl<'a> From<&'a mut CoTaskMemPWSTR<'a>> for CoTaskMemMut<'a> {
+    fn from(value: &'a mut CoTaskMemPWSTR<'a>) -> Self {
+        Self(&value.0)
+    }
+}
+
+impl<'a> CoTaskMemPWSTR<'a> {
+    /// Get a mutable [`PWSTR`] guard which borrows the pointer.
+    pub fn as_mut(&'a mut self) -> CoTaskMemMut<'a> {
+        From::from(self)
+    }
+
+    /// Get a constant [`PCWSTR`] guard which borrows the pointer.
+    pub fn as_ref(&'a self) -> CoTaskMemRef<'a> {
+        From::from(self)
+    }
+
+    /// Take the [`PWSTR`] pointer and hand off ownership so that it is not freed when the `CoTaskMemPWSTR` is dropped.
+    pub fn take(&mut self) -> PWSTR {
+        let result = self.0;
+        self.0 .0 = ptr::null_mut();
+        result
+    }
+}
+
+impl<'a> Drop for CoTaskMemPWSTR<'a> {
+    fn drop(&mut self) {
+        if !self.0 .0.is_null() {
+            unsafe {
+                Com::CoTaskMemFree(mem::transmute(self.0 .0));
+            }
+            self.0 .0 = ptr::null_mut();
+        }
+    }
+}
+
+impl<'a> Default for CoTaskMemPWSTR<'a> {
+    fn default() -> Self {
+        Self(PWSTR(ptr::null_mut()), PhantomData)
+    }
+}
+
+impl<'a> From<PWSTR> for CoTaskMemPWSTR<'a> {
+    fn from(value: PWSTR) -> Self {
+        Self(value, PhantomData)
+    }
+}
+
+impl<'a> From<&str> for CoTaskMemPWSTR<'a> {
+    fn from(value: &str) -> Self {
+        match value {
+            "" => Default::default(),
+            value => {
+                let encoded: Vec<_> = value.encode_utf16().chain(std::iter::once(0)).collect();
+
+                unsafe {
+                    let mut buffer =
+                        Com::CoTaskMemAlloc(encoded.len() * mem::size_of::<u16>()) as *mut u16;
+                    let result = PWSTR(buffer);
+
+                    for char in encoded {
+                        *buffer = char;
+                        buffer = buffer.add(1);
+                    }
+
+                    Self(result, PhantomData)
+                }
+            }
+        }
+    }
+}
+
+impl<'a> Display for CoTaskMemPWSTR<'a> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let value = string_from_pcwstr(self.as_ref().as_pcwstr());
+        f.write_str(value.as_str())
+    }
+}
+
 /// Copy a [`PCWSTR`] from an input param to a [`String`].
 pub fn string_from_pcwstr(source: &PCWSTR) -> String {
     if source.0.is_null() {
         String::new()
     } else {
-        let len = unsafe { lstrlenW(source) };
+        let len = unsafe { lstrlenW(*source) };
 
         if len > 0 {
             unsafe {
@@ -26,36 +135,10 @@ pub fn string_from_pcwstr(source: &PCWSTR) -> String {
 /// Copy a [`PWSTR`] allocated with [`Com::CoTaskMemAlloc`] from an input param to a [`String`]
 /// and free the original buffer with [`Com::CoTaskMemFree`].
 pub fn take_pwstr(source: PWSTR) -> String {
-    let result = string_from_pcwstr(&PCWSTR(source.0));
-
-    if !source.0.is_null() {
-        unsafe {
-            Com::CoTaskMemFree(mem::transmute(source.0));
-        }
-    }
-
-    result
+    CoTaskMemPWSTR::from(source).to_string()
 }
 
 /// Allocate a [`PWSTR`] with [`Com::CoTaskMemAlloc`] and copy a [`&str`] into it.
 pub fn pwstr_from_str(source: &str) -> PWSTR {
-    match source {
-        "" => PWSTR(ptr::null_mut::<u16>()),
-        value => {
-            let encoded: Vec<_> = value.encode_utf16().chain(std::iter::once(0)).collect();
-
-            unsafe {
-                let mut buffer =
-                    Com::CoTaskMemAlloc(encoded.len() * mem::size_of::<u16>()) as *mut u16;
-                let result = PWSTR(buffer);
-
-                for char in encoded {
-                    *buffer = char;
-                    buffer = buffer.add(1);
-                }
-
-                result
-            }
-        }
-    }
+    CoTaskMemPWSTR::from(source).take()
 }

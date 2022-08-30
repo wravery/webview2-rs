@@ -106,6 +106,8 @@ impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
 mod test {
     use std::ptr;
 
+    use windows::w;
+
     use crate::{
         pwstr::take_pwstr,
         Microsoft::Web::WebView2::Win32::{
@@ -117,29 +119,24 @@ mod test {
 
     #[test]
     fn additional_arguments() {
-        const ADDITIONAL_ARGUMENTS: &str = "FakeArguments";
         let options: ICoreWebView2EnvironmentOptions =
             CoreWebView2EnvironmentOptions::default().into();
-        unsafe {
-            options.SetAdditionalBrowserArguments(&PCWSTR(pwstr_from_str(ADDITIONAL_ARGUMENTS).0))
-        }
-        .unwrap();
+        unsafe { options.SetAdditionalBrowserArguments(w!("FakeArguments")) }.unwrap();
         let mut result = PWSTR(ptr::null_mut());
         unsafe { options.AdditionalBrowserArguments(&mut result) }.unwrap();
         let result = take_pwstr(result);
-        assert_eq!(&result, ADDITIONAL_ARGUMENTS);
+        assert_eq!(&result, "FakeArguments");
     }
 
     #[test]
     fn override_language() {
-        const OVERRIDE_LANGUAGE: &str = "FakeLanguage";
         let options: ICoreWebView2EnvironmentOptions =
             CoreWebView2EnvironmentOptions::default().into();
-        unsafe { options.SetLanguage(&PCWSTR(pwstr_from_str(OVERRIDE_LANGUAGE).0)) }.unwrap();
+        unsafe { options.SetLanguage(w!("FakeLanguage")) }.unwrap();
         let mut result = PWSTR(ptr::null_mut::<u16>());
         unsafe { options.Language(&mut result) }.unwrap();
         let result = take_pwstr(result);
-        assert_eq!(&result, OVERRIDE_LANGUAGE);
+        assert_eq!(&result, "FakeLanguage");
     }
 
     #[test]
@@ -154,18 +151,14 @@ mod test {
 
     #[test]
     fn override_version() {
-        const OVERRIDE_VERSION: &str = "FakeVersion";
-        assert_ne!(OVERRIDE_VERSION, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
+        assert_ne!("FakeVersion", CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
         let options: ICoreWebView2EnvironmentOptions =
             CoreWebView2EnvironmentOptions::default().into();
-        unsafe {
-            options.SetTargetCompatibleBrowserVersion(&PCWSTR(pwstr_from_str(OVERRIDE_VERSION).0))
-        }
-        .unwrap();
+        unsafe { options.SetTargetCompatibleBrowserVersion(w!("FakeVersion")) }.unwrap();
         let mut result = PWSTR(ptr::null_mut::<u16>());
         unsafe { options.TargetCompatibleBrowserVersion(&mut result) }.unwrap();
         let result = take_pwstr(result);
-        assert_eq!(&result, OVERRIDE_VERSION);
+        assert_eq!(&result, "FakeVersion");
     }
 
     #[test]

@@ -7,7 +7,6 @@ extern crate windows;
 
 use std::{
     collections::HashMap,
-    ffi::CString,
     fmt, mem, ptr,
     sync::{mpsc, Arc, Mutex},
 };
@@ -23,7 +22,7 @@ use windows::{
         UI::{
             HiDpi,
             Input::KeyboardAndMouse,
-            WindowsAndMessaging::{self, MSG, WINDOW_LONG_PTR_INDEX, WNDCLASSA},
+            WindowsAndMessaging::{self, MSG, WINDOW_LONG_PTR_INDEX, WNDCLASSW},
         },
     },
 };
@@ -138,21 +137,19 @@ pub struct FrameWindow {
 impl FrameWindow {
     fn new() -> Self {
         let hwnd = {
-            let class_name = "WebView";
-            let c_class_name = CString::new(class_name).expect("lpszClassName");
-            let window_class = WNDCLASSA {
+            let window_class = WNDCLASSW {
                 lpfnWndProc: Some(window_proc),
-                lpszClassName: PCSTR(c_class_name.as_ptr() as *mut _),
-                ..WNDCLASSA::default()
+                lpszClassName: w!("WebView").into(),
+                ..Default::default()
             };
 
             unsafe {
-                WindowsAndMessaging::RegisterClassA(&window_class);
+                WindowsAndMessaging::RegisterClassW(&window_class);
 
-                WindowsAndMessaging::CreateWindowExA(
+                WindowsAndMessaging::CreateWindowExW(
                     Default::default(),
-                    class_name,
-                    class_name,
+                    w!("WebView"),
+                    w!("WebView"),
                     WindowsAndMessaging::WS_OVERLAPPEDWINDOW,
                     WindowsAndMessaging::CW_USEDEFAULT,
                     WindowsAndMessaging::CW_USEDEFAULT,
@@ -160,7 +157,7 @@ impl FrameWindow {
                     WindowsAndMessaging::CW_USEDEFAULT,
                     None,
                     None,
-                    LibraryLoader::GetModuleHandleA(None).unwrap_or_default(),
+                    LibraryLoader::GetModuleHandleW(None).unwrap_or_default(),
                     ptr::null_mut(),
                 )
             }
@@ -221,7 +218,7 @@ impl WebView {
 
             CreateCoreWebView2EnvironmentCompletedHandler::wait_for_async_operation(
                 Box::new(|environmentcreatedhandler| unsafe {
-                    CreateCoreWebView2Environment(environmentcreatedhandler)
+                    CreateCoreWebView2Environment(&environmentcreatedhandler)
                         .map_err(webview2_com::Error::WindowsError)
                 }),
                 Box::new(move |error_code, environment| {
@@ -242,7 +239,7 @@ impl WebView {
             CreateCoreWebView2ControllerCompletedHandler::wait_for_async_operation(
                 Box::new(move |handler| unsafe {
                     environment
-                        .CreateCoreWebView2Controller(parent, handler)
+                        .CreateCoreWebView2Controller(parent, &handler)
                         .map_err(webview2_com::Error::WindowsError)
                 }),
                 Box::new(move |error_code, controller| {
@@ -309,12 +306,14 @@ impl WebView {
         unsafe {
             let mut _token = EventRegistrationToken::default();
             webview.webview.add_WebMessageReceived(
-                WebMessageReceivedEventHandler::create(Box::new(move |_webview, args| {
+                &WebMessageReceivedEventHandler::create(Box::new(move |_webview, args| {
                     if let Some(args) = args {
-                        let mut message = PWSTR::default();
+                        let mut message = PWSTR(ptr::null_mut());
                         if args.WebMessageAsJson(&mut message).is_ok() {
-                            let message = take_pwstr(message);
-                            if let Ok(value) = serde_json::from_str::<InvokeMessage>(&message) {
+                            let message = CoTaskMemPWSTR::from(message);
+                            if let Ok(value) =
+                                serde_json::from_str::<InvokeMessage>(&message.to_string())
+                            {
                                 if let Ok(mut bindings) = bindings.try_lock() {
                                     if let Some(f) = bindings.get_mut(&value.method) {
                                         match (*f)(value.params) {
@@ -357,8 +356,9 @@ impl WebView {
                 }));
             let mut token = EventRegistrationToken::default();
             unsafe {
-                webview.add_NavigationCompleted(handler, &mut token)?;
-                webview.Navigate(url)?;
+                webview.add_NavigationCompleted(&handler, &mut token)?;
+                let url = CoTaskMemPWSTR::from(url.as_str());
+                webview.Navigate(*url.as_ref().as_pcwstr())?;
                 let result = webview2_com::wait_with_pump(rx);
                 webview.remove_NavigationCompleted(token)?;
                 result?;
@@ -383,7 +383,7 @@ impl WebView {
             }
 
             unsafe {
-                let result = WindowsAndMessaging::GetMessageA(&mut msg, h_wnd, 0, 0).0;
+                let result = WindowsAndMessaging::GetMessageW(&mut msg, h_wnd, 0, 0).0;
 
                 match result {
                     -1 => break Err(windows::core::Error::from_win32().into()),
@@ -392,7 +392,7 @@ impl WebView {
                         WindowsAndMessaging::WM_APP => (),
                         _ => {
                             WindowsAndMessaging::TranslateMessage(&msg);
-                            WindowsAndMessaging::DispatchMessageA(&msg);
+                            WindowsAndMessaging::DispatchMessageW(&msg);
                         }
                     },
                 }
@@ -414,8 +414,9 @@ impl WebView {
 
     pub fn set_title(&self, title: &str) -> Result<&Self> {
         if let Some(frame) = self.frame.as_ref() {
+            let title = CoTaskMemPWSTR::from(title);
             unsafe {
-                WindowsAndMessaging::SetWindowTextA(*frame.window, title);
+                WindowsAndMessaging::SetWindowTextW(*frame.window, *title.as_ref().as_pcwstr());
             }
         }
         Ok(self)
@@ -466,8 +467,9 @@ impl WebView {
         let js = String::from(js);
         AddScriptToExecuteOnDocumentCreatedCompletedHandler::wait_for_async_operation(
             Box::new(move |handler| unsafe {
+                let js = CoTaskMemPWSTR::from(js.as_str());
                 webview
-                    .AddScriptToExecuteOnDocumentCreated(js, handler)
+                    .AddScriptToExecuteOnDocumentCreated(*js.as_ref().as_pcwstr(), &handler)
                     .map_err(webview2_com::Error::WindowsError)
             }),
             Box::new(|error_code, _id| error_code),
@@ -480,8 +482,9 @@ impl WebView {
         let js = String::from(js);
         ExecuteScriptCompletedHandler::wait_for_async_operation(
             Box::new(move |handler| unsafe {
+                let js = CoTaskMemPWSTR::from(js.as_str());
                 webview
-                    .ExecuteScript(js, handler)
+                    .ExecuteScript(*js.as_ref().as_pcwstr(), &handler)
                     .map_err(webview2_com::Error::WindowsError)
             }),
             Box::new(|error_code, _result| error_code),
@@ -496,7 +499,7 @@ impl WebView {
         self.tx.send(Box::new(f)).expect("send the fn");
 
         unsafe {
-            WindowsAndMessaging::PostThreadMessageA(
+            WindowsAndMessaging::PostThreadMessageW(
                 self.thread_id,
                 WindowsAndMessaging::WM_APP,
                 WPARAM::default(),
@@ -603,7 +606,7 @@ fn set_process_dpi_awareness() -> Result<()> {
 extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: LPARAM) -> LRESULT {
     let webview = match WebView::get_window_webview(hwnd) {
         Some(webview) => webview,
-        None => return unsafe { WindowsAndMessaging::DefWindowProcA(hwnd, msg, w_param, l_param) },
+        None => return unsafe { WindowsAndMessaging::DefWindowProcW(hwnd, msg, w_param, l_param) },
     };
 
     let frame = webview
@@ -642,7 +645,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
             LRESULT::default()
         }
 
-        _ => unsafe { WindowsAndMessaging::DefWindowProcA(hwnd, msg, w_param, l_param) },
+        _ => unsafe { WindowsAndMessaging::DefWindowProcW(hwnd, msg, w_param, l_param) },
     }
 }
 
@@ -658,23 +661,23 @@ fn get_window_size(hwnd: HWND) -> SIZE {
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "32")]
 unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    WindowsAndMessaging::SetWindowLongA(window, index, value as _) as _
+    WindowsAndMessaging::SetWindowLongW(window, index, value as _) as _
 }
 
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "64")]
 unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    WindowsAndMessaging::SetWindowLongPtrA(window, index, value)
+    WindowsAndMessaging::SetWindowLongPtrW(window, index, value)
 }
 
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "32")]
 unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    WindowsAndMessaging::GetWindowLongA(window, index) as _
+    WindowsAndMessaging::GetWindowLongW(window, index) as _
 }
 
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "64")]
 unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    WindowsAndMessaging::GetWindowLongPtrA(window, index)
+    WindowsAndMessaging::GetWindowLongPtrW(window, index)
 }
