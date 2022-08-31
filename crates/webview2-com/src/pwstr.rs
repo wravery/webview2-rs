@@ -21,7 +21,7 @@ impl<'a> CoTaskMemRef<'a> {
 
 impl<'a> From<&'a CoTaskMemPWSTR<'a>> for CoTaskMemRef<'a> {
     fn from(value: &'a CoTaskMemPWSTR<'a>) -> Self {
-        Self(PCWSTR(value.0 .0), PhantomData)
+        Self(PCWSTR::from_raw(value.0.as_ptr()), PhantomData)
     }
 }
 
@@ -55,25 +55,24 @@ impl<'a> CoTaskMemPWSTR<'a> {
     /// Take the [`PWSTR`] pointer and hand off ownership so that it is not freed when the `CoTaskMemPWSTR` is dropped.
     pub fn take(&mut self) -> PWSTR {
         let result = self.0;
-        self.0 .0 = ptr::null_mut();
+        self.0 = PWSTR::null();
         result
     }
 }
 
 impl<'a> Drop for CoTaskMemPWSTR<'a> {
     fn drop(&mut self) {
-        if !self.0 .0.is_null() {
+        if !self.0.is_null() {
             unsafe {
-                Com::CoTaskMemFree(mem::transmute(self.0 .0));
+                Com::CoTaskMemFree(mem::transmute(self.0.as_ptr()));
             }
-            self.0 .0 = ptr::null_mut();
         }
     }
 }
 
 impl<'a> Default for CoTaskMemPWSTR<'a> {
     fn default() -> Self {
-        Self(PWSTR(ptr::null_mut()), PhantomData)
+        Self(PWSTR::null(), PhantomData)
     }
 }
 
@@ -93,7 +92,7 @@ impl<'a> From<&str> for CoTaskMemPWSTR<'a> {
                 unsafe {
                     let mut buffer =
                         Com::CoTaskMemAlloc(encoded.len() * mem::size_of::<u16>()) as *mut u16;
-                    let result = PWSTR(buffer);
+                    let result = PWSTR::from_raw(buffer);
 
                     for char in encoded {
                         *buffer = char;
