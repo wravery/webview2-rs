@@ -1317,7 +1317,7 @@ impl ::core::fmt::Debug for COREWEBVIEW2_WEB_RESOURCE_CONTEXT {
             .finish()
     }
 }
-pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: &str = "104.0.1293.44";
+pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: &str = "106.0.1370.28";
 #[inline]
 pub unsafe fn CompareBrowserVersions<'a, P0, P1>(
     version1: P0,
@@ -4593,6 +4593,308 @@ pub struct ICoreWebView2CompositionController2_Vtbl {
     pub AutomationProvider: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         provider: *mut *mut ::core::ffi::c_void,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2CompositionController3(::windows::core::IUnknown);
+impl ICoreWebView2CompositionController3 {
+    pub unsafe fn RootVisualTarget(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .RootVisualTarget)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<::windows::core::IUnknown>(result__)
+    }
+    pub unsafe fn SetRootVisualTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .SetRootVisualTarget)(
+            ::windows::core::Interface::as_raw(self),
+            target.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn SendMouseInput(
+        &self,
+        eventkind: COREWEBVIEW2_MOUSE_EVENT_KIND,
+        virtualkeys: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS,
+        mousedata: u32,
+        point: ::windows::Win32::Foundation::POINT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .SendMouseInput)(
+            ::windows::core::Interface::as_raw(self),
+            eventkind,
+            virtualkeys,
+            mousedata,
+            ::core::mem::transmute(point),
+        )
+        .ok()
+    }
+    pub unsafe fn SendPointerInput<'a, P0>(
+        &self,
+        eventkind: COREWEBVIEW2_POINTER_EVENT_KIND,
+        pointerinfo: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2PointerInfo>>,
+    {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .SendPointerInput)(
+            ::windows::core::Interface::as_raw(self),
+            eventkind,
+            pointerinfo.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn Cursor(
+        &self,
+        cursor: *mut ::windows::Win32::UI::WindowsAndMessaging::HCURSOR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .Cursor)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(cursor),
+        )
+        .ok()
+    }
+    pub unsafe fn SystemCursorId(&self, systemcursorid: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .SystemCursorId)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(systemcursorid),
+        )
+        .ok()
+    }
+    pub unsafe fn add_CursorChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2CursorChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .add_CursorChanged)(
+            ::windows::core::Interface::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_CursorChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .base__
+            .remove_CursorChanged)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn AutomationProvider(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self)
+            .base__
+            .AutomationProvider)(
+            ::windows::core::Interface::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<::windows::core::IUnknown>(result__)
+    }
+    pub unsafe fn DragEnter<'a, P0>(
+        &self,
+        dataobject: P0,
+        keystate: u32,
+        point: ::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ::windows::Win32::System::Com::IDataObject>,
+        >,
+    {
+        (::windows::core::Interface::vtable(self).DragEnter)(
+            ::windows::core::Interface::as_raw(self),
+            dataobject.into().abi(),
+            keystate,
+            ::core::mem::transmute(point),
+            ::core::mem::transmute(effect),
+        )
+        .ok()
+    }
+    pub unsafe fn DragLeave(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DragLeave)(::windows::core::Interface::as_raw(
+            self,
+        ))
+        .ok()
+    }
+    pub unsafe fn DragOver(
+        &self,
+        keystate: u32,
+        point: ::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DragOver)(
+            ::windows::core::Interface::as_raw(self),
+            keystate,
+            ::core::mem::transmute(point),
+            ::core::mem::transmute(effect),
+        )
+        .ok()
+    }
+    pub unsafe fn Drop<'a, P0>(
+        &self,
+        dataobject: P0,
+        keystate: u32,
+        point: ::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ::windows::Win32::System::Com::IDataObject>,
+        >,
+    {
+        (::windows::core::Interface::vtable(self).Drop)(
+            ::windows::core::Interface::as_raw(self),
+            dataobject.into().abi(),
+            keystate,
+            ::core::mem::transmute(point),
+            ::core::mem::transmute(effect),
+        )
+        .ok()
+    }
+}
+impl ::core::convert::From<ICoreWebView2CompositionController3> for ::windows::core::IUnknown {
+    fn from(value: ICoreWebView2CompositionController3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ICoreWebView2CompositionController3>
+    for &'a ::windows::core::IUnknown
+{
+    fn from(value: &'a ICoreWebView2CompositionController3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2CompositionController3> for ::windows::core::IUnknown {
+    fn from(value: &ICoreWebView2CompositionController3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<ICoreWebView2CompositionController3>
+    for ICoreWebView2CompositionController
+{
+    fn from(value: ICoreWebView2CompositionController3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ICoreWebView2CompositionController3>
+    for &'a ICoreWebView2CompositionController
+{
+    fn from(value: &'a ICoreWebView2CompositionController3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2CompositionController3>
+    for ICoreWebView2CompositionController
+{
+    fn from(value: &ICoreWebView2CompositionController3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<ICoreWebView2CompositionController3>
+    for ICoreWebView2CompositionController2
+{
+    fn from(value: ICoreWebView2CompositionController3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ICoreWebView2CompositionController3>
+    for &'a ICoreWebView2CompositionController2
+{
+    fn from(value: &'a ICoreWebView2CompositionController3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWebView2CompositionController3>
+    for ICoreWebView2CompositionController2
+{
+    fn from(value: &ICoreWebView2CompositionController3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for ICoreWebView2CompositionController3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2CompositionController3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2CompositionController3 {}
+impl ::core::fmt::Debug for ICoreWebView2CompositionController3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2CompositionController3")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2CompositionController3 {
+    type Vtable = ICoreWebView2CompositionController3_Vtbl;
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x9570570e_4d76_4361_9ee1_f04d0dbdfb1e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2CompositionController3_Vtbl {
+    pub base__: ICoreWebView2CompositionController2_Vtbl,
+    pub DragEnter: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        dataobject: *mut ::core::ffi::c_void,
+        keystate: u32,
+        point: ::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::HRESULT,
+    pub DragLeave:
+        unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DragOver: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        keystate: u32,
+        point: ::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::HRESULT,
+    pub Drop: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        dataobject: *mut ::core::ffi::c_void,
+        keystate: u32,
+        point: ::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
@@ -55098,6 +55400,124 @@ impl ICoreWebView2CompositionController2_Vtbl {
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreWebView2CompositionController2 as ::windows::core::Interface>::IID
             || iid == &<ICoreWebView2CompositionController as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2CompositionController3_Impl:
+    Sized + ICoreWebView2CompositionController_Impl + ICoreWebView2CompositionController2_Impl
+{
+    fn DragEnter(
+        &self,
+        dataobject: &::core::option::Option<::windows::Win32::System::Com::IDataObject>,
+        keystate: u32,
+        point: &::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::Result<()>;
+    fn DragLeave(&self) -> ::windows::core::Result<()>;
+    fn DragOver(
+        &self,
+        keystate: u32,
+        point: &::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::Result<()>;
+    fn Drop(
+        &self,
+        dataobject: &::core::option::Option<::windows::Win32::System::Com::IDataObject>,
+        keystate: u32,
+        point: &::windows::Win32::Foundation::POINT,
+        effect: *mut u32,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2CompositionController3 {}
+impl ICoreWebView2CompositionController3_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2CompositionController3_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2CompositionController3_Vtbl {
+        unsafe extern "system" fn DragEnter<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2CompositionController3_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            dataobject: *mut ::core::ffi::c_void,
+            keystate: u32,
+            point: ::windows::Win32::Foundation::POINT,
+            effect: *mut u32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DragEnter(
+                ::core::mem::transmute(&dataobject),
+                ::core::mem::transmute_copy(&keystate),
+                ::core::mem::transmute(&point),
+                ::core::mem::transmute_copy(&effect),
+            )
+            .into()
+        }
+        unsafe extern "system" fn DragLeave<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2CompositionController3_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DragLeave().into()
+        }
+        unsafe extern "system" fn DragOver<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2CompositionController3_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            keystate: u32,
+            point: ::windows::Win32::Foundation::POINT,
+            effect: *mut u32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DragOver(
+                ::core::mem::transmute_copy(&keystate),
+                ::core::mem::transmute(&point),
+                ::core::mem::transmute_copy(&effect),
+            )
+            .into()
+        }
+        unsafe extern "system" fn Drop<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2CompositionController3_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            dataobject: *mut ::core::ffi::c_void,
+            keystate: u32,
+            point: ::windows::Win32::Foundation::POINT,
+            effect: *mut u32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Drop(
+                ::core::mem::transmute(&dataobject),
+                ::core::mem::transmute_copy(&keystate),
+                ::core::mem::transmute(&point),
+                ::core::mem::transmute_copy(&effect),
+            )
+            .into()
+        }
+        Self {
+            base__: ICoreWebView2CompositionController2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            DragEnter: DragEnter::<Identity, Impl, OFFSET>,
+            DragLeave: DragLeave::<Identity, Impl, OFFSET>,
+            DragOver: DragOver::<Identity, Impl, OFFSET>,
+            Drop: Drop::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2CompositionController3 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2CompositionController as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2CompositionController2 as ::windows::core::Interface>::IID
     }
 }
 pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl: Sized {
