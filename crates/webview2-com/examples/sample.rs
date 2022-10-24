@@ -31,7 +31,7 @@ use webview2_com::{Microsoft::Web::WebView2::Win32::*, *};
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(ptr::null_mut(), COINIT_APARTMENTTHREADED)?;
+        CoInitializeEx(None, COINIT_APARTMENTTHREADED)?;
     }
     set_process_dpi_awareness()?;
 
@@ -158,7 +158,7 @@ impl FrameWindow {
                     None,
                     None,
                     LibraryLoader::GetModuleHandleW(None).unwrap_or_default(),
-                    ptr::null_mut(),
+                    None,
                 )
             }
         };
