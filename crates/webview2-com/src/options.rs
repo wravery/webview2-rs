@@ -28,9 +28,11 @@ impl Default for CoreWebView2EnvironmentOptions {
         Self {
             additional_browser_arguments: String::new().into(),
             language: String::new().into(),
-            target_compatible_browser_version: CORE_WEBVIEW_TARGET_PRODUCT_VERSION
-                .to_string()
-                .into(),
+            target_compatible_browser_version: unsafe {
+                CORE_WEBVIEW_TARGET_PRODUCT_VERSION.to_string()
+            }
+            .unwrap_or_default()
+            .into(),
             allow_single_sign_on_using_os_primary_account: false.into(),
         }
     }
@@ -146,12 +148,20 @@ mod test {
         let mut result = PWSTR(ptr::null_mut::<u16>());
         unsafe { options.TargetCompatibleBrowserVersion(&mut result) }.unwrap();
         let result = take_pwstr(result);
-        assert_eq!(&result, CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
+        assert_eq!(
+            result,
+            unsafe { CORE_WEBVIEW_TARGET_PRODUCT_VERSION.to_string() }.unwrap()
+        );
     }
 
     #[test]
     fn override_version() {
-        assert_ne!("FakeVersion", CORE_WEBVIEW_TARGET_PRODUCT_VERSION);
+        assert_ne!(
+            "FakeVersion",
+            unsafe { CORE_WEBVIEW_TARGET_PRODUCT_VERSION.to_string() }
+                .unwrap()
+                .as_str()
+        );
         let options: ICoreWebView2EnvironmentOptions =
             CoreWebView2EnvironmentOptions::default().into();
         unsafe { options.SetTargetCompatibleBrowserVersion(w!("FakeVersion")) }.unwrap();
