@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com-sys"
-version = "0.21.0"
+version = "0.22.0"
 edition = "2021"
 rust-version = "1.61"
 description = "Bindings generated with the windows crate for the WebView2 COM APIs"
