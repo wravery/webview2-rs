@@ -363,24 +363,14 @@ mod webview2_bindgen {
     }
 
     fn generate_bindings() -> super::Result<PathBuf> {
-        const WINMD_FILES: &[&str] = &[
-            "Windows.winmd",
-            "Windows.Win32.winmd",
-            "Windows.Win32.Interop.winmd",
-            "Microsoft.Web.WebView2.Win32.winmd",
-        ];
+        const WINMD_FILE: &str = "Microsoft.Web.WebView2.Win32.winmd";
 
         let mut winmd_path = get_manifest_dir()?;
         winmd_path.push("winmd");
-        let winmd_files: Vec<_> = WINMD_FILES
-            .iter()
-            .map(|name| {
-                let mut winmd_path = winmd_path.clone();
-                winmd_path.push(name);
-                let winmd_path = winmd_path.to_str().expect("invalid winmd path");
-                File::new(winmd_path).expect(name)
-            })
-            .collect();
+        winmd_path.push(WINMD_FILE);
+        let winmd_files: Vec<_> =
+            File::with_default(&[winmd_path.to_str().expect("invalid winmd path")])
+                .expect("failed to load winmd");
         let metadata_reader = Reader::new(&winmd_files);
         let tree = metadata_reader
             .tree("Microsoft.Web.WebView2.Win32", &[])
