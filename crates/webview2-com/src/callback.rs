@@ -244,8 +244,34 @@ pub struct ProcessFailedEventHandler(
     Option<ICoreWebView2ProcessFailedEventArgs>,
 );
 
+impl ClosureArg for COREWEBVIEW2_PRINT_STATUS {
+    type Output = Self;
+}
+
+impl<'a> InvokeArg<'a> for COREWEBVIEW2_PRINT_STATUS {
+    type Input = Self;
+
+    fn convert(input: Self) -> Self {
+        input
+    }
+}
+
+#[completed_callback]
+pub struct PrintCompletedHandler(
+    ICoreWebView2PrintCompletedHandler,
+    HRESULT,
+    COREWEBVIEW2_PRINT_STATUS,
+);
+
 #[completed_callback]
 pub struct PrintToPdfCompletedHandler(ICoreWebView2PrintToPdfCompletedHandler, HRESULT, BOOL);
+
+#[completed_callback]
+pub struct PrintToPdfStreamCompletedHandler(
+    ICoreWebView2PrintToPdfStreamCompletedHandler,
+    HRESULT,
+    Option<IStream>,
+);
 
 #[completed_callback]
 pub struct AddScriptToExecuteOnDocumentCreatedCompletedHandler(

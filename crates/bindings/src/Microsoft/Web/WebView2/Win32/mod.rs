@@ -8240,6 +8240,518 @@ pub struct ICoreWebView2Environment10_Vtbl {
         ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
+pub struct ICoreWebView2Environment11(::windows::core::IUnknown);
+impl ICoreWebView2Environment11 {
+    pub unsafe fn CreateCoreWebView2Controller<'a, P0, P1>(
+        &self,
+        parentwindow: P0,
+        handler: P1,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::HWND>,
+        P1: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CreateCoreWebView2Controller)(
+            ::windows::core::Vtable::as_raw(self),
+            parentwindow.into(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CreateWebResourceResponse<'a, P0, P1, P2>(
+        &self,
+        content: P0,
+        statuscode: i32,
+        reasonphrase: P1,
+        headers: P2,
+    ) -> ::windows::core::Result<ICoreWebView2WebResourceResponse>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ::windows::Win32::System::Com::IStream>,
+        >,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CreateWebResourceResponse)(
+            ::windows::core::Vtable::as_raw(self),
+            content.into().abi(),
+            statuscode,
+            reasonphrase.into(),
+            headers.into(),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2WebResourceResponse>(result__)
+    }
+    pub unsafe fn BrowserVersionString(
+        &self,
+        versioninfo: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .BrowserVersionString)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(versioninfo),
+        )
+        .ok()
+    }
+    pub unsafe fn add_NewBrowserVersionAvailable<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2NewBrowserVersionAvailableEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_NewBrowserVersionAvailable)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_NewBrowserVersionAvailable(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_NewBrowserVersionAvailable)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn CreateWebResourceRequest<'a, P0, P1, P2, P3>(
+        &self,
+        uri: P0,
+        method: P1,
+        postdata: P2,
+        headers: P3,
+    ) -> ::windows::core::Result<ICoreWebView2WebResourceRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<
+            ::windows::core::InParam<'a, ::windows::Win32::System::Com::IStream>,
+        >,
+        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CreateWebResourceRequest)(
+            ::windows::core::Vtable::as_raw(self),
+            uri.into(),
+            method.into(),
+            postdata.into().abi(),
+            headers.into(),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2WebResourceRequest>(result__)
+    }
+    pub unsafe fn CreateCoreWebView2CompositionController<'a, P0, P1>(
+        &self,
+        parentwindow: P0,
+        handler: P1,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::HWND>,
+        P1: ::std::convert::Into<
+            ::windows::core::InParam<
+                'a,
+                ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
+            >,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CreateCoreWebView2CompositionController)(
+            ::windows::core::Vtable::as_raw(self),
+            parentwindow.into(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CreateCoreWebView2PointerInfo(
+        &self,
+    ) -> ::windows::core::Result<ICoreWebView2PointerInfo> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CreateCoreWebView2PointerInfo)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2PointerInfo>(result__)
+    }
+    pub unsafe fn GetAutomationProviderForWindow<'a, P0>(
+        &self,
+        hwnd: P0,
+    ) -> ::windows::core::Result<::windows::core::IUnknown>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::HWND>,
+    {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .GetAutomationProviderForWindow)(
+            ::windows::core::Vtable::as_raw(self),
+            hwnd.into(),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<::windows::core::IUnknown>(result__)
+    }
+    pub unsafe fn add_BrowserProcessExited<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2BrowserProcessExitedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_BrowserProcessExited)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_BrowserProcessExited(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_BrowserProcessExited)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn CreatePrintSettings(
+        &self,
+    ) -> ::windows::core::Result<ICoreWebView2PrintSettings> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CreatePrintSettings)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2PrintSettings>(result__)
+    }
+    pub unsafe fn UserDataFolder(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .UserDataFolder)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ProcessInfosChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ProcessInfosChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .add_ProcessInfosChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ProcessInfosChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .remove_ProcessInfosChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn GetProcessInfos(
+        &self,
+    ) -> ::windows::core::Result<ICoreWebView2ProcessInfoCollection> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .GetProcessInfos)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2ProcessInfoCollection>(result__)
+    }
+    pub unsafe fn CreateContextMenuItem<'a, P0, P1>(
+        &self,
+        label: P0,
+        iconstream: P1,
+        kind: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND,
+    ) -> ::windows::core::Result<ICoreWebView2ContextMenuItem>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<
+            ::windows::core::InParam<'a, ::windows::Win32::System::Com::IStream>,
+        >,
+    {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .CreateContextMenuItem)(
+            ::windows::core::Vtable::as_raw(self),
+            label.into(),
+            iconstream.into().abi(),
+            kind,
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2ContextMenuItem>(result__)
+    }
+    pub unsafe fn CreateCoreWebView2ControllerOptions(
+        &self,
+    ) -> ::windows::core::Result<ICoreWebView2ControllerOptions> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .CreateCoreWebView2ControllerOptions)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2ControllerOptions>(result__)
+    }
+    pub unsafe fn CreateCoreWebView2ControllerWithOptions<'a, P0, P1, P2>(
+        &self,
+        parentwindow: P0,
+        options: P1,
+        handler: P2,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2ControllerOptions>>,
+        P2: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .CreateCoreWebView2ControllerWithOptions)(
+            ::windows::core::Vtable::as_raw(self),
+            parentwindow.into(),
+            options.into().abi(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CreateCoreWebView2CompositionControllerWithOptions<'a, P0, P1, P2>(
+        &self,
+        parentwindow: P0,
+        options: P1,
+        handler: P2,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2ControllerOptions>>,
+        P2: ::std::convert::Into<
+            ::windows::core::InParam<
+                'a,
+                ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
+            >,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .CreateCoreWebView2CompositionControllerWithOptions)(
+            ::windows::core::Vtable::as_raw(self),
+            parentwindow.into(),
+            options.into().abi(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn FailureReportFolderPath(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).FailureReportFolderPath)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+}
+::windows::core::interface_hierarchy!(
+    ICoreWebView2Environment11,
+    ::windows::core::IUnknown,
+    ICoreWebView2Environment,
+    ICoreWebView2Environment2,
+    ICoreWebView2Environment3,
+    ICoreWebView2Environment4,
+    ICoreWebView2Environment5,
+    ICoreWebView2Environment6,
+    ICoreWebView2Environment7,
+    ICoreWebView2Environment8,
+    ICoreWebView2Environment9,
+    ICoreWebView2Environment10
+);
+impl ::core::clone::Clone for ICoreWebView2Environment11 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2Environment11 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2Environment11 {}
+impl ::core::fmt::Debug for ICoreWebView2Environment11 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2Environment11")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Vtable for ICoreWebView2Environment11 {
+    type Vtable = ICoreWebView2Environment11_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2Environment11 {
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0xf0913dc6_a0ec_42ef_9805_91dff3a2966a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2Environment11_Vtbl {
+    pub base__: ICoreWebView2Environment10_Vtbl,
+    pub FailureReportFolderPath: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
 pub struct ICoreWebView2Environment2(::windows::core::IUnknown);
 impl ICoreWebView2Environment2 {
     pub unsafe fn CreateCoreWebView2Controller<'a, P0, P1>(
@@ -10689,6 +11201,73 @@ pub struct ICoreWebView2EnvironmentOptions2_Vtbl {
         value: *mut ::windows::Win32::Foundation::BOOL,
     ) -> ::windows::core::HRESULT,
     pub SetExclusiveUserDataFolderAccess: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: ::windows::Win32::Foundation::BOOL,
+    )
+        -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2EnvironmentOptions3(::windows::core::IUnknown);
+impl ICoreWebView2EnvironmentOptions3 {
+    pub unsafe fn IsCustomCrashReportingEnabled(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).IsCustomCrashReportingEnabled)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetIsCustomCrashReportingEnabled<'a, P0>(
+        &self,
+        value: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self).SetIsCustomCrashReportingEnabled)(
+            ::windows::core::Vtable::as_raw(self),
+            value.into(),
+        )
+        .ok()
+    }
+}
+::windows::core::interface_hierarchy!(ICoreWebView2EnvironmentOptions3, ::windows::core::IUnknown);
+impl ::core::clone::Clone for ICoreWebView2EnvironmentOptions3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2EnvironmentOptions3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2EnvironmentOptions3 {}
+impl ::core::fmt::Debug for ICoreWebView2EnvironmentOptions3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2EnvironmentOptions3")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Vtable for ICoreWebView2EnvironmentOptions3 {
+    type Vtable = ICoreWebView2EnvironmentOptions3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2EnvironmentOptions3 {
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x4a5c436e_a9e3_4a2e_89c3_910d3513f5cc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2EnvironmentOptions3_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub IsCustomCrashReportingEnabled: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::HRESULT,
+    pub SetIsCustomCrashReportingEnabled: unsafe extern "system" fn(
         this: *mut ::core::ffi::c_void,
         value: ::windows::Win32::Foundation::BOOL,
     )
@@ -15347,6 +15926,61 @@ pub struct ICoreWebView2PointerInfo_Vtbl {
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
+pub struct ICoreWebView2PrintCompletedHandler(::windows::core::IUnknown);
+impl ICoreWebView2PrintCompletedHandler {
+    pub unsafe fn Invoke(
+        &self,
+        errorcode: ::windows::core::HRESULT,
+        printstatus: COREWEBVIEW2_PRINT_STATUS,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Invoke)(
+            ::windows::core::Vtable::as_raw(self),
+            errorcode,
+            printstatus,
+        )
+        .ok()
+    }
+}
+::windows::core::interface_hierarchy!(
+    ICoreWebView2PrintCompletedHandler,
+    ::windows::core::IUnknown
+);
+impl ::core::clone::Clone for ICoreWebView2PrintCompletedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2PrintCompletedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2PrintCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2PrintCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PrintCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Vtable for ICoreWebView2PrintCompletedHandler {
+    type Vtable = ICoreWebView2PrintCompletedHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2PrintCompletedHandler {
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x8fd80075_ed08_42db_8570_f5d14977461e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2PrintCompletedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        errorcode: ::windows::core::HRESULT,
+        printstatus: COREWEBVIEW2_PRINT_STATUS,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
 pub struct ICoreWebView2PrintSettings(::windows::core::IUnknown);
 impl ICoreWebView2PrintSettings {
     pub unsafe fn Orientation(
@@ -15713,6 +16347,496 @@ pub struct ICoreWebView2PrintSettings_Vtbl {
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
+pub struct ICoreWebView2PrintSettings2(::windows::core::IUnknown);
+impl ICoreWebView2PrintSettings2 {
+    pub unsafe fn Orientation(
+        &self,
+        orientation: *mut COREWEBVIEW2_PRINT_ORIENTATION,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Orientation)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(orientation),
+        )
+        .ok()
+    }
+    pub unsafe fn SetOrientation(
+        &self,
+        orientation: COREWEBVIEW2_PRINT_ORIENTATION,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetOrientation)(
+            ::windows::core::Vtable::as_raw(self),
+            orientation,
+        )
+        .ok()
+    }
+    pub unsafe fn ScaleFactor(&self, scalefactor: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.ScaleFactor)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(scalefactor),
+        )
+        .ok()
+    }
+    pub unsafe fn SetScaleFactor(&self, scalefactor: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetScaleFactor)(
+            ::windows::core::Vtable::as_raw(self),
+            scalefactor,
+        )
+        .ok()
+    }
+    pub unsafe fn PageWidth(&self, pagewidth: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.PageWidth)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(pagewidth),
+        )
+        .ok()
+    }
+    pub unsafe fn SetPageWidth(&self, pagewidth: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetPageWidth)(
+            ::windows::core::Vtable::as_raw(self),
+            pagewidth,
+        )
+        .ok()
+    }
+    pub unsafe fn PageHeight(&self, pageheight: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.PageHeight)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(pageheight),
+        )
+        .ok()
+    }
+    pub unsafe fn SetPageHeight(&self, pageheight: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetPageHeight)(
+            ::windows::core::Vtable::as_raw(self),
+            pageheight,
+        )
+        .ok()
+    }
+    pub unsafe fn MarginTop(&self, margintop: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.MarginTop)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(margintop),
+        )
+        .ok()
+    }
+    pub unsafe fn SetMarginTop(&self, margintop: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetMarginTop)(
+            ::windows::core::Vtable::as_raw(self),
+            margintop,
+        )
+        .ok()
+    }
+    pub unsafe fn MarginBottom(&self, marginbottom: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.MarginBottom)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(marginbottom),
+        )
+        .ok()
+    }
+    pub unsafe fn SetMarginBottom(&self, marginbottom: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetMarginBottom)(
+            ::windows::core::Vtable::as_raw(self),
+            marginbottom,
+        )
+        .ok()
+    }
+    pub unsafe fn MarginLeft(&self, marginleft: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.MarginLeft)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(marginleft),
+        )
+        .ok()
+    }
+    pub unsafe fn SetMarginLeft(&self, marginleft: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetMarginLeft)(
+            ::windows::core::Vtable::as_raw(self),
+            marginleft,
+        )
+        .ok()
+    }
+    pub unsafe fn MarginRight(&self, marginright: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.MarginRight)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(marginright),
+        )
+        .ok()
+    }
+    pub unsafe fn SetMarginRight(&self, marginright: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetMarginRight)(
+            ::windows::core::Vtable::as_raw(self),
+            marginright,
+        )
+        .ok()
+    }
+    pub unsafe fn ShouldPrintBackgrounds(
+        &self,
+        shouldprintbackgrounds: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .ShouldPrintBackgrounds)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(shouldprintbackgrounds),
+        )
+        .ok()
+    }
+    pub unsafe fn SetShouldPrintBackgrounds<'a, P0>(
+        &self,
+        shouldprintbackgrounds: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .SetShouldPrintBackgrounds)(
+            ::windows::core::Vtable::as_raw(self),
+            shouldprintbackgrounds.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn ShouldPrintSelectionOnly(
+        &self,
+        shouldprintselectiononly: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .ShouldPrintSelectionOnly)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(shouldprintselectiononly),
+        )
+        .ok()
+    }
+    pub unsafe fn SetShouldPrintSelectionOnly<'a, P0>(
+        &self,
+        shouldprintselectiononly: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .SetShouldPrintSelectionOnly)(
+            ::windows::core::Vtable::as_raw(self),
+            shouldprintselectiononly.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn ShouldPrintHeaderAndFooter(
+        &self,
+        shouldprintheaderandfooter: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .ShouldPrintHeaderAndFooter)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(shouldprintheaderandfooter),
+        )
+        .ok()
+    }
+    pub unsafe fn SetShouldPrintHeaderAndFooter<'a, P0>(
+        &self,
+        shouldprintheaderandfooter: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .SetShouldPrintHeaderAndFooter)(
+            ::windows::core::Vtable::as_raw(self),
+            shouldprintheaderandfooter.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn HeaderTitle(
+        &self,
+        headertitle: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.HeaderTitle)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(headertitle),
+        )
+        .ok()
+    }
+    pub unsafe fn SetHeaderTitle<'a, P0>(&self, headertitle: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetHeaderTitle)(
+            ::windows::core::Vtable::as_raw(self),
+            headertitle.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn FooterUri(
+        &self,
+        footeruri: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.FooterUri)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(footeruri),
+        )
+        .ok()
+    }
+    pub unsafe fn SetFooterUri<'a, P0>(&self, footeruri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetFooterUri)(
+            ::windows::core::Vtable::as_raw(self),
+            footeruri.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn PageRanges(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PageRanges)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetPageRanges<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPageRanges)(
+            ::windows::core::Vtable::as_raw(self),
+            value.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn PagesPerSide(&self, value: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PagesPerSide)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetPagesPerSide(&self, value: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetPagesPerSide)(
+            ::windows::core::Vtable::as_raw(self),
+            value,
+        )
+        .ok()
+    }
+    pub unsafe fn Copies(&self, value: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Copies)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetCopies(&self, value: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetCopies)(
+            ::windows::core::Vtable::as_raw(self),
+            value,
+        )
+        .ok()
+    }
+    pub unsafe fn Collation(
+        &self,
+        value: *mut COREWEBVIEW2_PRINT_COLLATION,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Collation)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetCollation(
+        &self,
+        value: COREWEBVIEW2_PRINT_COLLATION,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetCollation)(
+            ::windows::core::Vtable::as_raw(self),
+            value,
+        )
+        .ok()
+    }
+    pub unsafe fn ColorMode(
+        &self,
+        value: *mut COREWEBVIEW2_PRINT_COLOR_MODE,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ColorMode)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetColorMode(
+        &self,
+        value: COREWEBVIEW2_PRINT_COLOR_MODE,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetColorMode)(
+            ::windows::core::Vtable::as_raw(self),
+            value,
+        )
+        .ok()
+    }
+    pub unsafe fn Duplex(
+        &self,
+        value: *mut COREWEBVIEW2_PRINT_DUPLEX,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Duplex)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetDuplex(
+        &self,
+        value: COREWEBVIEW2_PRINT_DUPLEX,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetDuplex)(
+            ::windows::core::Vtable::as_raw(self),
+            value,
+        )
+        .ok()
+    }
+    pub unsafe fn MediaSize(
+        &self,
+        value: *mut COREWEBVIEW2_PRINT_MEDIA_SIZE,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).MediaSize)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetMediaSize(
+        &self,
+        value: COREWEBVIEW2_PRINT_MEDIA_SIZE,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetMediaSize)(
+            ::windows::core::Vtable::as_raw(self),
+            value,
+        )
+        .ok()
+    }
+    pub unsafe fn PrinterName(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PrinterName)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetPrinterName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self).SetPrinterName)(
+            ::windows::core::Vtable::as_raw(self),
+            value.into(),
+        )
+        .ok()
+    }
+}
+::windows::core::interface_hierarchy!(
+    ICoreWebView2PrintSettings2,
+    ::windows::core::IUnknown,
+    ICoreWebView2PrintSettings
+);
+impl ::core::clone::Clone for ICoreWebView2PrintSettings2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2PrintSettings2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2PrintSettings2 {}
+impl ::core::fmt::Debug for ICoreWebView2PrintSettings2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PrintSettings2")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Vtable for ICoreWebView2PrintSettings2 {
+    type Vtable = ICoreWebView2PrintSettings2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2PrintSettings2 {
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0xca7f0e1f_3484_41d1_8c1a_65cd44a63f8d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2PrintSettings2_Vtbl {
+    pub base__: ICoreWebView2PrintSettings_Vtbl,
+    pub PageRanges: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub SetPageRanges: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: ::windows::core::PCWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub PagesPerSide: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut i32,
+    ) -> ::windows::core::HRESULT,
+    pub SetPagesPerSide: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: i32,
+    ) -> ::windows::core::HRESULT,
+    pub Copies: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut i32,
+    ) -> ::windows::core::HRESULT,
+    pub SetCopies: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: i32,
+    ) -> ::windows::core::HRESULT,
+    pub Collation: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut COREWEBVIEW2_PRINT_COLLATION,
+    ) -> ::windows::core::HRESULT,
+    pub SetCollation: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: COREWEBVIEW2_PRINT_COLLATION,
+    ) -> ::windows::core::HRESULT,
+    pub ColorMode: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut COREWEBVIEW2_PRINT_COLOR_MODE,
+    ) -> ::windows::core::HRESULT,
+    pub SetColorMode: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: COREWEBVIEW2_PRINT_COLOR_MODE,
+    ) -> ::windows::core::HRESULT,
+    pub Duplex: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut COREWEBVIEW2_PRINT_DUPLEX,
+    ) -> ::windows::core::HRESULT,
+    pub SetDuplex: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: COREWEBVIEW2_PRINT_DUPLEX,
+    ) -> ::windows::core::HRESULT,
+    pub MediaSize: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut COREWEBVIEW2_PRINT_MEDIA_SIZE,
+    ) -> ::windows::core::HRESULT,
+    pub SetMediaSize: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: COREWEBVIEW2_PRINT_MEDIA_SIZE,
+    ) -> ::windows::core::HRESULT,
+    pub PrinterName: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::HRESULT,
+    pub SetPrinterName: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        value: ::windows::core::PCWSTR,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
 pub struct ICoreWebView2PrintToPdfCompletedHandler(::windows::core::IUnknown);
 impl ICoreWebView2PrintToPdfCompletedHandler {
     pub unsafe fn Invoke<'a, P0>(
@@ -15768,6 +16892,66 @@ pub struct ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
         this: *mut ::core::ffi::c_void,
         errorcode: ::windows::core::HRESULT,
         issuccessful: ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
+pub struct ICoreWebView2PrintToPdfStreamCompletedHandler(::windows::core::IUnknown);
+impl ICoreWebView2PrintToPdfStreamCompletedHandler {
+    pub unsafe fn Invoke<'a, P0>(
+        &self,
+        errorcode: ::windows::core::HRESULT,
+        pdfstream: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ::windows::Win32::System::Com::IStream>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self).Invoke)(
+            ::windows::core::Vtable::as_raw(self),
+            errorcode,
+            pdfstream.into().abi(),
+        )
+        .ok()
+    }
+}
+::windows::core::interface_hierarchy!(
+    ICoreWebView2PrintToPdfStreamCompletedHandler,
+    ::windows::core::IUnknown
+);
+impl ::core::clone::Clone for ICoreWebView2PrintToPdfStreamCompletedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2PrintToPdfStreamCompletedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2PrintToPdfStreamCompletedHandler {}
+impl ::core::fmt::Debug for ICoreWebView2PrintToPdfStreamCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2PrintToPdfStreamCompletedHandler")
+            .field(&self.0)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Vtable for ICoreWebView2PrintToPdfStreamCompletedHandler {
+    type Vtable = ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2PrintToPdfStreamCompletedHandler {
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x4c9f8229_8f93_444f_a711_2c0dfd6359d5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        errorcode: ::windows::core::HRESULT,
+        pdfstream: *mut ::core::ffi::c_void,
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
@@ -35271,6 +36455,2863 @@ pub struct ICoreWebView2_15_Vtbl {
     ) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
+pub struct ICoreWebView2_16(::windows::core::IUnknown);
+impl ICoreWebView2_16 {
+    pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Settings)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Settings>(result__)
+    }
+    pub unsafe fn Source(&self, uri: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Source)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(uri),
+        )
+        .ok()
+    }
+    pub unsafe fn Navigate<'a, P0>(&self, uri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Navigate)(::windows::core::Vtable::as_raw(self), uri.into())
+        .ok()
+    }
+    pub unsafe fn NavigateToString<'a, P0>(&self, htmlcontent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .NavigateToString)(::windows::core::Vtable::as_raw(self), htmlcontent.into())
+        .ok()
+    }
+    pub unsafe fn add_NavigationStarting<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2NavigationStartingEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_NavigationStarting)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_NavigationStarting(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_NavigationStarting)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ContentLoading<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ContentLoadingEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ContentLoading)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ContentLoading(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ContentLoading)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_SourceChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2SourceChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_SourceChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_SourceChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_SourceChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_HistoryChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2HistoryChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_HistoryChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_HistoryChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_HistoryChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_NavigationCompleted<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2NavigationCompletedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_NavigationCompleted)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_NavigationCompleted(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_NavigationCompleted)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_FrameNavigationStarting<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2NavigationStartingEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_FrameNavigationStarting)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_FrameNavigationStarting(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_FrameNavigationStarting)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_FrameNavigationCompleted<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2NavigationCompletedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_FrameNavigationCompleted)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_FrameNavigationCompleted(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_FrameNavigationCompleted)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ScriptDialogOpening<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ScriptDialogOpeningEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ScriptDialogOpening)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ScriptDialogOpening(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ScriptDialogOpening)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_PermissionRequested<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2PermissionRequestedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_PermissionRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_PermissionRequested(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_PermissionRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ProcessFailed<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ProcessFailedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ProcessFailed)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ProcessFailed(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ProcessFailed)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn AddScriptToExecuteOnDocumentCreated<'a, P0, P1>(
+        &self,
+        javascript: P0,
+        handler: P1,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<
+            ::windows::core::InParam<
+                'a,
+                ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+            >,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .AddScriptToExecuteOnDocumentCreated)(
+            ::windows::core::Vtable::as_raw(self),
+            javascript.into(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn RemoveScriptToExecuteOnDocumentCreated<'a, P0>(
+        &self,
+        id: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .RemoveScriptToExecuteOnDocumentCreated)(
+            ::windows::core::Vtable::as_raw(self),
+            id.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn ExecuteScript<'a, P0, P1>(
+        &self,
+        javascript: P0,
+        handler: P1,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ExecuteScriptCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .ExecuteScript)(
+            ::windows::core::Vtable::as_raw(self),
+            javascript.into(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn CapturePreview<'a, P0, P1>(
+        &self,
+        imageformat: COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT,
+        imagestream: P0,
+        handler: P1,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ::windows::Win32::System::Com::IStream>,
+        >,
+        P1: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2CapturePreviewCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CapturePreview)(
+            ::windows::core::Vtable::as_raw(self),
+            imageformat,
+            imagestream.into().abi(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Reload)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn PostWebMessageAsJson<'a, P0>(
+        &self,
+        webmessageasjson: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .PostWebMessageAsJson)(
+            ::windows::core::Vtable::as_raw(self),
+            webmessageasjson.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn PostWebMessageAsString<'a, P0>(
+        &self,
+        webmessageasstring: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .PostWebMessageAsString)(
+            ::windows::core::Vtable::as_raw(self),
+            webmessageasstring.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_WebMessageReceived<'a, P0>(
+        &self,
+        handler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2WebMessageReceivedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WebMessageReceived)(
+            ::windows::core::Vtable::as_raw(self),
+            handler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WebMessageReceived(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WebMessageReceived)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn CallDevToolsProtocolMethod<'a, P0, P1, P2>(
+        &self,
+        methodname: P0,
+        parametersasjson: P1,
+        handler: P2,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CallDevToolsProtocolMethod)(
+            ::windows::core::Vtable::as_raw(self),
+            methodname.into(),
+            parametersasjson.into(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn BrowserProcessId(&self, value: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .BrowserProcessId)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn CanGoBack(
+        &self,
+        cangoback: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CanGoBack)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(cangoback),
+        )
+        .ok()
+    }
+    pub unsafe fn CanGoForward(
+        &self,
+        cangoforward: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CanGoForward)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(cangoforward),
+        )
+        .ok()
+    }
+    pub unsafe fn GoBack(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .GoBack)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn GoForward(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .GoForward)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn GetDevToolsProtocolEventReceiver<'a, P0>(
+        &self,
+        eventname: P0,
+    ) -> ::windows::core::Result<ICoreWebView2DevToolsProtocolEventReceiver>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .GetDevToolsProtocolEventReceiver)(
+            ::windows::core::Vtable::as_raw(self),
+            eventname.into(),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2DevToolsProtocolEventReceiver>(result__)
+    }
+    pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Stop)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn add_NewWindowRequested<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2NewWindowRequestedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_NewWindowRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_NewWindowRequested(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_NewWindowRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_DocumentTitleChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2DocumentTitleChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_DocumentTitleChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_DocumentTitleChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_DocumentTitleChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn DocumentTitle(
+        &self,
+        title: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .DocumentTitle)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(title),
+        )
+        .ok()
+    }
+    pub unsafe fn AddHostObjectToScript<'a, P0>(
+        &self,
+        name: P0,
+        object: *mut ::windows::Win32::System::Com::VARIANT,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .AddHostObjectToScript)(
+            ::windows::core::Vtable::as_raw(self),
+            name.into(),
+            ::core::mem::transmute(object),
+        )
+        .ok()
+    }
+    pub unsafe fn RemoveHostObjectFromScript<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .RemoveHostObjectFromScript)(::windows::core::Vtable::as_raw(self), name.into())
+        .ok()
+    }
+    pub unsafe fn OpenDevToolsWindow(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .OpenDevToolsWindow)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn add_ContainsFullScreenElementChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ContainsFullScreenElementChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ContainsFullScreenElementChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ContainsFullScreenElementChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ContainsFullScreenElementChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn ContainsFullScreenElement(
+        &self,
+        containsfullscreenelement: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .ContainsFullScreenElement)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(containsfullscreenelement),
+        )
+        .ok()
+    }
+    pub unsafe fn add_WebResourceRequested<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2WebResourceRequestedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WebResourceRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WebResourceRequested(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WebResourceRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn AddWebResourceRequestedFilter<'a, P0>(
+        &self,
+        uri: P0,
+        resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .AddWebResourceRequestedFilter)(
+            ::windows::core::Vtable::as_raw(self),
+            uri.into(),
+            resourcecontext,
+        )
+        .ok()
+    }
+    pub unsafe fn RemoveWebResourceRequestedFilter<'a, P0>(
+        &self,
+        uri: P0,
+        resourcecontext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .RemoveWebResourceRequestedFilter)(
+            ::windows::core::Vtable::as_raw(self),
+            uri.into(),
+            resourcecontext,
+        )
+        .ok()
+    }
+    pub unsafe fn add_WindowCloseRequested<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2WindowCloseRequestedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WindowCloseRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WindowCloseRequested(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WindowCloseRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_WebResourceResponseReceived<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2WebResourceResponseReceivedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_WebResourceResponseReceived)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_WebResourceResponseReceived(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_WebResourceResponseReceived)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn NavigateWithWebResourceRequest<'a, P0>(
+        &self,
+        request: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2WebResourceRequest>>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .NavigateWithWebResourceRequest)(
+            ::windows::core::Vtable::as_raw(self),
+            request.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_DOMContentLoaded<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2DOMContentLoadedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_DOMContentLoaded)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_DOMContentLoaded(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_DOMContentLoaded)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn CookieManager(&self) -> ::windows::core::Result<ICoreWebView2CookieManager> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CookieManager)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2CookieManager>(result__)
+    }
+    pub unsafe fn Environment(&self) -> ::windows::core::Result<ICoreWebView2Environment> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Environment)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Environment>(result__)
+    }
+    pub unsafe fn TrySuspend<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2TrySuspendCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .TrySuspend)(::windows::core::Vtable::as_raw(self), handler.into().abi())
+        .ok()
+    }
+    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .Resume)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn IsSuspended(
+        &self,
+        issuspended: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsSuspended)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(issuspended),
+        )
+        .ok()
+    }
+    pub unsafe fn SetVirtualHostNameToFolderMapping<'a, P0, P1>(
+        &self,
+        hostname: P0,
+        folderpath: P1,
+        accesskind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetVirtualHostNameToFolderMapping)(
+            ::windows::core::Vtable::as_raw(self),
+            hostname.into(),
+            folderpath.into(),
+            accesskind,
+        )
+        .ok()
+    }
+    pub unsafe fn ClearVirtualHostNameToFolderMapping<'a, P0>(
+        &self,
+        hostname: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .ClearVirtualHostNameToFolderMapping)(
+            ::windows::core::Vtable::as_raw(self),
+            hostname.into(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_FrameCreated<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2FrameCreatedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_FrameCreated)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_FrameCreated(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_FrameCreated)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_DownloadStarting<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2DownloadStartingEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_DownloadStarting)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_DownloadStarting(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_DownloadStarting)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ClientCertificateRequested<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ClientCertificateRequestedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ClientCertificateRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ClientCertificateRequested(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ClientCertificateRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn OpenTaskManagerWindow(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .OpenTaskManagerWindow)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn PrintToPdf<'a, P0, P1, P2>(
+        &self,
+        resultfilepath: P0,
+        printsettings: P1,
+        handler: P2,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2PrintSettings>>,
+        P2: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2PrintToPdfCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .PrintToPdf)(
+            ::windows::core::Vtable::as_raw(self),
+            resultfilepath.into(),
+            printsettings.into().abi(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_IsMutedChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2IsMutedChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_IsMutedChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_IsMutedChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_IsMutedChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn IsMuted(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsMuted)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetIsMuted<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::Win32::Foundation::BOOL>,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetIsMuted)(::windows::core::Vtable::as_raw(self), value.into())
+        .ok()
+    }
+    pub unsafe fn add_IsDocumentPlayingAudioChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2IsDocumentPlayingAudioChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_IsDocumentPlayingAudioChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_IsDocumentPlayingAudioChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_IsDocumentPlayingAudioChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn IsDocumentPlayingAudio(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsDocumentPlayingAudio)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn add_IsDefaultDownloadDialogOpenChanged<'a, P0>(
+        &self,
+        handler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<
+                'a,
+                ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler,
+            >,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_IsDefaultDownloadDialogOpenChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            handler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_IsDefaultDownloadDialogOpenChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_IsDefaultDownloadDialogOpenChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn IsDefaultDownloadDialogOpen(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .IsDefaultDownloadDialogOpen)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn OpenDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .OpenDefaultDownloadDialog)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn CloseDefaultDownloadDialog(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CloseDefaultDownloadDialog)(::windows::core::Vtable::as_raw(self))
+        .ok()
+    }
+    pub unsafe fn DefaultDownloadDialogCornerAlignment(
+        &self,
+        value: *mut COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .DefaultDownloadDialogCornerAlignment)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetDefaultDownloadDialogCornerAlignment(
+        &self,
+        value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetDefaultDownloadDialogCornerAlignment)(
+            ::windows::core::Vtable::as_raw(self), value
+        )
+        .ok()
+    }
+    pub unsafe fn DefaultDownloadDialogMargin(
+        &self,
+        value: *mut ::windows::Win32::Foundation::POINT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .DefaultDownloadDialogMargin)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn SetDefaultDownloadDialogMargin(
+        &self,
+        value: ::windows::Win32::Foundation::POINT,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .SetDefaultDownloadDialogMargin)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn add_BasicAuthenticationRequested<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2BasicAuthenticationRequestedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_BasicAuthenticationRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_BasicAuthenticationRequested(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_BasicAuthenticationRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn CallDevToolsProtocolMethodForSession<'a, P0, P1, P2, P3>(
+        &self,
+        sessionid: P0,
+        methodname: P1,
+        parametersasjson: P2,
+        handler: P3,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P3: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .CallDevToolsProtocolMethodForSession)(
+            ::windows::core::Vtable::as_raw(self),
+            sessionid.into(),
+            methodname.into(),
+            parametersasjson.into(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_ContextMenuRequested<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ContextMenuRequestedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_ContextMenuRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ContextMenuRequested(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_ContextMenuRequested)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn add_StatusBarTextChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2StatusBarTextChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .add_StatusBarTextChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_StatusBarTextChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .remove_StatusBarTextChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn StatusBarText(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .base__
+            .StatusBarText)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn Profile(&self) -> ::windows::core::Result<ICoreWebView2Profile> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .base__
+            .Profile)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(result__.as_mut_ptr()),
+        )
+        .from_abi::<ICoreWebView2Profile>(result__)
+    }
+    pub unsafe fn add_ServerCertificateErrorDetected<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2ServerCertificateErrorDetectedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .add_ServerCertificateErrorDetected)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_ServerCertificateErrorDetected(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .remove_ServerCertificateErrorDetected)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn ClearServerCertificateErrorActions<'a, P0>(
+        &self,
+        handler: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<
+                'a,
+                ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
+            >,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .base__
+            .ClearServerCertificateErrorActions)(
+            ::windows::core::Vtable::as_raw(self),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn add_FaviconChanged<'a, P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2FaviconChangedEventHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .add_FaviconChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            eventhandler.into().abi(),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn remove_FaviconChanged(
+        &self,
+        token: ::windows::Win32::System::WinRT::EventRegistrationToken,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self)
+            .base__
+            .remove_FaviconChanged)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(token),
+        )
+        .ok()
+    }
+    pub unsafe fn FaviconUri(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.FaviconUri)(
+            ::windows::core::Vtable::as_raw(self),
+            ::core::mem::transmute(value),
+        )
+        .ok()
+    }
+    pub unsafe fn GetFavicon<'a, P0>(
+        &self,
+        format: COREWEBVIEW2_FAVICON_IMAGE_FORMAT,
+        completedhandler: P0,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2GetFaviconCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self).base__.GetFavicon)(
+            ::windows::core::Vtable::as_raw(self),
+            format,
+            completedhandler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn Print<'a, P0, P1>(
+        &self,
+        printsettings: P0,
+        handler: P1,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2PrintSettings>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2PrintCompletedHandler>>,
+    {
+        (::windows::core::Vtable::vtable(self).Print)(
+            ::windows::core::Vtable::as_raw(self),
+            printsettings.into().abi(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+    pub unsafe fn ShowPrintUI(
+        &self,
+        printdialogkind: COREWEBVIEW2_PRINT_DIALOG_KIND,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ShowPrintUI)(
+            ::windows::core::Vtable::as_raw(self),
+            printdialogkind,
+        )
+        .ok()
+    }
+    pub unsafe fn PrintToPdfStream<'a, P0, P1>(
+        &self,
+        printsettings: P0,
+        handler: P1,
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ICoreWebView2PrintSettings>>,
+        P1: ::std::convert::Into<
+            ::windows::core::InParam<'a, ICoreWebView2PrintToPdfStreamCompletedHandler>,
+        >,
+    {
+        (::windows::core::Vtable::vtable(self).PrintToPdfStream)(
+            ::windows::core::Vtable::as_raw(self),
+            printsettings.into().abi(),
+            handler.into().abi(),
+        )
+        .ok()
+    }
+}
+::windows::core::interface_hierarchy!(
+    ICoreWebView2_16,
+    ::windows::core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15
+);
+impl ::core::clone::Clone for ICoreWebView2_16 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ICoreWebView2_16 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ICoreWebView2_16 {}
+impl ::core::fmt::Debug for ICoreWebView2_16 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreWebView2_16").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Vtable for ICoreWebView2_16 {
+    type Vtable = ICoreWebView2_16_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreWebView2_16 {
+    const IID: ::windows::core::GUID =
+        ::windows::core::GUID::from_u128(0x0eb34dc9_9f91_41e1_8639_95cd5943906b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2_16_Vtbl {
+    pub base__: ICoreWebView2_15_Vtbl,
+    pub Print: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        printsettings: *mut ::core::ffi::c_void,
+        handler: *mut ::core::ffi::c_void,
+    ) -> ::windows::core::HRESULT,
+    pub ShowPrintUI: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        printdialogkind: COREWEBVIEW2_PRINT_DIALOG_KIND,
+    ) -> ::windows::core::HRESULT,
+    pub PrintToPdfStream: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        printsettings: *mut ::core::ffi::c_void,
+        handler: *mut ::core::ffi::c_void,
+    ) -> ::windows::core::HRESULT,
+}
+#[repr(transparent)]
 pub struct ICoreWebView2_2(::windows::core::IUnknown);
 impl ICoreWebView2_2 {
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ICoreWebView2Settings> {
@@ -46347,7 +50388,7 @@ pub struct ICoreWebView2_9_Vtbl {
     ) -> ::windows::core::HRESULT,
 }
 pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: ::windows::core::PCWSTR =
-    ::windows::w!("106.0.1370.28");
+    ::windows::w!("109.0.1518.46");
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COREWEBVIEW2_BOUNDS_MODE(pub i32);
@@ -46406,37 +50447,37 @@ impl ::core::fmt::Debug for COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COREWEBVIEW2_BROWSING_DATA_KINDS(pub u32);
+pub struct COREWEBVIEW2_BROWSING_DATA_KINDS(pub i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(1u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(1i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(2u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(2i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(4u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(4i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(8u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(8i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(16u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(16i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(32u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(32i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(64u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(64i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(128u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(128i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(256u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(256i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(512u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(512i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(1024u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(1024i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(2048u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(2048i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(4096u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(4096i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(8192u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(8192i32);
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(16384u32);
+    COREWEBVIEW2_BROWSING_DATA_KINDS(16384i32);
 impl ::core::marker::Copy for COREWEBVIEW2_BROWSING_DATA_KINDS {}
 impl ::core::clone::Clone for COREWEBVIEW2_BROWSING_DATA_KINDS {
     fn clone(&self) -> Self {
@@ -46456,34 +50497,6 @@ impl ::core::fmt::Debug for COREWEBVIEW2_BROWSING_DATA_KINDS {
         f.debug_tuple("COREWEBVIEW2_BROWSING_DATA_KINDS")
             .field(&self.0)
             .finish()
-    }
-}
-impl ::core::ops::BitOr for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -46940,23 +50953,23 @@ impl ::core::fmt::Debug for COREWEBVIEW2_MOUSE_EVENT_KIND {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(pub u32);
+pub struct COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(pub i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_NONE: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(0u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(0i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_LEFT_BUTTON: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(1u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(1i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_RIGHT_BUTTON:
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(2u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(2i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_SHIFT: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(4u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(4i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_CONTROL: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(8u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(8i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_MIDDLE_BUTTON:
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(16u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(16i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_X_BUTTON1: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(32u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(32i32);
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_X_BUTTON2: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(64u32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(64i32);
 impl ::core::marker::Copy for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {}
 impl ::core::clone::Clone for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
     fn clone(&self) -> Self {
@@ -46976,34 +50989,6 @@ impl ::core::fmt::Debug for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
         f.debug_tuple("COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS")
             .field(&self.0)
             .finish()
-    }
-}
-impl ::core::ops::BitOr for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -47038,31 +51023,35 @@ impl ::core::fmt::Debug for COREWEBVIEW2_MOVE_FOCUS_REASON {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COREWEBVIEW2_PDF_TOOLBAR_ITEMS(pub u32);
+pub struct COREWEBVIEW2_PDF_TOOLBAR_ITEMS(pub i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(0u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(0i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(1u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(1i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PRINT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(2u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(2i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE_AS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(4u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(4i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_IN: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(8u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(8i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_OUT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(16u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(16i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ROTATE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(32u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(32i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FIT_PAGE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(64u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(64i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_LAYOUT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(128u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(128i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(256u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(256i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_SELECTOR: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(512u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(512i32);
 pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SEARCH: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(1024u32);
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(1024i32);
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FULL_SCREEN: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(2048i32);
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
+    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(4096i32);
 impl ::core::marker::Copy for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {}
 impl ::core::clone::Clone for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
     fn clone(&self) -> Self {
@@ -47082,34 +51071,6 @@ impl ::core::fmt::Debug for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
         f.debug_tuple("COREWEBVIEW2_PDF_TOOLBAR_ITEMS")
             .field(&self.0)
             .finish()
-    }
-}
-impl ::core::ops::BitOr for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -47248,6 +51209,154 @@ impl ::core::fmt::Debug for COREWEBVIEW2_PREFERRED_COLOR_SCHEME {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COREWEBVIEW2_PRINT_COLLATION(pub i32);
+pub const COREWEBVIEW2_PRINT_COLLATION_DEFAULT: COREWEBVIEW2_PRINT_COLLATION =
+    COREWEBVIEW2_PRINT_COLLATION(0i32);
+pub const COREWEBVIEW2_PRINT_COLLATION_COLLATED: COREWEBVIEW2_PRINT_COLLATION =
+    COREWEBVIEW2_PRINT_COLLATION(1i32);
+pub const COREWEBVIEW2_PRINT_COLLATION_UNCOLLATED: COREWEBVIEW2_PRINT_COLLATION =
+    COREWEBVIEW2_PRINT_COLLATION(2i32);
+impl ::core::marker::Copy for COREWEBVIEW2_PRINT_COLLATION {}
+impl ::core::clone::Clone for COREWEBVIEW2_PRINT_COLLATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_PRINT_COLLATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_PRINT_COLLATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_PRINT_COLLATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_PRINT_COLLATION")
+            .field(&self.0)
+            .finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COREWEBVIEW2_PRINT_COLOR_MODE(pub i32);
+pub const COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT: COREWEBVIEW2_PRINT_COLOR_MODE =
+    COREWEBVIEW2_PRINT_COLOR_MODE(0i32);
+pub const COREWEBVIEW2_PRINT_COLOR_MODE_COLOR: COREWEBVIEW2_PRINT_COLOR_MODE =
+    COREWEBVIEW2_PRINT_COLOR_MODE(1i32);
+pub const COREWEBVIEW2_PRINT_COLOR_MODE_GRAYSCALE: COREWEBVIEW2_PRINT_COLOR_MODE =
+    COREWEBVIEW2_PRINT_COLOR_MODE(2i32);
+impl ::core::marker::Copy for COREWEBVIEW2_PRINT_COLOR_MODE {}
+impl ::core::clone::Clone for COREWEBVIEW2_PRINT_COLOR_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_PRINT_COLOR_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_PRINT_COLOR_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_PRINT_COLOR_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_PRINT_COLOR_MODE")
+            .field(&self.0)
+            .finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COREWEBVIEW2_PRINT_DIALOG_KIND(pub i32);
+pub const COREWEBVIEW2_PRINT_DIALOG_KIND_BROWSER: COREWEBVIEW2_PRINT_DIALOG_KIND =
+    COREWEBVIEW2_PRINT_DIALOG_KIND(0i32);
+pub const COREWEBVIEW2_PRINT_DIALOG_KIND_SYSTEM: COREWEBVIEW2_PRINT_DIALOG_KIND =
+    COREWEBVIEW2_PRINT_DIALOG_KIND(1i32);
+impl ::core::marker::Copy for COREWEBVIEW2_PRINT_DIALOG_KIND {}
+impl ::core::clone::Clone for COREWEBVIEW2_PRINT_DIALOG_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_PRINT_DIALOG_KIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_PRINT_DIALOG_KIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_PRINT_DIALOG_KIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_PRINT_DIALOG_KIND")
+            .field(&self.0)
+            .finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COREWEBVIEW2_PRINT_DUPLEX(pub i32);
+pub const COREWEBVIEW2_PRINT_DUPLEX_DEFAULT: COREWEBVIEW2_PRINT_DUPLEX =
+    COREWEBVIEW2_PRINT_DUPLEX(0i32);
+pub const COREWEBVIEW2_PRINT_DUPLEX_ONE_SIDED: COREWEBVIEW2_PRINT_DUPLEX =
+    COREWEBVIEW2_PRINT_DUPLEX(1i32);
+pub const COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_LONG_EDGE: COREWEBVIEW2_PRINT_DUPLEX =
+    COREWEBVIEW2_PRINT_DUPLEX(2i32);
+pub const COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_SHORT_EDGE: COREWEBVIEW2_PRINT_DUPLEX =
+    COREWEBVIEW2_PRINT_DUPLEX(3i32);
+impl ::core::marker::Copy for COREWEBVIEW2_PRINT_DUPLEX {}
+impl ::core::clone::Clone for COREWEBVIEW2_PRINT_DUPLEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_PRINT_DUPLEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_PRINT_DUPLEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_PRINT_DUPLEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_PRINT_DUPLEX")
+            .field(&self.0)
+            .finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COREWEBVIEW2_PRINT_MEDIA_SIZE(pub i32);
+pub const COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT: COREWEBVIEW2_PRINT_MEDIA_SIZE =
+    COREWEBVIEW2_PRINT_MEDIA_SIZE(0i32);
+pub const COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM: COREWEBVIEW2_PRINT_MEDIA_SIZE =
+    COREWEBVIEW2_PRINT_MEDIA_SIZE(1i32);
+impl ::core::marker::Copy for COREWEBVIEW2_PRINT_MEDIA_SIZE {}
+impl ::core::clone::Clone for COREWEBVIEW2_PRINT_MEDIA_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_PRINT_MEDIA_SIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_PRINT_MEDIA_SIZE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_PRINT_MEDIA_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_PRINT_MEDIA_SIZE")
+            .field(&self.0)
+            .finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COREWEBVIEW2_PRINT_ORIENTATION(pub i32);
 pub const COREWEBVIEW2_PRINT_ORIENTATION_PORTRAIT: COREWEBVIEW2_PRINT_ORIENTATION =
     COREWEBVIEW2_PRINT_ORIENTATION(0i32);
@@ -47270,6 +51379,36 @@ unsafe impl ::windows::core::Abi for COREWEBVIEW2_PRINT_ORIENTATION {
 impl ::core::fmt::Debug for COREWEBVIEW2_PRINT_ORIENTATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("COREWEBVIEW2_PRINT_ORIENTATION")
+            .field(&self.0)
+            .finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COREWEBVIEW2_PRINT_STATUS(pub i32);
+pub const COREWEBVIEW2_PRINT_STATUS_SUCCEEDED: COREWEBVIEW2_PRINT_STATUS =
+    COREWEBVIEW2_PRINT_STATUS(0i32);
+pub const COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE: COREWEBVIEW2_PRINT_STATUS =
+    COREWEBVIEW2_PRINT_STATUS(1i32);
+pub const COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR: COREWEBVIEW2_PRINT_STATUS =
+    COREWEBVIEW2_PRINT_STATUS(2i32);
+impl ::core::marker::Copy for COREWEBVIEW2_PRINT_STATUS {}
+impl ::core::clone::Clone for COREWEBVIEW2_PRINT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COREWEBVIEW2_PRINT_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COREWEBVIEW2_PRINT_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COREWEBVIEW2_PRINT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COREWEBVIEW2_PRINT_STATUS")
             .field(&self.0)
             .finish()
     }
@@ -47333,6 +51472,8 @@ pub const COREWEBVIEW2_PROCESS_FAILED_REASON_LAUNCH_FAILED: COREWEBVIEW2_PROCESS
     COREWEBVIEW2_PROCESS_FAILED_REASON(4i32);
 pub const COREWEBVIEW2_PROCESS_FAILED_REASON_OUT_OF_MEMORY: COREWEBVIEW2_PROCESS_FAILED_REASON =
     COREWEBVIEW2_PROCESS_FAILED_REASON(5i32);
+pub const COREWEBVIEW2_PROCESS_FAILED_REASON_PROFILE_DELETED: COREWEBVIEW2_PROCESS_FAILED_REASON =
+    COREWEBVIEW2_PROCESS_FAILED_REASON(6i32);
 impl ::core::marker::Copy for COREWEBVIEW2_PROCESS_FAILED_REASON {}
 impl ::core::clone::Clone for COREWEBVIEW2_PROCESS_FAILED_REASON {
     fn clone(&self) -> Self {
@@ -53998,6 +58139,51 @@ impl ICoreWebView2Environment10_Vtbl {
             || iid == &<ICoreWebView2Environment9 as ::windows::core::Interface>::IID
     }
 }
+pub trait ICoreWebView2Environment11_Impl: Sized + ICoreWebView2Environment10_Impl {
+    fn FailureReportFolderPath(
+        &self,
+        value: *mut ::windows::core::PWSTR,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2Environment11 {}
+impl ICoreWebView2Environment11_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2Environment11_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2Environment11_Vtbl {
+        unsafe extern "system" fn FailureReportFolderPath<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2Environment11_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.FailureReportFolderPath(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        Self {
+            base__: ICoreWebView2Environment10_Vtbl::new::<Identity, Impl, OFFSET>(),
+            FailureReportFolderPath: FailureReportFolderPath::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2Environment11 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment2 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment3 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment4 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment5 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment6 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment7 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment8 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment9 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2Environment10 as ::windows::core::Interface>::IID
+    }
+}
 pub trait ICoreWebView2Environment2_Impl: Sized + ICoreWebView2Environment_Impl {
     fn CreateWebResourceRequest(
         &self,
@@ -54667,6 +58853,63 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreWebView2EnvironmentOptions2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2EnvironmentOptions3_Impl: Sized {
+    fn IsCustomCrashReportingEnabled(
+        &self,
+        value: *mut ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()>;
+    fn SetIsCustomCrashReportingEnabled(
+        &self,
+        value: ::windows::Win32::Foundation::BOOL,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2EnvironmentOptions3 {}
+impl ICoreWebView2EnvironmentOptions3_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2EnvironmentOptions3_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2EnvironmentOptions3_Vtbl {
+        unsafe extern "system" fn IsCustomCrashReportingEnabled<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2EnvironmentOptions3_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::Win32::Foundation::BOOL,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.IsCustomCrashReportingEnabled(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        unsafe extern "system" fn SetIsCustomCrashReportingEnabled<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2EnvironmentOptions3_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: ::windows::Win32::Foundation::BOOL,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetIsCustomCrashReportingEnabled(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            IsCustomCrashReportingEnabled: IsCustomCrashReportingEnabled::<Identity, Impl, OFFSET>,
+            SetIsCustomCrashReportingEnabled: SetIsCustomCrashReportingEnabled::<
+                Identity,
+                Impl,
+                OFFSET,
+            >,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2EnvironmentOptions3 as ::windows::core::Interface>::IID
     }
 }
 pub trait ICoreWebView2EstimatedEndTimeChangedEventHandler_Impl: Sized {
@@ -58359,6 +62602,46 @@ impl ICoreWebView2PointerInfo_Vtbl {
         iid == &<ICoreWebView2PointerInfo as ::windows::core::Interface>::IID
     }
 }
+pub trait ICoreWebView2PrintCompletedHandler_Impl: Sized {
+    fn Invoke(
+        &self,
+        errorcode: ::windows::core::HRESULT,
+        printstatus: COREWEBVIEW2_PRINT_STATUS,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2PrintCompletedHandler {}
+impl ICoreWebView2PrintCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2PrintCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2PrintCompletedHandler_Vtbl {
+        unsafe extern "system" fn Invoke<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            errorcode: ::windows::core::HRESULT,
+            printstatus: COREWEBVIEW2_PRINT_STATUS,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Invoke(
+                ::core::mem::transmute_copy(&errorcode),
+                ::core::mem::transmute_copy(&printstatus),
+            )
+            .into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2PrintCompletedHandler as ::windows::core::Interface>::IID
+    }
+}
 pub trait ICoreWebView2PrintSettings_Impl: Sized {
     fn Orientation(
         &self,
@@ -58793,6 +63076,253 @@ impl ICoreWebView2PrintSettings_Vtbl {
         iid == &<ICoreWebView2PrintSettings as ::windows::core::Interface>::IID
     }
 }
+pub trait ICoreWebView2PrintSettings2_Impl: Sized + ICoreWebView2PrintSettings_Impl {
+    fn PageRanges(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPageRanges(&self, value: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn PagesPerSide(&self, value: *mut i32) -> ::windows::core::Result<()>;
+    fn SetPagesPerSide(&self, value: i32) -> ::windows::core::Result<()>;
+    fn Copies(&self, value: *mut i32) -> ::windows::core::Result<()>;
+    fn SetCopies(&self, value: i32) -> ::windows::core::Result<()>;
+    fn Collation(&self, value: *mut COREWEBVIEW2_PRINT_COLLATION) -> ::windows::core::Result<()>;
+    fn SetCollation(&self, value: COREWEBVIEW2_PRINT_COLLATION) -> ::windows::core::Result<()>;
+    fn ColorMode(&self, value: *mut COREWEBVIEW2_PRINT_COLOR_MODE) -> ::windows::core::Result<()>;
+    fn SetColorMode(&self, value: COREWEBVIEW2_PRINT_COLOR_MODE) -> ::windows::core::Result<()>;
+    fn Duplex(&self, value: *mut COREWEBVIEW2_PRINT_DUPLEX) -> ::windows::core::Result<()>;
+    fn SetDuplex(&self, value: COREWEBVIEW2_PRINT_DUPLEX) -> ::windows::core::Result<()>;
+    fn MediaSize(&self, value: *mut COREWEBVIEW2_PRINT_MEDIA_SIZE) -> ::windows::core::Result<()>;
+    fn SetMediaSize(&self, value: COREWEBVIEW2_PRINT_MEDIA_SIZE) -> ::windows::core::Result<()>;
+    fn PrinterName(&self, value: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPrinterName(&self, value: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2PrintSettings2 {}
+impl ICoreWebView2PrintSettings2_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2PrintSettings2_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2PrintSettings2_Vtbl {
+        unsafe extern "system" fn PageRanges<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.PageRanges(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetPageRanges<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: ::windows::core::PCWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetPageRanges(::core::mem::transmute(&value)).into()
+        }
+        unsafe extern "system" fn PagesPerSide<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut i32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.PagesPerSide(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        unsafe extern "system" fn SetPagesPerSide<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: i32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetPagesPerSide(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        unsafe extern "system" fn Copies<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut i32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Copies(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetCopies<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: i32,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetCopies(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn Collation<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut COREWEBVIEW2_PRINT_COLLATION,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Collation(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetCollation<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: COREWEBVIEW2_PRINT_COLLATION,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetCollation(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        unsafe extern "system" fn ColorMode<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut COREWEBVIEW2_PRINT_COLOR_MODE,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ColorMode(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetColorMode<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: COREWEBVIEW2_PRINT_COLOR_MODE,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetColorMode(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        unsafe extern "system" fn Duplex<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut COREWEBVIEW2_PRINT_DUPLEX,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Duplex(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetDuplex<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: COREWEBVIEW2_PRINT_DUPLEX,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetDuplex(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn MediaSize<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut COREWEBVIEW2_PRINT_MEDIA_SIZE,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.MediaSize(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetMediaSize<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: COREWEBVIEW2_PRINT_MEDIA_SIZE,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetMediaSize(::core::mem::transmute_copy(&value))
+                .into()
+        }
+        unsafe extern "system" fn PrinterName<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: *mut ::windows::core::PWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.PrinterName(::core::mem::transmute_copy(&value)).into()
+        }
+        unsafe extern "system" fn SetPrinterName<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintSettings2_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            value: ::windows::core::PCWSTR,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetPrinterName(::core::mem::transmute(&value)).into()
+        }
+        Self {
+            base__: ICoreWebView2PrintSettings_Vtbl::new::<Identity, Impl, OFFSET>(),
+            PageRanges: PageRanges::<Identity, Impl, OFFSET>,
+            SetPageRanges: SetPageRanges::<Identity, Impl, OFFSET>,
+            PagesPerSide: PagesPerSide::<Identity, Impl, OFFSET>,
+            SetPagesPerSide: SetPagesPerSide::<Identity, Impl, OFFSET>,
+            Copies: Copies::<Identity, Impl, OFFSET>,
+            SetCopies: SetCopies::<Identity, Impl, OFFSET>,
+            Collation: Collation::<Identity, Impl, OFFSET>,
+            SetCollation: SetCollation::<Identity, Impl, OFFSET>,
+            ColorMode: ColorMode::<Identity, Impl, OFFSET>,
+            SetColorMode: SetColorMode::<Identity, Impl, OFFSET>,
+            Duplex: Duplex::<Identity, Impl, OFFSET>,
+            SetDuplex: SetDuplex::<Identity, Impl, OFFSET>,
+            MediaSize: MediaSize::<Identity, Impl, OFFSET>,
+            SetMediaSize: SetMediaSize::<Identity, Impl, OFFSET>,
+            PrinterName: PrinterName::<Identity, Impl, OFFSET>,
+            SetPrinterName: SetPrinterName::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2PrintSettings2 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2PrintSettings as ::windows::core::Interface>::IID
+    }
+}
 pub trait ICoreWebView2PrintToPdfCompletedHandler_Impl: Sized {
     fn Invoke(
         &self,
@@ -58831,6 +63361,46 @@ impl ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoreWebView2PrintToPdfCompletedHandler as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2PrintToPdfStreamCompletedHandler_Impl: Sized {
+    fn Invoke(
+        &self,
+        errorcode: ::windows::core::HRESULT,
+        pdfstream: &::core::option::Option<::windows::Win32::System::Com::IStream>,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2PrintToPdfStreamCompletedHandler {}
+impl ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2PrintToPdfStreamCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
+        unsafe extern "system" fn Invoke<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2PrintToPdfStreamCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            errorcode: ::windows::core::HRESULT,
+            pdfstream: *mut ::core::ffi::c_void,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Invoke(
+                ::core::mem::transmute_copy(&errorcode),
+                ::core::mem::transmute(&pdfstream),
+            )
+            .into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2PrintToPdfStreamCompletedHandler as ::windows::core::Interface>::IID
     }
 }
 pub trait ICoreWebView2ProcessFailedEventArgs_Impl: Sized {
@@ -62258,6 +66828,102 @@ impl ICoreWebView2_15_Vtbl {
             || iid == &<ICoreWebView2_12 as ::windows::core::Interface>::IID
             || iid == &<ICoreWebView2_13 as ::windows::core::Interface>::IID
             || iid == &<ICoreWebView2_14 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICoreWebView2_16_Impl: Sized + ICoreWebView2_15_Impl {
+    fn Print(
+        &self,
+        printsettings: &::core::option::Option<ICoreWebView2PrintSettings>,
+        handler: &::core::option::Option<ICoreWebView2PrintCompletedHandler>,
+    ) -> ::windows::core::Result<()>;
+    fn ShowPrintUI(
+        &self,
+        printdialogkind: COREWEBVIEW2_PRINT_DIALOG_KIND,
+    ) -> ::windows::core::Result<()>;
+    fn PrintToPdfStream(
+        &self,
+        printsettings: &::core::option::Option<ICoreWebView2PrintSettings>,
+        handler: &::core::option::Option<ICoreWebView2PrintToPdfStreamCompletedHandler>,
+    ) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ICoreWebView2_16 {}
+impl ICoreWebView2_16_Vtbl {
+    pub const fn new<
+        Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+        Impl: ICoreWebView2_16_Impl,
+        const OFFSET: isize,
+    >() -> ICoreWebView2_16_Vtbl {
+        unsafe extern "system" fn Print<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2_16_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            printsettings: *mut ::core::ffi::c_void,
+            handler: *mut ::core::ffi::c_void,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Print(
+                ::core::mem::transmute(&printsettings),
+                ::core::mem::transmute(&handler),
+            )
+            .into()
+        }
+        unsafe extern "system" fn ShowPrintUI<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2_16_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            printdialogkind: COREWEBVIEW2_PRINT_DIALOG_KIND,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ShowPrintUI(::core::mem::transmute_copy(&printdialogkind))
+                .into()
+        }
+        unsafe extern "system" fn PrintToPdfStream<
+            Identity: ::windows::core::IUnknownImpl<Impl = Impl>,
+            Impl: ICoreWebView2_16_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut ::core::ffi::c_void,
+            printsettings: *mut ::core::ffi::c_void,
+            handler: *mut ::core::ffi::c_void,
+        ) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.PrintToPdfStream(
+                ::core::mem::transmute(&printsettings),
+                ::core::mem::transmute(&handler),
+            )
+            .into()
+        }
+        Self {
+            base__: ICoreWebView2_15_Vtbl::new::<Identity, Impl, OFFSET>(),
+            Print: Print::<Identity, Impl, OFFSET>,
+            ShowPrintUI: ShowPrintUI::<Identity, Impl, OFFSET>,
+            PrintToPdfStream: PrintToPdfStream::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICoreWebView2_16 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_2 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_3 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_4 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_5 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_6 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_7 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_8 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_9 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_10 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_11 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_12 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_13 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_14 as ::windows::core::Interface>::IID
+            || iid == &<ICoreWebView2_15 as ::windows::core::Interface>::IID
     }
 }
 pub trait ICoreWebView2_2_Impl: Sized + ICoreWebView2_Impl {

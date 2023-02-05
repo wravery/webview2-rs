@@ -52,7 +52,9 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2NewBrowserVersionAvailableEventHandler");
     interfaces.insert("ICoreWebView2NewWindowRequestedEventHandler");
     interfaces.insert("ICoreWebView2PermissionRequestedEventHandler");
+    interfaces.insert("ICoreWebView2PrintCompletedHandler");
     interfaces.insert("ICoreWebView2PrintToPdfCompletedHandler");
+    interfaces.insert("ICoreWebView2PrintToPdfStreamCompletedHandler");
     interfaces.insert("ICoreWebView2ProcessFailedEventHandler");
     interfaces.insert("ICoreWebView2ProcessInfosChangedEventHandler");
     interfaces.insert("ICoreWebView2RasterizationScaleChangedEventHandler");
