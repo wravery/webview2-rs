@@ -95,7 +95,7 @@ mod webview2_nuget {
         };
 
         let mut package_root = out_dir.clone();
-        package_root.push(format!("{}.{}", WEBVIEW2_NAME, WEBVIEW2_VERSION));
+        package_root.push(format!("{WEBVIEW2_NAME}.{WEBVIEW2_VERSION}"));
 
         if !check_nuget_dir(install_root)? {
             let mut nuget_path = get_manifest_dir()?;
@@ -126,7 +126,7 @@ mod webview2_nuget {
     }
 
     fn check_nuget_dir(install_root: &str) -> super::Result<bool> {
-        let nuget_path = format!("{}.{}", WEBVIEW2_NAME, WEBVIEW2_VERSION);
+        let nuget_path = format!("{WEBVIEW2_NAME}.{WEBVIEW2_VERSION}");
         let mut dir_iter = fs::read_dir(install_root)?.filter(|dir| match dir {
             Ok(dir) => match dir.file_type() {
                 Ok(file_type) => {
@@ -164,7 +164,7 @@ mod webview2_nuget {
     #[cfg(windows)]
     fn install_sdk_package(nuget_tool: &str, install_root: &str) -> super::Result<Output> {
         Command::new(nuget_tool)
-            .args(&[
+            .args([
                 "install",
                 WEBVIEW2_NAME,
                 "-OutputDirectory",
@@ -203,7 +203,7 @@ mod webview2_nuget {
                 }
 
                 lib_dest.push(lib);
-                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
+                eprintln!("Copy from {lib_src:?} -> {lib_dest:?}");
                 fs::copy(lib_src.as_path(), lib_dest.as_path())?;
             }
         }
@@ -233,7 +233,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
 "#,
         )?;
         for interface in interfaces {
-            writeln!(source_file, r#"    interfaces.insert("{}");"#, interface)?;
+            writeln!(source_file, r#"    interfaces.insert("{interface}");"#)?;
         }
         writeln!(
             source_file,
@@ -318,7 +318,7 @@ mod webview2_link {
         lib_path.push(target_arch);
 
         match lib_path.to_str() {
-            Some(path) if lib_path.exists() => println!("cargo:rustc-link-search=native={}", path),
+            Some(path) if lib_path.exists() => println!("cargo:rustc-link-search=native={path}"),
             _ => unimplemented!("`{}` is not supported by WebView2", target_arch),
         };
 
@@ -400,7 +400,7 @@ mod webview2_bindgen {
 
     fn format_bindings(source_path: &Path) -> super::Result<()> {
         let mut cmd = ::std::process::Command::new("rustfmt");
-        cmd.arg(&source_path);
+        cmd.arg(source_path);
         cmd.output()?;
         Ok(())
     }

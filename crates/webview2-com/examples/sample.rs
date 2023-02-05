@@ -76,7 +76,7 @@ pub enum Error {
 
 impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{:?}", self)
+        write!(f, "{self:?}")
     }
 }
 
@@ -139,7 +139,7 @@ impl FrameWindow {
         let hwnd = {
             let window_class = WNDCLASSW {
                 lpfnWndProc: Some(window_proc),
-                lpszClassName: w!("WebView").into(),
+                lpszClassName: w!("WebView"),
                 ..Default::default()
             };
 
@@ -321,7 +321,7 @@ impl WebView {
                                             Err(err) => bound.resolve(
                                                 value.id,
                                                 1,
-                                                Value::String(format!("{:#?}", err)),
+                                                Value::String(format!("{err:#?}")),
                                             ),
                                         }
                                         .unwrap();
@@ -554,9 +554,8 @@ impl WebView {
             };
             let js = format!(
                 r#"
-                window._rpc[{}].{}({});
-                window._rpc[{}] = undefined;"#,
-                id, method, result, id
+                window._rpc[{id}].{method}({result});
+                window._rpc[{id}] = undefined;"#
             );
 
             webview.eval(&js).expect("eval return script");
