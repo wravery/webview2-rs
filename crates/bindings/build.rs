@@ -395,7 +395,9 @@ mod webview2_bindgen {
             #[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))]
             #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]
         "#;
-        Ok(pattern.replace_all(&bindings, replacement).to_string())
+        Ok(pattern
+            .replace_all(&bindings, replacement)
+            .replace(r#"extern"system""#, r#"extern "system""#))
     }
 
     fn format_bindings(source_path: &Path) -> super::Result<()> {
