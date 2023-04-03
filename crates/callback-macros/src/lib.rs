@@ -3,9 +3,7 @@ use quote::{format_ident, quote};
 use syn::{
     parenthesized,
     parse::{Parse, ParseStream},
-    parse_macro_input,
-    punctuated::Punctuated,
-    Ident, Result, Token, TypePath, Visibility,
+    parse_macro_input, Ident, Result, Token, TypePath, Visibility,
 };
 
 struct CallbackTypes {
@@ -18,7 +16,7 @@ impl Parse for CallbackTypes {
     fn parse(input: ParseStream) -> Result<Self> {
         let content;
         parenthesized!(content in input);
-        let args: Punctuated<TypePath, Token![,]> = content.parse_terminated(TypePath::parse)?;
+        let args = content.parse_terminated(TypePath::parse, Token![,])?;
         input.parse::<Token![;]>()?;
         let mut args = args.into_iter();
         if let (Some(interface), Some(arg_1), arg_2) = (args.next(), args.next(), args.next()) {
