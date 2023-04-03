@@ -2,7 +2,7 @@
 use std::{cell::UnsafeCell, default::Default, ffi::c_void, mem, ptr};
 
 use windows::{
-    core::{Error, IUnknown, IUnknown_Vtbl, Result, Vtable, HRESULT, PCWSTR, PWSTR},
+    core::{Error, IUnknown, IUnknown_Vtbl, Interface, Result, HRESULT, PCWSTR, PWSTR},
     Win32::{
         Foundation::{BOOL, E_POINTER, E_UNEXPECTED, S_OK},
         System::Com::CoTaskMemAlloc,
@@ -385,11 +385,9 @@ impl IFixedEnvironmentOptions4_Impl for CoreWebView2EnvironmentOptions {
             scheme_registrations.reserve_exact(count);
             let values = &*ptr::slice_from_raw_parts(values, count);
             for &scheme in values.iter() {
-                scheme_registrations.push(if scheme.is_null() {
-                    None
-                } else {
-                    Some(ICoreWebView2CustomSchemeRegistration::from_raw_borrowed(&scheme).clone())
-                });
+                scheme_registrations.push(
+                    ICoreWebView2CustomSchemeRegistration::from_raw_borrowed(&scheme).cloned(),
+                );
             }
             S_OK
         } else {
