@@ -495,4 +495,87 @@ mod test {
             CoTaskMemFree(Some(scheme_registrations as *const _));
         }
     }
+
+    #[test]
+    fn scheme_name() {
+        const SCHEME_NAME: &str = "custom";
+        let scheme: ICoreWebView2CustomSchemeRegistration =
+            CoreWebView2CustomSchemeRegistration::new(SCHEME_NAME.to_string()).into();
+        let mut result = PWSTR(ptr::null_mut::<u16>());
+        unsafe { scheme.SchemeName(&mut result) }.unwrap();
+        let result = take_pwstr(result);
+        assert_eq!(result, SCHEME_NAME);
+    }
+
+    #[test]
+    fn default_treat_as_secure() {
+        let scheme: ICoreWebView2CustomSchemeRegistration =
+            CoreWebView2CustomSchemeRegistration::new(String::new()).into();
+        let mut result = BOOL(1);
+        unsafe { scheme.TreatAsSecure(&mut result) }.unwrap();
+        assert_eq!(result.0, 0);
+    }
+
+    #[test]
+    fn override_treat_as_secure() {
+        let scheme: ICoreWebView2CustomSchemeRegistration =
+            CoreWebView2CustomSchemeRegistration::new(String::new()).into();
+        unsafe { scheme.SetTreatAsSecure(BOOL(1)) }.unwrap();
+        let mut result = BOOL(0);
+        unsafe { scheme.TreatAsSecure(&mut result) }.unwrap();
+        assert_eq!(result.0, 1);
+    }
+
+    #[test]
+    fn default_allowed_origins() {
+        let scheme: ICoreWebView2CustomSchemeRegistration =
+            CoreWebView2CustomSchemeRegistration::new(String::new()).into();
+        let mut count = 1_u32;
+        let mut origin = pwstr_from_str("origin");
+        let mut results = &mut origin as *mut _;
+        let _ = take_pwstr(origin);
+        unsafe { scheme.GetAllowedOrigins(&mut count, &mut results) }.unwrap();
+        assert_eq!(count, 0);
+        assert_eq!(results, ptr::null_mut());
+    }
+
+    #[test]
+    fn override_allowed_origins() {
+        const ORIGIN: &str = "origin";
+        let scheme: ICoreWebView2CustomSchemeRegistration =
+            CoreWebView2CustomSchemeRegistration::new(String::new()).into();
+        let mut origin = pwstr_from_str(ORIGIN);
+        unsafe { scheme.SetAllowedOrigins(1, &mut origin) }.unwrap();
+
+        let mut count = 0_u32;
+        let mut results = ptr::null_mut();
+        unsafe { scheme.GetAllowedOrigins(&mut count, &mut results) }.unwrap();
+        assert_eq!(count, 1);
+
+        assert_ne!(results, ptr::null_mut());
+        let mut origin = PWSTR(ptr::null_mut());
+        unsafe { mem::swap(&mut origin, &mut *results) };
+        let origin = take_pwstr(origin);
+        unsafe { CoTaskMemFree(Some(mem::transmute(results))) };
+        assert_eq!(origin, ORIGIN);
+    }
+
+    #[test]
+    fn default_has_authority_component() {
+        let scheme: ICoreWebView2CustomSchemeRegistration =
+            CoreWebView2CustomSchemeRegistration::new(String::new()).into();
+        let mut result = BOOL(1);
+        unsafe { scheme.HasAuthorityComponent(&mut result) }.unwrap();
+        assert_eq!(result.0, 0);
+    }
+
+    #[test]
+    fn override_has_authority_component() {
+        let scheme: ICoreWebView2CustomSchemeRegistration =
+            CoreWebView2CustomSchemeRegistration::new(String::new()).into();
+        unsafe { scheme.SetHasAuthorityComponent(BOOL(1)) }.unwrap();
+        let mut result = BOOL(0);
+        unsafe { scheme.HasAuthorityComponent(&mut result) }.unwrap();
+        assert_eq!(result.0, 1);
+    }
 }
