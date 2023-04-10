@@ -372,9 +372,7 @@ mod webview2_bindgen {
             File::with_default(&[winmd_path.to_str().expect("invalid winmd path")])
                 .expect("failed to load winmd");
         let metadata_reader = Reader::new(&winmd_files);
-        let tree = metadata_reader
-            .tree("Microsoft.Web.WebView2.Win32", &[])
-            .map_or_else(|| Err(super::Error::MissingPath(winmd_path)), Ok)?;
+        let tree = metadata_reader.tree("Microsoft.Web.WebView2.Win32", &Default::default());
         let mut gen = Gen::new(&metadata_reader);
         gen.namespace = tree.namespace;
 
