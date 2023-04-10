@@ -57,21 +57,183 @@ impl Default for CoreWebView2EnvironmentOptions {
     }
 }
 
+impl CoreWebView2EnvironmentOptions {
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::AdditionalBrowserArguments` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<String>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn additional_browser_arguments(&self) -> &str {
+        (*self.additional_browser_arguments.get()).as_str()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::SetAdditionalBrowserArguments` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<String>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_additional_browser_arguments(&self, value: String) {
+        *self.additional_browser_arguments.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::Language` without extra memory copies or
+    /// type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<String>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn language(&self) -> &str {
+        (*self.language.get()).as_str()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::SetLanguage` without extra memory copies or
+    /// type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<String>`] as the COM method, but it does not
+    /// dereference a pointer for the `value` parameter. It takes an immutable reference to `self`
+    /// so that it can be reused in the COM method.
+    pub unsafe fn set_language(&self, value: String) {
+        *self.language.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::TargetCompatibleBrowserVersion` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<String>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn target_compatible_browser_version(&self) -> &str {
+        (*self.target_compatible_browser_version.get()).as_str()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::SetTargetCompatibleBrowserVersion` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<String>`] as the COM method, but it does not
+    /// dereference a pointer for the `value` parameter. It takes an immutable reference to `self`
+    /// so that it can be reused in the COM method.
+    pub unsafe fn set_target_compatible_browser_version(&self, value: String) {
+        *self.target_compatible_browser_version.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::AllowSingleSignOnUsingOSPrimaryAccount`
+    /// without extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<bool>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn allow_single_sign_on_using_os_primary_account(&self) -> bool {
+        *self.allow_single_sign_on_using_os_primary_account.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions::SetAllowSingleSignOnUsingOSPrimaryAccount`
+    /// without extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<bool>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_allow_single_sign_on_using_os_primary_account(&self, value: bool) {
+        *self.allow_single_sign_on_using_os_primary_account.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions2::ExclusiveUserDataFolderAccess` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<bool>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn exclusive_user_data_folder_access(&self) -> bool {
+        *self.exclusive_user_data_folder_access.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions2::SetExclusiveUserDataFolderAccess` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<bool>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_exclusive_user_data_folder_access(&self, value: bool) {
+        *self.exclusive_user_data_folder_access.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions3::IsCustomCrashReportingEnabled` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<bool>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn is_custom_crash_reporting_enabled(&self) -> bool {
+        *self.is_custom_crash_reporting_enabled.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions3::SetIsCustomCrashReportingEnabled` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<bool>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_is_custom_crash_reporting_enabled(&self, value: bool) {
+        *self.is_custom_crash_reporting_enabled.get() = value;
+    }
+
+    /// Equivalent to [`IFixedEnvironmentOptions4`]`::GetCustomSchemeRegistrations` without extra
+    /// memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<Vec<>>`] as the COM method, but it does not
+    /// allocate or write to a mutable pointer for the result.
+    pub unsafe fn scheme_registrations(
+        &self,
+    ) -> Vec<Option<ICoreWebView2CustomSchemeRegistration>> {
+        (*self.scheme_registrations.get()).clone()
+    }
+
+    /// Equivalent to [`IFixedEnvironmentOptions4`]`::SetCustomSchemeRegistrations` without extra
+    /// memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<Vec<>>`] as the COM method. It takes an
+    /// immutable reference to `self` for consistency with the other public set methods, however
+    /// the COM method implementation does not actually reuse it.
+    pub unsafe fn set_scheme_registrations(
+        &self,
+        value: Vec<Option<ICoreWebView2CustomSchemeRegistration>>,
+    ) {
+        *self.scheme_registrations.get() = value;
+    }
+}
+
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
 impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
     fn AdditionalBrowserArguments(&self, result: *mut PWSTR) -> Result<()> {
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe {
-                *result = pwstr_from_str((*self.additional_browser_arguments.get()).as_str())
-            };
+            unsafe { *result = pwstr_from_str(self.additional_browser_arguments()) };
             Ok(())
         }
     }
 
     fn SetAdditionalBrowserArguments(&self, value: &PCWSTR) -> Result<()> {
-        unsafe { *self.additional_browser_arguments.get() = string_from_pcwstr(value) };
+        unsafe { self.set_additional_browser_arguments(string_from_pcwstr(value)) };
         Ok(())
     }
 
@@ -79,13 +241,13 @@ impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe { *result = pwstr_from_str((*self.language.get()).as_str()) };
+            unsafe { *result = pwstr_from_str(self.language()) };
             Ok(())
         }
     }
 
     fn SetLanguage(&self, value: &PCWSTR) -> Result<()> {
-        unsafe { *self.language.get() = string_from_pcwstr(value) };
+        unsafe { self.set_language(string_from_pcwstr(value)) };
         Ok(())
     }
 
@@ -93,15 +255,13 @@ impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe {
-                *result = pwstr_from_str((*self.target_compatible_browser_version.get()).as_str())
-            };
+            unsafe { *result = pwstr_from_str(self.target_compatible_browser_version()) };
             Ok(())
         }
     }
 
     fn SetTargetCompatibleBrowserVersion(&self, value: &PCWSTR) -> Result<()> {
-        unsafe { *self.target_compatible_browser_version.get() = string_from_pcwstr(value) };
+        unsafe { self.set_target_compatible_browser_version(string_from_pcwstr(value)) };
         Ok(())
     }
 
@@ -109,14 +269,14 @@ impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe { *result = (*self.allow_single_sign_on_using_os_primary_account.get()).into() };
+            unsafe { *result = self.allow_single_sign_on_using_os_primary_account().into() };
             Ok(())
         }
     }
 
     fn SetAllowSingleSignOnUsingOSPrimaryAccount(&self, value: BOOL) -> Result<()> {
         unsafe {
-            *self.allow_single_sign_on_using_os_primary_account.get() = value.into();
+            self.set_allow_single_sign_on_using_os_primary_account(value.into());
         }
         Ok(())
     }
@@ -128,14 +288,14 @@ impl ICoreWebView2EnvironmentOptions2_Impl for CoreWebView2EnvironmentOptions {
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe { *result = (*self.exclusive_user_data_folder_access.get()).into() };
+            unsafe { *result = self.exclusive_user_data_folder_access().into() };
             Ok(())
         }
     }
 
     fn SetExclusiveUserDataFolderAccess(&self, value: BOOL) -> Result<()> {
         unsafe {
-            *self.exclusive_user_data_folder_access.get() = value.into();
+            self.set_exclusive_user_data_folder_access(value.into());
         }
         Ok(())
     }
@@ -147,14 +307,14 @@ impl ICoreWebView2EnvironmentOptions3_Impl for CoreWebView2EnvironmentOptions {
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe { *result = (*self.is_custom_crash_reporting_enabled.get()).into() };
+            unsafe { *result = self.is_custom_crash_reporting_enabled().into() };
             Ok(())
         }
     }
 
     fn SetIsCustomCrashReportingEnabled(&self, value: BOOL) -> Result<()> {
         unsafe {
-            *self.is_custom_crash_reporting_enabled.get() = value.into();
+            self.set_is_custom_crash_reporting_enabled(value.into());
         }
         Ok(())
     }
@@ -181,6 +341,7 @@ pub unsafe trait IFixedEnvironmentOptions4: IUnknown {
 
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
 impl IFixedEnvironmentOptions4_Impl for CoreWebView2EnvironmentOptions {
+    #[allow(clippy::crosspointer_transmute)]
     unsafe fn GetCustomSchemeRegistrations(
         &self,
         count: *mut u32,
@@ -254,8 +415,82 @@ impl CoreWebView2CustomSchemeRegistration {
             has_authority_component: false.into(),
         }
     }
+
+    /// Equivalent to `ICoreWebView2CustomSchemeRegistration::SchemeName` without extra memory
+    /// copies or type conversions.
+    pub fn scheme_name(&self) -> &str {
+        self.scheme_name.as_str()
+    }
+
+    /// Equivalent to `ICoreWebView2CustomSchemeRegistration::TreatAsSecure` without extra memory
+    /// copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<bool>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn treat_as_secure(&self) -> bool {
+        *self.treat_as_secure.get()
+    }
+
+    /// Equivalent to `ICoreWebView2CustomSchemeRegistration::SetTreatAsSecure` without extra
+    /// memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<bool>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_treat_as_secure(&self, value: bool) {
+        *self.treat_as_secure.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2CustomSchemeRegistration::GetAllowedOrigins` without extra
+    /// memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<Vec<>>`] as the COM method, but it does not
+    /// allocate or write to a mutable pointer for the result.
+    pub unsafe fn allowed_origins(&self) -> Vec<String> {
+        (*self.allowed_origins.get()).clone()
+    }
+
+    /// Equivalent to `ICoreWebView2CustomSchemeRegistration::SetAllowedOrigins` without extra
+    /// memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<Vec<>>`] as the COM method. It takes an
+    /// immutable reference to `self` for consistency with the other public set methods, however
+    /// the COM method implementation does not actually reuse it.
+    pub unsafe fn set_allowed_origins(&self, value: Vec<String>) {
+        *self.allowed_origins.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2CustomSchemeRegistration::HasAuthorityComponent` without extra
+    /// memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<bool>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn has_authority_component(&self) -> bool {
+        *self.has_authority_component.get()
+    }
+
+    /// Equivalent to `ICoreWebView2CustomSchemeRegistration::SetHasAuthorityComponent` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<bool>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_has_authority_component(&self, value: bool) {
+        *self.has_authority_component.get() = value;
+    }
 }
 
+#[allow(clippy::not_unsafe_ptr_arg_deref)]
 impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegistration {
     fn SchemeName(&self, result: *mut PWSTR) -> Result<()> {
         if result.is_null() {
@@ -270,14 +505,14 @@ impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegi
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe { *result = (*self.treat_as_secure.get()).into() };
+            unsafe { *result = self.treat_as_secure().into() };
             Ok(())
         }
     }
 
     fn SetTreatAsSecure(&self, value: BOOL) -> Result<()> {
         unsafe {
-            *self.treat_as_secure.get() = value.into();
+            self.set_treat_as_secure(value.into());
         }
         Ok(())
     }
@@ -322,14 +557,14 @@ impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegi
         if result.is_null() {
             E_POINTER.ok()
         } else {
-            unsafe { *result = (*self.has_authority_component.get()).into() };
+            unsafe { *result = self.has_authority_component().into() };
             Ok(())
         }
     }
 
     fn SetHasAuthorityComponent(&self, value: BOOL) -> Result<()> {
         unsafe {
-            *self.has_authority_component.get() = value.into();
+            self.set_has_authority_component(value.into());
         }
         Ok(())
     }
