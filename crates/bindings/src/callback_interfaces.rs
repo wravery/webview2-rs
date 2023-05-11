@@ -42,6 +42,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2FrameWebMessageReceivedEventHandler");
     interfaces.insert("ICoreWebView2GetCookiesCompletedHandler");
     interfaces.insert("ICoreWebView2GetFaviconCompletedHandler");
+    interfaces.insert("ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler");
     interfaces.insert("ICoreWebView2HistoryChangedEventHandler");
     interfaces.insert("ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler");
     interfaces.insert("ICoreWebView2IsDocumentPlayingAudioChangedEventHandler");
@@ -60,6 +61,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2RasterizationScaleChangedEventHandler");
     interfaces.insert("ICoreWebView2ScriptDialogOpeningEventHandler");
     interfaces.insert("ICoreWebView2ServerCertificateErrorDetectedEventHandler");
+    interfaces.insert("ICoreWebView2SetPermissionStateCompletedHandler");
     interfaces.insert("ICoreWebView2SourceChangedEventHandler");
     interfaces.insert("ICoreWebView2StateChangedEventHandler");
     interfaces.insert("ICoreWebView2StatusBarTextChangedEventHandler");

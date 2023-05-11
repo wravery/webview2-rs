@@ -237,6 +237,19 @@ pub struct PermissionRequestedEventHandler(
     Option<ICoreWebView2PermissionRequestedEventArgs>,
 );
 
+#[completed_callback]
+pub struct GetNonDefaultPermissionSettingsCompletedHandler(
+    ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler,
+    HRESULT,
+    Option<ICoreWebView2PermissionSettingCollectionView>,
+);
+
+#[completed_callback]
+pub struct SetPermissionStateCompletedHandler(
+    ICoreWebView2SetPermissionStateCompletedHandler,
+    HRESULT,
+);
+
 #[event_callback]
 pub struct ProcessFailedEventHandler(
     ICoreWebView2ProcessFailedEventHandler,

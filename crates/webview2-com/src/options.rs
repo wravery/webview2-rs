@@ -537,15 +537,15 @@ impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegi
         Ok(())
     }
 
-    fn SetAllowedOrigins(&self, count: u32, values: *mut PWSTR) -> Result<()> {
+    fn SetAllowedOrigins(&self, count: u32, values: *const PCWSTR) -> Result<()> {
         unsafe {
             let count = count.try_into().map_err(|_| Error::from(E_UNEXPECTED))?;
             let allowed_origins = &mut *self.allowed_origins.get();
             allowed_origins.clear();
             allowed_origins.reserve_exact(count);
             let values = &*ptr::slice_from_raw_parts(values, count);
-            for &origin in values.iter() {
-                allowed_origins.push(string_from_pcwstr(&PCWSTR(origin.0)));
+            for origin in values.iter() {
+                allowed_origins.push(string_from_pcwstr(origin));
             }
         }
         Ok(())
@@ -777,8 +777,8 @@ mod test {
         const ORIGIN: &str = "origin";
         let scheme: ICoreWebView2CustomSchemeRegistration =
             CoreWebView2CustomSchemeRegistration::new(String::new()).into();
-        let mut origin = pwstr_from_str(ORIGIN);
-        unsafe { scheme.SetAllowedOrigins(1, &mut origin) }.unwrap();
+        let origin = pwstr_from_str(ORIGIN);
+        unsafe { scheme.SetAllowedOrigins(1, &PCWSTR(origin.0)) }.unwrap();
 
         let mut count = 0_u32;
         let mut results = ptr::null_mut();
