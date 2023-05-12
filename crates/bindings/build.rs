@@ -335,8 +335,8 @@ mod webview2_bindgen {
 
     use regex::Regex;
 
-    use windows_bindgen::{namespace, namespace_impl, Gen};
-    use windows_metadata::reader::{File, Reader};
+    use windows_bindgen::component;
+    use windows_metadata::reader::File;
 
     use super::webview2_path::*;
 
@@ -371,17 +371,14 @@ mod webview2_bindgen {
         let winmd_files: Vec<_> =
             File::with_default(&[winmd_path.to_str().expect("invalid winmd path")])
                 .expect("failed to load winmd");
-        let metadata_reader = Reader::new(&winmd_files);
-        let tree = metadata_reader.tree("Microsoft.Web.WebView2.Win32", &Default::default());
-        let mut gen = Gen::new(&metadata_reader);
-        gen.namespace = tree.namespace;
 
         let mut source_path = get_out_dir()?;
         source_path.push("mod.rs");
         let mut source_file = fs::File::create(source_path.clone())?;
 
-        source_file.write_all(patch_bindings(namespace(&gen, &tree))?.as_bytes())?;
-        source_file.write_all(namespace_impl(&gen, &tree).as_bytes())?;
+        source_file.write_all(
+            patch_bindings(component("Microsoft.Web.WebView2.Win32", &winmd_files))?.as_bytes(),
+        )?;
         Ok(source_path)
     }
 
