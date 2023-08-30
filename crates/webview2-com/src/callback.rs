@@ -549,6 +549,13 @@ pub struct GetFaviconCompletedHandler(
     Option<IStream>,
 );
 
+#[event_callback]
+pub struct LaunchingExternalUriSchemeEventHandler(
+    ICoreWebView2LaunchingExternalUriSchemeEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2LaunchingExternalUriSchemeEventArgs>,
+);
+
 #[cfg(test)]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};

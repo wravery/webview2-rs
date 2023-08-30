@@ -47,6 +47,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler");
     interfaces.insert("ICoreWebView2IsDocumentPlayingAudioChangedEventHandler");
     interfaces.insert("ICoreWebView2IsMutedChangedEventHandler");
+    interfaces.insert("ICoreWebView2LaunchingExternalUriSchemeEventHandler");
     interfaces.insert("ICoreWebView2MoveFocusRequestedEventHandler");
     interfaces.insert("ICoreWebView2NavigationCompletedEventHandler");
     interfaces.insert("ICoreWebView2NavigationStartingEventHandler");

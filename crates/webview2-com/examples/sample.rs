@@ -123,7 +123,7 @@ struct Window(HWND);
 impl Drop for Window {
     fn drop(&mut self) {
         unsafe {
-            WindowsAndMessaging::DestroyWindow(self.0);
+            let _ = WindowsAndMessaging::DestroyWindow(self.0);
         }
     }
 }
@@ -257,7 +257,7 @@ impl WebView {
         let size = get_window_size(parent);
         let mut client_rect = RECT::default();
         unsafe {
-            WindowsAndMessaging::GetClientRect(parent, std::mem::transmute(&mut client_rect));
+            let _ = WindowsAndMessaging::GetClientRect(parent, std::mem::transmute(&mut client_rect));
             controller.SetBounds(RECT {
                 left: 0,
                 top: 0,
@@ -416,7 +416,7 @@ impl WebView {
         if let Some(frame) = self.frame.as_ref() {
             let title = CoTaskMemPWSTR::from(title);
             unsafe {
-                WindowsAndMessaging::SetWindowTextW(*frame.window, *title.as_ref().as_pcwstr());
+                let _ = WindowsAndMessaging::SetWindowTextW(*frame.window, *title.as_ref().as_pcwstr());
             }
         }
         Ok(self)
@@ -436,7 +436,7 @@ impl WebView {
                     bottom: height,
                 })?;
 
-                WindowsAndMessaging::SetWindowPos(
+                let _ = WindowsAndMessaging::SetWindowPos(
                     *frame.window,
                     None,
                     0,
@@ -499,7 +499,7 @@ impl WebView {
         self.tx.send(Box::new(f)).expect("send the fn");
 
         unsafe {
-            WindowsAndMessaging::PostThreadMessageW(
+            let _ = WindowsAndMessaging::PostThreadMessageW(
                 self.thread_id,
                 WindowsAndMessaging::WM_APP,
                 WPARAM::default(),
@@ -634,7 +634,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
 
         WindowsAndMessaging::WM_CLOSE => {
             unsafe {
-                WindowsAndMessaging::DestroyWindow(hwnd);
+                let _ = WindowsAndMessaging::DestroyWindow(hwnd);
             }
             LRESULT::default()
         }
@@ -650,7 +650,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
 
 fn get_window_size(hwnd: HWND) -> SIZE {
     let mut client_rect = RECT::default();
-    unsafe { WindowsAndMessaging::GetClientRect(hwnd, std::mem::transmute(&mut client_rect)) };
+    let _ = unsafe { WindowsAndMessaging::GetClientRect(hwnd, std::mem::transmute(&mut client_rect)) };
     SIZE {
         cx: client_rect.right - client_rect.left,
         cy: client_rect.bottom - client_rect.top,

@@ -23,14 +23,18 @@ targets = [
 "default" = [ "nuget" ]
 "nuget" = []
 
+[dependencies]
+windows-core = "0.51.1"
+
 [dependencies.windows]
-version = "0.48.0"
+version = "0.51.1"
 features = [
     "implement",
     "Win32_Foundation",
     "Win32_Globalization",
     "Win32_System_Com",
     "Win32_System_Ole",
+    "Win32_System_Variant",
     "Win32_System_WinRT",
     "Win32_UI_WindowsAndMessaging",
 ]
@@ -40,5 +44,9 @@ regex = "1.5.4"
 serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 thiserror = "1.0.26"
-windows-bindgen = "0.48.0"
-windows-metadata = "0.48.0"
+
+[build-dependencies.windows-bindgen]
+version = "0.51.1"
+features = [
+    "metadata",
+]

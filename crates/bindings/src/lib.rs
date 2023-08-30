@@ -1,25 +1,11 @@
 #[allow(non_snake_case)]
-pub mod Microsoft {
-    #[allow(non_snake_case)]
-    pub mod Web {
-        #[allow(non_snake_case)]
-        pub mod WebView2 {
-            #[allow(non_snake_case)]
-            #[allow(non_camel_case_types)]
-            #[allow(clippy::missing_safety_doc)]
-            #[allow(clippy::derivable_impls)]
-            #[allow(clippy::useless_transmute)]
-            #[allow(clippy::extra_unused_lifetimes)]
-            pub mod Win32;
-        }
-    }
-}
+pub mod Microsoft;
 
 pub mod callback_interfaces;
 
 #[cfg(test)]
 mod test {
-    use windows::w;
+    use windows_core::w;
 
     use crate::Microsoft::Web::WebView2::Win32::*;
 

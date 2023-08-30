@@ -85,7 +85,7 @@ mod webview2_nuget {
     include!("./src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.1774.30";
+    const WEBVIEW2_VERSION: &str = "1.0.1938.49";
 
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir()?;
@@ -335,8 +335,7 @@ mod webview2_bindgen {
 
     use regex::Regex;
 
-    use windows_bindgen::component;
-    use windows_metadata::reader::File;
+    use windows_bindgen::bindgen;
 
     use super::webview2_path::*;
 
@@ -347,11 +346,7 @@ mod webview2_bindgen {
 
         let mut dest_path = get_manifest_dir()?;
         dest_path.push("src");
-        dest_path.push("Microsoft");
-        dest_path.push("Web");
-        dest_path.push("WebView2");
-        dest_path.push("Win32");
-        dest_path.push("mod.rs");
+        dest_path.push("Microsoft.rs");
         let dest = read_bindings(&dest_path)?;
 
         if source != dest {
@@ -368,31 +363,39 @@ mod webview2_bindgen {
         let mut winmd_path = get_manifest_dir()?;
         winmd_path.push("winmd");
         winmd_path.push(WINMD_FILE);
-        let winmd_files: Vec<_> =
-            File::with_default(&[winmd_path.to_str().expect("invalid winmd path")])
-                .expect("failed to load winmd");
-
         let mut source_path = get_out_dir()?;
-        source_path.push("mod.rs");
+        source_path.push("Microsoft.rs");
+        println!(
+            "{}",
+            bindgen(&[
+                "--in",
+                winmd_path.to_str().expect("invalid winmd path"),
+                "--out",
+                source_path.to_str().expect("invalid Microsoft.rs path"),
+                "--filter",
+                "Microsoft.Web.WebView2.Win32",
+                "--config",
+                "implement",
+            ])
+            .expect("bindgen failed")
+        );
+
+        let mut bindings = Default::default();
+        fs::File::open(source_path.clone())?.read_to_string(&mut bindings)?;
+
         let mut source_file = fs::File::create(source_path.clone())?;
 
-        source_file.write_all(
-            patch_bindings(component("Microsoft.Web.WebView2.Win32", &winmd_files))?.as_bytes(),
-        )?;
+        source_file.write_all(patch_bindings(bindings)?.as_bytes())?;
         Ok(source_path)
     }
 
     fn patch_bindings(bindings: String) -> super::Result<String> {
-        let pattern = Regex::new(
-            r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"WebView2LoaderStatic"\s*,\s*kind\s*=\s*"static"\s*\)\s*\]"#,
-        )?;
+        let pattern = Regex::new(r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"webview2loader"\s*\)\s*\]"#)?;
         let replacement = r#"
             #[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))]
-            #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader"))]
+            #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader.dll"))]
         "#;
-        Ok(pattern
-            .replace_all(&bindings, replacement)
-            .replace(r#"extern"system""#, r#"extern "system""#))
+        Ok(pattern.replace_all(&bindings, replacement).to_string())
     }
 
     fn format_bindings(source_path: &Path) -> super::Result<()> {

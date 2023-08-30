@@ -572,7 +572,8 @@ impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegi
 mod test {
     use std::ptr;
 
-    use windows::{w, Win32::System::Com::CoTaskMemFree};
+    use windows::Win32::System::Com::CoTaskMemFree;
+    use windows_core::w;
 
     use crate::{
         pwstr::take_pwstr,
