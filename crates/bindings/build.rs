@@ -341,7 +341,9 @@ mod webview2_bindgen {
 
     pub fn update_bindings() -> super::Result<bool> {
         let source_path = generate_bindings()?;
-        format_bindings(&source_path)?;
+        if let Err(e) = format_bindings(&source_path) {
+            eprintln!("could not format bindings, ignoring: {e}");
+        };
         let source = read_bindings(&source_path)?;
 
         let mut dest_path = get_manifest_dir()?;
