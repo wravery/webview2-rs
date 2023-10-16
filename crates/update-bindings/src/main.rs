@@ -1,45 +1,34 @@
 extern crate windows_bindgen;
 
 fn main() -> Result<()> {
-    #[cfg(all(not(doc), feature = "nuget"))]
     match webview2_nuget::install() {
         Ok(package_root) => {
             webview2_nuget::update_libs(&package_root)?;
-            webview2_nuget::update_callback_interfaces(&package_root)?;
 
-            let mut lib_path = package_root;
-            lib_path.push("build");
-            lib_path.push("native");
-            webview2_link::update_rustc_flags(lib_path)?;
+            if webview2_nuget::update_callback_interfaces(&package_root)? {
+                println!("callback_interfaces.rs changed");
+            }
         }
         Err(e) => {
             panic!("{}", e.to_string());
         }
     }
 
-    #[cfg(any(doc, not(feature = "nuget")))]
-    webview2_link::update_rustc_flags(webview2_link::output_libs(
-        webview2_path::get_manifest_dir()?,
-        webview2_path::get_out_dir()?,
-    )?)?;
-
-    webview2_bindgen::update_bindings()?;
+    if webview2_bindgen::update_bindings()? {
+        println!("Microsoft.rs changed");
+    }
 
     Ok(())
 }
 
 #[derive(Debug, Error)]
 pub enum Error {
+    #[error("Missing Parent")]
+    MissingParent(std::path::PathBuf),
     #[error(transparent)]
     Io(#[from] std::io::Error),
     #[error(transparent)]
-    Var(#[from] std::env::VarError),
-    #[error(transparent)]
-    Json(#[from] serde_json::Error),
-    #[error(transparent)]
     Regex(#[from] regex::Error),
-    #[error("Missing Version")]
-    MissingVersion,
     #[error("Missing Typedef")]
     MissingTypedef,
     #[error("Missing Path")]
@@ -57,18 +46,27 @@ pub type Result<T> = std::result::Result<T, Error>;
 extern crate thiserror;
 
 mod webview2_path {
-    use std::{convert::From, env, path::PathBuf};
+    use std::{convert::From, path::PathBuf};
 
-    pub fn get_out_dir() -> super::Result<PathBuf> {
-        Ok(PathBuf::from(env::var("OUT_DIR")?))
+    pub fn get_out_dir() -> PathBuf {
+        PathBuf::from(env!("OUT_DIR"))
     }
 
-    pub fn get_manifest_dir() -> super::Result<PathBuf> {
-        Ok(PathBuf::from(env::var("CARGO_MANIFEST_DIR")?))
+    pub fn get_manifest_dir() -> PathBuf {
+        PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+    }
+
+    pub fn get_bindings_dir() -> super::Result<PathBuf> {
+        let manifest_dir = get_manifest_dir();
+        let mut bindings_dir = get_manifest_dir().parent().map_or_else(
+            || Err(super::Error::MissingParent(manifest_dir)),
+            |parent| Ok(PathBuf::from(parent)),
+        )?;
+        bindings_dir.push("bindings");
+        Ok(bindings_dir)
     }
 }
 
-#[cfg(all(not(doc), feature = "nuget"))]
 mod webview2_nuget {
     use std::{
         convert::From,
@@ -82,13 +80,13 @@ mod webview2_nuget {
 
     use super::webview2_path::*;
 
-    include!("./src/callback_interfaces.rs");
+    include!("../../bindings/src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
     const WEBVIEW2_VERSION: &str = "1.0.2045.28";
 
     pub fn install() -> super::Result<PathBuf> {
-        let out_dir = get_out_dir()?;
+        let out_dir = get_out_dir();
         let install_root = match out_dir.to_str() {
             Some(path) => path,
             None => return Err(super::Error::MissingPath(out_dir)),
@@ -98,7 +96,7 @@ mod webview2_nuget {
         package_root.push(format!("{WEBVIEW2_NAME}.{WEBVIEW2_VERSION}"));
 
         if !check_nuget_dir(install_root)? {
-            let mut nuget_path = get_manifest_dir()?;
+            let mut nuget_path = get_manifest_dir();
             nuget_path.push("tools");
             nuget_path.push("nuget.exe");
 
@@ -189,7 +187,7 @@ mod webview2_nuget {
         let mut native_dir = package_root.to_path_buf();
         native_dir.push("build");
         native_dir.push("native");
-        let manifest_dir = get_manifest_dir()?;
+        let manifest_dir = get_bindings_dir()?;
         for target in WEBVIEW2_TARGETS {
             for lib in WEBVIEW2_LIBS {
                 let mut lib_src = native_dir.clone();
@@ -203,7 +201,7 @@ mod webview2_nuget {
                 }
 
                 lib_dest.push(lib);
-                eprintln!("Copy from {lib_src:?} -> {lib_dest:?}");
+                println!("Copy from {lib_src:?} -> {lib_dest:?}");
                 fs::copy(lib_src.as_path(), lib_dest.as_path())?;
             }
         }
@@ -218,7 +216,7 @@ mod webview2_nuget {
             return Ok(false);
         }
 
-        let mut source_path = get_manifest_dir()?;
+        let mut source_path = get_bindings_dir()?;
         source_path.push("src");
         source_path.push("callback_interfaces.rs");
         let mut source_file = fs::File::create(source_path)?;
@@ -253,7 +251,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
         let mut contents = String::new();
         fs::File::open(include_path)?.read_to_string(&mut contents)?;
         let pattern =
-            Regex::new(r#"^\s*typedef\s+interface\s+(ICoreWebView2[A-Za-z0-9]+Handler)\s+"#)?;
+            Regex::new(r"^\s*typedef\s+interface\s+(ICoreWebView2[A-Za-z0-9]+Handler)\s+")?;
         let interfaces: BTreeSet<String> = contents
             .lines()
             .filter_map(|line| pattern.captures(line))
@@ -265,64 +263,6 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
         } else {
             Ok(interfaces)
         }
-    }
-}
-
-mod webview2_link {
-    use std::{env, path::PathBuf};
-
-    #[cfg(any(doc, not(feature = "nuget")))]
-    pub fn output_libs(manifest_dir: PathBuf, out_dir: PathBuf) -> super::Result<PathBuf> {
-        const WEBVIEW2_LIBS: &[&str] = &[
-            "WebView2Loader.dll",
-            "WebView2Loader.dll.lib",
-            "WebView2LoaderStatic.lib",
-        ];
-        const WEBVIEW2_TARGETS: &[&str] = &["arm64", "x64", "x86"];
-
-        for target in WEBVIEW2_TARGETS {
-            for lib in WEBVIEW2_LIBS {
-                use std::fs;
-
-                let mut lib_src = manifest_dir.clone();
-                lib_src.push(target);
-                lib_src.push(lib);
-
-                let mut lib_dest = out_dir.clone();
-                lib_dest.push(target);
-                if !lib_dest.is_dir() {
-                    fs::create_dir(lib_dest.as_path())?;
-                }
-
-                lib_dest.push(lib);
-                eprintln!("Copy from {:?} -> {:?}", lib_src, lib_dest);
-                fs::copy(lib_src.as_path(), lib_dest.as_path())?;
-            }
-        }
-
-        Ok(out_dir)
-    }
-
-    pub fn update_rustc_flags(lib_path: PathBuf) -> super::Result<()> {
-        let target_arch = match env::var("CARGO_CFG_TARGET_ARCH")?.as_str() {
-            "x86_64" => "x64",
-            "x86" => "x86",
-            "arm" => "arm",
-            "aarch64" => "arm64",
-            unimplemented => unimplemented!(
-                "`{}` architecture set by `CARGO_CFG_TARGET_ARCH`",
-                unimplemented
-            ),
-        };
-        let mut lib_path = lib_path;
-        lib_path.push(target_arch);
-
-        match lib_path.to_str() {
-            Some(path) if lib_path.exists() => println!("cargo:rustc-link-search=native={path}"),
-            _ => unimplemented!("`{}` is not supported by WebView2", target_arch),
-        };
-
-        Ok(())
     }
 }
 
@@ -344,7 +284,7 @@ mod webview2_bindgen {
         format_bindings(&source_path)?;
         let source = read_bindings(&source_path)?;
 
-        let mut dest_path = get_manifest_dir()?;
+        let mut dest_path = get_bindings_dir()?;
         dest_path.push("src");
         dest_path.push("Microsoft.rs");
         let dest = read_bindings(&dest_path)?;
@@ -360,14 +300,14 @@ mod webview2_bindgen {
     fn generate_bindings() -> super::Result<PathBuf> {
         const WINMD_FILE: &str = "Microsoft.Web.WebView2.Win32.winmd";
 
-        let mut winmd_path = get_manifest_dir()?;
+        let mut winmd_path = get_manifest_dir();
         winmd_path.push("winmd");
         winmd_path.push(WINMD_FILE);
-        let mut source_path = get_out_dir()?;
+        let mut source_path = get_out_dir();
         source_path.push("Microsoft.rs");
         println!(
             "{}",
-            bindgen(&[
+            bindgen([
                 "--in",
                 winmd_path.to_str().expect("invalid winmd path"),
                 "--out",

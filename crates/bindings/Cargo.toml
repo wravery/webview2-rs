@@ -19,10 +19,6 @@ targets = [
     "i686-pc-windows-gnu",
 ]
 
-[features]
-"default" = [ "nuget" ]
-"nuget" = []
-
 [dependencies]
 windows-core = "0.51.1"
 
@@ -40,13 +36,4 @@ features = [
 ]
 
 [build-dependencies]
-regex = "1.5.4"
-serde = { version = "1.0", features = [ "derive" ] }
-serde_json = "1.0"
 thiserror = "1.0.26"
-
-[build-dependencies.windows-bindgen]
-version = "0.51.1"
-features = [
-    "metadata",
-]
