@@ -36,4 +36,9 @@ You can tell the `update-bindings` tool to use a different version by updating `
 ```
 It will also regenerate [callback_interfaces.rs](./crates/bindings/src/callback_interfaces.rs) if they change in a new version. This file is used in `webview2-com`, and in particular, the tests in [callback.rs](./crates/webview2-com/src/callback.rs) verify that all of the interfaces listed in `callback_interfaces.rs` are implemented. If a new version of the SDK declared additional callback interfaces, you will need to add those interfaces to `callback.rs` using the `#[completed_callback]` (for `ICoreWebView2...CompletedHandler` interfaces) and `#[event_callback]` (for `ICoreWebView2...EventHandler` interfaces) macros.
 
-It does not regenerate the `winmd` file automatically because that would depend on having the `dotnet` CLI installed. New versions of the SDK should be backwards compatible, but you may want to regenerate the `Microsoft.Web.WebView2.Win32.winmd` file using `webview2-win32md` if you need functionality which was added in a new version. You should then copy the file to `./crates/bindings/winmd/Microsoft.Web.WebView2.Win32.winmd`, which is where the bindings build script looks for it.
+It does not regenerate the `winmd` file automatically because that would depend on having the `dotnet` CLI installed. New versions of the SDK should be backwards compatible, but you may want to regenerate the `Microsoft.Web.WebView2.Win32.winmd` file using `webview2-win32md` if you need functionality which was added in a new version. You should then copy the file to `./crates/update-bindings/winmd/Microsoft.Web.WebView2.Win32.winmd`, which is where the `update-bindings` tool looks for it.
+
+To run the `update-bindings` tool after updating the `winmd` file, build and run the tool without any additional arguments from the root of this repo:
+```cmd
+> cargo run update-bindings
+```
