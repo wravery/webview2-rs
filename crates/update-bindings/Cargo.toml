@@ -1,0 +1,15 @@
+[package]
+name = "update-bindings"
+version = "1.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+regex = "1.5.4"
+thiserror = "1.0.26"
+
+[dependencies.windows-bindgen]
+version = "0.51.1"
+features = [
+    "metadata",
+]
