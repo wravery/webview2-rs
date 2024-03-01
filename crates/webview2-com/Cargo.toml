@@ -21,12 +21,12 @@ targets = [
 [dependencies]
 webview2-com-sys = "0.28.0"
 webview2-com-macros = "0.7.0"
-windows-core = "0.52"
-windows-implement = "0.52"
-windows-interface = "0.52"
+windows-core = "0.54"
+windows-implement = "0.53"
+windows-interface = "0.53"
 
 [dependencies.windows]
-version = "0.52"
+version = "0.54"
 features = [ "implement" ]
 
 [dev-dependencies]
@@ -35,7 +35,7 @@ serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 
 [dev-dependencies.windows]
-version = "0.52"
+version = "0.54"
 features = [
     "Win32_Graphics_Gdi",
     "Win32_System_LibraryLoader",

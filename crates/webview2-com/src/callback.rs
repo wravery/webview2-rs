@@ -556,6 +556,53 @@ pub struct LaunchingExternalUriSchemeEventHandler(
     Option<ICoreWebView2LaunchingExternalUriSchemeEventArgs>,
 );
 
+#[completed_callback]
+pub struct BrowserExtensionEnableCompletedHandler(
+    ICoreWebView2BrowserExtensionEnableCompletedHandler,
+    HRESULT,
+);
+
+#[completed_callback]
+pub struct BrowserExtensionRemoveCompletedHandler(
+    ICoreWebView2BrowserExtensionRemoveCompletedHandler,
+    HRESULT,
+);
+
+#[completed_callback]
+pub struct ExecuteScriptWithResultCompletedHandler(
+    ICoreWebView2ExecuteScriptWithResultCompletedHandler,
+    HRESULT,
+    Option<ICoreWebView2ExecuteScriptResult>,
+);
+
+#[completed_callback]
+pub struct GetProcessExtendedInfosCompletedHandler(
+    ICoreWebView2GetProcessExtendedInfosCompletedHandler,
+    HRESULT,
+    Option<ICoreWebView2ProcessExtendedInfoCollection>,
+);
+
+#[completed_callback]
+pub struct ProfileAddBrowserExtensionCompletedHandler(
+    ICoreWebView2ProfileAddBrowserExtensionCompletedHandler,
+    HRESULT,
+    Option<ICoreWebView2BrowserExtension>,
+);
+
+#[event_callback]
+pub struct ProfileDeletedEventHandler(
+    ICoreWebView2ProfileDeletedEventHandler,
+    Option<ICoreWebView2Profile>,
+    Option<IUnknown>,
+);
+
+#[completed_callback]
+pub struct ProfileGetBrowserExtensionsCompletedHandler(
+    ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler,
+    HRESULT,
+    Option<ICoreWebView2BrowserExtensionList>,
+);
+
 #[cfg(test)]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};

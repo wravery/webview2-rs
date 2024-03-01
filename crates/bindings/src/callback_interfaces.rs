@@ -8,6 +8,8 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2AcceleratorKeyPressedEventHandler");
     interfaces.insert("ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler");
     interfaces.insert("ICoreWebView2BasicAuthenticationRequestedEventHandler");
+    interfaces.insert("ICoreWebView2BrowserExtensionEnableCompletedHandler");
+    interfaces.insert("ICoreWebView2BrowserExtensionRemoveCompletedHandler");
     interfaces.insert("ICoreWebView2BrowserProcessExitedEventHandler");
     interfaces.insert("ICoreWebView2BytesReceivedChangedEventHandler");
     interfaces.insert("ICoreWebView2CallDevToolsProtocolMethodCompletedHandler");
@@ -29,6 +31,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2DownloadStartingEventHandler");
     interfaces.insert("ICoreWebView2EstimatedEndTimeChangedEventHandler");
     interfaces.insert("ICoreWebView2ExecuteScriptCompletedHandler");
+    interfaces.insert("ICoreWebView2ExecuteScriptWithResultCompletedHandler");
     interfaces.insert("ICoreWebView2FaviconChangedEventHandler");
     interfaces.insert("ICoreWebView2FocusChangedEventHandler");
     interfaces.insert("ICoreWebView2FrameContentLoadingEventHandler");
@@ -43,6 +46,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2GetCookiesCompletedHandler");
     interfaces.insert("ICoreWebView2GetFaviconCompletedHandler");
     interfaces.insert("ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler");
+    interfaces.insert("ICoreWebView2GetProcessExtendedInfosCompletedHandler");
     interfaces.insert("ICoreWebView2HistoryChangedEventHandler");
     interfaces.insert("ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler");
     interfaces.insert("ICoreWebView2IsDocumentPlayingAudioChangedEventHandler");
@@ -59,6 +63,9 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2PrintToPdfStreamCompletedHandler");
     interfaces.insert("ICoreWebView2ProcessFailedEventHandler");
     interfaces.insert("ICoreWebView2ProcessInfosChangedEventHandler");
+    interfaces.insert("ICoreWebView2ProfileAddBrowserExtensionCompletedHandler");
+    interfaces.insert("ICoreWebView2ProfileDeletedEventHandler");
+    interfaces.insert("ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler");
     interfaces.insert("ICoreWebView2RasterizationScaleChangedEventHandler");
     interfaces.insert("ICoreWebView2ScriptDialogOpeningEventHandler");
     interfaces.insert("ICoreWebView2ServerCertificateErrorDetectedEventHandler");
