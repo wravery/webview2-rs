@@ -5,7 +5,7 @@ This crate implements Rust bindings for the [WebView2](https://aka.ms/webview2) 
 Include a reference to `webview2-com` in your `Cargo.toml`:
 ```toml
 [dependencies]
-webview2-com = "0.28.0"
+webview2-com = "0.29.0"
 ```
 
 See the [docs](https://docs.rs/webview2-com/) or take a look at the [sample.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/examples/sample.rs) example (adapted from [microsoft/windows-samples-rs](https://github.com/microsoft/windows-samples-rs/tree/master/webview2_win32)) for more details.
