@@ -5,11 +5,7 @@ extern crate serde_json;
 extern crate webview2_com;
 extern crate windows;
 
-use std::{
-    collections::HashMap,
-    fmt, mem, ptr,
-    sync::{mpsc, Arc, Mutex},
-};
+use std::{cell::RefCell, collections::HashMap, fmt, mem, ptr, rc::Rc, sync::mpsc};
 
 use serde::Deserialize;
 use serde_json::{Number, Value};
@@ -130,8 +126,8 @@ impl Drop for Window {
 
 #[derive(Clone)]
 pub struct FrameWindow {
-    window: Arc<HWND>,
-    size: Arc<Mutex<SIZE>>,
+    window: Rc<HWND>,
+    size: Rc<RefCell<SIZE>>,
 }
 
 impl FrameWindow {
@@ -164,8 +160,8 @@ impl FrameWindow {
         };
 
         FrameWindow {
-            window: Arc::new(hwnd),
-            size: Arc::new(Mutex::new(SIZE { cx: 0, cy: 0 })),
+            window: Rc::new(hwnd),
+            size: Rc::new(RefCell::new(SIZE { cx: 0, cy: 0 })),
         }
     }
 }
@@ -179,15 +175,15 @@ type BindingsMap = HashMap<String, BindingCallback>;
 
 #[derive(Clone)]
 pub struct WebView {
-    controller: Arc<WebViewController>,
-    webview: Arc<ICoreWebView2>,
+    controller: Rc<WebViewController>,
+    webview: Rc<ICoreWebView2>,
     tx: WebViewSender,
-    rx: Arc<WebViewReceiver>,
+    rx: Rc<WebViewReceiver>,
     thread_id: u32,
-    bindings: Arc<Mutex<BindingsMap>>,
+    bindings: Rc<RefCell<BindingsMap>>,
     frame: Option<FrameWindow>,
-    parent: Arc<HWND>,
-    url: Arc<Mutex<String>>,
+    parent: Rc<HWND>,
+    url: Rc<RefCell<String>>,
 }
 
 impl Drop for WebViewController {
@@ -257,8 +253,7 @@ impl WebView {
         let size = get_window_size(parent);
         let mut client_rect = RECT::default();
         unsafe {
-            let _ =
-                WindowsAndMessaging::GetClientRect(parent, std::mem::transmute(&mut client_rect));
+            let _ = WindowsAndMessaging::GetClientRect(parent, &mut client_rect);
             controller.SetBounds(RECT {
                 left: 0,
                 top: 0,
@@ -279,23 +274,23 @@ impl WebView {
         }
 
         if let Some(frame) = frame.as_ref() {
-            *frame.size.lock()? = size;
+            *frame.size.borrow_mut() = size;
         }
 
         let (tx, rx) = mpsc::channel();
-        let rx = Arc::new(rx);
+        let rx = Rc::new(rx);
         let thread_id = unsafe { Threading::GetCurrentThreadId() };
 
         let webview = WebView {
-            controller: Arc::new(WebViewController(controller)),
-            webview: Arc::new(webview),
+            controller: Rc::new(WebViewController(controller)),
+            webview: Rc::new(webview),
             tx,
             rx,
             thread_id,
-            bindings: Arc::new(Mutex::new(HashMap::new())),
+            bindings: Rc::new(RefCell::new(HashMap::new())),
             frame,
-            parent: Arc::new(parent),
-            url: Arc::new(Mutex::new(String::new())),
+            parent: Rc::new(parent),
+            url: Rc::new(RefCell::new(String::new())),
         };
 
         // Inject the invoke handler.
@@ -315,18 +310,17 @@ impl WebView {
                             if let Ok(value) =
                                 serde_json::from_str::<InvokeMessage>(&message.to_string())
                             {
-                                if let Ok(mut bindings) = bindings.try_lock() {
-                                    if let Some(f) = bindings.get_mut(&value.method) {
-                                        match (*f)(value.params) {
-                                            Ok(result) => bound.resolve(value.id, 0, result),
-                                            Err(err) => bound.resolve(
-                                                value.id,
-                                                1,
-                                                Value::String(format!("{err:#?}")),
-                                            ),
-                                        }
-                                        .unwrap();
+                                let mut bindings = bindings.borrow_mut();
+                                if let Some(f) = bindings.get_mut(&value.method) {
+                                    match (*f)(value.params) {
+                                        Ok(result) => bound.resolve(value.id, 0, result),
+                                        Err(err) => bound.resolve(
+                                            value.id,
+                                            1,
+                                            Value::String(format!("{err:#?}")),
+                                        ),
                                     }
+                                    .unwrap();
                                 }
                             }
                         }
@@ -346,7 +340,7 @@ impl WebView {
 
     pub fn run(self) -> Result<()> {
         let webview = self.webview.as_ref();
-        let url = self.url.try_lock()?.clone();
+        let url = self.url.borrow().clone();
         let (tx, rx) = mpsc::channel();
 
         if !url.is_empty() {
@@ -426,7 +420,7 @@ impl WebView {
 
     pub fn set_size(&self, width: i32, height: i32) -> Result<&Self> {
         if let Some(frame) = self.frame.as_ref() {
-            *frame.size.lock().expect("lock size") = SIZE {
+            *frame.size.borrow_mut() = SIZE {
                 cx: width,
                 cy: height,
             };
@@ -460,7 +454,7 @@ impl WebView {
 
     pub fn navigate(&self, url: &str) -> Result<&Self> {
         let url = url.into();
-        *self.url.lock().expect("lock url") = url;
+        *self.url.borrow_mut() = url;
         Ok(self)
     }
 
@@ -516,7 +510,7 @@ impl WebView {
         F: FnMut(Vec<Value>) -> Result<Value> + 'static,
     {
         self.bindings
-            .lock()?
+            .borrow_mut()
             .insert(String::from(name), Box::new(f));
 
         let js = String::from(
@@ -630,7 +624,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
                     })
                     .unwrap();
             }
-            *frame.size.lock().expect("lock size") = size;
+            *frame.size.borrow_mut() = size;
             LRESULT::default()
         }
 
@@ -652,8 +646,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
 
 fn get_window_size(hwnd: HWND) -> SIZE {
     let mut client_rect = RECT::default();
-    let _ =
-        unsafe { WindowsAndMessaging::GetClientRect(hwnd, std::mem::transmute(&mut client_rect)) };
+    let _ = unsafe { WindowsAndMessaging::GetClientRect(hwnd, &mut client_rect) };
     SIZE {
         cx: client_rect.right - client_rect.left,
         cy: client_rect.bottom - client_rect.top,
