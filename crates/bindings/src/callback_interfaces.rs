@@ -57,6 +57,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2NavigationStartingEventHandler");
     interfaces.insert("ICoreWebView2NewBrowserVersionAvailableEventHandler");
     interfaces.insert("ICoreWebView2NewWindowRequestedEventHandler");
+    interfaces.insert("ICoreWebView2NonClientRegionChangedEventHandler");
     interfaces.insert("ICoreWebView2PermissionRequestedEventHandler");
     interfaces.insert("ICoreWebView2PrintCompletedHandler");
     interfaces.insert("ICoreWebView2PrintToPdfCompletedHandler");

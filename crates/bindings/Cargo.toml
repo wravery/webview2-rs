@@ -19,10 +19,10 @@ targets = [
 ]
 
 [dependencies]
-windows-core = "0.54"
+windows-core = "0.56"
 
 [dependencies.windows]
-version = "0.54"
+version = "0.56"
 features = [
     "implement",
     "Win32_Foundation",

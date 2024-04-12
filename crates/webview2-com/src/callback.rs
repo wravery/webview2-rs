@@ -603,6 +603,13 @@ pub struct ProfileGetBrowserExtensionsCompletedHandler(
     Option<ICoreWebView2BrowserExtensionList>,
 );
 
+#[event_callback]
+pub struct NonClientRegionChangedEventHandler(
+    ICoreWebView2NonClientRegionChangedEventHandler,
+    Option<ICoreWebView2CompositionController>,
+    Option<ICoreWebView2NonClientRegionChangedEventArgs>,
+);
+
 #[cfg(test)]
 mod test {
     use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
@@ -630,10 +637,30 @@ mod test {
             .filter_map(|captures| captures.get(1))
             .map(|match_1| match_1.as_str())
             .collect();
-        assert_eq!(
-            implemented,
-            callback_interfaces::all_declared(),
-            "all declared interfaces should be implemented"
+        let all_declared = callback_interfaces::all_declared();
+        let missing: Vec<_> = all_declared
+            .iter()
+            .filter_map(|name| {
+                if implemented.contains(name) {
+                    None
+                } else {
+                    Some(name.to_string())
+                }
+            })
+            .collect();
+        let extra: Vec<_> = implemented
+            .iter()
+            .filter_map(|name| {
+                if all_declared.contains(name) {
+                    None
+                } else {
+                    Some(name.to_string())
+                }
+            })
+            .collect();
+        assert!(
+            missing.is_empty() && extra.is_empty(),
+            "missing: {missing:?}\nextra: {extra:?}"
         );
     }
 }

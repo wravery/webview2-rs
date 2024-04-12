@@ -363,8 +363,8 @@ impl WebView {
         if let Some(frame) = self.frame.as_ref() {
             let hwnd = *frame.window;
             unsafe {
-                WindowsAndMessaging::ShowWindow(hwnd, WindowsAndMessaging::SW_SHOW);
-                Gdi::UpdateWindow(hwnd);
+                let _ = WindowsAndMessaging::ShowWindow(hwnd, WindowsAndMessaging::SW_SHOW);
+                let _ = Gdi::UpdateWindow(hwnd);
                 KeyboardAndMouse::SetFocus(hwnd);
             }
         }
@@ -386,7 +386,7 @@ impl WebView {
                     _ => match msg.message {
                         WindowsAndMessaging::WM_APP => (),
                         _ => {
-                            WindowsAndMessaging::TranslateMessage(&msg);
+                            let _ = WindowsAndMessaging::TranslateMessage(&msg);
                             WindowsAndMessaging::DispatchMessageW(&msg);
                         }
                     },

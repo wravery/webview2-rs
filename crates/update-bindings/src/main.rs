@@ -83,7 +83,7 @@ mod webview2_nuget {
     include!("../../bindings/src/callback_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.2365.46";
+    const WEBVIEW2_VERSION: &str = "1.0.2420.47";
 
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir();
@@ -330,7 +330,7 @@ mod webview2_bindgen {
     }
 
     fn patch_bindings(bindings: String) -> super::Result<String> {
-        let pattern = Regex::new(r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"webview2loader"\s*\)\s*\]"#)?;
+        let pattern = Regex::new(r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"WebView2Loader"\s*\)\s*\]"#)?;
         let replacement = r#"
             #[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))]
             #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader.dll"))]

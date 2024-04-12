@@ -74,7 +74,7 @@ pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
                 }
                 0 => return Err(Error::TaskCanceled),
                 _ => {
-                    WindowsAndMessaging::TranslateMessage(&msg);
+                    let _ = WindowsAndMessaging::TranslateMessage(&msg);
                     WindowsAndMessaging::DispatchMessageA(&msg);
                 }
             }
