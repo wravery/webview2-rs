@@ -9,7 +9,5 @@ regex = "1.5.4"
 thiserror = "1.0.26"
 
 [dependencies.windows-bindgen]
-version = "0.56"
-features = [
-    "metadata",
-]
+version = "0.57"
+features = [ "metadata" ]
