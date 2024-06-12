@@ -114,16 +114,6 @@ impl<'a, T: 'a> From<std::sync::TryLockError<T>> for Error {
 
 type Result<T> = std::result::Result<T, Error>;
 
-struct Window(HWND);
-
-impl Drop for Window {
-    fn drop(&mut self) {
-        unsafe {
-            let _ = WindowsAndMessaging::DestroyWindow(self.0);
-        }
-    }
-}
-
 #[derive(Clone)]
 pub struct FrameWindow {
     window: Rc<HWND>,
