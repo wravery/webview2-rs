@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com-sys"
-version = "0.31.0"
+version = "0.32.0"
 edition = "2021"
 rust-version = "1.61"
 description = "Bindings generated with the windows crate for the WebView2 COM APIs"
@@ -19,10 +19,10 @@ targets = [
 ]
 
 [dependencies]
-windows-core = "0.57"
+windows-core = "0.58"
 
 [dependencies.windows]
-version = "0.57"
+version = "0.58"
 features = [
     "implement",
     "Win32_Foundation",
@@ -35,4 +35,4 @@ features = [
 ]
 
 [build-dependencies]
-thiserror = "1.0.26"
+thiserror = "1.0"

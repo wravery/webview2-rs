@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com"
-version = "0.31.0"
+version = "0.32.0"
 edition = "2021"
 rust-version = "1.61"
 description = "Rust bindings for the WebView2 COM APIs"
@@ -19,23 +19,23 @@ targets = [
 ]
 
 [dependencies]
-webview2-com-sys = "0.31.0"
-webview2-com-macros = "0.7.0"
-windows-core = "0.57"
-windows-implement = "0.57"
-windows-interface = "0.57"
+webview2-com-sys = "0.32"
+webview2-com-macros = "0.8"
+windows-core = "0.58"
+windows-implement = "0.58"
+windows-interface = "0.58"
 
 [dependencies.windows]
-version = "0.57"
+version = "0.58"
 features = [ "implement" ]
 
 [dev-dependencies]
-regex = "1.5.4"
+regex = "1.0"
 serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 
 [dev-dependencies.windows]
-version = "0.57"
+version = "0.58"
 features = [
     "Win32_Graphics_Gdi",
     "Win32_System_LibraryLoader",

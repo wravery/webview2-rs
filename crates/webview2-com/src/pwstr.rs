@@ -64,7 +64,7 @@ impl<'a> Drop for CoTaskMemPWSTR<'a> {
     fn drop(&mut self) {
         if !self.0.is_null() {
             unsafe {
-                Com::CoTaskMemFree(Some(mem::transmute(self.0.as_ptr())));
+                Com::CoTaskMemFree(Some(self.0.as_ptr() as *mut _ as *const _));
             }
         }
     }

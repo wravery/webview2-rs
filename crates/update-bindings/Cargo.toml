@@ -5,9 +5,9 @@ edition = "2021"
 publish = false
 
 [dependencies]
-regex = "1.5.4"
-thiserror = "1.0.26"
+regex = "1.0"
+thiserror = "1.0"
 
 [dependencies.windows-bindgen]
-version = "0.57"
+version = "0.58"
 features = [ "metadata" ]

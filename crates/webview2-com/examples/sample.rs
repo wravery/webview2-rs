@@ -150,7 +150,7 @@ impl FrameWindow {
         };
 
         FrameWindow {
-            window: Rc::new(hwnd),
+            window: Rc::new(hwnd.unwrap_or_default()),
             size: Rc::new(RefCell::new(SIZE { cx: 0, cy: 0 })),
         }
     }
@@ -355,7 +355,7 @@ impl WebView {
             unsafe {
                 let _ = WindowsAndMessaging::ShowWindow(hwnd, WindowsAndMessaging::SW_SHOW);
                 let _ = Gdi::UpdateWindow(hwnd);
-                KeyboardAndMouse::SetFocus(hwnd);
+                let _ = KeyboardAndMouse::SetFocus(hwnd);
             }
         }
 

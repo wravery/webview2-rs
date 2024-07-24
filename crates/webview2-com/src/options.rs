@@ -222,7 +222,7 @@ impl CoreWebView2EnvironmentOptions {
 }
 
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
-impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
+impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions_Impl {
     fn AdditionalBrowserArguments(&self, result: *mut PWSTR) -> Result<()> {
         if result.is_null() {
             E_POINTER.ok()
@@ -283,7 +283,7 @@ impl ICoreWebView2EnvironmentOptions_Impl for CoreWebView2EnvironmentOptions {
 }
 
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
-impl ICoreWebView2EnvironmentOptions2_Impl for CoreWebView2EnvironmentOptions {
+impl ICoreWebView2EnvironmentOptions2_Impl for CoreWebView2EnvironmentOptions_Impl {
     fn ExclusiveUserDataFolderAccess(&self, result: *mut BOOL) -> Result<()> {
         if result.is_null() {
             E_POINTER.ok()
@@ -302,7 +302,7 @@ impl ICoreWebView2EnvironmentOptions2_Impl for CoreWebView2EnvironmentOptions {
 }
 
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
-impl ICoreWebView2EnvironmentOptions3_Impl for CoreWebView2EnvironmentOptions {
+impl ICoreWebView2EnvironmentOptions3_Impl for CoreWebView2EnvironmentOptions_Impl {
     fn IsCustomCrashReportingEnabled(&self, result: *mut BOOL) -> Result<()> {
         if result.is_null() {
             E_POINTER.ok()
@@ -340,7 +340,7 @@ pub unsafe trait IFixedEnvironmentOptions4: IUnknown {
 }
 
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
-impl IFixedEnvironmentOptions4_Impl for CoreWebView2EnvironmentOptions {
+impl IFixedEnvironmentOptions4_Impl for CoreWebView2EnvironmentOptions_Impl {
     #[allow(clippy::crosspointer_transmute)]
     unsafe fn GetCustomSchemeRegistrations(
         &self,
@@ -354,9 +354,9 @@ impl IFixedEnvironmentOptions4_Impl for CoreWebView2EnvironmentOptions {
             if let Ok(length) = scheme_registrations.len().try_into() {
                 *count = length;
                 if !scheme_registrations.is_empty() {
-                    *results = mem::transmute(CoTaskMemAlloc(
+                    *results = CoTaskMemAlloc(
                         mem::size_of::<*mut c_void>() * (*scheme_registrations).len(),
-                    ));
+                    ) as *mut *mut _;
                     let results =
                         ptr::slice_from_raw_parts_mut(*results, scheme_registrations.len());
                     for (i, scheme) in scheme_registrations.iter().enumerate() {
@@ -489,7 +489,7 @@ impl CoreWebView2CustomSchemeRegistration {
 }
 
 #[allow(clippy::not_unsafe_ptr_arg_deref)]
-impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegistration {
+impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegistration_Impl {
     fn SchemeName(&self, result: *mut PWSTR) -> Result<()> {
         if result.is_null() {
             E_POINTER.ok()
@@ -523,9 +523,8 @@ impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegi
                 .try_into()
                 .map_err(|_| Error::from(E_UNEXPECTED))?;
             if !allowed_origins.is_empty() {
-                *results = mem::transmute(CoTaskMemAlloc(
-                    mem::size_of::<*mut PWSTR>() * (*allowed_origins).len(),
-                ));
+                *results = CoTaskMemAlloc(mem::size_of::<*mut PWSTR>() * (*allowed_origins).len())
+                    as *mut _;
                 let results = ptr::slice_from_raw_parts_mut(*results, allowed_origins.len());
                 for (i, scheme) in allowed_origins.iter().enumerate() {
                     (*results)[i] = pwstr_from_str(scheme);

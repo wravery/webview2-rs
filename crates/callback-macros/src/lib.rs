@@ -60,6 +60,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
     let vis = &ast.vis;
 
     let name = &ast.ident;
+    let name_impl = format_ident!("{name}_Impl");
     let closure = get_closure(name);
     let interface = &ast.args.interface;
     let interface = interface
@@ -72,7 +73,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
     let arg_1 = &ast.args.arg_1;
     let arg_2 = &ast.args.arg_2;
 
-    let msg = format!("Implementation of [`{}`].", interface.ident);
+    let msg = format!("Implementation of [`{interface_impl}`].");
 
     let gen = match arg_2 {
         Some(arg_2) => quote! {
@@ -110,7 +111,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             }
 
             #[allow(non_snake_case)]
-            impl #interface_impl for #name {
+            impl #interface_impl for #name_impl {
                 fn Invoke<'a>(
                     &self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
@@ -161,7 +162,7 @@ fn impl_completed_callback(ast: &CallbackStruct) -> TokenStream {
             }
 
             #[allow(non_snake_case)]
-            impl #interface_impl for #name {
+            impl #interface_impl for #name_impl {
                 fn Invoke<'a>(
                     &self,
                     arg_1: <#arg_1 as InvokeArg<'a>>::Input,
@@ -191,6 +192,7 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
     let vis = &ast.vis;
 
     let name = &ast.ident;
+    let name_impl = format_ident!("{name}_Impl");
     let closure = get_closure(name);
 
     let interface = &ast.args.interface;
@@ -208,7 +210,7 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
         .as_ref()
         .expect("event_callback should always have 2 arguments");
 
-    let msg = format!("Implementation of [`{}`].", interface.ident);
+    let msg = format!("Implementation of [`{interface_impl}`].");
 
     let gen = quote! {
         type #closure = EventClosure<#arg_1, #arg_2>;
@@ -226,7 +228,7 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
         }
 
         #[allow(non_snake_case)]
-        impl #interface_impl for  #name {
+        impl #interface_impl for  #name_impl {
             fn Invoke<'a>(
                 &self,
                 arg_1: <#arg_1 as InvokeArg<'a>>::Input,
@@ -244,5 +246,5 @@ fn impl_event_callback(ast: &CallbackStruct) -> TokenStream {
 }
 
 fn get_closure(name: &Ident) -> Ident {
-    format_ident!("{}Closure", name)
+    format_ident!("{name}Closure")
 }
