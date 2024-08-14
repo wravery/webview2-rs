@@ -5,8 +5,8 @@ fn main() -> Result<()> {
         Ok(package_root) => {
             webview2_nuget::update_libs(&package_root)?;
 
-            if webview2_nuget::update_callback_interfaces(&package_root)? {
-                println!("callback_interfaces.rs changed");
+            if webview2_nuget::update_declared_interfaces(&package_root)? {
+                println!("declared_interfaces.rs changed");
             }
         }
         Err(e) => {
@@ -80,7 +80,7 @@ mod webview2_nuget {
 
     use super::webview2_path::*;
 
-    include!("../../bindings/src/callback_interfaces.rs");
+    include!("../../bindings/src/declared_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
     const WEBVIEW2_VERSION: &str = "1.0.2592.51";
@@ -209,28 +209,54 @@ mod webview2_nuget {
         Ok(())
     }
 
-    pub fn update_callback_interfaces(package_root: &Path) -> super::Result<bool> {
-        let interfaces = get_callback_interfaces(package_root)?;
-        let declared = all_declared().into_iter().map(String::from).collect();
-        if interfaces == declared {
+    pub fn update_declared_interfaces(package_root: &Path) -> super::Result<bool> {
+        let contents = get_declared_interfaces(package_root)?;
+        let callbacks = get_declared_callbacks(contents.as_str())?;
+        let declared_callbacks = all_declared_callbacks()
+            .into_iter()
+            .map(String::from)
+            .collect();
+        let options = get_declared_options(contents.as_str())?;
+        let declared_options = all_declared_options()
+            .into_iter()
+            .map(String::from)
+            .collect();
+        if callbacks == declared_callbacks && options == declared_options {
             return Ok(false);
         }
 
         let mut source_path = get_bindings_dir()?;
         source_path.push("src");
-        source_path.push("callback_interfaces.rs");
+        source_path.push("declared_interfaces.rs");
         let mut source_file = fs::File::create(source_path)?;
         writeln!(
             source_file,
             r#"use std::collections::BTreeSet;
 
 /// Generate a list of all `ICoreWebView2...Handler` interfaces declared in `WebView2.h`. This is
-/// for testing purposes to make sure they are all covered in [callback.rs](../../src/callback.rs).
-pub fn all_declared() -> BTreeSet<&'static str> {{
+/// for testing purposes to make sure they are all covered in
+/// [callback.rs](../../webview2-com/src/callback.rs).
+pub fn all_declared_callbacks() -> BTreeSet<&'static str> {{
     let mut interfaces = BTreeSet::new();
 "#,
         )?;
-        for interface in interfaces {
+        for interface in callbacks {
+            writeln!(source_file, r#"    interfaces.insert("{interface}");"#)?;
+        }
+        writeln!(
+            source_file,
+            r#"
+    interfaces
+}}
+    
+/// Generate a list of all `ICoreWebView2EnvironmentOptions` interfaces declared in `WebView2.h`.
+/// This is for testing purposes to make sure they are all covered in
+/// [options.rs](../../webview2-com/src/options.rs).
+pub fn all_declared_options() -> BTreeSet<&'static str> {{
+    let mut interfaces = BTreeSet::new();
+"#,
+        )?;
+        for interface in options {
             writeln!(source_file, r#"    interfaces.insert("{interface}");"#)?;
         }
         writeln!(
@@ -242,7 +268,7 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
         Ok(true)
     }
 
-    fn get_callback_interfaces(package_root: &Path) -> super::Result<BTreeSet<String>> {
+    fn get_declared_interfaces(package_root: &Path) -> super::Result<String> {
         let mut include_path = package_root.to_path_buf();
         include_path.push("build");
         include_path.push("native");
@@ -250,8 +276,28 @@ pub fn all_declared() -> BTreeSet<&'static str> {{
         include_path.push("WebView2.h");
         let mut contents = String::new();
         fs::File::open(include_path)?.read_to_string(&mut contents)?;
+        Ok(contents)
+    }
+
+    fn get_declared_callbacks(contents: &str) -> super::Result<BTreeSet<String>> {
         let pattern =
             Regex::new(r"^\s*typedef\s+interface\s+(ICoreWebView2[A-Za-z0-9]+Handler)\s+")?;
+        let interfaces: BTreeSet<String> = contents
+            .lines()
+            .filter_map(|line| pattern.captures(line))
+            .filter_map(|captures| captures.get(1))
+            .map(|match_1| String::from(match_1.as_str()))
+            .collect();
+        if interfaces.is_empty() {
+            Err(super::Error::MissingTypedef)
+        } else {
+            Ok(interfaces)
+        }
+    }
+
+    fn get_declared_options(contents: &str) -> super::Result<BTreeSet<String>> {
+        let pattern =
+            Regex::new(r"^\s*typedef\s+interface\s+(ICoreWebView2EnvironmentOptions[0-9]*)\s+")?;
         let interfaces: BTreeSet<String> = contents
             .lines()
             .filter_map(|line| pattern.captures(line))

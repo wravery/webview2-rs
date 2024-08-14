@@ -612,24 +612,15 @@ pub struct NonClientRegionChangedEventHandler(
 
 #[cfg(test)]
 mod test {
-    use std::{collections::BTreeSet, env, fs::File, io::Read, path::PathBuf};
+    use std::collections::BTreeSet;
 
     use regex::Regex;
 
-    use webview2_com_sys::callback_interfaces;
+    use webview2_com_sys::declared_interfaces;
 
     #[test]
     fn all_implemented() {
-        let mut source_path = PathBuf::from(
-            env::var("CARGO_MANIFEST_DIR").expect("cargo should set CARGO_MANIFEST_DIR"),
-        );
-        source_path.push("src");
-        source_path.push("callback.rs");
-        let mut contents = String::new();
-        File::open(source_path)
-            .expect("can open the file")
-            .read_to_string(&mut contents)
-            .expect("can read the file");
+        let contents = include_str!("callback.rs");
         let pattern = Regex::new(r#"(ICoreWebView2[A-Za-z0-9]+Handler)"#).expect("valid regex");
         let implemented: BTreeSet<&str> = contents
             .lines()
@@ -637,8 +628,8 @@ mod test {
             .filter_map(|captures| captures.get(1))
             .map(|match_1| match_1.as_str())
             .collect();
-        let all_declared = callback_interfaces::all_declared();
-        let missing: Vec<_> = all_declared
+        let all_declared_callbacks = declared_interfaces::all_declared_callbacks();
+        let missing: Vec<_> = all_declared_callbacks
             .iter()
             .filter_map(|name| {
                 if implemented.contains(name) {
@@ -651,7 +642,7 @@ mod test {
         let extra: Vec<_> = implemented
             .iter()
             .filter_map(|name| {
-                if all_declared.contains(name) {
+                if all_declared_callbacks.contains(name) {
                     None
                 } else {
                     Some(name.to_string())

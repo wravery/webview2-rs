@@ -1,7 +1,7 @@
 #[allow(non_snake_case)]
 pub mod Microsoft;
 
-pub mod callback_interfaces;
+pub mod declared_interfaces;
 
 #[cfg(test)]
 mod test {

@@ -1,8 +1,9 @@
 use std::collections::BTreeSet;
 
 /// Generate a list of all `ICoreWebView2...Handler` interfaces declared in `WebView2.h`. This is
-/// for testing purposes to make sure they are all covered in [callback.rs](../../src/callback.rs).
-pub fn all_declared() -> BTreeSet<&'static str> {
+/// for testing purposes to make sure they are all covered in
+/// [callback.rs](../../webview2-com/src/callback.rs).
+pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
     let mut interfaces = BTreeSet::new();
 
     interfaces.insert("ICoreWebView2AcceleratorKeyPressedEventHandler");
@@ -81,6 +82,24 @@ pub fn all_declared() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2WebResourceResponseViewGetContentCompletedHandler");
     interfaces.insert("ICoreWebView2WindowCloseRequestedEventHandler");
     interfaces.insert("ICoreWebView2ZoomFactorChangedEventHandler");
+
+    interfaces
+}
+
+/// Generate a list of all `ICoreWebView2EnvironmentOptions` interfaces declared in `WebView2.h`.
+/// This is for testing purposes to make sure they are all covered in
+/// [options.rs](../../webview2-com/src/options.rs).
+pub fn all_declared_options() -> BTreeSet<&'static str> {
+    let mut interfaces = BTreeSet::new();
+
+    interfaces.insert("ICoreWebView2EnvironmentOptions");
+    interfaces.insert("ICoreWebView2EnvironmentOptions2");
+    interfaces.insert("ICoreWebView2EnvironmentOptions3");
+    interfaces.insert("ICoreWebView2EnvironmentOptions4");
+    interfaces.insert("ICoreWebView2EnvironmentOptions5");
+    interfaces.insert("ICoreWebView2EnvironmentOptions6");
+    interfaces.insert("ICoreWebView2EnvironmentOptions7");
+    interfaces.insert("ICoreWebView2EnvironmentOptions8");
 
     interfaces
 }

@@ -34,7 +34,15 @@ You can tell the `update-bindings` tool to use a different version by updating `
 ```rust
     const WEBVIEW2_VERSION: &str = "1.0.2592.51";
 ```
-It will also regenerate [callback_interfaces.rs](./crates/bindings/src/callback_interfaces.rs) if they change in a new version. This file is used in `webview2-com`, and in particular, the tests in [callback.rs](./crates/webview2-com/src/callback.rs) verify that all of the interfaces listed in `callback_interfaces.rs` are implemented. If a new version of the SDK declared additional callback interfaces, you will need to add those interfaces to `callback.rs` using the `#[completed_callback]` (for `ICoreWebView2...CompletedHandler` interfaces) and `#[event_callback]` (for `ICoreWebView2...EventHandler` interfaces) macros.
+It will also regenerate [declared_interfaces.rs](./crates/bindings/src/declared_interfaces.rs) if they change in a new version. This file is used in `webview2-com`, and in particular, the tests in [callback.rs](./crates/webview2-com/src/callback.rs) and [options.rs](./crates/webview2-com/src/options.rs) verify that all of the interfaces listed in `declared_interfaces.rs` are implemented.
+
+If a new version of the SDK declared additional callback interfaces, you will need to add those interfaces to `callback.rs` using the `#[completed_callback]` (for `ICoreWebView2...CompletedHandler` interfaces) and `#[event_callback]` (for `ICoreWebView2...EventHandler` interfaces) macros.
+
+There is a special case for `ICoreWebView2EnvironmentOptions4` which replaces that interface declaration with `IFixedEnvironmentOptions4` because the `windows_bindgen` crate misunderstands the method signature on `SetCustomSchemeRegistrations` as having an out-param. Otherwise, when new `ICoreWebView2EnvironmentOptions...` interfaces are added, you will need to:
+- Add the interface to the `#[implement(...)]` attribute on `pub struct CoreWebView2EnvironmentOptions`.
+- Declare `UnsafeCell<...>` members in `CoreWebView2EnvironmentOptions` to hold the field values and initialize the defaults in `impl Default for CoreWebView2EnvironmentOptions`.
+- Implement accessors in `impl CoreWebView2EnvironmentOptions` to get and set the `UnsafeCell<...>` member with appropriate Rust types.
+- Add a trait `impl ICoreWebView2EnvironmentOptions..._Impl for CoreWebView2EnvironmentOptions_Impl` block to define the COM interface methods (typically in terms of the accessors in `impl CoreWebView2EnvironmentOptions`).
 
 It does not regenerate the `winmd` file automatically because that would depend on having the `dotnet` CLI installed. New versions of the SDK should be backwards compatible, but you may want to regenerate the `Microsoft.Web.WebView2.Win32.winmd` file using `webview2-win32md` if you need functionality which was added in a new version. You should then copy the file to `./crates/update-bindings/winmd/Microsoft.Web.WebView2.Win32.winmd`, which is where the `update-bindings` tool looks for it.
 

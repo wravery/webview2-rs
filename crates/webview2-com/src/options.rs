@@ -18,8 +18,16 @@ use crate::{
         ICoreWebView2CustomSchemeRegistration, ICoreWebView2CustomSchemeRegistration_Impl,
         ICoreWebView2EnvironmentOptions, ICoreWebView2EnvironmentOptions2,
         ICoreWebView2EnvironmentOptions2_Impl, ICoreWebView2EnvironmentOptions3,
-        ICoreWebView2EnvironmentOptions3_Impl, ICoreWebView2EnvironmentOptions_Impl,
-        CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
+        ICoreWebView2EnvironmentOptions3_Impl, ICoreWebView2EnvironmentOptions5,
+        ICoreWebView2EnvironmentOptions5_Impl, ICoreWebView2EnvironmentOptions6,
+        ICoreWebView2EnvironmentOptions6_Impl, ICoreWebView2EnvironmentOptions7,
+        ICoreWebView2EnvironmentOptions7_Impl, ICoreWebView2EnvironmentOptions8,
+        ICoreWebView2EnvironmentOptions8_Impl, ICoreWebView2EnvironmentOptions_Impl,
+        COREWEBVIEW2_CHANNEL_SEARCH_KIND, COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE,
+        COREWEBVIEW2_RELEASE_CHANNELS, COREWEBVIEW2_RELEASE_CHANNELS_BETA,
+        COREWEBVIEW2_RELEASE_CHANNELS_CANARY, COREWEBVIEW2_RELEASE_CHANNELS_DEV,
+        COREWEBVIEW2_RELEASE_CHANNELS_STABLE, COREWEBVIEW2_SCROLLBAR_STYLE,
+        COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT, CORE_WEBVIEW_TARGET_PRODUCT_VERSION,
     },
 };
 
@@ -27,7 +35,11 @@ use crate::{
     ICoreWebView2EnvironmentOptions,
     ICoreWebView2EnvironmentOptions2,
     ICoreWebView2EnvironmentOptions3,
-    IFixedEnvironmentOptions4
+    IFixedEnvironmentOptions4,
+    ICoreWebView2EnvironmentOptions5,
+    ICoreWebView2EnvironmentOptions6,
+    ICoreWebView2EnvironmentOptions7,
+    ICoreWebView2EnvironmentOptions8
 )]
 pub struct CoreWebView2EnvironmentOptions {
     additional_browser_arguments: UnsafeCell<String>,
@@ -37,6 +49,11 @@ pub struct CoreWebView2EnvironmentOptions {
     exclusive_user_data_folder_access: UnsafeCell<bool>,
     is_custom_crash_reporting_enabled: UnsafeCell<bool>,
     scheme_registrations: UnsafeCell<Vec<Option<ICoreWebView2CustomSchemeRegistration>>>,
+    enable_tracking_prevention: UnsafeCell<bool>,
+    are_browser_extensions_enabled: UnsafeCell<bool>,
+    channel_search_kind: UnsafeCell<COREWEBVIEW2_CHANNEL_SEARCH_KIND>,
+    release_channels: UnsafeCell<COREWEBVIEW2_RELEASE_CHANNELS>,
+    scroll_bar_style: UnsafeCell<COREWEBVIEW2_SCROLLBAR_STYLE>,
 }
 
 impl Default for CoreWebView2EnvironmentOptions {
@@ -53,6 +70,15 @@ impl Default for CoreWebView2EnvironmentOptions {
             exclusive_user_data_folder_access: false.into(),
             is_custom_crash_reporting_enabled: false.into(),
             scheme_registrations: Vec::new().into(),
+            enable_tracking_prevention: true.into(),
+            are_browser_extensions_enabled: false.into(),
+            channel_search_kind: COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE.into(),
+            release_channels: (COREWEBVIEW2_RELEASE_CHANNELS_BETA
+                | COREWEBVIEW2_RELEASE_CHANNELS_CANARY
+                | COREWEBVIEW2_RELEASE_CHANNELS_DEV
+                | COREWEBVIEW2_RELEASE_CHANNELS_STABLE)
+                .into(),
+            scroll_bar_style: COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT.into(),
         }
     }
 }
@@ -218,6 +244,119 @@ impl CoreWebView2EnvironmentOptions {
         value: Vec<Option<ICoreWebView2CustomSchemeRegistration>>,
     ) {
         *self.scheme_registrations.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions5::EnableTrackingPrevention` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<bool>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn enable_tracking_prevention(&self) -> bool {
+        *self.enable_tracking_prevention.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions5::SetEnableTrackingPrevention` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<bool>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_enable_tracking_prevention(&self, value: bool) {
+        *self.enable_tracking_prevention.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions6::AreBrowserExtensionsEnabled` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<bool>`] as the COM method, but it does not
+    /// write to a mutable pointer for the result.
+    pub unsafe fn are_browser_extensions_enabled(&self) -> bool {
+        *self.are_browser_extensions_enabled.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions6::SetAreBrowserExtensionsEnabled` without
+    /// extra memory copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<bool>`] as the COM method. It takes an
+    /// immutable reference to `self` so that it can be reused in the COM method.
+    pub unsafe fn set_are_browser_extensions_enabled(&self, value: bool) {
+        *self.are_browser_extensions_enabled.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions7::ChannelSearchKind` without extra memory
+    /// copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<COREWEBVIEW2_CHANNEL_SEARCH_KIND>`] as the COM
+    /// method, but it does not write to a mutable pointer for the result.
+    pub unsafe fn channel_search_kind(&self) -> COREWEBVIEW2_CHANNEL_SEARCH_KIND {
+        *self.channel_search_kind.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions7::SetChannelSearchKind` without extra memory
+    /// copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<COREWEBVIEW2_CHANNEL_SEARCH_KIND>`] as the COM
+    /// method. It takes an immutable reference to `self` so that it can be reused in the COM
+    /// method.
+    pub unsafe fn set_channel_search_kind(&self, value: COREWEBVIEW2_CHANNEL_SEARCH_KIND) {
+        *self.channel_search_kind.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions7::ReleaseChannels` without extra memory
+    /// copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<COREWEBVIEW2_RELEASE_CHANNELS>`] as the COM
+    /// method, but it does not write to a mutable pointer for the result.
+    pub unsafe fn release_channels(&self) -> COREWEBVIEW2_RELEASE_CHANNELS {
+        *self.release_channels.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions7::SetReleaseChannels` without extra memory
+    /// copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<COREWEBVIEW2_RELEASE_CHANNELS>`] as the COM
+    /// method. It takes an immutable reference to `self` so that it can be reused in the COM
+    /// method.
+    pub unsafe fn set_release_channels(&self, value: COREWEBVIEW2_RELEASE_CHANNELS) {
+        *self.release_channels.get() = value;
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions8::ScrollBarStyle` without extra memory
+    /// copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method reads from the same [`UnsafeCell<COREWEBVIEW2_SCROLLBAR_STYLE>`] as the COM
+    /// method, but it does not write to a mutable pointer for the result.
+    pub unsafe fn scroll_bar_style(&self) -> COREWEBVIEW2_SCROLLBAR_STYLE {
+        *self.scroll_bar_style.get()
+    }
+
+    /// Equivalent to `ICoreWebView2EnvironmentOptions8::SetScrollBarStyle` without extra memory
+    /// copies or type conversions.
+    ///
+    /// # Safety
+    ///
+    /// This method writes to the same [`UnsafeCell<COREWEBVIEW2_SCROLLBAR_STYLE>`] as the COM
+    /// method. It takes an immutable reference to `self` so that it can be reused in the COM
+    /// method.
+    pub unsafe fn set_scroll_bar_style(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) {
+        *self.scroll_bar_style.get() = value;
     }
 }
 
@@ -396,6 +535,109 @@ impl IFixedEnvironmentOptions4_Impl for CoreWebView2EnvironmentOptions_Impl {
     }
 }
 
+impl ICoreWebView2EnvironmentOptions5_Impl for CoreWebView2EnvironmentOptions_Impl {
+    #[allow(clippy::not_unsafe_ptr_arg_deref)]
+    fn EnableTrackingPrevention(&self, value: *mut BOOL) -> windows_core::Result<()> {
+        unsafe {
+            let value = value.as_mut().ok_or(Error::from(E_POINTER))?;
+            *value = self.enable_tracking_prevention().into()
+        };
+        Ok(())
+    }
+
+    fn SetEnableTrackingPrevention(
+        &self,
+        value: windows::Win32::Foundation::BOOL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            self.set_enable_tracking_prevention(value.into());
+        }
+        Ok(())
+    }
+}
+
+impl ICoreWebView2EnvironmentOptions6_Impl for CoreWebView2EnvironmentOptions_Impl {
+    #[allow(clippy::not_unsafe_ptr_arg_deref)]
+    fn AreBrowserExtensionsEnabled(&self, value: *mut BOOL) -> windows_core::Result<()> {
+        unsafe {
+            let value = value.as_mut().ok_or(Error::from(E_POINTER))?;
+            *value = self.are_browser_extensions_enabled().into()
+        };
+        Ok(())
+    }
+
+    fn SetAreBrowserExtensionsEnabled(
+        &self,
+        value: windows::Win32::Foundation::BOOL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            self.set_are_browser_extensions_enabled(value.into());
+        }
+        Ok(())
+    }
+}
+
+impl ICoreWebView2EnvironmentOptions7_Impl for CoreWebView2EnvironmentOptions_Impl {
+    #[allow(clippy::not_unsafe_ptr_arg_deref)]
+    fn ChannelSearchKind(
+        &self,
+        value: *mut COREWEBVIEW2_CHANNEL_SEARCH_KIND,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            let value = value.as_mut().ok_or(Error::from(E_POINTER))?;
+            *value = self.channel_search_kind()
+        };
+        Ok(())
+    }
+
+    fn SetChannelSearchKind(
+        &self,
+        value: COREWEBVIEW2_CHANNEL_SEARCH_KIND,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            self.set_channel_search_kind(value);
+        }
+        Ok(())
+    }
+
+    #[allow(clippy::not_unsafe_ptr_arg_deref)]
+    fn ReleaseChannels(
+        &self,
+        value: *mut COREWEBVIEW2_RELEASE_CHANNELS,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            let value = value.as_mut().ok_or(Error::from(E_POINTER))?;
+            *value = self.release_channels()
+        };
+        Ok(())
+    }
+
+    fn SetReleaseChannels(&self, value: COREWEBVIEW2_RELEASE_CHANNELS) -> windows_core::Result<()> {
+        unsafe {
+            self.set_release_channels(value);
+        }
+        Ok(())
+    }
+}
+
+impl ICoreWebView2EnvironmentOptions8_Impl for CoreWebView2EnvironmentOptions_Impl {
+    #[allow(clippy::not_unsafe_ptr_arg_deref)]
+    fn ScrollBarStyle(&self, value: *mut COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()> {
+        unsafe {
+            let value = value.as_mut().ok_or(Error::from(E_POINTER))?;
+            *value = self.scroll_bar_style()
+        };
+        Ok(())
+    }
+
+    fn SetScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()> {
+        unsafe {
+            self.set_scroll_bar_style(value);
+        }
+        Ok(())
+    }
+}
+
 #[implement(ICoreWebView2CustomSchemeRegistration)]
 pub struct CoreWebView2CustomSchemeRegistration {
     scheme_name: String,
@@ -569,10 +811,13 @@ impl ICoreWebView2CustomSchemeRegistration_Impl for CoreWebView2CustomSchemeRegi
 
 #[cfg(test)]
 mod test {
-    use std::ptr;
+    use std::{collections::BTreeSet, ptr};
 
+    use regex::Regex;
     use windows::Win32::System::Com::CoTaskMemFree;
     use windows_core::w;
+
+    use webview2_com_sys::declared_interfaces;
 
     use crate::{
         pwstr::take_pwstr,
@@ -582,6 +827,44 @@ mod test {
     };
 
     use super::*;
+
+    #[test]
+    fn all_implemented() {
+        let contents = include_str!("options.rs");
+        let pattern =
+            Regex::new(r#"(ICoreWebView2EnvironmentOptions[0-9]*)"#).expect("valid regex");
+        let implemented: BTreeSet<&str> = contents
+            .lines()
+            .filter_map(|line| pattern.captures(line))
+            .filter_map(|captures| captures.get(1))
+            .map(|match_1| match_1.as_str())
+            .collect();
+        let all_declared_options = declared_interfaces::all_declared_options();
+        let missing: Vec<_> = all_declared_options
+            .iter()
+            .filter_map(|name| {
+                if implemented.contains(name) {
+                    None
+                } else {
+                    Some(name.to_string())
+                }
+            })
+            .collect();
+        let extra: Vec<_> = implemented
+            .iter()
+            .filter_map(|name| {
+                if all_declared_options.contains(name) {
+                    None
+                } else {
+                    Some(name.to_string())
+                }
+            })
+            .collect();
+        assert!(
+            missing.is_empty() && extra.is_empty(),
+            "missing: {missing:?}\nextra: {extra:?}"
+        );
+    }
 
     #[test]
     fn additional_arguments() {
