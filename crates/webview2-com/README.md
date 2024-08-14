@@ -16,7 +16,7 @@ Most of the bindings are re-exported transparently from `webview2-com-sys`, and 
 ## Convenience Types
 Most of the code added by this crate consists of convenience types to implement COM interfaces that are required for callbacks and setting options:
 - [callback.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/callback.rs): Implements all of the event sink handler interfaces used by WebView2.
-- [options.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/options.rs): Implements the `ICoreWebView2EnvironmentOptions` interface which is passed to `CreateCoreWebView2EnvironmentWithOptions` if you want to customize the environment.
+- [options.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/options.rs): Implements the `ICoreWebView2EnvironmentOptions...` interfaces which are passed to `CreateCoreWebView2EnvironmentWithOptions` if you want to customize the environment. The `CoreWebView2EnvironmentOptions` struct has public accessors for all supported fields with Rust types, so you do not need to use the separate `ICoreWebView2EnvironmentOptions...` COM interfaces to initialize or retrieve them.
 
 There are also some utilities for dealing with `PWSTR` in/out-params that may be useful:
 - [pwstr.rs](https://github.com/wravery/webview2-rs/blob/main/crates/webview2-com/src/pwstr.rs): `string_from_pcwstr`, `take_pwstr`, and `pwstr_from_str`.
