@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com"
-version = "0.32.0"
+version = "0.33.0"
 edition = "2021"
 rust-version = "1.61"
 description = "Rust bindings for the WebView2 COM APIs"
@@ -19,7 +19,7 @@ targets = [
 ]
 
 [dependencies]
-webview2-com-sys = "0.32"
+webview2-com-sys = "0.33"
 webview2-com-macros = "0.8"
 windows-core = "0.58"
 windows-implement = "0.58"
