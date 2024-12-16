@@ -1384,7 +1384,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    id: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1392,7 +1392,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        id.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -1781,10 +1781,10 @@ pub mod Web {
                 windows_core::IUnknown
             );
             impl ICoreWebView2BrowserExtensionList {
-                pub unsafe fn Count(&self, count: *mut u32) -> windows_core::Result<()> {
+                pub unsafe fn Count(&self, value: *mut u32) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Count)(
                         windows_core::Interface::as_raw(self),
-                        count,
+                        value,
                     )
                     .ok()
                 }
@@ -1868,11 +1868,11 @@ pub mod Web {
             impl ICoreWebView2BrowserProcessExitedEventArgs {
                 pub unsafe fn BrowserProcessExitKind(
                     &self,
-                    browserprocessexitkind: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND,
+                    value: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).BrowserProcessExitKind)(
                         windows_core::Interface::as_raw(self),
-                        browserprocessexitkind,
+                        value,
                     )
                     .ok()
                 }
@@ -2001,7 +2001,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    returnobjectasjson: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -2009,7 +2009,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        returnobjectasjson.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -3146,21 +3146,18 @@ pub mod Web {
             impl ICoreWebView2ContentLoadingEventArgs {
                 pub unsafe fn IsErrorPage(
                     &self,
-                    iserrorpage: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).IsErrorPage)(
                         windows_core::Interface::as_raw(self),
-                        iserrorpage,
+                        value,
                     )
                     .ok()
                 }
-                pub unsafe fn NavigationId(
-                    &self,
-                    navigationid: *mut u64,
-                ) -> windows_core::Result<()> {
+                pub unsafe fn NavigationId(&self, value: *mut u64) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).NavigationId)(
                         windows_core::Interface::as_raw(self),
-                        navigationid,
+                        value,
                     )
                     .ok()
                 }
@@ -4282,21 +4279,21 @@ pub mod Web {
             impl ICoreWebView2Controller2 {
                 pub unsafe fn DefaultBackgroundColor(
                     &self,
-                    backgroundcolor: *mut COREWEBVIEW2_COLOR,
+                    value: *mut COREWEBVIEW2_COLOR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).DefaultBackgroundColor)(
                         windows_core::Interface::as_raw(self),
-                        backgroundcolor,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn SetDefaultBackgroundColor(
                     &self,
-                    backgroundcolor: COREWEBVIEW2_COLOR,
+                    value: COREWEBVIEW2_COLOR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).SetDefaultBackgroundColor)(
                         windows_core::Interface::as_raw(self),
-                        core::mem::transmute(backgroundcolor),
+                        core::mem::transmute(value),
                     )
                     .ok()
                 }
@@ -4617,21 +4614,21 @@ pub mod Web {
             impl ICoreWebView2ControllerOptions2 {
                 pub unsafe fn ScriptLocale(
                     &self,
-                    locale: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).ScriptLocale)(
                         windows_core::Interface::as_raw(self),
-                        locale,
+                        value,
                     )
                     .ok()
                 }
-                pub unsafe fn SetScriptLocale<P0>(&self, locale: P0) -> windows_core::Result<()>
+                pub unsafe fn SetScriptLocale<P0>(&self, value: P0) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
                 {
                     (windows_core::Interface::vtable(self).SetScriptLocale)(
                         windows_core::Interface::as_raw(self),
-                        locale.param().abi(),
+                        value.param().abi(),
                     )
                     .ok()
                 }
@@ -4875,10 +4872,10 @@ pub mod Web {
                 windows_core::IUnknown
             );
             impl ICoreWebView2CookieList {
-                pub unsafe fn Count(&self, count: *mut u32) -> windows_core::Result<()> {
+                pub unsafe fn Count(&self, value: *mut u32) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Count)(
                         windows_core::Interface::as_raw(self),
-                        count,
+                        value,
                     )
                     .ok()
                 }
@@ -5109,7 +5106,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    webview: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2CompositionController>,
@@ -5117,7 +5114,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        webview.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -5150,7 +5147,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    createdcontroller: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2Controller>,
@@ -5158,7 +5155,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        createdcontroller.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -5191,7 +5188,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    createdenvironment: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2Environment>,
@@ -5199,7 +5196,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        createdenvironment.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -5447,13 +5444,10 @@ pub mod Web {
                 windows_core::IUnknown
             );
             impl ICoreWebView2DOMContentLoadedEventArgs {
-                pub unsafe fn NavigationId(
-                    &self,
-                    navigationid: *mut u64,
-                ) -> windows_core::Result<()> {
+                pub unsafe fn NavigationId(&self, value: *mut u64) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).NavigationId)(
                         windows_core::Interface::as_raw(self),
-                        navigationid,
+                        value,
                     )
                     .ok()
                 }
@@ -5553,11 +5547,11 @@ pub mod Web {
             impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
                 pub unsafe fn ParameterObjectAsJson(
                     &self,
-                    parameterobjectasjson: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).ParameterObjectAsJson)(
                         windows_core::Interface::as_raw(self),
-                        parameterobjectasjson,
+                        value,
                     )
                     .ok()
                 }
@@ -5590,11 +5584,11 @@ pub mod Web {
             impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {
                 pub unsafe fn SessionId(
                     &self,
-                    sessionid: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).SessionId)(
                         windows_core::Interface::as_raw(self),
-                        sessionid,
+                        value,
                     )
                     .ok()
                 }
@@ -5667,7 +5661,7 @@ pub mod Web {
             impl ICoreWebView2DevToolsProtocolEventReceiver {
                 pub unsafe fn add_DevToolsProtocolEventReceived<P0>(
                     &self,
-                    handler: P0,
+                    eventhandler: P0,
                     token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
                 ) -> windows_core::Result<()>
                 where
@@ -5675,7 +5669,7 @@ pub mod Web {
                 {
                     (windows_core::Interface::vtable(self).add_DevToolsProtocolEventReceived)(
                         windows_core::Interface::as_raw(self),
-                        handler.param().abi(),
+                        eventhandler.param().abi(),
                         token,
                     )
                     .ok()
@@ -6601,6 +6595,109 @@ pub mod Web {
                 pub GetProcessExtendedInfos: unsafe extern "system" fn(
                     *mut core::ffi::c_void,
                     *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2Environment14,
+                ICoreWebView2Environment14_Vtbl,
+                0xa5e9fad9_c875_59da_9bd7_473aa5ca1cef
+            );
+            impl core::ops::Deref for ICoreWebView2Environment14 {
+                type Target = ICoreWebView2Environment13;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2Environment14,
+                windows_core::IUnknown,
+                ICoreWebView2Environment,
+                ICoreWebView2Environment2,
+                ICoreWebView2Environment3,
+                ICoreWebView2Environment4,
+                ICoreWebView2Environment5,
+                ICoreWebView2Environment6,
+                ICoreWebView2Environment7,
+                ICoreWebView2Environment8,
+                ICoreWebView2Environment9,
+                ICoreWebView2Environment10,
+                ICoreWebView2Environment11,
+                ICoreWebView2Environment12,
+                ICoreWebView2Environment13
+            );
+            impl ICoreWebView2Environment14 {
+                pub unsafe fn CreateWebFileSystemFileHandle<P0>(
+                    &self,
+                    path: P0,
+                    permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                ) -> windows_core::Result<ICoreWebView2FileSystemHandle>
+                where
+                    P0: windows_core::Param<windows_core::PCWSTR>,
+                {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).CreateWebFileSystemFileHandle)(
+                        windows_core::Interface::as_raw(self),
+                        path.param().abi(),
+                        permission,
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+                pub unsafe fn CreateWebFileSystemDirectoryHandle<P0>(
+                    &self,
+                    path: P0,
+                    permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                ) -> windows_core::Result<ICoreWebView2FileSystemHandle>
+                where
+                    P0: windows_core::Param<windows_core::PCWSTR>,
+                {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).CreateWebFileSystemDirectoryHandle)(
+                        windows_core::Interface::as_raw(self),
+                        path.param().abi(),
+                        permission,
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+                pub unsafe fn CreateObjectCollection(
+                    &self,
+                    length: u32,
+                    items: *mut Option<windows_core::IUnknown>,
+                    objectcollection: *mut Option<ICoreWebView2ObjectCollection>,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).CreateObjectCollection)(
+                        windows_core::Interface::as_raw(self),
+                        length,
+                        core::mem::transmute(items),
+                        core::mem::transmute(objectcollection),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2Environment14_Vtbl {
+                pub base__: ICoreWebView2Environment13_Vtbl,
+                pub CreateWebFileSystemFileHandle:
+                    unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        windows_core::PCWSTR,
+                        COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                        *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT,
+                pub CreateWebFileSystemDirectoryHandle:
+                    unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        windows_core::PCWSTR,
+                        COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                        *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT,
+                pub CreateObjectCollection: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    u32,
+                    *mut *mut core::ffi::c_void,
+                    *mut *mut core::ffi::c_void,
                 )
                     -> windows_core::HRESULT,
             }
@@ -7662,7 +7759,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    resultobjectasjson: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -7670,7 +7767,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        resultobjectasjson.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -7864,11 +7961,11 @@ pub mod Web {
             impl ICoreWebView2File {
                 pub unsafe fn Path(
                     &self,
-                    path: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Path)(
                         windows_core::Interface::as_raw(self),
-                        path,
+                        value,
                     )
                     .ok()
                 }
@@ -7879,6 +7976,69 @@ pub mod Web {
                 pub Path: unsafe extern "system" fn(
                     *mut core::ffi::c_void,
                     *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2FileSystemHandle,
+                ICoreWebView2FileSystemHandle_Vtbl,
+                0xc65100ac_0de2_5551_a362_23d9bd1d0e1f
+            );
+            impl core::ops::Deref for ICoreWebView2FileSystemHandle {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2FileSystemHandle,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2FileSystemHandle {
+                pub unsafe fn Kind(
+                    &self,
+                    value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Kind)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Path(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Path)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Permission(
+                    &self,
+                    value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Permission)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2FileSystemHandle_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Kind: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND,
+                ) -> windows_core::HRESULT,
+                pub Path: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub Permission: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
                 ) -> windows_core::HRESULT,
             }
             windows_core::imp::define_interface!(
@@ -8367,7 +8527,7 @@ pub mod Web {
             impl ICoreWebView2Frame3 {
                 pub unsafe fn add_PermissionRequested<P0>(
                     &self,
-                    handler: P0,
+                    eventhandler: P0,
                     token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
                 ) -> windows_core::Result<()>
                 where
@@ -8375,7 +8535,7 @@ pub mod Web {
                 {
                     (windows_core::Interface::vtable(self).add_PermissionRequested)(
                         windows_core::Interface::as_raw(self),
-                        handler.param().abi(),
+                        eventhandler.param().abi(),
                         token,
                     )
                     .ok()
@@ -8475,10 +8635,10 @@ pub mod Web {
                 ICoreWebView2Frame4
             );
             impl ICoreWebView2Frame5 {
-                pub unsafe fn FrameId(&self, id: *mut u32) -> windows_core::Result<()> {
+                pub unsafe fn FrameId(&self, value: *mut u32) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).FrameId)(
                         windows_core::Interface::as_raw(self),
-                        id,
+                        value,
                     )
                     .ok()
                 }
@@ -8490,6 +8650,68 @@ pub mod Web {
                     *mut core::ffi::c_void,
                     *mut u32,
                 ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2Frame6,
+                ICoreWebView2Frame6_Vtbl,
+                0x0de611fd_31e9_5ddc_9d71_95eda26eff32
+            );
+            impl core::ops::Deref for ICoreWebView2Frame6 {
+                type Target = ICoreWebView2Frame5;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2Frame6,
+                windows_core::IUnknown,
+                ICoreWebView2Frame,
+                ICoreWebView2Frame2,
+                ICoreWebView2Frame3,
+                ICoreWebView2Frame4,
+                ICoreWebView2Frame5
+            );
+            impl ICoreWebView2Frame6 {
+                pub unsafe fn add_ScreenCaptureStarting<P0>(
+                    &self,
+                    eventhandler: P0,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2FrameScreenCaptureStartingEventHandler>,
+                {
+                    (windows_core::Interface::vtable(self).add_ScreenCaptureStarting)(
+                        windows_core::Interface::as_raw(self),
+                        eventhandler.param().abi(),
+                        token,
+                    )
+                    .ok()
+                }
+                pub unsafe fn remove_ScreenCaptureStarting(
+                    &self,
+                    token: windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).remove_ScreenCaptureStarting)(
+                        windows_core::Interface::as_raw(self),
+                        core::mem::transmute(token),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2Frame6_Vtbl {
+                pub base__: ICoreWebView2Frame5_Vtbl,
+                pub add_ScreenCaptureStarting: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+                pub remove_ScreenCaptureStarting:
+                    unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT,
             }
             windows_core::imp::define_interface!(
                 ICoreWebView2FrameContentLoadingEventHandler,
@@ -8707,21 +8929,21 @@ pub mod Web {
             impl ICoreWebView2FrameInfo {
                 pub unsafe fn Name(
                     &self,
-                    name: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Name)(
                         windows_core::Interface::as_raw(self),
-                        name,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn Source(
                     &self,
-                    source: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Source)(
                         windows_core::Interface::as_raw(self),
-                        source,
+                        value,
                     )
                     .ok()
                 }
@@ -8855,11 +9077,11 @@ pub mod Web {
             impl ICoreWebView2FrameInfoCollectionIterator {
                 pub unsafe fn HasCurrent(
                     &self,
-                    hascurrent: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).HasCurrent)(
                         windows_core::Interface::as_raw(self),
-                        hascurrent,
+                        value,
                     )
                     .ok()
                 }
@@ -8873,11 +9095,11 @@ pub mod Web {
                 }
                 pub unsafe fn MoveNext(
                     &self,
-                    hasnext: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).MoveNext)(
                         windows_core::Interface::as_raw(self),
-                        hasnext,
+                        value,
                     )
                     .ok()
                 }
@@ -9067,6 +9289,48 @@ pub mod Web {
                 ) -> windows_core::HRESULT,
             }
             windows_core::imp::define_interface!(
+                ICoreWebView2FrameScreenCaptureStartingEventHandler,
+                ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl,
+                0xa6c1d8ad_bb80_59c5_895b_fba1698b9309
+            );
+            impl core::ops::Deref for ICoreWebView2FrameScreenCaptureStartingEventHandler {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2FrameScreenCaptureStartingEventHandler,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2FrameScreenCaptureStartingEventHandler {
+                pub unsafe fn Invoke<P0, P1>(
+                    &self,
+                    sender: P0,
+                    args: P1,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2Frame>,
+                    P1: windows_core::Param<ICoreWebView2ScreenCaptureStartingEventArgs>,
+                {
+                    (windows_core::Interface::vtable(self).Invoke)(
+                        windows_core::Interface::as_raw(self),
+                        sender.param().abi(),
+                        args.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Invoke: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
                 ICoreWebView2FrameWebMessageReceivedEventHandler,
                 ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl,
                 0xe371e005_6d1d_4517_934b_a8f1629c62a5
@@ -9126,16 +9390,16 @@ pub mod Web {
             impl ICoreWebView2GetCookiesCompletedHandler {
                 pub unsafe fn Invoke<P0>(
                     &self,
-                    result: windows_core::HRESULT,
-                    cookielist: P0,
+                    errorcode: windows_core::HRESULT,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2CookieList>,
                 {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
-                        result,
-                        cookielist.param().abi(),
+                        errorcode,
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -9168,7 +9432,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    faviconstream: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::System::Com::IStream>,
@@ -9176,7 +9440,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        faviconstream.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -9209,7 +9473,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    collectionview: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2PermissionSettingCollectionView>,
@@ -9217,7 +9481,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        collectionview.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -9250,7 +9514,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    value: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2ProcessExtendedInfoCollection>,
@@ -9258,7 +9522,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        value.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -9431,7 +9695,7 @@ pub mod Web {
                 pub unsafe fn Contains<P0>(
                     &self,
                     name: P0,
-                    contains: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -9439,7 +9703,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Contains)(
                         windows_core::Interface::as_raw(self),
                         name.param().abi(),
-                        contains,
+                        value,
                     )
                     .ok()
                 }
@@ -9550,7 +9814,7 @@ pub mod Web {
                 pub unsafe fn Contains<P0>(
                     &self,
                     name: P0,
-                    contains: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -9558,7 +9822,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Contains)(
                         windows_core::Interface::as_raw(self),
                         name.param().abi(),
-                        contains,
+                        value,
                     )
                     .ok()
                 }
@@ -10095,13 +10359,10 @@ pub mod Web {
                 ICoreWebView2NavigationCompletedEventArgs
             );
             impl ICoreWebView2NavigationCompletedEventArgs2 {
-                pub unsafe fn HttpStatusCode(
-                    &self,
-                    http_status_code: *mut i32,
-                ) -> windows_core::Result<()> {
+                pub unsafe fn HttpStatusCode(&self, value: *mut i32) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).HttpStatusCode)(
                         windows_core::Interface::as_raw(self),
-                        http_status_code,
+                        value,
                     )
                     .ok()
                 }
@@ -10355,11 +10616,11 @@ pub mod Web {
             impl ICoreWebView2NavigationStartingEventArgs3 {
                 pub unsafe fn NavigationKind(
                     &self,
-                    navigation_kind: *mut COREWEBVIEW2_NAVIGATION_KIND,
+                    value: *mut COREWEBVIEW2_NAVIGATION_KIND,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).NavigationKind)(
                         windows_core::Interface::as_raw(self),
-                        navigation_kind,
+                        value,
                     )
                     .ok()
                 }
@@ -10784,6 +11045,501 @@ pub mod Web {
                 ) -> windows_core::HRESULT,
             }
             windows_core::imp::define_interface!(
+                ICoreWebView2Notification,
+                ICoreWebView2Notification_Vtbl,
+                0xb7434d98_6bc8_419d_9da5_fb5a96d4dacd
+            );
+            impl core::ops::Deref for ICoreWebView2Notification {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2Notification,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2Notification {
+                pub unsafe fn add_CloseRequested<P0>(
+                    &self,
+                    eventhandler: P0,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2NotificationCloseRequestedEventHandler>,
+                {
+                    (windows_core::Interface::vtable(self).add_CloseRequested)(
+                        windows_core::Interface::as_raw(self),
+                        eventhandler.param().abi(),
+                        token,
+                    )
+                    .ok()
+                }
+                pub unsafe fn remove_CloseRequested(
+                    &self,
+                    token: windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).remove_CloseRequested)(
+                        windows_core::Interface::as_raw(self),
+                        core::mem::transmute(token),
+                    )
+                    .ok()
+                }
+                pub unsafe fn ReportShown(&self) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).ReportShown)(
+                        windows_core::Interface::as_raw(self),
+                    )
+                    .ok()
+                }
+                pub unsafe fn ReportClicked(&self) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).ReportClicked)(
+                        windows_core::Interface::as_raw(self),
+                    )
+                    .ok()
+                }
+                pub unsafe fn ReportClosed(&self) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).ReportClosed)(
+                        windows_core::Interface::as_raw(self),
+                    )
+                    .ok()
+                }
+                pub unsafe fn Body(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Body)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Direction(
+                    &self,
+                    value: *mut COREWEBVIEW2_TEXT_DIRECTION_KIND,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Direction)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Language(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Language)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Tag(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Tag)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn IconUri(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).IconUri)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Title(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Title)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn BadgeUri(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).BadgeUri)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn BodyImageUri(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).BodyImageUri)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn ShouldRenotify(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).ShouldRenotify)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn RequiresInteraction(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).RequiresInteraction)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn IsSilent(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).IsSilent)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Timestamp(&self, value: *mut f64) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Timestamp)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn GetVibrationPattern(
+                    &self,
+                    count: *mut u32,
+                    vibrationpattern: *mut *mut u64,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).GetVibrationPattern)(
+                        windows_core::Interface::as_raw(self),
+                        count,
+                        vibrationpattern,
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2Notification_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub add_CloseRequested: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+                pub remove_CloseRequested: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+                pub ReportShown:
+                    unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+                pub ReportClicked:
+                    unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+                pub ReportClosed:
+                    unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+                pub Body: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub Direction: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut COREWEBVIEW2_TEXT_DIRECTION_KIND,
+                ) -> windows_core::HRESULT,
+                pub Language: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub Tag: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub IconUri: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub Title: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub BadgeUri: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub BodyImageUri: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                )
+                    -> windows_core::HRESULT,
+                pub ShouldRenotify: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub RequiresInteraction: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub IsSilent: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub Timestamp: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut f64,
+                ) -> windows_core::HRESULT,
+                pub GetVibrationPattern: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut u32,
+                    *mut *mut u64,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2NotificationCloseRequestedEventHandler,
+                ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl,
+                0x47c32d23_1e94_4733_85f1_d9bf4acd0974
+            );
+            impl core::ops::Deref for ICoreWebView2NotificationCloseRequestedEventHandler {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2NotificationCloseRequestedEventHandler,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2NotificationCloseRequestedEventHandler {
+                pub unsafe fn Invoke<P0, P1>(
+                    &self,
+                    sender: P0,
+                    args: P1,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2Notification>,
+                    P1: windows_core::Param<windows_core::IUnknown>,
+                {
+                    (windows_core::Interface::vtable(self).Invoke)(
+                        windows_core::Interface::as_raw(self),
+                        sender.param().abi(),
+                        args.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Invoke: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2NotificationReceivedEventArgs,
+                ICoreWebView2NotificationReceivedEventArgs_Vtbl,
+                0x1512dd5b_5514_4f85_886e_21c3a4c9cfe6
+            );
+            impl core::ops::Deref for ICoreWebView2NotificationReceivedEventArgs {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2NotificationReceivedEventArgs,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2NotificationReceivedEventArgs {
+                pub unsafe fn SenderOrigin(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).SenderOrigin)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Notification(
+                    &self,
+                ) -> windows_core::Result<ICoreWebView2Notification> {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).Notification)(
+                        windows_core::Interface::as_raw(self),
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+                pub unsafe fn SetHandled<P0>(&self, value: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetHandled)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn Handled(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Handled)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).GetDeferral)(
+                        windows_core::Interface::as_raw(self),
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2NotificationReceivedEventArgs_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub SenderOrigin: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                )
+                    -> windows_core::HRESULT,
+                pub Notification: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+                pub SetHandled: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub Handled: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub GetDeferral: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2NotificationReceivedEventHandler,
+                ICoreWebView2NotificationReceivedEventHandler_Vtbl,
+                0x89c5d598_8788_423b_be97_e6e01c0f9ee3
+            );
+            impl core::ops::Deref for ICoreWebView2NotificationReceivedEventHandler {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2NotificationReceivedEventHandler,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2NotificationReceivedEventHandler {
+                pub unsafe fn Invoke<P0, P1>(
+                    &self,
+                    sender: P0,
+                    args: P1,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2>,
+                    P1: windows_core::Param<ICoreWebView2NotificationReceivedEventArgs>,
+                {
+                    (windows_core::Interface::vtable(self).Invoke)(
+                        windows_core::Interface::as_raw(self),
+                        sender.param().abi(),
+                        args.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2NotificationReceivedEventHandler_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Invoke: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2ObjectCollection,
+                ICoreWebView2ObjectCollection_Vtbl,
+                0x5cfec11c_25bd_4e8d_9e1a_7acdaeeec047
+            );
+            impl core::ops::Deref for ICoreWebView2ObjectCollection {
+                type Target = ICoreWebView2ObjectCollectionView;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2ObjectCollection,
+                windows_core::IUnknown,
+                ICoreWebView2ObjectCollectionView
+            );
+            impl ICoreWebView2ObjectCollection {
+                pub unsafe fn RemoveValueAtIndex(&self, index: u32) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).RemoveValueAtIndex)(
+                        windows_core::Interface::as_raw(self),
+                        index,
+                    )
+                    .ok()
+                }
+                pub unsafe fn InsertValueAtIndex<P0>(
+                    &self,
+                    index: u32,
+                    value: P0,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows_core::IUnknown>,
+                {
+                    (windows_core::Interface::vtable(self).InsertValueAtIndex)(
+                        windows_core::Interface::as_raw(self),
+                        index,
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2ObjectCollection_Vtbl {
+                pub base__: ICoreWebView2ObjectCollectionView_Vtbl,
+                pub RemoveValueAtIndex:
+                    unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+                pub InsertValueAtIndex: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    u32,
+                    *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
                 ICoreWebView2ObjectCollectionView,
                 ICoreWebView2ObjectCollectionView_Vtbl,
                 0x0f36fd87_4f69_4415_98da_888f89fb9a33
@@ -10958,21 +11714,21 @@ pub mod Web {
             impl ICoreWebView2PermissionRequestedEventArgs2 {
                 pub unsafe fn Handled(
                     &self,
-                    handled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Handled)(
                         windows_core::Interface::as_raw(self),
-                        handled,
+                        value,
                     )
                     .ok()
                 }
-                pub unsafe fn SetHandled<P0>(&self, handled: P0) -> windows_core::Result<()>
+                pub unsafe fn SetHandled<P0>(&self, value: P0) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
                 {
                     (windows_core::Interface::vtable(self).SetHandled)(
                         windows_core::Interface::as_raw(self),
-                        handled.param().abi(),
+                        value.param().abi(),
                     )
                     .ok()
                 }
@@ -11934,12 +12690,12 @@ pub mod Web {
                 pub unsafe fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    printstatus: COREWEBVIEW2_PRINT_STATUS,
+                    result: COREWEBVIEW2_PRINT_STATUS,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        printstatus,
+                        result,
                     )
                     .ok()
                 }
@@ -12573,7 +13329,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    issuccessful: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
@@ -12581,7 +13337,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        issuccessful.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -12614,7 +13370,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    pdfstream: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::System::Com::IStream>,
@@ -12622,7 +13378,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        pdfstream.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -12701,10 +13457,10 @@ pub mod Web {
                 windows_core::IUnknown
             );
             impl ICoreWebView2ProcessExtendedInfoCollection {
-                pub unsafe fn Count(&self, count: *mut u32) -> windows_core::Result<()> {
+                pub unsafe fn Count(&self, value: *mut u32) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Count)(
                         windows_core::Interface::as_raw(self),
-                        count,
+                        value,
                     )
                     .ok()
                 }
@@ -12753,11 +13509,11 @@ pub mod Web {
             impl ICoreWebView2ProcessFailedEventArgs {
                 pub unsafe fn ProcessFailedKind(
                     &self,
-                    processfailedkind: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
+                    value: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).ProcessFailedKind)(
                         windows_core::Interface::as_raw(self),
-                        processfailedkind,
+                        value,
                     )
                     .ok()
                 }
@@ -12990,10 +13746,10 @@ pub mod Web {
                 windows_core::IUnknown
             );
             impl ICoreWebView2ProcessInfoCollection {
-                pub unsafe fn Count(&self, count: *mut u32) -> windows_core::Result<()> {
+                pub unsafe fn Count(&self, value: *mut u32) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Count)(
                         windows_core::Interface::as_raw(self),
-                        count,
+                        value,
                     )
                     .ok()
                 }
@@ -13357,7 +14113,7 @@ pub mod Web {
                     permissionkind: COREWEBVIEW2_PERMISSION_KIND,
                     origin: P0,
                     state: COREWEBVIEW2_PERMISSION_STATE,
-                    completedhandler: P1,
+                    handler: P1,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -13368,13 +14124,13 @@ pub mod Web {
                         permissionkind,
                         origin.param().abi(),
                         state,
-                        completedhandler.param().abi(),
+                        handler.param().abi(),
                     )
                     .ok()
                 }
                 pub unsafe fn GetNonDefaultPermissionSettings<P0>(
                     &self,
-                    completedhandler: P0,
+                    handler: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<
@@ -13383,7 +14139,7 @@ pub mod Web {
                 {
                     (windows_core::Interface::vtable(self).GetNonDefaultPermissionSettings)(
                         windows_core::Interface::as_raw(self),
-                        completedhandler.param().abi(),
+                        handler.param().abi(),
                     )
                     .ok()
                 }
@@ -13699,7 +14455,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    extension: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2BrowserExtension>,
@@ -13707,7 +14463,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        extension.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -13782,7 +14538,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    extensionlist: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<ICoreWebView2BrowserExtensionList>,
@@ -13790,7 +14546,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        extensionlist.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -13895,6 +14651,575 @@ pub mod Web {
                     *mut windows::Win32::Foundation::RECT,
                 )
                     -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2SaveAsUIShowingEventArgs,
+                ICoreWebView2SaveAsUIShowingEventArgs_Vtbl,
+                0x55902952_0e0d_5aaa_a7d0_e833cdb34f62
+            );
+            impl core::ops::Deref for ICoreWebView2SaveAsUIShowingEventArgs {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2SaveAsUIShowingEventArgs,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2SaveAsUIShowingEventArgs {
+                pub unsafe fn ContentMimeType(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).ContentMimeType)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetCancel<P0>(&self, value: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetCancel)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn Cancel(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Cancel)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetSuppressDefaultDialog<P0>(
+                    &self,
+                    value: P0,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetSuppressDefaultDialog)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn SuppressDefaultDialog(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).SuppressDefaultDialog)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).GetDeferral)(
+                        windows_core::Interface::as_raw(self),
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+                pub unsafe fn SetSaveAsFilePath<P0>(&self, value: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows_core::PCWSTR>,
+                {
+                    (windows_core::Interface::vtable(self).SetSaveAsFilePath)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn SaveAsFilePath(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).SaveAsFilePath)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetAllowReplace<P0>(&self, value: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetAllowReplace)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn AllowReplace(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).AllowReplace)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetKind(
+                    &self,
+                    value: COREWEBVIEW2_SAVE_AS_KIND,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).SetKind)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn Kind(
+                    &self,
+                    value: *mut COREWEBVIEW2_SAVE_AS_KIND,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Kind)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub ContentMimeType: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                )
+                    -> windows_core::HRESULT,
+                pub SetCancel: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub Cancel: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub SetSuppressDefaultDialog: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub SuppressDefaultDialog: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub GetDeferral: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+                pub SetSaveAsFilePath: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows_core::PCWSTR,
+                )
+                    -> windows_core::HRESULT,
+                pub SaveAsFilePath: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                )
+                    -> windows_core::HRESULT,
+                pub SetAllowReplace: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub AllowReplace: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub SetKind: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    COREWEBVIEW2_SAVE_AS_KIND,
+                ) -> windows_core::HRESULT,
+                pub Kind: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut COREWEBVIEW2_SAVE_AS_KIND,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2SaveAsUIShowingEventHandler,
+                ICoreWebView2SaveAsUIShowingEventHandler_Vtbl,
+                0x6baa177e_3a2e_5ccf_9a13_fad676cd0522
+            );
+            impl core::ops::Deref for ICoreWebView2SaveAsUIShowingEventHandler {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2SaveAsUIShowingEventHandler,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2SaveAsUIShowingEventHandler {
+                pub unsafe fn Invoke<P0, P1>(
+                    &self,
+                    sender: P0,
+                    args: P1,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2>,
+                    P1: windows_core::Param<ICoreWebView2SaveAsUIShowingEventArgs>,
+                {
+                    (windows_core::Interface::vtable(self).Invoke)(
+                        windows_core::Interface::as_raw(self),
+                        sender.param().abi(),
+                        args.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Invoke: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2SaveFileSecurityCheckStartingEventArgs,
+                ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl,
+                0xcf4ff1d1_5a67_5660_8d63_ef699881ea65
+            );
+            impl core::ops::Deref for ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2SaveFileSecurityCheckStartingEventArgs,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
+                pub unsafe fn CancelSave(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).CancelSave)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetCancelSave<P0>(&self, value: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetCancelSave)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn DocumentOriginUri(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).DocumentOriginUri)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn FileExtension(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).FileExtension)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn FilePath(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).FilePath)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SuppressDefaultPolicy(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).SuppressDefaultPolicy)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetSuppressDefaultPolicy<P0>(
+                    &self,
+                    value: P0,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetSuppressDefaultPolicy)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).GetDeferral)(
+                        windows_core::Interface::as_raw(self),
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub CancelSave: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub SetCancelSave: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub DocumentOriginUri: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                )
+                    -> windows_core::HRESULT,
+                pub FileExtension: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                )
+                    -> windows_core::HRESULT,
+                pub FilePath: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows_core::PWSTR,
+                ) -> windows_core::HRESULT,
+                pub SuppressDefaultPolicy: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub SetSuppressDefaultPolicy: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                )
+                    -> windows_core::HRESULT,
+                pub GetDeferral: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2SaveFileSecurityCheckStartingEventHandler,
+                ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl,
+                0x7899576c_19e3_57c8_b7d1_55808292de57
+            );
+            impl core::ops::Deref for ICoreWebView2SaveFileSecurityCheckStartingEventHandler {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2SaveFileSecurityCheckStartingEventHandler,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler {
+                pub unsafe fn Invoke<P0, P1>(
+                    &self,
+                    sender: P0,
+                    args: P1,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2>,
+                    P1: windows_core::Param<ICoreWebView2SaveFileSecurityCheckStartingEventArgs>,
+                {
+                    (windows_core::Interface::vtable(self).Invoke)(
+                        windows_core::Interface::as_raw(self),
+                        sender.param().abi(),
+                        args.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Invoke: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2ScreenCaptureStartingEventArgs,
+                ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl,
+                0x892c03fd_aee3_5eba_a1fa_6fd2f6484b2b
+            );
+            impl core::ops::Deref for ICoreWebView2ScreenCaptureStartingEventArgs {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2ScreenCaptureStartingEventArgs,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2ScreenCaptureStartingEventArgs {
+                pub unsafe fn Cancel(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Cancel)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetCancel<P0>(&self, value: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetCancel)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn Handled(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Handled)(
+                        windows_core::Interface::as_raw(self),
+                        value,
+                    )
+                    .ok()
+                }
+                pub unsafe fn SetHandled<P0>(&self, value: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
+                {
+                    (windows_core::Interface::vtable(self).SetHandled)(
+                        windows_core::Interface::as_raw(self),
+                        value.param().abi(),
+                    )
+                    .ok()
+                }
+                pub unsafe fn OriginalSourceFrameInfo(
+                    &self,
+                ) -> windows_core::Result<ICoreWebView2FrameInfo> {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).OriginalSourceFrameInfo)(
+                        windows_core::Interface::as_raw(self),
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+                pub unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
+                    let mut result__ = core::mem::zeroed();
+                    (windows_core::Interface::vtable(self).GetDeferral)(
+                        windows_core::Interface::as_raw(self),
+                        &mut result__,
+                    )
+                    .and_then(|| windows_core::Type::from_abi(result__))
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Cancel: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub SetCancel: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub Handled: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub SetHandled: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::Foundation::BOOL,
+                ) -> windows_core::HRESULT,
+                pub OriginalSourceFrameInfo: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+                pub GetDeferral: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2ScreenCaptureStartingEventHandler,
+                ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl,
+                0xe24ff05a_1db5_59d9_89f3_3c864268db4a
+            );
+            impl core::ops::Deref for ICoreWebView2ScreenCaptureStartingEventHandler {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2ScreenCaptureStartingEventHandler,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2ScreenCaptureStartingEventHandler {
+                pub unsafe fn Invoke<P0, P1>(
+                    &self,
+                    sender: P0,
+                    args: P1,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2>,
+                    P1: windows_core::Param<ICoreWebView2ScreenCaptureStartingEventArgs>,
+                {
+                    (windows_core::Interface::vtable(self).Invoke)(
+                        windows_core::Interface::as_raw(self),
+                        sender.param().abi(),
+                        args.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Invoke: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                ) -> windows_core::HRESULT,
             }
             windows_core::imp::define_interface!(
                 ICoreWebView2ScriptDialogOpeningEventArgs,
@@ -14669,21 +15994,21 @@ pub mod Web {
             impl ICoreWebView2Settings2 {
                 pub unsafe fn UserAgent(
                     &self,
-                    useragent: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).UserAgent)(
                         windows_core::Interface::as_raw(self),
-                        useragent,
+                        value,
                     )
                     .ok()
                 }
-                pub unsafe fn SetUserAgent<P0>(&self, useragent: P0) -> windows_core::Result<()>
+                pub unsafe fn SetUserAgent<P0>(&self, value: P0) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows_core::PCWSTR>,
                 {
                     (windows_core::Interface::vtable(self).SetUserAgent)(
                         windows_core::Interface::as_raw(self),
-                        useragent.param().abi(),
+                        value.param().abi(),
                     )
                     .ok()
                 }
@@ -14721,24 +16046,24 @@ pub mod Web {
             impl ICoreWebView2Settings3 {
                 pub unsafe fn AreBrowserAcceleratorKeysEnabled(
                     &self,
-                    arebrowseracceleratorkeysenabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).AreBrowserAcceleratorKeysEnabled)(
                         windows_core::Interface::as_raw(self),
-                        arebrowseracceleratorkeysenabled,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn SetAreBrowserAcceleratorKeysEnabled<P0>(
                     &self,
-                    arebrowseracceleratorkeysenabled: P0,
+                    value: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
                 {
                     (windows_core::Interface::vtable(self).SetAreBrowserAcceleratorKeysEnabled)(
                         windows_core::Interface::as_raw(self),
-                        arebrowseracceleratorkeysenabled.param().abi(),
+                        value.param().abi(),
                     )
                     .ok()
                 }
@@ -14869,24 +16194,24 @@ pub mod Web {
             impl ICoreWebView2Settings5 {
                 pub unsafe fn IsPinchZoomEnabled(
                     &self,
-                    enabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).IsPinchZoomEnabled)(
                         windows_core::Interface::as_raw(self),
-                        enabled,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn SetIsPinchZoomEnabled<P0>(
                     &self,
-                    enabled: P0,
+                    value: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
                 {
                     (windows_core::Interface::vtable(self).SetIsPinchZoomEnabled)(
                         windows_core::Interface::as_raw(self),
-                        enabled.param().abi(),
+                        value.param().abi(),
                     )
                     .ok()
                 }
@@ -14928,24 +16253,24 @@ pub mod Web {
             impl ICoreWebView2Settings6 {
                 pub unsafe fn IsSwipeNavigationEnabled(
                     &self,
-                    enabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).IsSwipeNavigationEnabled)(
                         windows_core::Interface::as_raw(self),
-                        enabled,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn SetIsSwipeNavigationEnabled<P0>(
                     &self,
-                    enabled: P0,
+                    value: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
                 {
                     (windows_core::Interface::vtable(self).SetIsSwipeNavigationEnabled)(
                         windows_core::Interface::as_raw(self),
-                        enabled.param().abi(),
+                        value.param().abi(),
                     )
                     .ok()
                 }
@@ -14988,21 +16313,21 @@ pub mod Web {
             impl ICoreWebView2Settings7 {
                 pub unsafe fn HiddenPdfToolbarItems(
                     &self,
-                    hidden_pdf_toolbar_items: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
+                    value: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).HiddenPdfToolbarItems)(
                         windows_core::Interface::as_raw(self),
-                        hidden_pdf_toolbar_items,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn SetHiddenPdfToolbarItems(
                     &self,
-                    hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
+                    value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).SetHiddenPdfToolbarItems)(
                         windows_core::Interface::as_raw(self),
-                        hidden_pdf_toolbar_items,
+                        value,
                     )
                     .ok()
                 }
@@ -15108,24 +16433,24 @@ pub mod Web {
             impl ICoreWebView2Settings9 {
                 pub unsafe fn IsNonClientRegionSupportEnabled(
                     &self,
-                    enabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).IsNonClientRegionSupportEnabled)(
                         windows_core::Interface::as_raw(self),
-                        enabled,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn SetIsNonClientRegionSupportEnabled<P0>(
                     &self,
-                    enabled: P0,
+                    value: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
                 {
                     (windows_core::Interface::vtable(self).SetIsNonClientRegionSupportEnabled)(
                         windows_core::Interface::as_raw(self),
-                        enabled.param().abi(),
+                        value.param().abi(),
                     )
                     .ok()
                 }
@@ -15225,6 +16550,44 @@ pub mod Web {
                     unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
             }
             windows_core::imp::define_interface!(
+                ICoreWebView2ShowSaveAsUICompletedHandler,
+                ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl,
+                0xe24b07e3_8169_5c34_994a_7f6478946a3c
+            );
+            impl core::ops::Deref for ICoreWebView2ShowSaveAsUICompletedHandler {
+                type Target = windows_core::IUnknown;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2ShowSaveAsUICompletedHandler,
+                windows_core::IUnknown
+            );
+            impl ICoreWebView2ShowSaveAsUICompletedHandler {
+                pub unsafe fn Invoke(
+                    &self,
+                    errorcode: windows_core::HRESULT,
+                    result: COREWEBVIEW2_SAVE_AS_UI_RESULT,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).Invoke)(
+                        windows_core::Interface::as_raw(self),
+                        errorcode,
+                        result,
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
+                pub base__: windows_core::IUnknown_Vtbl,
+                pub Invoke: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows_core::HRESULT,
+                    COREWEBVIEW2_SAVE_AS_UI_RESULT,
+                ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
                 ICoreWebView2SourceChangedEventArgs,
                 ICoreWebView2SourceChangedEventArgs_Vtbl,
                 0x31e0e545_1dba_4266_8914_f63848a1f7d7
@@ -15242,11 +16605,11 @@ pub mod Web {
             impl ICoreWebView2SourceChangedEventArgs {
                 pub unsafe fn IsNewDocument(
                     &self,
-                    isnewdocument: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).IsNewDocument)(
                         windows_core::Interface::as_raw(self),
-                        isnewdocument,
+                        value,
                     )
                     .ok()
                 }
@@ -15455,7 +16818,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    issuccessful: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::Foundation::BOOL>,
@@ -15463,7 +16826,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        issuccessful.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -15495,31 +16858,31 @@ pub mod Web {
             impl ICoreWebView2WebMessageReceivedEventArgs {
                 pub unsafe fn Source(
                     &self,
-                    source: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).Source)(
                         windows_core::Interface::as_raw(self),
-                        source,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn WebMessageAsJson(
                     &self,
-                    webmessageasjson: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).WebMessageAsJson)(
                         windows_core::Interface::as_raw(self),
-                        webmessageasjson,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn TryGetWebMessageAsString(
                     &self,
-                    webmessageasstring: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).TryGetWebMessageAsString)(
                         windows_core::Interface::as_raw(self),
-                        webmessageasstring,
+                        value,
                     )
                     .ok()
                 }
@@ -15851,11 +17214,11 @@ pub mod Web {
             impl ICoreWebView2WebResourceRequestedEventArgs2 {
                 pub unsafe fn RequestedSourceKind(
                     &self,
-                    requestedsourcekind: *mut COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+                    value: *mut COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).RequestedSourceKind)(
                         windows_core::Interface::as_raw(self),
-                        requestedsourcekind,
+                        value,
                     )
                     .ok()
                 }
@@ -16214,7 +17577,7 @@ pub mod Web {
                 pub unsafe fn Invoke<P0>(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    content: P0,
+                    result: P0,
                 ) -> windows_core::Result<()>
                 where
                     P0: windows_core::Param<windows::Win32::System::Com::IStream>,
@@ -16222,7 +17585,7 @@ pub mod Web {
                     (windows_core::Interface::vtable(self).Invoke)(
                         windows_core::Interface::as_raw(self),
                         errorcode,
-                        content.param().abi(),
+                        result.param().abi(),
                     )
                     .ok()
                 }
@@ -17230,21 +18593,21 @@ pub mod Web {
             impl ICoreWebView2_19 {
                 pub unsafe fn MemoryUsageTargetLevel(
                     &self,
-                    level: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+                    value: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).MemoryUsageTargetLevel)(
                         windows_core::Interface::as_raw(self),
-                        level,
+                        value,
                     )
                     .ok()
                 }
                 pub unsafe fn SetMemoryUsageTargetLevel(
                     &self,
-                    level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+                    value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
                 ) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).SetMemoryUsageTargetLevel)(
                         windows_core::Interface::as_raw(self),
-                        level,
+                        value,
                     )
                     .ok()
                 }
@@ -17438,10 +18801,10 @@ pub mod Web {
                 ICoreWebView2_19
             );
             impl ICoreWebView2_20 {
-                pub unsafe fn FrameId(&self, id: *mut u32) -> windows_core::Result<()> {
+                pub unsafe fn FrameId(&self, value: *mut u32) -> windows_core::Result<()> {
                     (windows_core::Interface::vtable(self).FrameId)(
                         windows_core::Interface::as_raw(self),
-                        id,
+                        value,
                     )
                     .ok()
                 }
@@ -17607,6 +18970,413 @@ pub mod Web {
                         windows_core::PCWSTR,
                         COREWEBVIEW2_WEB_RESOURCE_CONTEXT,
                         COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+                    ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2_23,
+                ICoreWebView2_23_Vtbl,
+                0x508f0db5_90c4_5872_90a7_267a91377502
+            );
+            impl core::ops::Deref for ICoreWebView2_23 {
+                type Target = ICoreWebView2_22;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2_23,
+                windows_core::IUnknown,
+                ICoreWebView2,
+                ICoreWebView2_2,
+                ICoreWebView2_3,
+                ICoreWebView2_4,
+                ICoreWebView2_5,
+                ICoreWebView2_6,
+                ICoreWebView2_7,
+                ICoreWebView2_8,
+                ICoreWebView2_9,
+                ICoreWebView2_10,
+                ICoreWebView2_11,
+                ICoreWebView2_12,
+                ICoreWebView2_13,
+                ICoreWebView2_14,
+                ICoreWebView2_15,
+                ICoreWebView2_16,
+                ICoreWebView2_17,
+                ICoreWebView2_18,
+                ICoreWebView2_19,
+                ICoreWebView2_20,
+                ICoreWebView2_21,
+                ICoreWebView2_22
+            );
+            impl ICoreWebView2_23 {
+                pub unsafe fn PostWebMessageAsJsonWithAdditionalObjects<P0, P1>(
+                    &self,
+                    webmessageasjson: P0,
+                    additionalobjects: P1,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<windows_core::PCWSTR>,
+                    P1: windows_core::Param<ICoreWebView2ObjectCollectionView>,
+                {
+                    (windows_core::Interface::vtable(self)
+                        .PostWebMessageAsJsonWithAdditionalObjects)(
+                        windows_core::Interface::as_raw(self),
+                        webmessageasjson.param().abi(),
+                        additionalobjects.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2_23_Vtbl {
+                pub base__: ICoreWebView2_22_Vtbl,
+                pub PostWebMessageAsJsonWithAdditionalObjects:
+                    unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        windows_core::PCWSTR,
+                        *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2_24,
+                ICoreWebView2_24_Vtbl,
+                0x39a7ad55_4287_5cc1_88a1_c6f458593824
+            );
+            impl core::ops::Deref for ICoreWebView2_24 {
+                type Target = ICoreWebView2_23;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2_24,
+                windows_core::IUnknown,
+                ICoreWebView2,
+                ICoreWebView2_2,
+                ICoreWebView2_3,
+                ICoreWebView2_4,
+                ICoreWebView2_5,
+                ICoreWebView2_6,
+                ICoreWebView2_7,
+                ICoreWebView2_8,
+                ICoreWebView2_9,
+                ICoreWebView2_10,
+                ICoreWebView2_11,
+                ICoreWebView2_12,
+                ICoreWebView2_13,
+                ICoreWebView2_14,
+                ICoreWebView2_15,
+                ICoreWebView2_16,
+                ICoreWebView2_17,
+                ICoreWebView2_18,
+                ICoreWebView2_19,
+                ICoreWebView2_20,
+                ICoreWebView2_21,
+                ICoreWebView2_22,
+                ICoreWebView2_23
+            );
+            impl ICoreWebView2_24 {
+                pub unsafe fn add_NotificationReceived<P0>(
+                    &self,
+                    eventhandler: P0,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2NotificationReceivedEventHandler>,
+                {
+                    (windows_core::Interface::vtable(self).add_NotificationReceived)(
+                        windows_core::Interface::as_raw(self),
+                        eventhandler.param().abi(),
+                        token,
+                    )
+                    .ok()
+                }
+                pub unsafe fn remove_NotificationReceived(
+                    &self,
+                    token: windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).remove_NotificationReceived)(
+                        windows_core::Interface::as_raw(self),
+                        core::mem::transmute(token),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2_24_Vtbl {
+                pub base__: ICoreWebView2_23_Vtbl,
+                pub add_NotificationReceived: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+                pub remove_NotificationReceived: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2_25,
+                ICoreWebView2_25_Vtbl,
+                0xb5a86092_df50_5b4f_a17b_6c8f8b40b771
+            );
+            impl core::ops::Deref for ICoreWebView2_25 {
+                type Target = ICoreWebView2_24;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2_25,
+                windows_core::IUnknown,
+                ICoreWebView2,
+                ICoreWebView2_2,
+                ICoreWebView2_3,
+                ICoreWebView2_4,
+                ICoreWebView2_5,
+                ICoreWebView2_6,
+                ICoreWebView2_7,
+                ICoreWebView2_8,
+                ICoreWebView2_9,
+                ICoreWebView2_10,
+                ICoreWebView2_11,
+                ICoreWebView2_12,
+                ICoreWebView2_13,
+                ICoreWebView2_14,
+                ICoreWebView2_15,
+                ICoreWebView2_16,
+                ICoreWebView2_17,
+                ICoreWebView2_18,
+                ICoreWebView2_19,
+                ICoreWebView2_20,
+                ICoreWebView2_21,
+                ICoreWebView2_22,
+                ICoreWebView2_23,
+                ICoreWebView2_24
+            );
+            impl ICoreWebView2_25 {
+                pub unsafe fn add_SaveAsUIShowing<P0>(
+                    &self,
+                    eventhandler: P0,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2SaveAsUIShowingEventHandler>,
+                {
+                    (windows_core::Interface::vtable(self).add_SaveAsUIShowing)(
+                        windows_core::Interface::as_raw(self),
+                        eventhandler.param().abi(),
+                        token,
+                    )
+                    .ok()
+                }
+                pub unsafe fn remove_SaveAsUIShowing(
+                    &self,
+                    token: windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).remove_SaveAsUIShowing)(
+                        windows_core::Interface::as_raw(self),
+                        core::mem::transmute(token),
+                    )
+                    .ok()
+                }
+                pub unsafe fn ShowSaveAsUI<P0>(&self, handler: P0) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2ShowSaveAsUICompletedHandler>,
+                {
+                    (windows_core::Interface::vtable(self).ShowSaveAsUI)(
+                        windows_core::Interface::as_raw(self),
+                        handler.param().abi(),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2_25_Vtbl {
+                pub base__: ICoreWebView2_24_Vtbl,
+                pub add_SaveAsUIShowing: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+                pub remove_SaveAsUIShowing: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+                pub ShowSaveAsUI: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                )
+                    -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2_26,
+                ICoreWebView2_26_Vtbl,
+                0x806268b8_f897_5685_88e5_c45fca0b1a48
+            );
+            impl core::ops::Deref for ICoreWebView2_26 {
+                type Target = ICoreWebView2_25;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2_26,
+                windows_core::IUnknown,
+                ICoreWebView2,
+                ICoreWebView2_2,
+                ICoreWebView2_3,
+                ICoreWebView2_4,
+                ICoreWebView2_5,
+                ICoreWebView2_6,
+                ICoreWebView2_7,
+                ICoreWebView2_8,
+                ICoreWebView2_9,
+                ICoreWebView2_10,
+                ICoreWebView2_11,
+                ICoreWebView2_12,
+                ICoreWebView2_13,
+                ICoreWebView2_14,
+                ICoreWebView2_15,
+                ICoreWebView2_16,
+                ICoreWebView2_17,
+                ICoreWebView2_18,
+                ICoreWebView2_19,
+                ICoreWebView2_20,
+                ICoreWebView2_21,
+                ICoreWebView2_22,
+                ICoreWebView2_23,
+                ICoreWebView2_24,
+                ICoreWebView2_25
+            );
+            impl ICoreWebView2_26 {
+                pub unsafe fn add_SaveFileSecurityCheckStarting<P0>(
+                    &self,
+                    eventhandler: P0,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2SaveFileSecurityCheckStartingEventHandler>,
+                {
+                    (windows_core::Interface::vtable(self).add_SaveFileSecurityCheckStarting)(
+                        windows_core::Interface::as_raw(self),
+                        eventhandler.param().abi(),
+                        token,
+                    )
+                    .ok()
+                }
+                pub unsafe fn remove_SaveFileSecurityCheckStarting(
+                    &self,
+                    token: windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).remove_SaveFileSecurityCheckStarting)(
+                        windows_core::Interface::as_raw(self),
+                        core::mem::transmute(token),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2_26_Vtbl {
+                pub base__: ICoreWebView2_25_Vtbl,
+                pub add_SaveFileSecurityCheckStarting:
+                    unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        *mut core::ffi::c_void,
+                        *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT,
+                pub remove_SaveFileSecurityCheckStarting:
+                    unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT,
+            }
+            windows_core::imp::define_interface!(
+                ICoreWebView2_27,
+                ICoreWebView2_27_Vtbl,
+                0x00fbe33b_8c07_517c_aa23_0ddd4b5f6fa0
+            );
+            impl core::ops::Deref for ICoreWebView2_27 {
+                type Target = ICoreWebView2_26;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { core::mem::transmute(self) }
+                }
+            }
+            windows_core::imp::interface_hierarchy!(
+                ICoreWebView2_27,
+                windows_core::IUnknown,
+                ICoreWebView2,
+                ICoreWebView2_2,
+                ICoreWebView2_3,
+                ICoreWebView2_4,
+                ICoreWebView2_5,
+                ICoreWebView2_6,
+                ICoreWebView2_7,
+                ICoreWebView2_8,
+                ICoreWebView2_9,
+                ICoreWebView2_10,
+                ICoreWebView2_11,
+                ICoreWebView2_12,
+                ICoreWebView2_13,
+                ICoreWebView2_14,
+                ICoreWebView2_15,
+                ICoreWebView2_16,
+                ICoreWebView2_17,
+                ICoreWebView2_18,
+                ICoreWebView2_19,
+                ICoreWebView2_20,
+                ICoreWebView2_21,
+                ICoreWebView2_22,
+                ICoreWebView2_23,
+                ICoreWebView2_24,
+                ICoreWebView2_25,
+                ICoreWebView2_26
+            );
+            impl ICoreWebView2_27 {
+                pub unsafe fn add_ScreenCaptureStarting<P0>(
+                    &self,
+                    eventhandler: P0,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>
+                where
+                    P0: windows_core::Param<ICoreWebView2ScreenCaptureStartingEventHandler>,
+                {
+                    (windows_core::Interface::vtable(self).add_ScreenCaptureStarting)(
+                        windows_core::Interface::as_raw(self),
+                        eventhandler.param().abi(),
+                        token,
+                    )
+                    .ok()
+                }
+                pub unsafe fn remove_ScreenCaptureStarting(
+                    &self,
+                    token: windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()> {
+                    (windows_core::Interface::vtable(self).remove_ScreenCaptureStarting)(
+                        windows_core::Interface::as_raw(self),
+                        core::mem::transmute(token),
+                    )
+                    .ok()
+                }
+            }
+            #[repr(C)]
+            pub struct ICoreWebView2_27_Vtbl {
+                pub base__: ICoreWebView2_26_Vtbl,
+                pub add_ScreenCaptureStarting: unsafe extern "system" fn(
+                    *mut core::ffi::c_void,
+                    *mut core::ffi::c_void,
+                    *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                )
+                    -> windows_core::HRESULT,
+                pub remove_ScreenCaptureStarting:
+                    unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        windows::Win32::System::WinRT::EventRegistrationToken,
                     ) -> windows_core::HRESULT,
             }
             windows_core::imp::define_interface!(
@@ -18453,6 +20223,16 @@ pub mod Web {
                 COREWEBVIEW2_FAVICON_IMAGE_FORMAT(1i32);
             pub const COREWEBVIEW2_FAVICON_IMAGE_FORMAT_PNG: COREWEBVIEW2_FAVICON_IMAGE_FORMAT =
                 COREWEBVIEW2_FAVICON_IMAGE_FORMAT(0i32);
+            pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY:
+                COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND = COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND(1i32);
+            pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE:
+                COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND = COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND(0i32);
+            pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY:
+                COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION =
+                COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION(0i32);
+            pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE:
+                COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION =
+                COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION(1i32);
             pub const COREWEBVIEW2_FRAME_KIND_EMBED: COREWEBVIEW2_FRAME_KIND =
                 COREWEBVIEW2_FRAME_KIND(3i32);
             pub const COREWEBVIEW2_FRAME_KIND_IFRAME: COREWEBVIEW2_FRAME_KIND =
@@ -18557,6 +20337,12 @@ pub mod Web {
                 COREWEBVIEW2_NON_CLIENT_REGION_KIND = COREWEBVIEW2_NON_CLIENT_REGION_KIND(2i32);
             pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT:
                 COREWEBVIEW2_NON_CLIENT_REGION_KIND = COREWEBVIEW2_NON_CLIENT_REGION_KIND(1i32);
+            pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE:
+                COREWEBVIEW2_NON_CLIENT_REGION_KIND = COREWEBVIEW2_NON_CLIENT_REGION_KIND(20i32);
+            pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_MAXIMIZE:
+                COREWEBVIEW2_NON_CLIENT_REGION_KIND = COREWEBVIEW2_NON_CLIENT_REGION_KIND(9i32);
+            pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_MINIMIZE:
+                COREWEBVIEW2_NON_CLIENT_REGION_KIND = COREWEBVIEW2_NON_CLIENT_REGION_KIND(8i32);
             pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE:
                 COREWEBVIEW2_NON_CLIENT_REGION_KIND = COREWEBVIEW2_NON_CLIENT_REGION_KIND(0i32);
             pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
@@ -18733,6 +20519,24 @@ pub mod Web {
                 COREWEBVIEW2_RELEASE_CHANNELS(0i32);
             pub const COREWEBVIEW2_RELEASE_CHANNELS_STABLE: COREWEBVIEW2_RELEASE_CHANNELS =
                 COREWEBVIEW2_RELEASE_CHANNELS(1i32);
+            pub const COREWEBVIEW2_SAVE_AS_KIND_COMPLETE: COREWEBVIEW2_SAVE_AS_KIND =
+                COREWEBVIEW2_SAVE_AS_KIND(3i32);
+            pub const COREWEBVIEW2_SAVE_AS_KIND_DEFAULT: COREWEBVIEW2_SAVE_AS_KIND =
+                COREWEBVIEW2_SAVE_AS_KIND(0i32);
+            pub const COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY: COREWEBVIEW2_SAVE_AS_KIND =
+                COREWEBVIEW2_SAVE_AS_KIND(1i32);
+            pub const COREWEBVIEW2_SAVE_AS_KIND_SINGLE_FILE: COREWEBVIEW2_SAVE_AS_KIND =
+                COREWEBVIEW2_SAVE_AS_KIND(2i32);
+            pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED: COREWEBVIEW2_SAVE_AS_UI_RESULT =
+                COREWEBVIEW2_SAVE_AS_UI_RESULT(4i32);
+            pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS:
+                COREWEBVIEW2_SAVE_AS_UI_RESULT = COREWEBVIEW2_SAVE_AS_UI_RESULT(2i32);
+            pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH: COREWEBVIEW2_SAVE_AS_UI_RESULT =
+                COREWEBVIEW2_SAVE_AS_UI_RESULT(1i32);
+            pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED:
+                COREWEBVIEW2_SAVE_AS_UI_RESULT = COREWEBVIEW2_SAVE_AS_UI_RESULT(3i32);
+            pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS: COREWEBVIEW2_SAVE_AS_UI_RESULT =
+                COREWEBVIEW2_SAVE_AS_UI_RESULT(0i32);
             pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_ALERT: COREWEBVIEW2_SCRIPT_DIALOG_KIND =
                 COREWEBVIEW2_SCRIPT_DIALOG_KIND(0i32);
             pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_BEFOREUNLOAD:
@@ -18758,6 +20562,12 @@ pub mod Web {
                 COREWEBVIEW2_SHARED_BUFFER_ACCESS = COREWEBVIEW2_SHARED_BUFFER_ACCESS(0i32);
             pub const COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_WRITE:
                 COREWEBVIEW2_SHARED_BUFFER_ACCESS = COREWEBVIEW2_SHARED_BUFFER_ACCESS(1i32);
+            pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT: COREWEBVIEW2_TEXT_DIRECTION_KIND =
+                COREWEBVIEW2_TEXT_DIRECTION_KIND(0i32);
+            pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_LEFT_TO_RIGHT:
+                COREWEBVIEW2_TEXT_DIRECTION_KIND = COREWEBVIEW2_TEXT_DIRECTION_KIND(1i32);
+            pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_RIGHT_TO_LEFT:
+                COREWEBVIEW2_TEXT_DIRECTION_KIND = COREWEBVIEW2_TEXT_DIRECTION_KIND(2i32);
             pub const COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED:
                 COREWEBVIEW2_TRACKING_PREVENTION_LEVEL =
                 COREWEBVIEW2_TRACKING_PREVENTION_LEVEL(2i32);
@@ -18858,7 +20668,7 @@ pub mod Web {
                 COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
                 COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(2i32);
             pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: windows_core::PCWSTR =
-                windows_core::w!("126.0.2592.51");
+                windows_core::w!("131.0.2903.40");
             #[repr(transparent)]
             #[derive(PartialEq, Eq, Copy, Clone, Default)]
             pub struct COREWEBVIEW2_BOUNDS_MODE(pub i32);
@@ -19057,6 +20867,32 @@ pub mod Web {
             impl core::fmt::Debug for COREWEBVIEW2_FAVICON_IMAGE_FORMAT {
                 fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                     f.debug_tuple("COREWEBVIEW2_FAVICON_IMAGE_FORMAT")
+                        .field(&self.0)
+                        .finish()
+                }
+            }
+            #[repr(transparent)]
+            #[derive(PartialEq, Eq, Copy, Clone, Default)]
+            pub struct COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND(pub i32);
+            impl windows_core::TypeKind for COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl core::fmt::Debug for COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND {
+                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                    f.debug_tuple("COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND")
+                        .field(&self.0)
+                        .finish()
+                }
+            }
+            #[repr(transparent)]
+            #[derive(PartialEq, Eq, Copy, Clone, Default)]
+            pub struct COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION(pub i32);
+            impl windows_core::TypeKind for COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl core::fmt::Debug for COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION {
+                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                    f.debug_tuple("COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION")
                         .field(&self.0)
                         .finish()
                 }
@@ -19487,6 +21323,32 @@ pub mod Web {
             }
             #[repr(transparent)]
             #[derive(PartialEq, Eq, Copy, Clone, Default)]
+            pub struct COREWEBVIEW2_SAVE_AS_KIND(pub i32);
+            impl windows_core::TypeKind for COREWEBVIEW2_SAVE_AS_KIND {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl core::fmt::Debug for COREWEBVIEW2_SAVE_AS_KIND {
+                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                    f.debug_tuple("COREWEBVIEW2_SAVE_AS_KIND")
+                        .field(&self.0)
+                        .finish()
+                }
+            }
+            #[repr(transparent)]
+            #[derive(PartialEq, Eq, Copy, Clone, Default)]
+            pub struct COREWEBVIEW2_SAVE_AS_UI_RESULT(pub i32);
+            impl windows_core::TypeKind for COREWEBVIEW2_SAVE_AS_UI_RESULT {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl core::fmt::Debug for COREWEBVIEW2_SAVE_AS_UI_RESULT {
+                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                    f.debug_tuple("COREWEBVIEW2_SAVE_AS_UI_RESULT")
+                        .field(&self.0)
+                        .finish()
+                }
+            }
+            #[repr(transparent)]
+            #[derive(PartialEq, Eq, Copy, Clone, Default)]
             pub struct COREWEBVIEW2_SCRIPT_DIALOG_KIND(pub i32);
             impl windows_core::TypeKind for COREWEBVIEW2_SCRIPT_DIALOG_KIND {
                 type TypeKind = windows_core::CopyType;
@@ -19533,6 +21395,19 @@ pub mod Web {
             impl core::fmt::Debug for COREWEBVIEW2_SHARED_BUFFER_ACCESS {
                 fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
                     f.debug_tuple("COREWEBVIEW2_SHARED_BUFFER_ACCESS")
+                        .field(&self.0)
+                        .finish()
+                }
+            }
+            #[repr(transparent)]
+            #[derive(PartialEq, Eq, Copy, Clone, Default)]
+            pub struct COREWEBVIEW2_TEXT_DIRECTION_KIND(pub i32);
+            impl windows_core::TypeKind for COREWEBVIEW2_TEXT_DIRECTION_KIND {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl core::fmt::Debug for COREWEBVIEW2_TEXT_DIRECTION_KIND {
+                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                    f.debug_tuple("COREWEBVIEW2_TEXT_DIRECTION_KIND")
                         .field(&self.0)
                         .finish()
                 }
@@ -21312,7 +23187,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    id: &windows_core::PCWSTR,
+                    result: &windows_core::PCWSTR,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName
@@ -21331,7 +23206,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        id: windows_core::PCWSTR,
+                        result: windows_core::PCWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity:
@@ -21339,7 +23214,7 @@ pub mod Web {
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:: Invoke ( this , core::mem::transmute_copy ( & errorcode ) , core::mem::transmute ( & id ) , ) . into ( )
+                        ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:: Invoke ( this , core::mem::transmute_copy ( & errorcode ) , core::mem::transmute ( & result ) , ) . into ( )
                     }
                     Self {
                         base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -21813,7 +23688,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2BrowserExtensionList_Impl: Sized {
-                fn Count(&self, count: *mut u32) -> windows_core::Result<()>;
+                fn Count(&self, value: *mut u32) -> windows_core::Result<()>;
                 fn GetValueAtIndex(
                     &self,
                     index: u32,
@@ -21831,7 +23706,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        count: *mut u32,
+                        value: *mut u32,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2BrowserExtensionList_Impl,
@@ -21840,7 +23715,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2BrowserExtensionList_Impl::Count(
                             this,
-                            core::mem::transmute_copy(&count),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -21850,7 +23725,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         index: u32,
-                        extension: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2BrowserExtensionList_Impl,
@@ -21862,7 +23737,7 @@ pub mod Web {
                             core::mem::transmute_copy(&index),
                         ) {
                             Ok(ok__) => {
-                                extension.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -21918,7 +23793,7 @@ pub mod Web {
             pub trait ICoreWebView2BrowserProcessExitedEventArgs_Impl: Sized {
                 fn BrowserProcessExitKind(
                     &self,
-                    browserprocessexitkind: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND,
+                    value: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND,
                 ) -> windows_core::Result<()>;
                 fn BrowserProcessId(&self, value: *mut u32) -> windows_core::Result<()>;
             }
@@ -21934,7 +23809,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        browserprocessexitkind: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND,
+                        value: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2BrowserProcessExitedEventArgs_Impl,
@@ -21943,7 +23818,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2BrowserProcessExitedEventArgs_Impl::BrowserProcessExitKind(
                             this,
-                            core::mem::transmute_copy(&browserprocessexitkind),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -22065,7 +23940,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    returnobjectasjson: &windows_core::PCWSTR,
+                    result: &windows_core::PCWSTR,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {}
@@ -22081,7 +23956,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        returnobjectasjson: windows_core::PCWSTR,
+                        result: windows_core::PCWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl,
@@ -22091,7 +23966,7 @@ pub mod Web {
                         ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            core::mem::transmute(&returnobjectasjson),
+                            core::mem::transmute(&result),
                         )
                         .into()
                     }
@@ -22658,7 +24533,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         index: u32,
-                        certificate: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ClientCertificateCollection_Impl,
@@ -22670,7 +24545,7 @@ pub mod Web {
                             core::mem::transmute_copy(&index),
                         ) {
                             Ok(ok__) => {
-                                certificate.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -23230,7 +25105,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        provider: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2CompositionController2_Impl,
@@ -23239,7 +25114,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2CompositionController2_Impl::AutomationProvider(this) {
                             Ok(ok__) => {
-                                provider.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -23557,9 +25432,9 @@ pub mod Web {
             pub trait ICoreWebView2ContentLoadingEventArgs_Impl: Sized {
                 fn IsErrorPage(
                     &self,
-                    iserrorpage: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
-                fn NavigationId(&self, navigationid: *mut u64) -> windows_core::Result<()>;
+                fn NavigationId(&self, value: *mut u64) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2ContentLoadingEventArgs {}
             impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
@@ -23573,7 +25448,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        iserrorpage: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ContentLoadingEventArgs_Impl,
@@ -23582,7 +25457,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2ContentLoadingEventArgs_Impl::IsErrorPage(
                             this,
-                            core::mem::transmute_copy(&iserrorpage),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -23591,7 +25466,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        navigationid: *mut u64,
+                        value: *mut u64,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ContentLoadingEventArgs_Impl,
@@ -23600,7 +25475,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2ContentLoadingEventArgs_Impl::NavigationId(
                             this,
-                            core::mem::transmute_copy(&navigationid),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -25164,11 +27039,11 @@ pub mod Web {
             pub trait ICoreWebView2Controller2_Impl: Sized + ICoreWebView2Controller_Impl {
                 fn DefaultBackgroundColor(
                     &self,
-                    backgroundcolor: *mut COREWEBVIEW2_COLOR,
+                    value: *mut COREWEBVIEW2_COLOR,
                 ) -> windows_core::Result<()>;
                 fn SetDefaultBackgroundColor(
                     &self,
-                    backgroundcolor: &COREWEBVIEW2_COLOR,
+                    value: &COREWEBVIEW2_COLOR,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Controller2 {}
@@ -25183,7 +27058,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        backgroundcolor: *mut COREWEBVIEW2_COLOR,
+                        value: *mut COREWEBVIEW2_COLOR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Controller2_Impl,
@@ -25192,7 +27067,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Controller2_Impl::DefaultBackgroundColor(
                             this,
-                            core::mem::transmute_copy(&backgroundcolor),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -25201,7 +27076,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        backgroundcolor: COREWEBVIEW2_COLOR,
+                        value: COREWEBVIEW2_COLOR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Controller2_Impl,
@@ -25210,7 +27085,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Controller2_Impl::SetDefaultBackgroundColor(
                             this,
-                            core::mem::transmute(&backgroundcolor),
+                            core::mem::transmute(&value),
                         )
                         .into()
                     }
@@ -25609,14 +27484,10 @@ pub mod Web {
             pub trait ICoreWebView2ControllerOptions2_Impl:
                 Sized + ICoreWebView2ControllerOptions_Impl
             {
-                fn ScriptLocale(
-                    &self,
-                    locale: *mut windows_core::PWSTR,
-                ) -> windows_core::Result<()>;
-                fn SetScriptLocale(
-                    &self,
-                    locale: &windows_core::PCWSTR,
-                ) -> windows_core::Result<()>;
+                fn ScriptLocale(&self, value: *mut windows_core::PWSTR)
+                    -> windows_core::Result<()>;
+                fn SetScriptLocale(&self, value: &windows_core::PCWSTR)
+                    -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2ControllerOptions2 {}
             impl ICoreWebView2ControllerOptions2_Vtbl {
@@ -25630,7 +27501,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        locale: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ControllerOptions2_Impl,
@@ -25639,7 +27510,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2ControllerOptions2_Impl::ScriptLocale(
                             this,
-                            core::mem::transmute_copy(&locale),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -25648,7 +27519,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        locale: windows_core::PCWSTR,
+                        value: windows_core::PCWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ControllerOptions2_Impl,
@@ -25657,7 +27528,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2ControllerOptions2_Impl::SetScriptLocale(
                             this,
-                            core::mem::transmute(&locale),
+                            core::mem::transmute(&value),
                         )
                         .into()
                     }
@@ -25973,7 +27844,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2CookieList_Impl: Sized {
-                fn Count(&self, count: *mut u32) -> windows_core::Result<()>;
+                fn Count(&self, value: *mut u32) -> windows_core::Result<()>;
                 fn GetValueAtIndex(&self, index: u32) -> windows_core::Result<ICoreWebView2Cookie>;
             }
             impl windows_core::RuntimeName for ICoreWebView2CookieList {}
@@ -25988,14 +27859,14 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        count: *mut u32,
+                        value: *mut u32,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2CookieList_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2CookieList_Impl::Count(this, core::mem::transmute_copy(&count))
+                        ICoreWebView2CookieList_Impl::Count(this, core::mem::transmute_copy(&value))
                             .into()
                     }
                     unsafe extern "system" fn GetValueAtIndex<
@@ -26004,7 +27875,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         index: u32,
-                        cookie: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2CookieList_Impl,
@@ -26016,7 +27887,7 @@ pub mod Web {
                             core::mem::transmute_copy(&index),
                         ) {
                             Ok(ok__) => {
-                                cookie.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -26267,7 +28138,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    webview: Option<&ICoreWebView2CompositionController>,
+                    result: Option<&ICoreWebView2CompositionController>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName
@@ -26280,10 +28151,10 @@ pub mod Web {
                 where
                     Identity:
                         ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl,
-                {                    unsafe extern "system" fn Invoke <  Identity :windows_core::IUnknownImpl , const OFFSET :isize > ( this : * mut core::ffi::c_void , errorcode : windows_core::HRESULT , webview : * mut core::ffi::c_void , ) -> windows_core::HRESULT where Identity : ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl < >{
+                {                    unsafe extern "system" fn Invoke <  Identity :windows_core::IUnknownImpl , const OFFSET :isize > ( this : * mut core::ffi::c_void , errorcode : windows_core::HRESULT , result : * mut core::ffi::c_void , ) -> windows_core::HRESULT where Identity : ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl < >{
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl:: Invoke ( this , core::mem::transmute_copy ( & errorcode ) , windows_core::from_raw_borrowed ( & webview ) , ) . into ( )
+                        ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl:: Invoke ( this , core::mem::transmute_copy ( & errorcode ) , windows_core::from_raw_borrowed ( & result ) , ) . into ( )
                     }
                     Self {
                         base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -26300,7 +28171,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    createdcontroller: Option<&ICoreWebView2Controller>,
+                    result: Option<&ICoreWebView2Controller>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {}
@@ -26316,7 +28187,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        createdcontroller: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl,
@@ -26326,7 +28197,7 @@ pub mod Web {
                         ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&createdcontroller),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -26345,7 +28216,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    createdenvironment: Option<&ICoreWebView2Environment>,
+                    result: Option<&ICoreWebView2Environment>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {}
@@ -26361,7 +28232,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        createdenvironment: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl,
@@ -26371,7 +28242,7 @@ pub mod Web {
                         ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&createdenvironment),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -26655,7 +28526,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2DOMContentLoadedEventArgs_Impl: Sized {
-                fn NavigationId(&self, navigationid: *mut u64) -> windows_core::Result<()>;
+                fn NavigationId(&self, value: *mut u64) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2DOMContentLoadedEventArgs {}
             impl ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
@@ -26669,7 +28540,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        navigationid: *mut u64,
+                        value: *mut u64,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2DOMContentLoadedEventArgs_Impl,
@@ -26678,7 +28549,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2DOMContentLoadedEventArgs_Impl::NavigationId(
                             this,
-                            core::mem::transmute_copy(&navigationid),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -26769,7 +28640,7 @@ pub mod Web {
             pub trait ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl: Sized {
                 fn ParameterObjectAsJson(
                     &self,
-                    parameterobjectasjson: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2DevToolsProtocolEventReceivedEventArgs {}
@@ -26784,14 +28655,14 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        parameterobjectasjson: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl:: ParameterObjectAsJson ( this , core::mem::transmute_copy ( & parameterobjectasjson ) , ) . into ( )
+                        ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl:: ParameterObjectAsJson ( this , core::mem::transmute_copy ( & value ) , ) . into ( )
                     }
                     Self {
                         base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -26805,10 +28676,7 @@ pub mod Web {
             pub trait ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Impl:
                 Sized + ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl
             {
-                fn SessionId(
-                    &self,
-                    sessionid: *mut windows_core::PWSTR,
-                ) -> windows_core::Result<()>;
+                fn SessionId(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {}
             impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {
@@ -26822,7 +28690,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        sessionid: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Impl,
@@ -26831,7 +28699,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Impl::SessionId(
                             this,
-                            core::mem::transmute_copy(&sessionid),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -26893,7 +28761,7 @@ pub mod Web {
             pub trait ICoreWebView2DevToolsProtocolEventReceiver_Impl: Sized {
                 fn add_DevToolsProtocolEventReceived(
                     &self,
-                    handler: Option<&ICoreWebView2DevToolsProtocolEventReceivedEventHandler>,
+                    eventhandler: Option<&ICoreWebView2DevToolsProtocolEventReceivedEventHandler>,
                     token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
                 ) -> windows_core::Result<()>;
                 fn remove_DevToolsProtocolEventReceived(
@@ -26913,7 +28781,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        handler: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
                         token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
                     ) -> windows_core::HRESULT
                     where
@@ -26921,7 +28789,7 @@ pub mod Web {
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2DevToolsProtocolEventReceiver_Impl:: add_DevToolsProtocolEventReceived ( this , windows_core::from_raw_borrowed ( & handler ) , core::mem::transmute_copy ( & token ) , ) . into ( )
+                        ICoreWebView2DevToolsProtocolEventReceiver_Impl:: add_DevToolsProtocolEventReceived ( this , windows_core::from_raw_borrowed ( & eventhandler ) , core::mem::transmute_copy ( & token ) , ) . into ( )
                     }
                     unsafe extern "system" fn remove_DevToolsProtocolEventReceived<
                         Identity: windows_core::IUnknownImpl,
@@ -27867,7 +29735,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        options: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Environment10_Impl,
@@ -27878,7 +29746,7 @@ pub mod Web {
                             this,
                         ) {
                             Ok(ok__) => {
-                                options.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -28020,7 +29888,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         size: u64,
-                        shared_buffer: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Environment12_Impl,
@@ -28032,7 +29900,7 @@ pub mod Web {
                             core::mem::transmute_copy(&size),
                         ) {
                             Ok(ok__) => {
-                                shared_buffer.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -28112,6 +29980,137 @@ pub mod Web {
                         || iid == &<ICoreWebView2Environment12 as windows_core::Interface>::IID
                 }
             }
+            pub trait ICoreWebView2Environment14_Impl:
+                Sized + ICoreWebView2Environment13_Impl
+            {
+                fn CreateWebFileSystemFileHandle(
+                    &self,
+                    path: &windows_core::PCWSTR,
+                    permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                ) -> windows_core::Result<ICoreWebView2FileSystemHandle>;
+                fn CreateWebFileSystemDirectoryHandle(
+                    &self,
+                    path: &windows_core::PCWSTR,
+                    permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                ) -> windows_core::Result<ICoreWebView2FileSystemHandle>;
+                fn CreateObjectCollection(
+                    &self,
+                    length: u32,
+                    items: *mut Option<windows_core::IUnknown>,
+                    objectcollection: *mut Option<ICoreWebView2ObjectCollection>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2Environment14 {}
+            impl ICoreWebView2Environment14_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2Environment14_Vtbl
+                where
+                    Identity: ICoreWebView2Environment14_Impl,
+                {
+                    unsafe extern "system" fn CreateWebFileSystemFileHandle<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        path: windows_core::PCWSTR,
+                        permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                        value: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Environment14_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2Environment14_Impl::CreateWebFileSystemFileHandle(
+                            this,
+                            core::mem::transmute(&path),
+                            core::mem::transmute_copy(&permission),
+                        ) {
+                            Ok(ok__) => {
+                                value.write(core::mem::transmute(ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
+                        }
+                    }
+                    unsafe extern "system" fn CreateWebFileSystemDirectoryHandle<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        path: windows_core::PCWSTR,
+                        permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                        value: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Environment14_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2Environment14_Impl::CreateWebFileSystemDirectoryHandle(
+                            this,
+                            core::mem::transmute(&path),
+                            core::mem::transmute_copy(&permission),
+                        ) {
+                            Ok(ok__) => {
+                                value.write(core::mem::transmute(ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
+                        }
+                    }
+                    unsafe extern "system" fn CreateObjectCollection<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        length: u32,
+                        items: *mut *mut core::ffi::c_void,
+                        objectcollection: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Environment14_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Environment14_Impl::CreateObjectCollection(
+                            this,
+                            core::mem::transmute_copy(&length),
+                            core::mem::transmute_copy(&items),
+                            core::mem::transmute_copy(&objectcollection),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2Environment13_Vtbl::new::<Identity, OFFSET>(),
+                        CreateWebFileSystemFileHandle: CreateWebFileSystemFileHandle::<
+                            Identity,
+                            OFFSET,
+                        >,
+                        CreateWebFileSystemDirectoryHandle: CreateWebFileSystemDirectoryHandle::<
+                            Identity,
+                            OFFSET,
+                        >,
+                        CreateObjectCollection: CreateObjectCollection::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2Environment14 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment3 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment4 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment5 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment6 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment7 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment8 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment9 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment10 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment11 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment12 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Environment13 as windows_core::Interface>::IID
+                }
+            }
             pub trait ICoreWebView2Environment2_Impl:
                 Sized + ICoreWebView2Environment_Impl
             {
@@ -28139,7 +30138,7 @@ pub mod Web {
                         method: windows_core::PCWSTR,
                         postdata: *mut core::ffi::c_void,
                         headers: windows_core::PCWSTR,
-                        request: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Environment2_Impl,
@@ -28154,7 +30153,7 @@ pub mod Web {
                             core::mem::transmute(&headers),
                         ) {
                             Ok(ok__) => {
-                                request.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -28216,7 +30215,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        pointerinfo: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Environment3_Impl,
@@ -28225,7 +30224,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2Environment3_Impl::CreateCoreWebView2PointerInfo(this) {
                             Ok(ok__) => {
-                                pointerinfo.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -28268,7 +30267,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         hwnd: windows::Win32::Foundation::HWND,
-                        provider: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Environment4_Impl,
@@ -28280,7 +30279,7 @@ pub mod Web {
                             core::mem::transmute_copy(&hwnd),
                         ) {
                             Ok(ok__) => {
-                                provider.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -28390,7 +30389,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        printsettings: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Environment6_Impl,
@@ -28399,7 +30398,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2Environment6_Impl::CreatePrintSettings(this) {
                             Ok(ok__) => {
-                                printsettings.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -28591,7 +30590,7 @@ pub mod Web {
                         label: windows_core::PCWSTR,
                         iconstream: *mut core::ffi::c_void,
                         kind: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND,
-                        item: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Environment9_Impl,
@@ -28605,7 +30604,7 @@ pub mod Web {
                             core::mem::transmute_copy(&kind),
                         ) {
                             Ok(ok__) => {
-                                item.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -29392,7 +31391,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    resultobjectasjson: &windows_core::PCWSTR,
+                    result: &windows_core::PCWSTR,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptCompletedHandler {}
@@ -29408,7 +31407,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        resultobjectasjson: windows_core::PCWSTR,
+                        result: windows_core::PCWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ExecuteScriptCompletedHandler_Impl,
@@ -29418,7 +31417,7 @@ pub mod Web {
                         ICoreWebView2ExecuteScriptCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            core::mem::transmute(&resultobjectasjson),
+                            core::mem::transmute(&result),
                         )
                         .into()
                     }
@@ -29629,7 +31628,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2File_Impl: Sized {
-                fn Path(&self, path: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Path(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2File {}
             impl ICoreWebView2File_Vtbl {
@@ -29643,14 +31642,14 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        path: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2File_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2File_Impl::Path(this, core::mem::transmute_copy(&path)).into()
+                        ICoreWebView2File_Impl::Path(this, core::mem::transmute_copy(&value)).into()
                     }
                     Self {
                         base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -29659,6 +31658,89 @@ pub mod Web {
                 }
                 pub fn matches(iid: &windows_core::GUID) -> bool {
                     iid == &<ICoreWebView2File as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2FileSystemHandle_Impl: Sized {
+                fn Kind(
+                    &self,
+                    value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND,
+                ) -> windows_core::Result<()>;
+                fn Path(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Permission(
+                    &self,
+                    value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2FileSystemHandle {}
+            impl ICoreWebView2FileSystemHandle_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2FileSystemHandle_Vtbl
+                where
+                    Identity: ICoreWebView2FileSystemHandle_Impl,
+                {
+                    unsafe extern "system" fn Kind<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2FileSystemHandle_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2FileSystemHandle_Impl::Kind(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Path<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2FileSystemHandle_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2FileSystemHandle_Impl::Path(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Permission<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2FileSystemHandle_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2FileSystemHandle_Impl::Permission(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Kind: Kind::<Identity, OFFSET>,
+                        Path: Path::<Identity, OFFSET>,
+                        Permission: Permission::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2FileSystemHandle as windows_core::Interface>::IID
                 }
             }
             pub trait ICoreWebView2FocusChangedEventHandler_Impl: Sized {
@@ -30254,7 +32336,7 @@ pub mod Web {
             pub trait ICoreWebView2Frame3_Impl: Sized + ICoreWebView2Frame2_Impl {
                 fn add_PermissionRequested(
                     &self,
-                    handler: Option<&ICoreWebView2FramePermissionRequestedEventHandler>,
+                    eventhandler: Option<&ICoreWebView2FramePermissionRequestedEventHandler>,
                     token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
                 ) -> windows_core::Result<()>;
                 fn remove_PermissionRequested(
@@ -30274,7 +32356,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        handler: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
                         token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
                     ) -> windows_core::HRESULT
                     where
@@ -30284,7 +32366,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Frame3_Impl::add_PermissionRequested(
                             this,
-                            windows_core::from_raw_borrowed(&handler),
+                            windows_core::from_raw_borrowed(&eventhandler),
                             core::mem::transmute_copy(&token),
                         )
                         .into()
@@ -30369,7 +32451,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2Frame5_Impl: Sized + ICoreWebView2Frame4_Impl {
-                fn FrameId(&self, id: *mut u32) -> windows_core::Result<()>;
+                fn FrameId(&self, value: *mut u32) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Frame5 {}
             impl ICoreWebView2Frame5_Vtbl {
@@ -30383,14 +32465,14 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        id: *mut u32,
+                        value: *mut u32,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Frame5_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2Frame5_Impl::FrameId(this, core::mem::transmute_copy(&id))
+                        ICoreWebView2Frame5_Impl::FrameId(this, core::mem::transmute_copy(&value))
                             .into()
                     }
                     Self {
@@ -30404,6 +32486,80 @@ pub mod Web {
                         || iid == &<ICoreWebView2Frame2 as windows_core::Interface>::IID
                         || iid == &<ICoreWebView2Frame3 as windows_core::Interface>::IID
                         || iid == &<ICoreWebView2Frame4 as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2Frame6_Impl: Sized + ICoreWebView2Frame5_Impl {
+                fn add_ScreenCaptureStarting(
+                    &self,
+                    eventhandler: Option<&ICoreWebView2FrameScreenCaptureStartingEventHandler>,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn remove_ScreenCaptureStarting(
+                    &self,
+                    token: &windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2Frame6 {}
+            impl ICoreWebView2Frame6_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2Frame6_Vtbl
+                where
+                    Identity: ICoreWebView2Frame6_Impl,
+                {
+                    unsafe extern "system" fn add_ScreenCaptureStarting<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
+                        token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Frame6_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Frame6_Impl::add_ScreenCaptureStarting(
+                            this,
+                            windows_core::from_raw_borrowed(&eventhandler),
+                            core::mem::transmute_copy(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn remove_ScreenCaptureStarting<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        token: windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Frame6_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Frame6_Impl::remove_ScreenCaptureStarting(
+                            this,
+                            core::mem::transmute(&token),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2Frame5_Vtbl::new::<Identity, OFFSET>(),
+                        add_ScreenCaptureStarting: add_ScreenCaptureStarting::<Identity, OFFSET>,
+                        remove_ScreenCaptureStarting: remove_ScreenCaptureStarting::<
+                            Identity,
+                            OFFSET,
+                        >,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2Frame6 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Frame as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Frame2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Frame3 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Frame4 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2Frame5 as windows_core::Interface>::IID
                 }
             }
             pub trait ICoreWebView2FrameContentLoadingEventHandler_Impl: Sized {
@@ -30464,7 +32620,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        frame: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2FrameCreatedEventArgs_Impl,
@@ -30473,7 +32629,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2FrameCreatedEventArgs_Impl::Frame(this) {
                             Ok(ok__) => {
-                                frame.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -30618,8 +32774,8 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2FrameInfo_Impl: Sized {
-                fn Name(&self, name: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-                fn Source(&self, source: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Name(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Source(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2FrameInfo {}
             impl ICoreWebView2FrameInfo_Vtbl {
@@ -30633,14 +32789,14 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        name: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2FrameInfo_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2FrameInfo_Impl::Name(this, core::mem::transmute_copy(&name))
+                        ICoreWebView2FrameInfo_Impl::Name(this, core::mem::transmute_copy(&value))
                             .into()
                     }
                     unsafe extern "system" fn Source<
@@ -30648,18 +32804,15 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        source: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2FrameInfo_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2FrameInfo_Impl::Source(
-                            this,
-                            core::mem::transmute_copy(&source),
-                        )
-                        .into()
+                        ICoreWebView2FrameInfo_Impl::Source(this, core::mem::transmute_copy(&value))
+                            .into()
                     }
                     Self {
                         base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -30766,7 +32919,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        iterator: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2FrameInfoCollection_Impl,
@@ -30775,7 +32928,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2FrameInfoCollection_Impl::GetIterator(this) {
                             Ok(ok__) => {
-                                iterator.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -30793,12 +32946,12 @@ pub mod Web {
             pub trait ICoreWebView2FrameInfoCollectionIterator_Impl: Sized {
                 fn HasCurrent(
                     &self,
-                    hascurrent: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn GetCurrent(&self) -> windows_core::Result<ICoreWebView2FrameInfo>;
                 fn MoveNext(
                     &self,
-                    hasnext: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2FrameInfoCollectionIterator {}
@@ -30813,7 +32966,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        hascurrent: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2FrameInfoCollectionIterator_Impl,
@@ -30822,7 +32975,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2FrameInfoCollectionIterator_Impl::HasCurrent(
                             this,
-                            core::mem::transmute_copy(&hascurrent),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -30831,7 +32984,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        frameinfo: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2FrameInfoCollectionIterator_Impl,
@@ -30840,7 +32993,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2FrameInfoCollectionIterator_Impl::GetCurrent(this) {
                             Ok(ok__) => {
-                                frameinfo.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -30851,7 +33004,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        hasnext: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2FrameInfoCollectionIterator_Impl,
@@ -30860,7 +33013,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2FrameInfoCollectionIterator_Impl::MoveNext(
                             this,
-                            core::mem::transmute_copy(&hasnext),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -31047,6 +33200,49 @@ pub mod Web {
                     iid == & < ICoreWebView2FramePermissionRequestedEventHandler < > as windows_core::Interface >::IID
                 }
             }
+            pub trait ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl: Sized {
+                fn Invoke(
+                    &self,
+                    sender: Option<&ICoreWebView2Frame>,
+                    args: Option<&ICoreWebView2ScreenCaptureStartingEventArgs>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2FrameScreenCaptureStartingEventHandler {}
+            impl ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl
+                where
+                    Identity: ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl,
+                {
+                    unsafe extern "system" fn Invoke<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        sender: *mut core::ffi::c_void,
+                        args: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl::Invoke(
+                            this,
+                            windows_core::from_raw_borrowed(&sender),
+                            windows_core::from_raw_borrowed(&args),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Invoke: Invoke::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2FrameScreenCaptureStartingEventHandler < > as windows_core::Interface >::IID
+                }
+            }
             pub trait ICoreWebView2FrameWebMessageReceivedEventHandler_Impl: Sized {
                 fn Invoke(
                     &self,
@@ -31093,8 +33289,8 @@ pub mod Web {
             pub trait ICoreWebView2GetCookiesCompletedHandler_Impl: Sized {
                 fn Invoke(
                     &self,
-                    result: windows_core::HRESULT,
-                    cookielist: Option<&ICoreWebView2CookieList>,
+                    errorcode: windows_core::HRESULT,
+                    result: Option<&ICoreWebView2CookieList>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2GetCookiesCompletedHandler {}
@@ -31109,8 +33305,8 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        result: windows_core::HRESULT,
-                        cookielist: *mut core::ffi::c_void,
+                        errorcode: windows_core::HRESULT,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
@@ -31119,8 +33315,8 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2GetCookiesCompletedHandler_Impl::Invoke(
                             this,
-                            core::mem::transmute_copy(&result),
-                            windows_core::from_raw_borrowed(&cookielist),
+                            core::mem::transmute_copy(&errorcode),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -31137,7 +33333,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    faviconstream: Option<&windows::Win32::System::Com::IStream>,
+                    result: Option<&windows::Win32::System::Com::IStream>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2GetFaviconCompletedHandler {}
@@ -31153,7 +33349,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        faviconstream: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2GetFaviconCompletedHandler_Impl,
@@ -31163,7 +33359,7 @@ pub mod Web {
                         ICoreWebView2GetFaviconCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&faviconstream),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -31182,7 +33378,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    collectionview: Option<&ICoreWebView2PermissionSettingCollectionView>,
+                    result: Option<&ICoreWebView2PermissionSettingCollectionView>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {}
@@ -31198,7 +33394,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        collectionview: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl,
@@ -31208,7 +33404,7 @@ pub mod Web {
                         ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&collectionview),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -31225,7 +33421,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    value: Option<&ICoreWebView2ProcessExtendedInfoCollection>,
+                    result: Option<&ICoreWebView2ProcessExtendedInfoCollection>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2GetProcessExtendedInfosCompletedHandler {}
@@ -31241,7 +33437,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        value: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl,
@@ -31251,7 +33447,7 @@ pub mod Web {
                         ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&value),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -31409,7 +33605,7 @@ pub mod Web {
                 fn Contains(
                     &self,
                     name: &windows_core::PCWSTR,
-                    contains: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn SetHeader(
                     &self,
@@ -31454,7 +33650,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         name: windows_core::PCWSTR,
-                        iterator: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2HttpRequestHeaders_Impl,
@@ -31466,7 +33662,7 @@ pub mod Web {
                             core::mem::transmute(&name),
                         ) {
                             Ok(ok__) => {
-                                iterator.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -31478,7 +33674,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         name: windows_core::PCWSTR,
-                        contains: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2HttpRequestHeaders_Impl,
@@ -31488,7 +33684,7 @@ pub mod Web {
                         ICoreWebView2HttpRequestHeaders_Impl::Contains(
                             this,
                             core::mem::transmute(&name),
-                            core::mem::transmute_copy(&contains),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -31535,7 +33731,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        iterator: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2HttpRequestHeaders_Impl,
@@ -31544,7 +33740,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2HttpRequestHeaders_Impl::GetIterator(this) {
                             Ok(ok__) => {
-                                iterator.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -31573,7 +33769,7 @@ pub mod Web {
                 fn Contains(
                     &self,
                     name: &windows_core::PCWSTR,
-                    contains: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn GetHeader(
                     &self,
@@ -31621,7 +33817,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         name: windows_core::PCWSTR,
-                        contains: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2HttpResponseHeaders_Impl,
@@ -31631,7 +33827,7 @@ pub mod Web {
                         ICoreWebView2HttpResponseHeaders_Impl::Contains(
                             this,
                             core::mem::transmute(&name),
-                            core::mem::transmute_copy(&contains),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -31661,7 +33857,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         name: windows_core::PCWSTR,
-                        iterator: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2HttpResponseHeaders_Impl,
@@ -31673,7 +33869,7 @@ pub mod Web {
                             core::mem::transmute(&name),
                         ) {
                             Ok(ok__) => {
-                                iterator.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -31684,7 +33880,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        iterator: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2HttpResponseHeaders_Impl,
@@ -31693,7 +33889,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2HttpResponseHeaders_Impl::GetIterator(this) {
                             Ok(ok__) => {
-                                iterator.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -32254,7 +34450,7 @@ pub mod Web {
             pub trait ICoreWebView2NavigationCompletedEventArgs2_Impl:
                 Sized + ICoreWebView2NavigationCompletedEventArgs_Impl
             {
-                fn HttpStatusCode(&self, http_status_code: *mut i32) -> windows_core::Result<()>;
+                fn HttpStatusCode(&self, value: *mut i32) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventArgs2 {}
             impl ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
@@ -32268,7 +34464,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        http_status_code: *mut i32,
+                        value: *mut i32,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2NavigationCompletedEventArgs2_Impl,
@@ -32277,7 +34473,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2NavigationCompletedEventArgs2_Impl::HttpStatusCode(
                             this,
-                            core::mem::transmute_copy(&http_status_code),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -32578,7 +34774,7 @@ pub mod Web {
             {
                 fn NavigationKind(
                     &self,
-                    navigation_kind: *mut COREWEBVIEW2_NAVIGATION_KIND,
+                    value: *mut COREWEBVIEW2_NAVIGATION_KIND,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventArgs3 {}
@@ -32593,7 +34789,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        navigation_kind: *mut COREWEBVIEW2_NAVIGATION_KIND,
+                        value: *mut COREWEBVIEW2_NAVIGATION_KIND,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2NavigationStartingEventArgs3_Impl,
@@ -32602,7 +34798,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2NavigationStartingEventArgs3_Impl::NavigationKind(
                             this,
-                            core::mem::transmute_copy(&navigation_kind),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -32958,14 +35154,14 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        frameinfo: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2NewWindowRequestedEventArgs3_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        match ICoreWebView2NewWindowRequestedEventArgs3_Impl:: OriginalSourceFrameInfo ( this , ) { Ok ( ok__ ) => { frameinfo . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                        match ICoreWebView2NewWindowRequestedEventArgs3_Impl:: OriginalSourceFrameInfo ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
                     }
                     Self {
                         base__: ICoreWebView2NewWindowRequestedEventArgs2_Vtbl::new::<
@@ -33103,6 +35299,674 @@ pub mod Web {
                 }
                 pub fn matches(iid: &windows_core::GUID) -> bool {
                     iid == & < ICoreWebView2NonClientRegionChangedEventHandler < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2Notification_Impl: Sized {
+                fn add_CloseRequested(
+                    &self,
+                    eventhandler: Option<&ICoreWebView2NotificationCloseRequestedEventHandler>,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn remove_CloseRequested(
+                    &self,
+                    token: &windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn ReportShown(&self) -> windows_core::Result<()>;
+                fn ReportClicked(&self) -> windows_core::Result<()>;
+                fn ReportClosed(&self) -> windows_core::Result<()>;
+                fn Body(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Direction(
+                    &self,
+                    value: *mut COREWEBVIEW2_TEXT_DIRECTION_KIND,
+                ) -> windows_core::Result<()>;
+                fn Language(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Tag(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn IconUri(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Title(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn BadgeUri(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn BodyImageUri(&self, value: *mut windows_core::PWSTR)
+                    -> windows_core::Result<()>;
+                fn ShouldRenotify(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn RequiresInteraction(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn IsSilent(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn Timestamp(&self, value: *mut f64) -> windows_core::Result<()>;
+                fn GetVibrationPattern(
+                    &self,
+                    count: *mut u32,
+                    vibrationpattern: *mut *mut u64,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2Notification {}
+            impl ICoreWebView2Notification_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2Notification_Vtbl
+                where
+                    Identity: ICoreWebView2Notification_Impl,
+                {
+                    unsafe extern "system" fn add_CloseRequested<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
+                        token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::add_CloseRequested(
+                            this,
+                            windows_core::from_raw_borrowed(&eventhandler),
+                            core::mem::transmute_copy(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn remove_CloseRequested<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        token: windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::remove_CloseRequested(
+                            this,
+                            core::mem::transmute(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn ReportShown<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::ReportShown(this).into()
+                    }
+                    unsafe extern "system" fn ReportClicked<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::ReportClicked(this).into()
+                    }
+                    unsafe extern "system" fn ReportClosed<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::ReportClosed(this).into()
+                    }
+                    unsafe extern "system" fn Body<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::Body(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Direction<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut COREWEBVIEW2_TEXT_DIRECTION_KIND,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::Direction(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Language<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::Language(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Tag<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::Tag(this, core::mem::transmute_copy(&value))
+                            .into()
+                    }
+                    unsafe extern "system" fn IconUri<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::IconUri(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Title<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::Title(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn BadgeUri<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::BadgeUri(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn BodyImageUri<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::BodyImageUri(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn ShouldRenotify<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::ShouldRenotify(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn RequiresInteraction<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::RequiresInteraction(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn IsSilent<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::IsSilent(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Timestamp<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut f64,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::Timestamp(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn GetVibrationPattern<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        count: *mut u32,
+                        vibrationpattern: *mut *mut u64,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2Notification_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2Notification_Impl::GetVibrationPattern(
+                            this,
+                            core::mem::transmute_copy(&count),
+                            core::mem::transmute_copy(&vibrationpattern),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        add_CloseRequested: add_CloseRequested::<Identity, OFFSET>,
+                        remove_CloseRequested: remove_CloseRequested::<Identity, OFFSET>,
+                        ReportShown: ReportShown::<Identity, OFFSET>,
+                        ReportClicked: ReportClicked::<Identity, OFFSET>,
+                        ReportClosed: ReportClosed::<Identity, OFFSET>,
+                        Body: Body::<Identity, OFFSET>,
+                        Direction: Direction::<Identity, OFFSET>,
+                        Language: Language::<Identity, OFFSET>,
+                        Tag: Tag::<Identity, OFFSET>,
+                        IconUri: IconUri::<Identity, OFFSET>,
+                        Title: Title::<Identity, OFFSET>,
+                        BadgeUri: BadgeUri::<Identity, OFFSET>,
+                        BodyImageUri: BodyImageUri::<Identity, OFFSET>,
+                        ShouldRenotify: ShouldRenotify::<Identity, OFFSET>,
+                        RequiresInteraction: RequiresInteraction::<Identity, OFFSET>,
+                        IsSilent: IsSilent::<Identity, OFFSET>,
+                        Timestamp: Timestamp::<Identity, OFFSET>,
+                        GetVibrationPattern: GetVibrationPattern::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2Notification as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2NotificationCloseRequestedEventHandler_Impl: Sized {
+                fn Invoke(
+                    &self,
+                    sender: Option<&ICoreWebView2Notification>,
+                    args: Option<&windows_core::IUnknown>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2NotificationCloseRequestedEventHandler {}
+            impl ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl
+                where
+                    Identity: ICoreWebView2NotificationCloseRequestedEventHandler_Impl,
+                {
+                    unsafe extern "system" fn Invoke<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        sender: *mut core::ffi::c_void,
+                        args: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2NotificationCloseRequestedEventHandler_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2NotificationCloseRequestedEventHandler_Impl::Invoke(
+                            this,
+                            windows_core::from_raw_borrowed(&sender),
+                            windows_core::from_raw_borrowed(&args),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Invoke: Invoke::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2NotificationCloseRequestedEventHandler < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2NotificationReceivedEventArgs_Impl: Sized {
+                fn SenderOrigin(&self, value: *mut windows_core::PWSTR)
+                    -> windows_core::Result<()>;
+                fn Notification(&self) -> windows_core::Result<ICoreWebView2Notification>;
+                fn SetHandled(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn Handled(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2NotificationReceivedEventArgs {}
+            impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2NotificationReceivedEventArgs_Vtbl
+                where
+                    Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
+                {
+                    unsafe extern "system" fn SenderOrigin<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2NotificationReceivedEventArgs_Impl::SenderOrigin(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Notification<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2NotificationReceivedEventArgs_Impl::Notification(this) {
+                            Ok(ok__) => {
+                                value.write(core::mem::transmute(ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
+                        }
+                    }
+                    unsafe extern "system" fn SetHandled<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2NotificationReceivedEventArgs_Impl::SetHandled(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Handled<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2NotificationReceivedEventArgs_Impl::Handled(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn GetDeferral<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        deferral: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2NotificationReceivedEventArgs_Impl::GetDeferral(this) {
+                            Ok(ok__) => {
+                                deferral.write(core::mem::transmute(ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
+                        }
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        SenderOrigin: SenderOrigin::<Identity, OFFSET>,
+                        Notification: Notification::<Identity, OFFSET>,
+                        SetHandled: SetHandled::<Identity, OFFSET>,
+                        Handled: Handled::<Identity, OFFSET>,
+                        GetDeferral: GetDeferral::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2NotificationReceivedEventArgs < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2NotificationReceivedEventHandler_Impl: Sized {
+                fn Invoke(
+                    &self,
+                    sender: Option<&ICoreWebView2>,
+                    args: Option<&ICoreWebView2NotificationReceivedEventArgs>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2NotificationReceivedEventHandler {}
+            impl ICoreWebView2NotificationReceivedEventHandler_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2NotificationReceivedEventHandler_Vtbl
+                where
+                    Identity: ICoreWebView2NotificationReceivedEventHandler_Impl,
+                {
+                    unsafe extern "system" fn Invoke<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        sender: *mut core::ffi::c_void,
+                        args: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2NotificationReceivedEventHandler_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2NotificationReceivedEventHandler_Impl::Invoke(
+                            this,
+                            windows_core::from_raw_borrowed(&sender),
+                            windows_core::from_raw_borrowed(&args),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Invoke: Invoke::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2NotificationReceivedEventHandler < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2ObjectCollection_Impl:
+                Sized + ICoreWebView2ObjectCollectionView_Impl
+            {
+                fn RemoveValueAtIndex(&self, index: u32) -> windows_core::Result<()>;
+                fn InsertValueAtIndex(
+                    &self,
+                    index: u32,
+                    value: Option<&windows_core::IUnknown>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2ObjectCollection {}
+            impl ICoreWebView2ObjectCollection_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2ObjectCollection_Vtbl
+                where
+                    Identity: ICoreWebView2ObjectCollection_Impl,
+                {
+                    unsafe extern "system" fn RemoveValueAtIndex<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        index: u32,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ObjectCollection_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ObjectCollection_Impl::RemoveValueAtIndex(
+                            this,
+                            core::mem::transmute_copy(&index),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn InsertValueAtIndex<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        index: u32,
+                        value: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ObjectCollection_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ObjectCollection_Impl::InsertValueAtIndex(
+                            this,
+                            core::mem::transmute_copy(&index),
+                            windows_core::from_raw_borrowed(&value),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2ObjectCollectionView_Vtbl::new::<Identity, OFFSET>(),
+                        RemoveValueAtIndex: RemoveValueAtIndex::<Identity, OFFSET>,
+                        InsertValueAtIndex: InsertValueAtIndex::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2ObjectCollection as windows_core::Interface>::IID
+                        || iid
+                            == &<ICoreWebView2ObjectCollectionView as windows_core::Interface>::IID
                 }
             }
             pub trait ICoreWebView2ObjectCollectionView_Impl: Sized {
@@ -33327,11 +36191,11 @@ pub mod Web {
             {
                 fn Handled(
                     &self,
-                    handled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn SetHandled(
                     &self,
-                    handled: windows::Win32::Foundation::BOOL,
+                    value: windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2PermissionRequestedEventArgs2 {}
@@ -33346,7 +36210,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        handled: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2PermissionRequestedEventArgs2_Impl,
@@ -33355,7 +36219,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2PermissionRequestedEventArgs2_Impl::Handled(
                             this,
-                            core::mem::transmute_copy(&handled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -33364,7 +36228,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        handled: windows::Win32::Foundation::BOOL,
+                        value: windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2PermissionRequestedEventArgs2_Impl,
@@ -33373,7 +36237,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2PermissionRequestedEventArgs2_Impl::SetHandled(
                             this,
-                            core::mem::transmute_copy(&handled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -34839,7 +37703,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    printstatus: COREWEBVIEW2_PRINT_STATUS,
+                    result: COREWEBVIEW2_PRINT_STATUS,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2PrintCompletedHandler {}
@@ -34855,7 +37719,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        printstatus: COREWEBVIEW2_PRINT_STATUS,
+                        result: COREWEBVIEW2_PRINT_STATUS,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2PrintCompletedHandler_Impl,
@@ -34865,7 +37729,7 @@ pub mod Web {
                         ICoreWebView2PrintCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            core::mem::transmute_copy(&printstatus),
+                            core::mem::transmute_copy(&result),
                         )
                         .into()
                     }
@@ -35817,7 +38681,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    issuccessful: windows::Win32::Foundation::BOOL,
+                    result: windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2PrintToPdfCompletedHandler {}
@@ -35833,7 +38697,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        issuccessful: windows::Win32::Foundation::BOOL,
+                        result: windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2PrintToPdfCompletedHandler_Impl,
@@ -35843,7 +38707,7 @@ pub mod Web {
                         ICoreWebView2PrintToPdfCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            core::mem::transmute_copy(&issuccessful),
+                            core::mem::transmute_copy(&result),
                         )
                         .into()
                     }
@@ -35860,7 +38724,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    pdfstream: Option<&windows::Win32::System::Com::IStream>,
+                    result: Option<&windows::Win32::System::Com::IStream>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2PrintToPdfStreamCompletedHandler {}
@@ -35876,7 +38740,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        pdfstream: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2PrintToPdfStreamCompletedHandler_Impl,
@@ -35886,7 +38750,7 @@ pub mod Web {
                         ICoreWebView2PrintToPdfStreamCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&pdfstream),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -35963,7 +38827,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2ProcessExtendedInfoCollection_Impl: Sized {
-                fn Count(&self, count: *mut u32) -> windows_core::Result<()>;
+                fn Count(&self, value: *mut u32) -> windows_core::Result<()>;
                 fn GetValueAtIndex(
                     &self,
                     index: u32,
@@ -35981,7 +38845,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        count: *mut u32,
+                        value: *mut u32,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ProcessExtendedInfoCollection_Impl,
@@ -35990,7 +38854,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2ProcessExtendedInfoCollection_Impl::Count(
                             this,
-                            core::mem::transmute_copy(&count),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -36000,7 +38864,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         index: u32,
-                        processinfo: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ProcessExtendedInfoCollection_Impl,
@@ -36012,7 +38876,7 @@ pub mod Web {
                             core::mem::transmute_copy(&index),
                         ) {
                             Ok(ok__) => {
-                                processinfo.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -36031,7 +38895,7 @@ pub mod Web {
             pub trait ICoreWebView2ProcessFailedEventArgs_Impl: Sized {
                 fn ProcessFailedKind(
                     &self,
-                    processfailedkind: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
+                    value: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventArgs {}
@@ -36046,7 +38910,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        processfailedkind: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
+                        value: *mut COREWEBVIEW2_PROCESS_FAILED_KIND,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ProcessFailedEventArgs_Impl,
@@ -36055,7 +38919,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2ProcessFailedEventArgs_Impl::ProcessFailedKind(
                             this,
-                            core::mem::transmute_copy(&processfailedkind),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -36320,7 +39184,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2ProcessInfoCollection_Impl: Sized {
-                fn Count(&self, count: *mut u32) -> windows_core::Result<()>;
+                fn Count(&self, value: *mut u32) -> windows_core::Result<()>;
                 fn GetValueAtIndex(
                     &self,
                     index: u32,
@@ -36338,7 +39202,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        count: *mut u32,
+                        value: *mut u32,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ProcessInfoCollection_Impl,
@@ -36347,7 +39211,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2ProcessInfoCollection_Impl::Count(
                             this,
-                            core::mem::transmute_copy(&count),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -36357,7 +39221,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         index: u32,
-                        processinfo: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ProcessInfoCollection_Impl,
@@ -36369,7 +39233,7 @@ pub mod Web {
                             core::mem::transmute_copy(&index),
                         ) {
                             Ok(ok__) => {
-                                processinfo.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -36782,13 +39646,11 @@ pub mod Web {
                     permissionkind: COREWEBVIEW2_PERMISSION_KIND,
                     origin: &windows_core::PCWSTR,
                     state: COREWEBVIEW2_PERMISSION_STATE,
-                    completedhandler: Option<&ICoreWebView2SetPermissionStateCompletedHandler>,
+                    handler: Option<&ICoreWebView2SetPermissionStateCompletedHandler>,
                 ) -> windows_core::Result<()>;
                 fn GetNonDefaultPermissionSettings(
                     &self,
-                    completedhandler: Option<
-                        &ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler,
-                    >,
+                    handler: Option<&ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Profile4 {}
@@ -36806,7 +39668,7 @@ pub mod Web {
                         permissionkind: COREWEBVIEW2_PERMISSION_KIND,
                         origin: windows_core::PCWSTR,
                         state: COREWEBVIEW2_PERMISSION_STATE,
-                        completedhandler: *mut core::ffi::c_void,
+                        handler: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Profile4_Impl,
@@ -36818,7 +39680,7 @@ pub mod Web {
                             core::mem::transmute_copy(&permissionkind),
                             core::mem::transmute(&origin),
                             core::mem::transmute_copy(&state),
-                            windows_core::from_raw_borrowed(&completedhandler),
+                            windows_core::from_raw_borrowed(&handler),
                         )
                         .into()
                     }
@@ -36827,7 +39689,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        completedhandler: *mut core::ffi::c_void,
+                        handler: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Profile4_Impl,
@@ -36836,7 +39698,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Profile4_Impl::GetNonDefaultPermissionSettings(
                             this,
-                            windows_core::from_raw_borrowed(&completedhandler),
+                            windows_core::from_raw_borrowed(&handler),
                         )
                         .into()
                     }
@@ -36871,7 +39733,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        cookiemanager: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Profile5_Impl,
@@ -36880,7 +39742,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match ICoreWebView2Profile5_Impl::CookieManager(this) {
                             Ok(ok__) => {
-                                cookiemanager.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -37180,7 +40042,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    extension: Option<&ICoreWebView2BrowserExtension>,
+                    result: Option<&ICoreWebView2BrowserExtension>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {}
@@ -37196,7 +40058,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        extension: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl,
@@ -37206,7 +40068,7 @@ pub mod Web {
                         ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&extension),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -37266,7 +40128,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    extensionlist: Option<&ICoreWebView2BrowserExtensionList>,
+                    result: Option<&ICoreWebView2BrowserExtensionList>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {}
@@ -37282,7 +40144,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        extensionlist: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl,
@@ -37292,7 +40154,7 @@ pub mod Web {
                         ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&extensionlist),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -37409,6 +40271,759 @@ pub mod Web {
                 }
                 pub fn matches(iid: &windows_core::GUID) -> bool {
                     iid == &<ICoreWebView2RegionRectCollectionView as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2SaveAsUIShowingEventArgs_Impl: Sized {
+                fn ContentMimeType(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()>;
+                fn SetCancel(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn Cancel(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn SetSuppressDefaultDialog(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn SuppressDefaultDialog(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral>;
+                fn SetSaveAsFilePath(
+                    &self,
+                    value: &windows_core::PCWSTR,
+                ) -> windows_core::Result<()>;
+                fn SaveAsFilePath(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()>;
+                fn SetAllowReplace(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn AllowReplace(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn SetKind(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()>;
+                fn Kind(&self, value: *mut COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2SaveAsUIShowingEventArgs {}
+            impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2SaveAsUIShowingEventArgs_Vtbl
+                where
+                    Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                {
+                    unsafe extern "system" fn ContentMimeType<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::ContentMimeType(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SetCancel<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetCancel(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Cancel<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::Cancel(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SetSuppressDefaultDialog<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetSuppressDefaultDialog(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SuppressDefaultDialog<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::SuppressDefaultDialog(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn GetDeferral<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2SaveAsUIShowingEventArgs_Impl::GetDeferral(this) {
+                            Ok(ok__) => {
+                                value.write(core::mem::transmute(ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
+                        }
+                    }
+                    unsafe extern "system" fn SetSaveAsFilePath<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows_core::PCWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetSaveAsFilePath(
+                            this,
+                            core::mem::transmute(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SaveAsFilePath<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::SaveAsFilePath(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SetAllowReplace<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetAllowReplace(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn AllowReplace<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::AllowReplace(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SetKind<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: COREWEBVIEW2_SAVE_AS_KIND,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetKind(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Kind<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut COREWEBVIEW2_SAVE_AS_KIND,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventArgs_Impl::Kind(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        ContentMimeType: ContentMimeType::<Identity, OFFSET>,
+                        SetCancel: SetCancel::<Identity, OFFSET>,
+                        Cancel: Cancel::<Identity, OFFSET>,
+                        SetSuppressDefaultDialog: SetSuppressDefaultDialog::<Identity, OFFSET>,
+                        SuppressDefaultDialog: SuppressDefaultDialog::<Identity, OFFSET>,
+                        GetDeferral: GetDeferral::<Identity, OFFSET>,
+                        SetSaveAsFilePath: SetSaveAsFilePath::<Identity, OFFSET>,
+                        SaveAsFilePath: SaveAsFilePath::<Identity, OFFSET>,
+                        SetAllowReplace: SetAllowReplace::<Identity, OFFSET>,
+                        AllowReplace: AllowReplace::<Identity, OFFSET>,
+                        SetKind: SetKind::<Identity, OFFSET>,
+                        Kind: Kind::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2SaveAsUIShowingEventArgs as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2SaveAsUIShowingEventHandler_Impl: Sized {
+                fn Invoke(
+                    &self,
+                    sender: Option<&ICoreWebView2>,
+                    args: Option<&ICoreWebView2SaveAsUIShowingEventArgs>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2SaveAsUIShowingEventHandler {}
+            impl ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2SaveAsUIShowingEventHandler_Vtbl
+                where
+                    Identity: ICoreWebView2SaveAsUIShowingEventHandler_Impl,
+                {
+                    unsafe extern "system" fn Invoke<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        sender: *mut core::ffi::c_void,
+                        args: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveAsUIShowingEventHandler_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveAsUIShowingEventHandler_Impl::Invoke(
+                            this,
+                            windows_core::from_raw_borrowed(&sender),
+                            windows_core::from_raw_borrowed(&args),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Invoke: Invoke::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2SaveAsUIShowingEventHandler < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl: Sized {
+                fn CancelSave(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn SetCancelSave(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn DocumentOriginUri(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()>;
+                fn FileExtension(
+                    &self,
+                    value: *mut windows_core::PWSTR,
+                ) -> windows_core::Result<()>;
+                fn FilePath(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn SuppressDefaultPolicy(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn SetSuppressDefaultPolicy(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2SaveFileSecurityCheckStartingEventArgs {}
+            impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl
+                where
+                    Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                {
+                    unsafe extern "system" fn CancelSave<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::CancelSave(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SetCancelSave<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SetCancelSave(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn DocumentOriginUri<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::DocumentOriginUri(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn FileExtension<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::FileExtension(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn FilePath<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows_core::PWSTR,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::FilePath(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SuppressDefaultPolicy<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl:: SuppressDefaultPolicy ( this , core::mem::transmute_copy ( & value ) , ) . into ( )
+                    }
+                    unsafe extern "system" fn SetSuppressDefaultPolicy<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl:: SetSuppressDefaultPolicy ( this , core::mem::transmute_copy ( & value ) , ) . into ( )
+                    }
+                    unsafe extern "system" fn GetDeferral<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::GetDeferral(
+                            this,
+                        ) {
+                            Ok(ok__) => {
+                                value.write(core::mem::transmute(ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
+                        }
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        CancelSave: CancelSave::<Identity, OFFSET>,
+                        SetCancelSave: SetCancelSave::<Identity, OFFSET>,
+                        DocumentOriginUri: DocumentOriginUri::<Identity, OFFSET>,
+                        FileExtension: FileExtension::<Identity, OFFSET>,
+                        FilePath: FilePath::<Identity, OFFSET>,
+                        SuppressDefaultPolicy: SuppressDefaultPolicy::<Identity, OFFSET>,
+                        SetSuppressDefaultPolicy: SetSuppressDefaultPolicy::<Identity, OFFSET>,
+                        GetDeferral: GetDeferral::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2SaveFileSecurityCheckStartingEventArgs < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl: Sized {
+                fn Invoke(
+                    &self,
+                    sender: Option<&ICoreWebView2>,
+                    args: Option<&ICoreWebView2SaveFileSecurityCheckStartingEventArgs>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2SaveFileSecurityCheckStartingEventHandler {}
+            impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl
+                where
+                    Identity: ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl,
+                {
+                    unsafe extern "system" fn Invoke<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        sender: *mut core::ffi::c_void,
+                        args: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl::Invoke(
+                            this,
+                            windows_core::from_raw_borrowed(&sender),
+                            windows_core::from_raw_borrowed(&args),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Invoke: Invoke::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2SaveFileSecurityCheckStartingEventHandler < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2ScreenCaptureStartingEventArgs_Impl: Sized {
+                fn Cancel(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn SetCancel(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn Handled(
+                    &self,
+                    value: *mut windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn SetHandled(
+                    &self,
+                    value: windows::Win32::Foundation::BOOL,
+                ) -> windows_core::Result<()>;
+                fn OriginalSourceFrameInfo(&self) -> windows_core::Result<ICoreWebView2FrameInfo>;
+                fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2ScreenCaptureStartingEventArgs {}
+            impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl
+                where
+                    Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
+                {
+                    unsafe extern "system" fn Cancel<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Cancel(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SetCancel<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ScreenCaptureStartingEventArgs_Impl::SetCancel(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn Handled<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Handled(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn SetHandled<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: windows::Win32::Foundation::BOOL,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ScreenCaptureStartingEventArgs_Impl::SetHandled(
+                            this,
+                            core::mem::transmute_copy(&value),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn OriginalSourceFrameInfo<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2ScreenCaptureStartingEventArgs_Impl:: OriginalSourceFrameInfo ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                    }
+                    unsafe extern "system" fn GetDeferral<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        match ICoreWebView2ScreenCaptureStartingEventArgs_Impl::GetDeferral(this) {
+                            Ok(ok__) => {
+                                value.write(core::mem::transmute(ok__));
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into(),
+                        }
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Cancel: Cancel::<Identity, OFFSET>,
+                        SetCancel: SetCancel::<Identity, OFFSET>,
+                        Handled: Handled::<Identity, OFFSET>,
+                        SetHandled: SetHandled::<Identity, OFFSET>,
+                        OriginalSourceFrameInfo: OriginalSourceFrameInfo::<Identity, OFFSET>,
+                        GetDeferral: GetDeferral::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2ScreenCaptureStartingEventArgs < > as windows_core::Interface >::IID
+                }
+            }
+            pub trait ICoreWebView2ScreenCaptureStartingEventHandler_Impl: Sized {
+                fn Invoke(
+                    &self,
+                    sender: Option<&ICoreWebView2>,
+                    args: Option<&ICoreWebView2ScreenCaptureStartingEventArgs>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2ScreenCaptureStartingEventHandler {}
+            impl ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl
+                where
+                    Identity: ICoreWebView2ScreenCaptureStartingEventHandler_Impl,
+                {
+                    unsafe extern "system" fn Invoke<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        sender: *mut core::ffi::c_void,
+                        args: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ScreenCaptureStartingEventHandler_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ScreenCaptureStartingEventHandler_Impl::Invoke(
+                            this,
+                            windows_core::from_raw_borrowed(&sender),
+                            windows_core::from_raw_borrowed(&args),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Invoke: Invoke::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2ScreenCaptureStartingEventHandler < > as windows_core::Interface >::IID
                 }
             }
             pub trait ICoreWebView2ScriptDialogOpeningEventArgs_Impl: Sized {
@@ -38430,14 +42045,8 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2Settings2_Impl: Sized + ICoreWebView2Settings_Impl {
-                fn UserAgent(
-                    &self,
-                    useragent: *mut windows_core::PWSTR,
-                ) -> windows_core::Result<()>;
-                fn SetUserAgent(
-                    &self,
-                    useragent: &windows_core::PCWSTR,
-                ) -> windows_core::Result<()>;
+                fn UserAgent(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn SetUserAgent(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Settings2 {}
             impl ICoreWebView2Settings2_Vtbl {
@@ -38451,7 +42060,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        useragent: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings2_Impl,
@@ -38460,7 +42069,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings2_Impl::UserAgent(
                             this,
-                            core::mem::transmute_copy(&useragent),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38469,7 +42078,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        useragent: windows_core::PCWSTR,
+                        value: windows_core::PCWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings2_Impl,
@@ -38478,7 +42087,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings2_Impl::SetUserAgent(
                             this,
-                            core::mem::transmute(&useragent),
+                            core::mem::transmute(&value),
                         )
                         .into()
                     }
@@ -38496,11 +42105,11 @@ pub mod Web {
             pub trait ICoreWebView2Settings3_Impl: Sized + ICoreWebView2Settings2_Impl {
                 fn AreBrowserAcceleratorKeysEnabled(
                     &self,
-                    arebrowseracceleratorkeysenabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn SetAreBrowserAcceleratorKeysEnabled(
                     &self,
-                    arebrowseracceleratorkeysenabled: windows::Win32::Foundation::BOOL,
+                    value: windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Settings3 {}
@@ -38515,7 +42124,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        arebrowseracceleratorkeysenabled: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings3_Impl,
@@ -38524,7 +42133,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings3_Impl::AreBrowserAcceleratorKeysEnabled(
                             this,
-                            core::mem::transmute_copy(&arebrowseracceleratorkeysenabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38533,7 +42142,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        arebrowseracceleratorkeysenabled: windows::Win32::Foundation::BOOL,
+                        value: windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings3_Impl,
@@ -38542,7 +42151,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings3_Impl::SetAreBrowserAcceleratorKeysEnabled(
                             this,
-                            core::mem::transmute_copy(&arebrowseracceleratorkeysenabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38682,11 +42291,11 @@ pub mod Web {
             pub trait ICoreWebView2Settings5_Impl: Sized + ICoreWebView2Settings4_Impl {
                 fn IsPinchZoomEnabled(
                     &self,
-                    enabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn SetIsPinchZoomEnabled(
                     &self,
-                    enabled: windows::Win32::Foundation::BOOL,
+                    value: windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Settings5 {}
@@ -38701,7 +42310,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        enabled: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings5_Impl,
@@ -38710,7 +42319,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings5_Impl::IsPinchZoomEnabled(
                             this,
-                            core::mem::transmute_copy(&enabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38719,7 +42328,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        enabled: windows::Win32::Foundation::BOOL,
+                        value: windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings5_Impl,
@@ -38728,7 +42337,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings5_Impl::SetIsPinchZoomEnabled(
                             this,
-                            core::mem::transmute_copy(&enabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38749,11 +42358,11 @@ pub mod Web {
             pub trait ICoreWebView2Settings6_Impl: Sized + ICoreWebView2Settings5_Impl {
                 fn IsSwipeNavigationEnabled(
                     &self,
-                    enabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn SetIsSwipeNavigationEnabled(
                     &self,
-                    enabled: windows::Win32::Foundation::BOOL,
+                    value: windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Settings6 {}
@@ -38768,7 +42377,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        enabled: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings6_Impl,
@@ -38777,7 +42386,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings6_Impl::IsSwipeNavigationEnabled(
                             this,
-                            core::mem::transmute_copy(&enabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38786,7 +42395,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        enabled: windows::Win32::Foundation::BOOL,
+                        value: windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings6_Impl,
@@ -38795,7 +42404,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings6_Impl::SetIsSwipeNavigationEnabled(
                             this,
-                            core::mem::transmute_copy(&enabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38817,11 +42426,11 @@ pub mod Web {
             pub trait ICoreWebView2Settings7_Impl: Sized + ICoreWebView2Settings6_Impl {
                 fn HiddenPdfToolbarItems(
                     &self,
-                    hidden_pdf_toolbar_items: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
+                    value: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
                 ) -> windows_core::Result<()>;
                 fn SetHiddenPdfToolbarItems(
                     &self,
-                    hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
+                    value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Settings7 {}
@@ -38836,7 +42445,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        hidden_pdf_toolbar_items: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
+                        value: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings7_Impl,
@@ -38845,7 +42454,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings7_Impl::HiddenPdfToolbarItems(
                             this,
-                            core::mem::transmute_copy(&hidden_pdf_toolbar_items),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38854,7 +42463,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        hidden_pdf_toolbar_items: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
+                        value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings7_Impl,
@@ -38863,7 +42472,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings7_Impl::SetHiddenPdfToolbarItems(
                             this,
-                            core::mem::transmute_copy(&hidden_pdf_toolbar_items),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38962,11 +42571,11 @@ pub mod Web {
             pub trait ICoreWebView2Settings9_Impl: Sized + ICoreWebView2Settings8_Impl {
                 fn IsNonClientRegionSupportEnabled(
                     &self,
-                    enabled: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
                 fn SetIsNonClientRegionSupportEnabled(
                     &self,
-                    enabled: windows::Win32::Foundation::BOOL,
+                    value: windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2Settings9 {}
@@ -38981,7 +42590,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        enabled: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings9_Impl,
@@ -38990,7 +42599,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings9_Impl::IsNonClientRegionSupportEnabled(
                             this,
-                            core::mem::transmute_copy(&enabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -38999,7 +42608,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        enabled: windows::Win32::Foundation::BOOL,
+                        value: windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2Settings9_Impl,
@@ -39008,7 +42617,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2Settings9_Impl::SetIsNonClientRegionSupportEnabled(
                             this,
-                            core::mem::transmute_copy(&enabled),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -39153,10 +42762,53 @@ pub mod Web {
                     iid == &<ICoreWebView2SharedBuffer as windows_core::Interface>::IID
                 }
             }
+            pub trait ICoreWebView2ShowSaveAsUICompletedHandler_Impl: Sized {
+                fn Invoke(
+                    &self,
+                    errorcode: windows_core::HRESULT,
+                    result: COREWEBVIEW2_SAVE_AS_UI_RESULT,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2ShowSaveAsUICompletedHandler {}
+            impl ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl
+                where
+                    Identity: ICoreWebView2ShowSaveAsUICompletedHandler_Impl,
+                {
+                    unsafe extern "system" fn Invoke<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        errorcode: windows_core::HRESULT,
+                        result: COREWEBVIEW2_SAVE_AS_UI_RESULT,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2ShowSaveAsUICompletedHandler_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2ShowSaveAsUICompletedHandler_Impl::Invoke(
+                            this,
+                            core::mem::transmute_copy(&errorcode),
+                            core::mem::transmute_copy(&result),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        Invoke: Invoke::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == & < ICoreWebView2ShowSaveAsUICompletedHandler < > as windows_core::Interface >::IID
+                }
+            }
             pub trait ICoreWebView2SourceChangedEventArgs_Impl: Sized {
                 fn IsNewDocument(
                     &self,
-                    isnewdocument: *mut windows::Win32::Foundation::BOOL,
+                    value: *mut windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2SourceChangedEventArgs {}
@@ -39171,7 +42823,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        isnewdocument: *mut windows::Win32::Foundation::BOOL,
+                        value: *mut windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2SourceChangedEventArgs_Impl,
@@ -39180,7 +42832,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2SourceChangedEventArgs_Impl::IsNewDocument(
                             this,
-                            core::mem::transmute_copy(&isnewdocument),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -39389,7 +43041,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    issuccessful: windows::Win32::Foundation::BOOL,
+                    result: windows::Win32::Foundation::BOOL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2TrySuspendCompletedHandler {}
@@ -39405,7 +43057,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        issuccessful: windows::Win32::Foundation::BOOL,
+                        result: windows::Win32::Foundation::BOOL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2TrySuspendCompletedHandler_Impl,
@@ -39415,7 +43067,7 @@ pub mod Web {
                         ICoreWebView2TrySuspendCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            core::mem::transmute_copy(&issuccessful),
+                            core::mem::transmute_copy(&result),
                         )
                         .into()
                     }
@@ -39429,14 +43081,14 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2WebMessageReceivedEventArgs_Impl: Sized {
-                fn Source(&self, source: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+                fn Source(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
                 fn WebMessageAsJson(
                     &self,
-                    webmessageasjson: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()>;
                 fn TryGetWebMessageAsString(
                     &self,
-                    webmessageasstring: *mut windows_core::PWSTR,
+                    value: *mut windows_core::PWSTR,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2WebMessageReceivedEventArgs {}
@@ -39451,7 +43103,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        source: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2WebMessageReceivedEventArgs_Impl,
@@ -39460,7 +43112,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2WebMessageReceivedEventArgs_Impl::Source(
                             this,
-                            core::mem::transmute_copy(&source),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -39469,7 +43121,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        webmessageasjson: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2WebMessageReceivedEventArgs_Impl,
@@ -39478,7 +43130,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2WebMessageReceivedEventArgs_Impl::WebMessageAsJson(
                             this,
-                            core::mem::transmute_copy(&webmessageasjson),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -39487,7 +43139,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        webmessageasstring: *mut windows_core::PWSTR,
+                        value: *mut windows_core::PWSTR,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2WebMessageReceivedEventArgs_Impl,
@@ -39496,7 +43148,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2WebMessageReceivedEventArgs_Impl::TryGetWebMessageAsString(
                             this,
-                            core::mem::transmute_copy(&webmessageasstring),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -39900,7 +43552,7 @@ pub mod Web {
             {
                 fn RequestedSourceKind(
                     &self,
-                    requestedsourcekind: *mut COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+                    value: *mut COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2WebResourceRequestedEventArgs2 {}
@@ -39915,7 +43567,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        requestedsourcekind: *mut COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
+                        value: *mut COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2WebResourceRequestedEventArgs2_Impl,
@@ -39924,7 +43576,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2WebResourceRequestedEventArgs2_Impl::RequestedSourceKind(
                             this,
-                            core::mem::transmute_copy(&requestedsourcekind),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -40169,7 +43821,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        request: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2WebResourceResponseReceivedEventArgs_Impl,
@@ -40179,7 +43831,7 @@ pub mod Web {
                         match ICoreWebView2WebResourceResponseReceivedEventArgs_Impl::Request(this)
                         {
                             Ok(ok__) => {
-                                request.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -40190,7 +43842,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        response: *mut *mut core::ffi::c_void,
+                        value: *mut *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2WebResourceResponseReceivedEventArgs_Impl,
@@ -40200,7 +43852,7 @@ pub mod Web {
                         match ICoreWebView2WebResourceResponseReceivedEventArgs_Impl::Response(this)
                         {
                             Ok(ok__) => {
-                                response.write(core::mem::transmute(ok__));
+                                value.write(core::mem::transmute(ok__));
                                 windows_core::HRESULT(0)
                             }
                             Err(err) => err.into(),
@@ -40372,7 +44024,7 @@ pub mod Web {
                 fn Invoke(
                     &self,
                     errorcode: windows_core::HRESULT,
-                    content: Option<&windows::Win32::System::Com::IStream>,
+                    result: Option<&windows::Win32::System::Com::IStream>,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {}
@@ -40388,7 +44040,7 @@ pub mod Web {
                     >(
                         this: *mut core::ffi::c_void,
                         errorcode: windows_core::HRESULT,
-                        content: *mut core::ffi::c_void,
+                        result: *mut core::ffi::c_void,
                     ) -> windows_core::HRESULT
                     where
                         Identity:
@@ -40399,7 +44051,7 @@ pub mod Web {
                         ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl::Invoke(
                             this,
                             core::mem::transmute_copy(&errorcode),
-                            windows_core::from_raw_borrowed(&content),
+                            windows_core::from_raw_borrowed(&result),
                         )
                         .into()
                     }
@@ -41571,11 +45223,11 @@ pub mod Web {
             pub trait ICoreWebView2_19_Impl: Sized + ICoreWebView2_18_Impl {
                 fn MemoryUsageTargetLevel(
                     &self,
-                    level: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+                    value: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
                 ) -> windows_core::Result<()>;
                 fn SetMemoryUsageTargetLevel(
                     &self,
-                    level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+                    value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
                 ) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2_19 {}
@@ -41590,7 +45242,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        level: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+                        value: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2_19_Impl,
@@ -41599,7 +45251,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2_19_Impl::MemoryUsageTargetLevel(
                             this,
-                            core::mem::transmute_copy(&level),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -41608,7 +45260,7 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        level: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
+                        value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2_19_Impl,
@@ -41617,7 +45269,7 @@ pub mod Web {
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         ICoreWebView2_19_Impl::SetMemoryUsageTargetLevel(
                             this,
-                            core::mem::transmute_copy(&level),
+                            core::mem::transmute_copy(&value),
                         )
                         .into()
                     }
@@ -41842,7 +45494,7 @@ pub mod Web {
                 }
             }
             pub trait ICoreWebView2_20_Impl: Sized + ICoreWebView2_19_Impl {
-                fn FrameId(&self, id: *mut u32) -> windows_core::Result<()>;
+                fn FrameId(&self, value: *mut u32) -> windows_core::Result<()>;
             }
             impl windows_core::RuntimeName for ICoreWebView2_20 {}
             impl ICoreWebView2_20_Vtbl {
@@ -41856,14 +45508,15 @@ pub mod Web {
                         const OFFSET: isize,
                     >(
                         this: *mut core::ffi::c_void,
-                        id: *mut u32,
+                        value: *mut u32,
                     ) -> windows_core::HRESULT
                     where
                         Identity: ICoreWebView2_20_Impl,
                     {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                        ICoreWebView2_20_Impl::FrameId(this, core::mem::transmute_copy(&id)).into()
+                        ICoreWebView2_20_Impl::FrameId(this, core::mem::transmute_copy(&value))
+                            .into()
                     }
                     Self {
                         base__: ICoreWebView2_19_Vtbl::new::<Identity, OFFSET>(),
@@ -42046,6 +45699,466 @@ pub mod Web {
                         || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
                         || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
                         || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2_23_Impl: Sized + ICoreWebView2_22_Impl {
+                fn PostWebMessageAsJsonWithAdditionalObjects(
+                    &self,
+                    webmessageasjson: &windows_core::PCWSTR,
+                    additionalobjects: Option<&ICoreWebView2ObjectCollectionView>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2_23 {}
+            impl ICoreWebView2_23_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2_23_Vtbl
+                where
+                    Identity: ICoreWebView2_23_Impl,
+                {
+                    unsafe extern "system" fn PostWebMessageAsJsonWithAdditionalObjects<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        webmessageasjson: windows_core::PCWSTR,
+                        additionalobjects: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_23_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_23_Impl::PostWebMessageAsJsonWithAdditionalObjects(
+                            this,
+                            core::mem::transmute(&webmessageasjson),
+                            windows_core::from_raw_borrowed(&additionalobjects),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2_22_Vtbl::new::<Identity, OFFSET>(),
+                        PostWebMessageAsJsonWithAdditionalObjects:
+                            PostWebMessageAsJsonWithAdditionalObjects::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2_23 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_3 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_4 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_5 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_6 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_7 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_8 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_9 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_10 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_11 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_12 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_13 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_14 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_15 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_16 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_17 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_18 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_22 as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2_24_Impl: Sized + ICoreWebView2_23_Impl {
+                fn add_NotificationReceived(
+                    &self,
+                    eventhandler: Option<&ICoreWebView2NotificationReceivedEventHandler>,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn remove_NotificationReceived(
+                    &self,
+                    token: &windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2_24 {}
+            impl ICoreWebView2_24_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2_24_Vtbl
+                where
+                    Identity: ICoreWebView2_24_Impl,
+                {
+                    unsafe extern "system" fn add_NotificationReceived<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
+                        token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_24_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_24_Impl::add_NotificationReceived(
+                            this,
+                            windows_core::from_raw_borrowed(&eventhandler),
+                            core::mem::transmute_copy(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn remove_NotificationReceived<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        token: windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_24_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_24_Impl::remove_NotificationReceived(
+                            this,
+                            core::mem::transmute(&token),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2_23_Vtbl::new::<Identity, OFFSET>(),
+                        add_NotificationReceived: add_NotificationReceived::<Identity, OFFSET>,
+                        remove_NotificationReceived: remove_NotificationReceived::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2_24 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_3 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_4 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_5 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_6 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_7 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_8 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_9 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_10 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_11 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_12 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_13 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_14 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_15 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_16 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_17 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_18 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_22 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_23 as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2_25_Impl: Sized + ICoreWebView2_24_Impl {
+                fn add_SaveAsUIShowing(
+                    &self,
+                    eventhandler: Option<&ICoreWebView2SaveAsUIShowingEventHandler>,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn remove_SaveAsUIShowing(
+                    &self,
+                    token: &windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn ShowSaveAsUI(
+                    &self,
+                    handler: Option<&ICoreWebView2ShowSaveAsUICompletedHandler>,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2_25 {}
+            impl ICoreWebView2_25_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2_25_Vtbl
+                where
+                    Identity: ICoreWebView2_25_Impl,
+                {
+                    unsafe extern "system" fn add_SaveAsUIShowing<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
+                        token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_25_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_25_Impl::add_SaveAsUIShowing(
+                            this,
+                            windows_core::from_raw_borrowed(&eventhandler),
+                            core::mem::transmute_copy(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn remove_SaveAsUIShowing<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        token: windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_25_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_25_Impl::remove_SaveAsUIShowing(
+                            this,
+                            core::mem::transmute(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn ShowSaveAsUI<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        handler: *mut core::ffi::c_void,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_25_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_25_Impl::ShowSaveAsUI(
+                            this,
+                            windows_core::from_raw_borrowed(&handler),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2_24_Vtbl::new::<Identity, OFFSET>(),
+                        add_SaveAsUIShowing: add_SaveAsUIShowing::<Identity, OFFSET>,
+                        remove_SaveAsUIShowing: remove_SaveAsUIShowing::<Identity, OFFSET>,
+                        ShowSaveAsUI: ShowSaveAsUI::<Identity, OFFSET>,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2_25 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_3 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_4 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_5 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_6 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_7 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_8 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_9 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_10 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_11 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_12 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_13 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_14 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_15 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_16 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_17 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_18 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_22 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_23 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_24 as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2_26_Impl: Sized + ICoreWebView2_25_Impl {
+                fn add_SaveFileSecurityCheckStarting(
+                    &self,
+                    eventhandler: Option<&ICoreWebView2SaveFileSecurityCheckStartingEventHandler>,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn remove_SaveFileSecurityCheckStarting(
+                    &self,
+                    token: &windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2_26 {}
+            impl ICoreWebView2_26_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2_26_Vtbl
+                where
+                    Identity: ICoreWebView2_26_Impl,
+                {
+                    unsafe extern "system" fn add_SaveFileSecurityCheckStarting<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
+                        token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_26_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_26_Impl::add_SaveFileSecurityCheckStarting(
+                            this,
+                            windows_core::from_raw_borrowed(&eventhandler),
+                            core::mem::transmute_copy(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn remove_SaveFileSecurityCheckStarting<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        token: windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_26_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_26_Impl::remove_SaveFileSecurityCheckStarting(
+                            this,
+                            core::mem::transmute(&token),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2_25_Vtbl::new::<Identity, OFFSET>(),
+                        add_SaveFileSecurityCheckStarting: add_SaveFileSecurityCheckStarting::<
+                            Identity,
+                            OFFSET,
+                        >,
+                        remove_SaveFileSecurityCheckStarting: remove_SaveFileSecurityCheckStarting::<
+                            Identity,
+                            OFFSET,
+                        >,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2_26 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_3 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_4 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_5 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_6 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_7 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_8 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_9 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_10 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_11 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_12 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_13 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_14 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_15 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_16 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_17 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_18 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_22 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_23 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_24 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_25 as windows_core::Interface>::IID
+                }
+            }
+            pub trait ICoreWebView2_27_Impl: Sized + ICoreWebView2_26_Impl {
+                fn add_ScreenCaptureStarting(
+                    &self,
+                    eventhandler: Option<&ICoreWebView2ScreenCaptureStartingEventHandler>,
+                    token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+                fn remove_ScreenCaptureStarting(
+                    &self,
+                    token: &windows::Win32::System::WinRT::EventRegistrationToken,
+                ) -> windows_core::Result<()>;
+            }
+            impl windows_core::RuntimeName for ICoreWebView2_27 {}
+            impl ICoreWebView2_27_Vtbl {
+                pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
+                ) -> ICoreWebView2_27_Vtbl
+                where
+                    Identity: ICoreWebView2_27_Impl,
+                {
+                    unsafe extern "system" fn add_ScreenCaptureStarting<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        eventhandler: *mut core::ffi::c_void,
+                        token: *mut windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_27_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_27_Impl::add_ScreenCaptureStarting(
+                            this,
+                            windows_core::from_raw_borrowed(&eventhandler),
+                            core::mem::transmute_copy(&token),
+                        )
+                        .into()
+                    }
+                    unsafe extern "system" fn remove_ScreenCaptureStarting<
+                        Identity: windows_core::IUnknownImpl,
+                        const OFFSET: isize,
+                    >(
+                        this: *mut core::ffi::c_void,
+                        token: windows::Win32::System::WinRT::EventRegistrationToken,
+                    ) -> windows_core::HRESULT
+                    where
+                        Identity: ICoreWebView2_27_Impl,
+                    {
+                        let this: &Identity =
+                            &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        ICoreWebView2_27_Impl::remove_ScreenCaptureStarting(
+                            this,
+                            core::mem::transmute(&token),
+                        )
+                        .into()
+                    }
+                    Self {
+                        base__: ICoreWebView2_26_Vtbl::new::<Identity, OFFSET>(),
+                        add_ScreenCaptureStarting: add_ScreenCaptureStarting::<Identity, OFFSET>,
+                        remove_ScreenCaptureStarting: remove_ScreenCaptureStarting::<
+                            Identity,
+                            OFFSET,
+                        >,
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<ICoreWebView2_27 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_2 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_3 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_4 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_5 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_6 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_7 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_8 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_9 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_10 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_11 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_12 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_13 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_14 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_15 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_16 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_17 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_18 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_22 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_23 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_24 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_25 as windows_core::Interface>::IID
+                        || iid == &<ICoreWebView2_26 as windows_core::Interface>::IID
                 }
             }
             pub trait ICoreWebView2_3_Impl: Sized + ICoreWebView2_2_Impl {

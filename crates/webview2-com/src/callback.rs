@@ -610,6 +610,67 @@ pub struct NonClientRegionChangedEventHandler(
     Option<ICoreWebView2NonClientRegionChangedEventArgs>,
 );
 
+#[event_callback]
+pub struct FrameScreenCaptureStartingEventHandler(
+    ICoreWebView2FrameScreenCaptureStartingEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2ScreenCaptureStartingEventArgs>,
+);
+
+#[event_callback]
+pub struct NotificationCloseRequestedEventHandler(
+    ICoreWebView2NotificationCloseRequestedEventHandler,
+    Option<ICoreWebView2Notification>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct NotificationReceivedEventHandler(
+    ICoreWebView2NotificationReceivedEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2NotificationReceivedEventArgs>,
+);
+
+#[event_callback]
+pub struct SaveAsUIShowingEventHandler(
+    ICoreWebView2SaveAsUIShowingEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2SaveAsUIShowingEventArgs>,
+);
+
+#[event_callback]
+pub struct SaveFileSecurityCheckStartingEventHandler(
+    ICoreWebView2SaveFileSecurityCheckStartingEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2SaveFileSecurityCheckStartingEventArgs>,
+);
+
+#[event_callback]
+pub struct ScreenCaptureStartingEventHandler(
+    ICoreWebView2ScreenCaptureStartingEventHandler,
+    Option<ICoreWebView2>,
+    Option<ICoreWebView2ScreenCaptureStartingEventArgs>,
+);
+
+impl ClosureArg for COREWEBVIEW2_SAVE_AS_UI_RESULT {
+    type Output = Self;
+}
+
+impl<'a> InvokeArg<'a> for COREWEBVIEW2_SAVE_AS_UI_RESULT {
+    type Input = Self;
+
+    fn convert(input: Self) -> Self {
+        input
+    }
+}
+
+#[completed_callback]
+pub struct ShowSaveAsUICompletedHandler(
+    ICoreWebView2ShowSaveAsUICompletedHandler,
+    HRESULT,
+    COREWEBVIEW2_SAVE_AS_UI_RESULT,
+);
+
 #[cfg(test)]
 mod test {
     use std::collections::BTreeSet;

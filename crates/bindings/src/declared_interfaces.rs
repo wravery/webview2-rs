@@ -43,6 +43,7 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2FrameNavigationCompletedEventHandler");
     interfaces.insert("ICoreWebView2FrameNavigationStartingEventHandler");
     interfaces.insert("ICoreWebView2FramePermissionRequestedEventHandler");
+    interfaces.insert("ICoreWebView2FrameScreenCaptureStartingEventHandler");
     interfaces.insert("ICoreWebView2FrameWebMessageReceivedEventHandler");
     interfaces.insert("ICoreWebView2GetCookiesCompletedHandler");
     interfaces.insert("ICoreWebView2GetFaviconCompletedHandler");
@@ -59,6 +60,8 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2NewBrowserVersionAvailableEventHandler");
     interfaces.insert("ICoreWebView2NewWindowRequestedEventHandler");
     interfaces.insert("ICoreWebView2NonClientRegionChangedEventHandler");
+    interfaces.insert("ICoreWebView2NotificationCloseRequestedEventHandler");
+    interfaces.insert("ICoreWebView2NotificationReceivedEventHandler");
     interfaces.insert("ICoreWebView2PermissionRequestedEventHandler");
     interfaces.insert("ICoreWebView2PrintCompletedHandler");
     interfaces.insert("ICoreWebView2PrintToPdfCompletedHandler");
@@ -69,9 +72,13 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2ProfileDeletedEventHandler");
     interfaces.insert("ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler");
     interfaces.insert("ICoreWebView2RasterizationScaleChangedEventHandler");
+    interfaces.insert("ICoreWebView2SaveAsUIShowingEventHandler");
+    interfaces.insert("ICoreWebView2SaveFileSecurityCheckStartingEventHandler");
+    interfaces.insert("ICoreWebView2ScreenCaptureStartingEventHandler");
     interfaces.insert("ICoreWebView2ScriptDialogOpeningEventHandler");
     interfaces.insert("ICoreWebView2ServerCertificateErrorDetectedEventHandler");
     interfaces.insert("ICoreWebView2SetPermissionStateCompletedHandler");
+    interfaces.insert("ICoreWebView2ShowSaveAsUICompletedHandler");
     interfaces.insert("ICoreWebView2SourceChangedEventHandler");
     interfaces.insert("ICoreWebView2StateChangedEventHandler");
     interfaces.insert("ICoreWebView2StatusBarTextChangedEventHandler");
@@ -85,7 +92,7 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
 
     interfaces
 }
-
+    
 /// Generate a list of all `ICoreWebView2EnvironmentOptions` interfaces declared in `WebView2.h`.
 /// This is for testing purposes to make sure they are all covered in
 /// [options.rs](../../webview2-com/src/options.rs).
