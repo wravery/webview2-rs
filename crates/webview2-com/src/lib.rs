@@ -83,3 +83,28 @@ pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         }
     }
 }
+
+#[cfg(test)]
+mod test {
+    use windows_core::w;
+
+    use crate::webview2::*;
+
+    #[test]
+    fn safe_compare_eq() {
+        let result = compare_browser_versions(w!("1.0.0"), w!("1.0.0")).unwrap();
+        assert_eq!(0, result);
+    }
+
+    #[test]
+    fn safe_compare_lt() {
+        let result = compare_browser_versions(w!("1.0.0"), w!("1.0.1")).unwrap();
+        assert_eq!(-1, result);
+    }
+
+    #[test]
+    fn safe_compare_gt() {
+        let result = compare_browser_versions(w!("2.0.0"), w!("1.0.1")).unwrap();
+        assert_eq!(1, result);
+    }
+}

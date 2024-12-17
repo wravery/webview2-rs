@@ -258,7 +258,8 @@ impl TryFrom<&syn::FnArg> for FnArg {
 }
 
 struct GlobalFn {
-    name: String,
+    original_name: String,
+    wrapper_name: String,
     generics: FnGenerics,
     args: Vec<FnArg>,
     return_type: Option<FnReturnType>,
@@ -266,12 +267,24 @@ struct GlobalFn {
 
 impl Display for GlobalFn {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let name = &self.name;
+        let original_name = &self.original_name;
+        let wrapper_name = &self.wrapper_name;
         let generics = &self.generics;
         let args = self
             .args
             .iter()
             .map(|arg| format!("{arg}"))
+            .collect::<Vec<_>>()
+            .join(", ");
+        let fwd_args = self
+            .args
+            .iter()
+            .map(|arg| arg.name.as_str())
+            .chain(match self.return_type.as_ref() {
+                Some(FnReturnType::Empty) => None,
+                Some(_) => Some("&mut out_param"),
+                _ => None,
+            })
             .collect::<Vec<_>>()
             .join(", ");
         let return_type = self
@@ -280,9 +293,29 @@ impl Display for GlobalFn {
             .map(|return_type| format!("{return_type}"))
             .unwrap_or_default();
 
-        writeln!(f, "pub fn {name}{generics}({args}){return_type} {{")?;
-        writeln!(f, "    todo!(\"Implement {name}\");")?;
-        writeln!(f, "}}")
+        writeln!(f, r#"/// [`{original_name}`]"#)?;
+        writeln!(
+            f,
+            r#"pub fn {wrapper_name}{generics}({args}){return_type} {{"#
+        )?;
+        match self.return_type.as_ref() {
+            Some(FnReturnType::PWSTR) => {
+                writeln!(f, r#"    let mut out_param = windows_core::PWSTR::null();"#)?
+            }
+            Some(FnReturnType::Other(_)) => {
+                writeln!(f, r#"    let mut out_param = Default::default();"#)?
+            }
+            _ => {}
+        }
+        writeln!(f, r#"    unsafe {{ {original_name}({fwd_args}) }}?;"#)?;
+        match self.return_type.as_ref() {
+            Some(FnReturnType::PWSTR) => {
+                writeln!(f, r#"    Ok(crate::pwstr::take_pwstr(out_param))"#)?
+            }
+            Some(FnReturnType::Other(_)) => writeln!(f, r#"    Ok(out_param)"#)?,
+            _ => writeln!(f, r#"    Ok(())"#)?,
+        }
+        writeln!(f, r#"}}"#)
     }
 }
 
@@ -290,7 +323,8 @@ impl TryFrom<&syn::ItemFn> for GlobalFn {
     type Error = Unrecognized;
 
     fn try_from(value: &syn::ItemFn) -> Result<Self, Self::Error> {
-        let name = snake_case(&value.sig.ident);
+        let original_name = value.sig.ident.to_string();
+        let wrapper_name = snake_case(&original_name);
 
         let generics = FnGenerics::try_from(&value.sig.generics)?;
         let mut args: Vec<_> = value
@@ -316,7 +350,8 @@ impl TryFrom<&syn::ItemFn> for GlobalFn {
         }
 
         Ok(Self {
-            name,
+            original_name,
+            wrapper_name,
             generics,
             args,
             return_type: Some(return_type),
@@ -339,9 +374,7 @@ fn visit_item(file: &mut fs::File, item: &syn::Item) -> crate::Result<()> {
             }
         }
         syn::Item::Fn(item_fn) => {
-            let original_name = &item_fn.sig.ident;
             if let Ok(item_fn) = GlobalFn::try_from(item_fn) {
-                writeln!(file, "/// [`{original_name}`]")?;
                 writeln!(file, "{item_fn}")?;
             }
         }

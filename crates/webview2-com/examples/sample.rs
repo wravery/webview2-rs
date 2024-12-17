@@ -203,8 +203,8 @@ impl WebView {
             let (tx, rx) = mpsc::channel();
 
             CreateCoreWebView2EnvironmentCompletedHandler::wait_for_async_operation(
-                Box::new(|environmentcreatedhandler| unsafe {
-                    CreateCoreWebView2Environment(&environmentcreatedhandler)
+                Box::new(|environmentcreatedhandler| {
+                    create_environment(&environmentcreatedhandler)
                         .map_err(webview2_com::Error::WindowsError)
                 }),
                 Box::new(move |error_code, environment| {
