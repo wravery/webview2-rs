@@ -7,6 +7,7 @@ extern crate webview2_com_macros;
 mod callback;
 mod options;
 mod pwstr;
+mod webview2;
 
 use std::{fmt, sync::mpsc};
 
@@ -21,6 +22,7 @@ use windows::{
 pub use callback::*;
 pub use options::*;
 pub use pwstr::*;
+pub use webview2::*;
 
 #[derive(Debug)]
 pub enum Error {
