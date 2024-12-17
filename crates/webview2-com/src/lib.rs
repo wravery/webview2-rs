@@ -88,7 +88,7 @@ pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
 mod test {
     use windows_core::w;
 
-    use crate::webview2::*;
+    use super::*;
 
     #[test]
     fn safe_compare_eq() {
