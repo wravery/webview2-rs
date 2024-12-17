@@ -45,16 +45,16 @@ impl From<syn::Error> for Unrecognized {
 #[derive(Debug)]
 enum FnReturnType {
     Empty,
-    PWSTR,
-    Other(String),
+    PWSTR { name: Option<String> },
+    Other { name: Option<String>, ty: String },
 }
 
 impl Display for FnReturnType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Empty => write!(f, " -> windows_core::Result<()>"),
-            Self::PWSTR => write!(f, " -> windows_core::Result<String>"),
-            Self::Other(ty) => write!(f, " -> windows_core::Result<{ty}>"),
+            Self::PWSTR { .. } => write!(f, " -> windows_core::Result<String>"),
+            Self::Other { ty, .. } => write!(f, " -> windows_core::Result<{ty}>"),
         }
     }
 }
@@ -93,7 +93,7 @@ impl TryFrom<&syn::ReturnType> for FnReturnType {
                 syn::GenericArgument::Type(syn::Type::Path(syn::TypePath { path, .. })) => {
                     let path = path_to_string(path);
                     if path == "windows_core::PWSTR" {
-                        Some(Self::PWSTR)
+                        Some(Self::PWSTR { name: None })
                     } else {
                         None
                     }
@@ -279,10 +279,17 @@ impl Display for GlobalFn {
         let fwd_args = self
             .args
             .iter()
-            .map(|arg| arg.name.as_str())
+            .map(|arg| arg.name.clone())
             .chain(match self.return_type.as_ref() {
-                Some(FnReturnType::Empty) => None,
-                Some(_) => Some("&mut out_param"),
+                Some(
+                    FnReturnType::PWSTR {
+                        name: Some(out_param),
+                    }
+                    | FnReturnType::Other {
+                        name: Some(out_param),
+                        ..
+                    },
+                ) => Some(format!("&mut {out_param}")),
                 _ => None,
             })
             .collect::<Vec<_>>()
@@ -298,23 +305,45 @@ impl Display for GlobalFn {
             f,
             r#"pub fn {wrapper_name}{generics}({args}){return_type} {{"#
         )?;
+
         match self.return_type.as_ref() {
-            Some(FnReturnType::PWSTR) => {
-                writeln!(f, r#"    let mut out_param = windows_core::PWSTR::null();"#)?
+            Some(FnReturnType::PWSTR {
+                name: Some(out_param),
+            }) => {
+                writeln!(
+                    f,
+                    r#"    let mut {out_param} = windows_core::PWSTR::null();"#
+                )?;
+                writeln!(f, r#"    unsafe {{ {original_name}({fwd_args}) }}?;"#)?;
+                writeln!(f, r#"    Ok(crate::pwstr::take_pwstr({out_param}))"#)?;
             }
-            Some(FnReturnType::Other(_)) => {
-                writeln!(f, r#"    let mut out_param = Default::default();"#)?
+            Some(FnReturnType::PWSTR { name: None }) => {
+                writeln!(
+                    f,
+                    r#"    let result = unsafe {{ {original_name}({fwd_args}) }}?"#
+                )?;
+                writeln!(f, r#"    Ok(crate::pwstr::take_pwstr(result))"#)?;
             }
-            _ => {}
+            Some(FnReturnType::Other {
+                name: Some(out_param),
+                ..
+            }) => {
+                writeln!(f, r#"    let mut {out_param} = Default::default();"#)?;
+                writeln!(f, r#"    unsafe {{ {original_name}({fwd_args}) }}?;"#)?;
+                writeln!(f, r#"    Ok({out_param})"#)?
+            }
+            Some(FnReturnType::Other { name: None, .. }) => {
+                writeln!(
+                    f,
+                    r#"    let result = unsafe {{ {original_name}({fwd_args}) }}?;"#
+                )?;
+                writeln!(f, r#"    Ok(result)"#)?
+            }
+            _ => {
+                writeln!(f, r#"    unsafe {{ {original_name}({fwd_args}) }}"#)?;
+            }
         }
-        writeln!(f, r#"    unsafe {{ {original_name}({fwd_args}) }}?;"#)?;
-        match self.return_type.as_ref() {
-            Some(FnReturnType::PWSTR) => {
-                writeln!(f, r#"    Ok(crate::pwstr::take_pwstr(out_param))"#)?
-            }
-            Some(FnReturnType::Other(_)) => writeln!(f, r#"    Ok(out_param)"#)?,
-            _ => writeln!(f, r#"    Ok(())"#)?,
-        }
+
         writeln!(f, r#"}}"#)
     }
 }
@@ -340,9 +369,14 @@ impl TryFrom<&syn::ItemFn> for GlobalFn {
                 if ty.starts_with("*mut ") {
                     let path = ty.trim_start_matches("*mut ");
                     return_type = if path == "windows_core::PWSTR" {
-                        FnReturnType::PWSTR
+                        FnReturnType::PWSTR {
+                            name: Some(last_arg.name.clone()),
+                        }
                     } else {
-                        FnReturnType::Other(path.to_owned())
+                        FnReturnType::Other {
+                            name: Some(last_arg.name.clone()),
+                            ty: path.to_owned(),
+                        }
                     };
                     args.pop();
                 }
