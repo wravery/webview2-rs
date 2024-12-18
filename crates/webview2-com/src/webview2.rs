@@ -2505,8 +2505,11 @@ impl WebView2CustomSchemeRegistration {
     }
 
     /// [`ICoreWebView2CustomSchemeRegistration::GetAllowedOrigins`]
+    ///
+    /// # Safety
+    /// This method accesses raw pointer parameters.
     #[inline]
-    pub fn get_allowed_origins(
+    pub unsafe fn get_allowed_origins(
         &self,
         allowedoriginscount: *mut u32,
     ) -> windows_core::Result<*mut windows_core::PWSTR> {
@@ -2519,8 +2522,11 @@ impl WebView2CustomSchemeRegistration {
     }
 
     /// [`ICoreWebView2CustomSchemeRegistration::SetAllowedOrigins`]
+    ///
+    /// # Safety
+    /// This method accesses raw pointer parameters.
     #[inline]
-    pub fn set_allowed_origins(
+    pub unsafe fn set_allowed_origins(
         &self,
         allowedoriginscount: u32,
         allowedorigins: *const windows_core::PCWSTR,
@@ -3088,8 +3094,11 @@ impl WebView2Environment14 {
     }
 
     /// [`ICoreWebView2Environment14::CreateObjectCollection`]
+    ///
+    /// # Safety
+    /// This method accesses raw pointer parameters.
     #[inline]
-    pub fn create_object_collection(
+    pub unsafe fn create_object_collection(
         &self,
         length: u32,
         items: *mut Option<windows_core::IUnknown>,
@@ -3543,8 +3552,11 @@ impl WebView2ExecuteScriptResult {
     }
 
     /// [`ICoreWebView2ExecuteScriptResult::TryGetResultAsString`]
+    ///
+    /// # Safety
+    /// This method accesses raw pointer parameters.
     #[inline]
-    pub fn try_get_result_as_string(
+    pub unsafe fn try_get_result_as_string(
         &self,
         stringresult: *mut windows_core::PWSTR,
     ) -> windows_core::Result<windows::Win32::Foundation::BOOL> {
@@ -3636,8 +3648,13 @@ impl WebView2Frame {
     }
 
     /// [`ICoreWebView2Frame::AddHostObjectToScriptWithOrigins`]
+    ///
+    /// # Safety
+    /// This method accesses raw pointer parameters.
     #[inline]
-    pub fn add_host_object_to_script_with_origins<P0: windows_core::Param<windows_core::PCWSTR>>(
+    pub unsafe fn add_host_object_to_script_with_origins<
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    >(
         &self,
         name: P0,
         object: *mut windows_core::VARIANT,
@@ -4043,8 +4060,11 @@ pub type WebView2HttpHeadersCollectionIterator =
 
 impl WebView2HttpHeadersCollectionIterator {
     /// [`ICoreWebView2HttpHeadersCollectionIterator::GetCurrentHeader`]
+    ///
+    /// # Safety
+    /// This method accesses raw pointer parameters.
     #[inline]
-    pub fn get_current_header(
+    pub unsafe fn get_current_header(
         &self,
         name: *mut windows_core::PWSTR,
     ) -> windows_core::Result<String> {
@@ -4672,8 +4692,11 @@ impl WebView2Notification {
     }
 
     /// [`ICoreWebView2Notification::GetVibrationPattern`]
+    ///
+    /// # Safety
+    /// This method accesses raw pointer parameters.
     #[inline]
-    pub fn get_vibration_pattern(&self, count: *mut u32) -> windows_core::Result<*mut u64> {
+    pub unsafe fn get_vibration_pattern(&self, count: *mut u32) -> windows_core::Result<*mut u64> {
         let mut vibrationpattern = std::ptr::null_mut();
         unsafe {
             self.as_ref()

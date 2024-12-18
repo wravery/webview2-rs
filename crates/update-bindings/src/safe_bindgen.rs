@@ -282,6 +282,13 @@ impl Display for GlobalFn {
         let original_name = &self.original_name;
         let wrapper_name = &self.wrapper_name;
         let generics = &self.generics;
+        let is_unsafe = self.args.iter().any(|arg| {
+            arg.ty
+                .as_ref()
+                .map(|ty| ty.starts_with("*"))
+                .unwrap_or_default()
+        });
+        let unsafe_fn = if is_unsafe { "unsafe " } else { "" };
         let args = self
             .args
             .iter()
@@ -318,10 +325,16 @@ impl Display for GlobalFn {
             .map(|return_type| format!("{return_type}"))
             .unwrap_or_default();
 
+        if is_unsafe {
+            writeln!(f, r#"///"#)?;
+            writeln!(f, r#"/// # Safety"#)?;
+            writeln!(f, r#"/// This method accesses raw pointer parameters."#)?;
+        }
+
         writeln!(f, r#"#[inline]"#)?;
         writeln!(
             f,
-            r#"pub fn {wrapper_name}{generics}({args}){return_type} {{"#
+            r#"pub {unsafe_fn}fn {wrapper_name}{generics}({args}){return_type} {{"#
         )?;
 
         match self.return_type.as_ref() {
