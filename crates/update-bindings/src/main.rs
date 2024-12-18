@@ -51,8 +51,8 @@ pub enum Error {
 
 pub type Result<T> = std::result::Result<T, Error>;
 
-mod webview2_path;
-mod webview2_nuget;
 mod webview2_bindgen;
+mod webview2_nuget;
+mod webview2_path;
 
 mod safe_bindgen;
