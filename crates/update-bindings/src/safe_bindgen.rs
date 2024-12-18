@@ -47,7 +47,7 @@ impl From<syn::Error> for Unrecognized {
 #[derive(Debug)]
 enum FnReturnType {
     Empty,
-    PWSTR { name: Option<String> },
+    String { name: Option<String> },
     Other { name: Option<String>, ty: String },
 }
 
@@ -55,7 +55,7 @@ impl Display for FnReturnType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Empty => write!(f, " -> windows_core::Result<()>"),
-            Self::PWSTR { .. } => write!(f, " -> windows_core::Result<String>"),
+            Self::String { .. } => write!(f, " -> windows_core::Result<String>"),
             Self::Other { ty, .. } => write!(f, " -> windows_core::Result<{ty}>"),
         }
     }
@@ -81,8 +81,7 @@ impl TryFrom<&syn::ReturnType> for FnReturnType {
 
         segments
             .iter()
-            .rev()
-            .next()
+            .next_back()
             .and_then(|s| match &s.arguments {
                 syn::PathArguments::AngleBracketed(syn::AngleBracketedGenericArguments {
                     args,
@@ -95,7 +94,7 @@ impl TryFrom<&syn::ReturnType> for FnReturnType {
                 syn::GenericArgument::Type(syn::Type::Path(syn::TypePath { path, .. })) => {
                     let path = path_to_string(path);
                     if path == "windows_core::PWSTR" {
-                        Some(Self::PWSTR { name: None })
+                        Some(Self::String { name: None })
                     } else if path.starts_with("ICoreWebView2") {
                         Some(Self::Other {
                             name: None,
@@ -171,11 +170,10 @@ impl TryFrom<&syn::Generics> for FnGenerics {
                             .iter()
                             .map(|bound| match bound {
                                 syn::TypeParamBound::Trait(syn::TraitBound { path, .. }) => {
-                                    match (
-                                        path_to_string(path),
-                                        path.segments.iter().rev().next(),
-                                    ) {
-                                        (path, Some(segment)) if path.starts_with("windows_core::Param<") => {
+                                    match (path_to_string(path), path.segments.iter().next_back()) {
+                                        (path, Some(segment))
+                                            if path.starts_with("windows_core::Param<") =>
+                                        {
                                             match &segment.arguments {
                                                 syn::PathArguments::AngleBracketed(
                                                     syn::AngleBracketedGenericArguments {
@@ -302,7 +300,7 @@ impl Display for GlobalFn {
             .map(|arg| arg.name.clone())
             .chain(match self.return_type.as_ref() {
                 Some(
-                    FnReturnType::PWSTR {
+                    FnReturnType::String {
                         name: Some(out_param),
                     }
                     | FnReturnType::Other {
@@ -327,7 +325,7 @@ impl Display for GlobalFn {
         )?;
 
         match self.return_type.as_ref() {
-            Some(FnReturnType::PWSTR {
+            Some(FnReturnType::String {
                 name: Some(out_param),
             }) => {
                 writeln!(
@@ -340,7 +338,7 @@ impl Display for GlobalFn {
                 )?;
                 writeln!(f, r#"    Ok(crate::pwstr::take_pwstr({out_param}))"#)?;
             }
-            Some(FnReturnType::PWSTR { name: None }) => {
+            Some(FnReturnType::String { name: None }) => {
                 writeln!(
                     f,
                     r#"    let result = unsafe {{ {receiver}{original_name}({fwd_args}) }}?"#
@@ -393,7 +391,7 @@ impl TryFrom<&syn::Signature> for GlobalFn {
         let mut args: VecDeque<_> = value
             .inputs
             .iter()
-            .map(|arg| FnArg::try_from(arg))
+            .map(FnArg::try_from)
             .collect::<Result<_, _>>()?;
         let mut return_type = FnReturnType::try_from(&value.output)?;
 
@@ -402,7 +400,7 @@ impl TryFrom<&syn::Signature> for GlobalFn {
                 if ty.starts_with("*mut ") {
                     let path = ty.replacen("*mut ", "", 1);
                     return_type = if path == "windows_core::PWSTR" {
-                        FnReturnType::PWSTR {
+                        FnReturnType::String {
                             name: Some(last_arg.name.clone()),
                         }
                     } else {
@@ -416,10 +414,7 @@ impl TryFrom<&syn::Signature> for GlobalFn {
             }
         }
 
-        let use_receiver = match args.front() {
-            Some(FnArg { name, .. }) if name == "&self" => true,
-            _ => false,
-        };
+        let use_receiver = matches!(args.front(), Some(FnArg { name, .. }) if name == "&self");
 
         Ok(Self {
             original_name,
@@ -466,7 +461,7 @@ impl TryFrom<&syn::ItemImpl> for InterfaceImpl {
 
     fn try_from(value: &syn::ItemImpl) -> Result<Self, Self::Error> {
         let original_name = match (value.trait_.as_ref(), value.self_ty.as_ref()) {
-            (None, syn::Type::Path(syn::TypePath { qself: None, path })) => path_to_string(&path),
+            (None, syn::Type::Path(syn::TypePath { qself: None, path })) => path_to_string(path),
             _ => return Err(Unrecognized::Interface),
         };
         if !original_name.starts_with("ICoreWebView2")
