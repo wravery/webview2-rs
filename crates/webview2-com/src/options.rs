@@ -1070,9 +1070,9 @@ mod test {
 
         assert_ne!(results, ptr::null_mut());
         let mut origin = PWSTR(ptr::null_mut());
-        unsafe { mem::swap(&mut origin, &mut *results) };
+        unsafe { core::ptr::swap(&mut origin, results) };
         let origin = take_pwstr(origin);
-        unsafe { CoTaskMemFree(Some(mem::transmute(results))) };
+        unsafe { CoTaskMemFree(Some(results as *const _)) };
         assert_eq!(origin, ORIGIN);
     }
 

@@ -100,13 +100,13 @@ impl From<serde_json::Error> for Error {
     }
 }
 
-impl<'a, T: 'a> From<std::sync::PoisonError<T>> for Error {
+impl<T> From<std::sync::PoisonError<T>> for Error {
     fn from(_: std::sync::PoisonError<T>) -> Self {
         Self::LockError
     }
 }
 
-impl<'a, T: 'a> From<std::sync::TryLockError<T>> for Error {
+impl<T> From<std::sync::TryLockError<T>> for Error {
     fn from(_: std::sync::TryLockError<T>) -> Self {
         Self::LockError
     }

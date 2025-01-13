@@ -23,7 +23,7 @@ impl ClosureArg for HRESULT {
     type Output = windows::core::Result<()>;
 }
 
-impl<'a> InvokeArg<'a> for HRESULT {
+impl InvokeArg<'_> for HRESULT {
     type Input = Self;
 
     fn convert(input: HRESULT) -> windows::core::Result<()> {
@@ -35,7 +35,7 @@ impl ClosureArg for BOOL {
     type Output = bool;
 }
 
-impl<'a> InvokeArg<'a> for BOOL {
+impl InvokeArg<'_> for BOOL {
     type Input = Self;
 
     fn convert(input: BOOL) -> bool {
@@ -261,7 +261,7 @@ impl ClosureArg for COREWEBVIEW2_PRINT_STATUS {
     type Output = Self;
 }
 
-impl<'a> InvokeArg<'a> for COREWEBVIEW2_PRINT_STATUS {
+impl InvokeArg<'_> for COREWEBVIEW2_PRINT_STATUS {
     type Input = Self;
 
     fn convert(input: Self) -> Self {
@@ -656,7 +656,7 @@ impl ClosureArg for COREWEBVIEW2_SAVE_AS_UI_RESULT {
     type Output = Self;
 }
 
-impl<'a> InvokeArg<'a> for COREWEBVIEW2_SAVE_AS_UI_RESULT {
+impl InvokeArg<'_> for COREWEBVIEW2_SAVE_AS_UI_RESULT {
     type Input = Self;
 
     fn convert(input: Self) -> Self {
