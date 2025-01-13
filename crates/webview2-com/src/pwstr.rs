@@ -13,7 +13,7 @@ pub struct CoTaskMemPWSTR<'a>(PWSTR, PhantomData<&'a PWSTR>);
 /// is safe to dereference the [`PCWSTR`] as long as both are still in scope.
 pub struct CoTaskMemRef<'a>(PCWSTR, PhantomData<&'a PCWSTR>);
 
-impl<'a> CoTaskMemRef<'a> {
+impl CoTaskMemRef<'_> {
     pub fn as_pcwstr(&self) -> &PCWSTR {
         &self.0
     }
@@ -60,7 +60,7 @@ impl<'a> CoTaskMemPWSTR<'a> {
     }
 }
 
-impl<'a> Drop for CoTaskMemPWSTR<'a> {
+impl Drop for CoTaskMemPWSTR<'_> {
     fn drop(&mut self) {
         if !self.0.is_null() {
             unsafe {
@@ -70,19 +70,19 @@ impl<'a> Drop for CoTaskMemPWSTR<'a> {
     }
 }
 
-impl<'a> Default for CoTaskMemPWSTR<'a> {
+impl Default for CoTaskMemPWSTR<'_> {
     fn default() -> Self {
         Self(PWSTR::null(), PhantomData)
     }
 }
 
-impl<'a> From<PWSTR> for CoTaskMemPWSTR<'a> {
+impl From<PWSTR> for CoTaskMemPWSTR<'_> {
     fn from(value: PWSTR) -> Self {
         Self(value, PhantomData)
     }
 }
 
-impl<'a> From<&str> for CoTaskMemPWSTR<'a> {
+impl From<&str> for CoTaskMemPWSTR<'_> {
     fn from(value: &str) -> Self {
         match value {
             "" => Default::default(),
@@ -106,7 +106,7 @@ impl<'a> From<&str> for CoTaskMemPWSTR<'a> {
     }
 }
 
-impl<'a> Display for CoTaskMemPWSTR<'a> {
+impl Display for CoTaskMemPWSTR<'_> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let value = string_from_pcwstr(self.as_ref().as_pcwstr());
         f.write_str(value.as_str())

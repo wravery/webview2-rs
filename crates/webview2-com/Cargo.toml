@@ -1,13 +1,14 @@
 [package]
 name = "webview2-com"
-version = "0.34.0"
-edition = "2021"
-rust-version = "1.61"
+version = "0.35.0"
 description = "Rust bindings for the WebView2 COM APIs"
-repository = "https://github.com/wravery/webview2-rs"
-license = "MIT"
-keywords = [ "win32", "webview2" ]
-categories = [ "os::windows-apis" ]
+
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
@@ -19,23 +20,21 @@ targets = [
 ]
 
 [dependencies]
-webview2-com-sys = "0.34"
+webview2-com-sys = "0.35"
 webview2-com-macros = "0.8"
-windows-core = "0.58"
-windows-implement = "0.58"
-windows-interface = "0.58"
 
-[dependencies.windows]
-version = "0.58"
-features = [ "implement" ]
+windows.workspace = true
+windows-core.workspace = true
+windows-implement.workspace = true
+windows-interface.workspace = true
 
 [dev-dependencies]
-regex = "1.0"
-serde = { version = "1.0", features = [ "derive" ] }
-serde_json = "1.0"
+regex.workspace = true
+serde.workspace = true
+serde_json.workspace = true
 
 [dev-dependencies.windows]
-version = "0.58"
+workspace = true
 features = [
     "Win32_Graphics_Gdi",
     "Win32_System_LibraryLoader",

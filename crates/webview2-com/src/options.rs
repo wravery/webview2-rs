@@ -931,7 +931,7 @@ mod test {
     fn override_allow_sso() {
         let options: ICoreWebView2EnvironmentOptions =
             CoreWebView2EnvironmentOptions::default().into();
-        unsafe { options.SetAllowSingleSignOnUsingOSPrimaryAccount(BOOL(1)) }.unwrap();
+        unsafe { options.SetAllowSingleSignOnUsingOSPrimaryAccount(true) }.unwrap();
         let mut result = BOOL(0);
         unsafe { options.AllowSingleSignOnUsingOSPrimaryAccount(&mut result) }.unwrap();
         assert_eq!(result.0, 1);
@@ -950,7 +950,7 @@ mod test {
     fn override_exclusive_data_folder() {
         let options: ICoreWebView2EnvironmentOptions2 =
             CoreWebView2EnvironmentOptions::default().into();
-        unsafe { options.SetExclusiveUserDataFolderAccess(BOOL(1)) }.unwrap();
+        unsafe { options.SetExclusiveUserDataFolderAccess(true) }.unwrap();
         let mut result = BOOL(0);
         unsafe { options.ExclusiveUserDataFolderAccess(&mut result) }.unwrap();
         assert_eq!(result.0, 1);
@@ -969,7 +969,7 @@ mod test {
     fn override_custom_crash_reporting() {
         let options: ICoreWebView2EnvironmentOptions3 =
             CoreWebView2EnvironmentOptions::default().into();
-        unsafe { options.SetIsCustomCrashReportingEnabled(BOOL(1)) }.unwrap();
+        unsafe { options.SetIsCustomCrashReportingEnabled(true) }.unwrap();
         let mut result = BOOL(0);
         unsafe { options.IsCustomCrashReportingEnabled(&mut result) }.unwrap();
         assert_eq!(result.0, 1);
@@ -1036,7 +1036,7 @@ mod test {
     fn override_treat_as_secure() {
         let scheme: ICoreWebView2CustomSchemeRegistration =
             CoreWebView2CustomSchemeRegistration::new(String::new()).into();
-        unsafe { scheme.SetTreatAsSecure(BOOL(1)) }.unwrap();
+        unsafe { scheme.SetTreatAsSecure(true) }.unwrap();
         let mut result = BOOL(0);
         unsafe { scheme.TreatAsSecure(&mut result) }.unwrap();
         assert_eq!(result.0, 1);
@@ -1070,9 +1070,9 @@ mod test {
 
         assert_ne!(results, ptr::null_mut());
         let mut origin = PWSTR(ptr::null_mut());
-        unsafe { mem::swap(&mut origin, &mut *results) };
+        unsafe { core::ptr::swap(&mut origin, results) };
         let origin = take_pwstr(origin);
-        unsafe { CoTaskMemFree(Some(mem::transmute(results))) };
+        unsafe { CoTaskMemFree(Some(results as *const _)) };
         assert_eq!(origin, ORIGIN);
     }
 
@@ -1089,7 +1089,7 @@ mod test {
     fn override_has_authority_component() {
         let scheme: ICoreWebView2CustomSchemeRegistration =
             CoreWebView2CustomSchemeRegistration::new(String::new()).into();
-        unsafe { scheme.SetHasAuthorityComponent(BOOL(1)) }.unwrap();
+        unsafe { scheme.SetHasAuthorityComponent(true) }.unwrap();
         let mut result = BOOL(0);
         unsafe { scheme.HasAuthorityComponent(&mut result) }.unwrap();
         assert_eq!(result.0, 1);

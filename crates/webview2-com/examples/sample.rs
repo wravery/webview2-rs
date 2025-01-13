@@ -12,7 +12,7 @@ use serde_json::{Number, Value};
 use windows::{
     core::*,
     Win32::{
-        Foundation::{E_POINTER, HWND, LPARAM, LRESULT, RECT, SIZE, WPARAM},
+        Foundation::{E_POINTER, HINSTANCE, HWND, LPARAM, LRESULT, RECT, SIZE, WPARAM},
         Graphics::Gdi,
         System::{Com::*, LibraryLoader, Threading, WinRT::EventRegistrationToken},
         UI::{
@@ -100,13 +100,13 @@ impl From<serde_json::Error> for Error {
     }
 }
 
-impl<'a, T: 'a> From<std::sync::PoisonError<T>> for Error {
+impl<T> From<std::sync::PoisonError<T>> for Error {
     fn from(_: std::sync::PoisonError<T>) -> Self {
         Self::LockError
     }
 }
 
-impl<'a, T: 'a> From<std::sync::TryLockError<T>> for Error {
+impl<T> From<std::sync::TryLockError<T>> for Error {
     fn from(_: std::sync::TryLockError<T>) -> Self {
         Self::LockError
     }
@@ -143,7 +143,9 @@ impl FrameWindow {
                     WindowsAndMessaging::CW_USEDEFAULT,
                     None,
                     None,
-                    LibraryLoader::GetModuleHandleW(None).unwrap_or_default(),
+                    LibraryLoader::GetModuleHandleW(None)
+                        .ok()
+                        .map(|h| HINSTANCE(h.0)),
                     None,
                 )
             }
@@ -355,12 +357,11 @@ impl WebView {
             unsafe {
                 let _ = WindowsAndMessaging::ShowWindow(hwnd, WindowsAndMessaging::SW_SHOW);
                 let _ = Gdi::UpdateWindow(hwnd);
-                let _ = KeyboardAndMouse::SetFocus(hwnd);
+                let _ = KeyboardAndMouse::SetFocus(Some(hwnd));
             }
         }
 
         let mut msg = MSG::default();
-        let h_wnd = HWND::default();
 
         loop {
             while let Ok(f) = self.rx.try_recv() {
@@ -368,7 +369,7 @@ impl WebView {
             }
 
             unsafe {
-                let result = WindowsAndMessaging::GetMessageW(&mut msg, h_wnd, 0, 0).0;
+                let result = WindowsAndMessaging::GetMessageW(&mut msg, None, 0, 0).0;
 
                 match result {
                     -1 => break Err(windows::core::Error::from_win32().into()),

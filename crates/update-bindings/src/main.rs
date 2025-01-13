@@ -15,7 +15,7 @@ fn main() -> Result<()> {
     }
 
     if webview2_bindgen::update_bindings()? {
-        println!("Microsoft.rs changed");
+        println!("bindings.rs changed");
     }
 
     Ok(())
@@ -327,12 +327,11 @@ mod webview2_bindgen {
 
     pub fn update_bindings() -> super::Result<bool> {
         let source_path = generate_bindings()?;
-        format_bindings(&source_path)?;
         let source = read_bindings(&source_path)?;
 
         let mut dest_path = get_bindings_dir()?;
         dest_path.push("src");
-        dest_path.push("Microsoft.rs");
+        dest_path.push("bindings.rs");
         let dest = read_bindings(&dest_path)?;
 
         if source != dest {
@@ -350,21 +349,22 @@ mod webview2_bindgen {
         winmd_path.push("winmd");
         winmd_path.push(WINMD_FILE);
         let mut source_path = get_out_dir();
-        source_path.push("Microsoft.rs");
-        println!(
-            "{}",
-            bindgen([
-                "--in",
-                winmd_path.to_str().expect("invalid winmd path"),
-                "--out",
-                source_path.to_str().expect("invalid Microsoft.rs path"),
-                "--filter",
-                "Microsoft.Web.WebView2.Win32",
-                "--config",
-                "implement",
-            ])
-            .expect("bindgen failed")
-        );
+        source_path.push("bindings.rs");
+        bindgen([
+            "--in",
+            "default",
+            "--in",
+            winmd_path.to_str().expect("invalid winmd path"),
+            "--out",
+            source_path.to_str().expect("invalid bindings.rs path"),
+            "--rustfmt",
+            "--reference",
+            "windows,skip-root,Windows",
+            "--filter",
+            "Microsoft.Web.WebView2.Win32",
+            "--implement",
+            "--flat",
+        ]);
 
         let mut bindings = Default::default();
         fs::File::open(source_path.clone())?.read_to_string(&mut bindings)?;
@@ -376,19 +376,9 @@ mod webview2_bindgen {
     }
 
     fn patch_bindings(bindings: String) -> super::Result<String> {
-        let pattern = Regex::new(r#"#\s*\[\s*link\s*\(\s*name\s*=\s*"WebView2Loader"\s*\)\s*\]"#)?;
-        let replacement = r#"
-            #[cfg_attr(target_env = "msvc", link(name = "WebView2LoaderStatic", kind = "static"))]
-            #[cfg_attr(not(target_env = "msvc"), link(name = "WebView2Loader.dll"))]
-        "#;
+        let pattern = Regex::new(r#"windows_targets\s*::\s*link\!"#)?;
+        let replacement = r#"crate::link!"#;
         Ok(pattern.replace_all(&bindings, replacement).to_string())
-    }
-
-    fn format_bindings(source_path: &Path) -> super::Result<()> {
-        let mut cmd = ::std::process::Command::new("rustfmt");
-        cmd.arg(source_path);
-        cmd.output()?;
-        Ok(())
     }
 
     fn read_bindings(source_path: &Path) -> super::Result<String> {

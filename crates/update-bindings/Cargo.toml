@@ -1,13 +1,11 @@
 [package]
 name = "update-bindings"
 version = "1.0.0"
-edition = "2021"
 publish = false
 
-[dependencies]
-regex = "1.0"
-thiserror = "1.0"
+edition.workspace = true
 
-[dependencies.windows-bindgen]
-version = "0.58"
-features = [ "metadata" ]
+[dependencies]
+regex.workspace = true
+thiserror.workspace = true
+windows-bindgen.workspace = true
