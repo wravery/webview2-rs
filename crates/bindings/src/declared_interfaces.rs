@@ -92,7 +92,7 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
 
     interfaces
 }
-    
+
 /// Generate a list of all `ICoreWebView2EnvironmentOptions` interfaces declared in `WebView2.h`.
 /// This is for testing purposes to make sure they are all covered in
 /// [options.rs](../../webview2-com/src/options.rs).
