@@ -1,5 +1,5 @@
 use windows::{
-    core::{IUnknown, Interface, HRESULT, PCWSTR},
+    core::{IUnknown, Interface, Ref, HRESULT, PCWSTR},
     Win32::{Foundation::BOOL, System::Com::IStream},
 };
 
@@ -60,9 +60,9 @@ impl<I: Interface> ClosureArg for Option<I> {
 }
 
 impl<'a, I: 'a + Interface + Clone> InvokeArg<'a> for Option<I> {
-    type Input = Option<&'a I>;
+    type Input = Ref<'a, I>;
 
-    fn convert(input: Option<&I>) -> <Self as ClosureArg>::Output {
+    fn convert(input: Ref<'a, I>) -> <Self as ClosureArg>::Output {
         input.cloned()
     }
 }

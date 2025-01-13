@@ -12,10 +12,7 @@ use std::{fmt, sync::mpsc};
 
 use windows::{
     core::HRESULT,
-    Win32::{
-        Foundation::HWND,
-        UI::WindowsAndMessaging::{self, MSG},
-    },
+    Win32::UI::WindowsAndMessaging::{self, MSG},
 };
 
 pub use callback::*;
@@ -60,7 +57,6 @@ pub type Result<T> = std::result::Result<T, Error>;
 /// ignorable/unhandled message such as `WM_APP`.
 pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
     let mut msg = MSG::default();
-    let hwnd = HWND::default();
 
     loop {
         if let Ok(result) = rx.try_recv() {
@@ -68,7 +64,7 @@ pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         }
 
         unsafe {
-            match WindowsAndMessaging::GetMessageA(&mut msg, hwnd, 0, 0).0 {
+            match WindowsAndMessaging::GetMessageA(&mut msg, None, 0, 0).0 {
                 -1 => {
                     return Err(windows::core::Error::from_win32().into());
                 }

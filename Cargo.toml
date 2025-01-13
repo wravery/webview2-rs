@@ -5,3 +5,26 @@ resolver = "2"
 [patch.crates-io]
 webview2-com-sys = { path = "crates/bindings/" }
 webview2-com-macros = { path = "crates/callback-macros/" }
+
+[workspace.package]
+edition = "2021"
+rust-version = "1.61"
+repository = "https://github.com/wravery/webview2-rs"
+license = "MIT"
+keywords = [ "win32", "webview2" ]
+categories = [ "os::windows-apis" ]
+
+[workspace.dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+regex = "1.0"
+syn = { version = "2.0", features = ["full"] }
+serde = { version = "1.0", features = [ "derive" ] }
+serde_json = "1.0"
+thiserror = "2.0"
+windows = "0.59"
+windows-bindgen = "0.59"
+windows-core = "0.59"
+windows-implement = "0.59"
+windows-interface = "0.59"
+windows-targets = "0.53"

@@ -1,13 +1,14 @@
 [package]
 name = "webview2-com-sys"
 version = "0.34.0"
-edition = "2021"
-rust-version = "1.61"
 description = "Bindings generated with the windows crate for the WebView2 COM APIs"
-repository = "https://github.com/wravery/webview2-rs"
-license = "MIT"
-keywords = [ "win32", "webview2" ]
-categories = [ "os::windows-apis" ]
+
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
@@ -19,12 +20,12 @@ targets = [
 ]
 
 [dependencies]
-windows-core = "0.58"
+windows-core.workspace = true
+windows-targets.workspace = true
 
 [dependencies.windows]
-version = "0.58"
+workspace = true
 features = [
-    "implement",
     "Win32_Foundation",
     "Win32_Globalization",
     "Win32_System_Com",
@@ -35,4 +36,4 @@ features = [
 ]
 
 [build-dependencies]
-thiserror = "1.0"
+thiserror.workspace = true

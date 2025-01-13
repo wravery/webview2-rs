@@ -1,5 +1,32 @@
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal fn $($function:tt)*) => (
+        #[cfg_attr(
+            target_env = "msvc",
+            link(name = "WebView2LoaderStatic", kind = "static")
+        )]
+        #[cfg_attr(
+            not(target_env = "msvc"),
+            link(name = "WebView2Loader.dll")
+        )]
+        extern $abi {
+            pub fn $($function)*;
+        }
+    )
+}
+
+mod bindings;
+
 #[allow(non_snake_case)]
-pub mod Microsoft;
+pub mod Microsoft {
+    pub mod Web {
+        pub mod WebView2 {
+            pub mod Win32 {
+                pub use crate::bindings::*;
+            }
+        }
+    }
+}
 
 pub mod declared_interfaces;
 
