@@ -21,7 +21,6 @@ targets = [
 
 [dependencies]
 windows-core.workspace = true
-windows-targets.workspace = true
 
 [dependencies.windows]
 workspace = true

@@ -319,8 +319,6 @@ mod webview2_bindgen {
         path::{Path, PathBuf},
     };
 
-    use regex::Regex;
-
     use windows_bindgen::bindgen;
 
     use super::webview2_path::*;
@@ -364,6 +362,7 @@ mod webview2_bindgen {
             "Microsoft.Web.WebView2.Win32",
             "--implement",
             "--flat",
+            "--no-allow",
         ]);
 
         let mut bindings = Default::default();
@@ -371,14 +370,8 @@ mod webview2_bindgen {
 
         let mut source_file = fs::File::create(source_path.clone())?;
 
-        source_file.write_all(patch_bindings(bindings)?.as_bytes())?;
+        source_file.write_all(bindings.as_bytes())?;
         Ok(source_path)
-    }
-
-    fn patch_bindings(bindings: String) -> super::Result<String> {
-        let pattern = Regex::new(r#"windows_targets\s*::\s*link\!"#)?;
-        let replacement = r#"crate::link!"#;
-        Ok(pattern.replace_all(&bindings, replacement).to_string())
     }
 
     fn read_bindings(source_path: &Path) -> super::Result<String> {
