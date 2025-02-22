@@ -545,7 +545,7 @@ impl ICoreWebView2EnvironmentOptions5_Impl for CoreWebView2EnvironmentOptions_Im
         Ok(())
     }
 
-    fn SetEnableTrackingPrevention(&self, value: windows::core::BOOL) -> windows_core::Result<()> {
+    fn SetEnableTrackingPrevention(&self, value: BOOL) -> windows_core::Result<()> {
         unsafe {
             self.set_enable_tracking_prevention(value.into());
         }
@@ -563,10 +563,7 @@ impl ICoreWebView2EnvironmentOptions6_Impl for CoreWebView2EnvironmentOptions_Im
         Ok(())
     }
 
-    fn SetAreBrowserExtensionsEnabled(
-        &self,
-        value: windows::core::BOOL,
-    ) -> windows_core::Result<()> {
+    fn SetAreBrowserExtensionsEnabled(&self, value: BOOL) -> windows_core::Result<()> {
         unsafe {
             self.set_are_browser_extensions_enabled(value.into());
         }
