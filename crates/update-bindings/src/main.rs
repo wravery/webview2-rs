@@ -83,7 +83,7 @@ mod webview2_nuget {
     include!("../../bindings/src/declared_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.2903.40";
+    const WEBVIEW2_VERSION: &str = "1.0.3065.39";
 
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir();
@@ -248,7 +248,7 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {{
             r#"
     interfaces
 }}
-    
+
 /// Generate a list of all `ICoreWebView2EnvironmentOptions` interfaces declared in `WebView2.h`.
 /// This is for testing purposes to make sure they are all covered in
 /// [options.rs](../../webview2-com/src/options.rs).

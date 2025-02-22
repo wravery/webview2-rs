@@ -14,7 +14,7 @@ use windows::{
     Win32::{
         Foundation::{E_POINTER, HINSTANCE, HWND, LPARAM, LRESULT, RECT, SIZE, WPARAM},
         Graphics::Gdi,
-        System::{Com::*, LibraryLoader, Threading, WinRT::EventRegistrationToken},
+        System::{Com::*, LibraryLoader, Threading},
         UI::{
             HiDpi,
             Input::KeyboardAndMouse,
@@ -292,7 +292,7 @@ impl WebView {
         let bindings = webview.bindings.clone();
         let bound = webview.clone();
         unsafe {
-            let mut _token = EventRegistrationToken::default();
+            let mut _token = 0;
             webview.webview.add_WebMessageReceived(
                 &WebMessageReceivedEventHandler::create(Box::new(move |_webview, args| {
                     if let Some(args) = args {
@@ -341,7 +341,7 @@ impl WebView {
                     tx.send(()).expect("send over mpsc channel");
                     Ok(())
                 }));
-            let mut token = EventRegistrationToken::default();
+            let mut token = 0;
             unsafe {
                 webview.add_NavigationCompleted(&handler, &mut token)?;
                 let url = CoTaskMemPWSTR::from(url.as_str());
