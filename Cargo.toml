@@ -8,7 +8,7 @@ webview2-com-macros = { path = "crates/callback-macros/" }
 
 [workspace.package]
 edition = "2021"
-rust-version = "1.61"
+rust-version = "1.74"
 repository = "https://github.com/wravery/webview2-rs"
 license = "MIT"
 keywords = [ "win32", "webview2" ]
