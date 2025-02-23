@@ -1,6 +1,6 @@
 use windows::{
-    core::{IUnknown, Interface, Ref, HRESULT, PCWSTR},
-    Win32::{Foundation::BOOL, System::Com::IStream},
+    core::{IUnknown, Interface, Ref, BOOL, HRESULT, PCWSTR},
+    Win32::System::Com::IStream,
 };
 
 use windows_implement::implement;

@@ -2,9 +2,9 @@
 use std::{cell::UnsafeCell, default::Default, ffi::c_void, mem, ptr};
 
 use windows::{
-    core::{Error, IUnknown, IUnknown_Vtbl, Interface, Result, HRESULT, PCWSTR, PWSTR},
+    core::{Error, IUnknown, IUnknown_Vtbl, Interface, Result, BOOL, HRESULT, PCWSTR, PWSTR},
     Win32::{
-        Foundation::{BOOL, E_POINTER, E_UNEXPECTED, S_OK},
+        Foundation::{E_POINTER, E_UNEXPECTED, S_OK},
         System::Com::CoTaskMemAlloc,
     },
 };
@@ -545,10 +545,7 @@ impl ICoreWebView2EnvironmentOptions5_Impl for CoreWebView2EnvironmentOptions_Im
         Ok(())
     }
 
-    fn SetEnableTrackingPrevention(
-        &self,
-        value: windows::Win32::Foundation::BOOL,
-    ) -> windows_core::Result<()> {
+    fn SetEnableTrackingPrevention(&self, value: BOOL) -> windows_core::Result<()> {
         unsafe {
             self.set_enable_tracking_prevention(value.into());
         }
@@ -566,10 +563,7 @@ impl ICoreWebView2EnvironmentOptions6_Impl for CoreWebView2EnvironmentOptions_Im
         Ok(())
     }
 
-    fn SetAreBrowserExtensionsEnabled(
-        &self,
-        value: windows::Win32::Foundation::BOOL,
-    ) -> windows_core::Result<()> {
+    fn SetAreBrowserExtensionsEnabled(&self, value: BOOL) -> windows_core::Result<()> {
         unsafe {
             self.set_are_browser_extensions_enabled(value.into());
         }
