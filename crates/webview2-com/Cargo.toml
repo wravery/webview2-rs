@@ -1,6 +1,6 @@
 [package]
 name = "webview2-com"
-version = "0.36.0"
+version = "0.37.0"
 description = "Rust bindings for the WebView2 COM APIs"
 
 edition.workspace = true
@@ -20,7 +20,7 @@ targets = [
 ]
 
 [dependencies]
-webview2-com-sys = "0.36"
+webview2-com-sys = "0.37"
 webview2-com-macros = "0.8"
 
 windows.workspace = true

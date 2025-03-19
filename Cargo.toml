@@ -22,8 +22,8 @@ syn = { version = "2.0", features = ["full"] }
 serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1.0"
 thiserror = "2.0"
-windows = "0.60"
-windows-bindgen = "0.60"
-windows-core = "0.60"
-windows-implement = "0.59"
+windows = "0.61"
+windows-bindgen = "0.61"
+windows-core = "0.61"
+windows-implement = "0.60"
 windows-interface = "0.59"
