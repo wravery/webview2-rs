@@ -83,7 +83,7 @@ mod webview2_nuget {
     include!("../../bindings/src/declared_interfaces.rs");
 
     const WEBVIEW2_NAME: &str = "Microsoft.Web.WebView2";
-    const WEBVIEW2_VERSION: &str = "1.0.3124.44";
+    const WEBVIEW2_VERSION: &str = "1.0.3296.44";
 
     pub fn install() -> super::Result<PathBuf> {
         let out_dir = get_out_dir();
@@ -363,7 +363,8 @@ mod webview2_bindgen {
             "--implement",
             "--flat",
             "--no-allow",
-        ]);
+        ])
+        .unwrap();
 
         let mut bindings = Default::default();
         fs::File::open(source_path.clone())?.read_to_string(&mut bindings)?;

@@ -652,6 +652,13 @@ pub struct ScreenCaptureStartingEventHandler(
     Option<ICoreWebView2ScreenCaptureStartingEventArgs>,
 );
 
+#[event_callback]
+pub struct FrameChildFrameCreatedEventHandler(
+    ICoreWebView2FrameChildFrameCreatedEventHandler,
+    Option<ICoreWebView2Frame>,
+    Option<ICoreWebView2FrameCreatedEventArgs>,
+);
+
 impl ClosureArg for COREWEBVIEW2_SAVE_AS_UI_RESULT {
     type Output = Self;
 }

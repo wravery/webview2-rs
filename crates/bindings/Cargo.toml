@@ -1,6 +1,5 @@
 [package]
 name = "webview2-com-sys"
-version = "0.37.0"
 description = "Bindings generated with the windows crate for the WebView2 COM APIs"
 
 edition.workspace = true
@@ -9,6 +8,7 @@ repository.workspace = true
 license.workspace = true
 keywords.workspace = true
 categories.workspace = true
+version.workspace = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
@@ -21,18 +21,7 @@ targets = [
 
 [dependencies]
 windows-core.workspace = true
-
-[dependencies.windows]
-workspace = true
-features = [
-    "Win32_Foundation",
-    "Win32_Globalization",
-    "Win32_System_Com",
-    "Win32_System_Ole",
-    "Win32_System_Variant",
-    "Win32_System_WinRT",
-    "Win32_UI_WindowsAndMessaging",
-]
+windows.workspace = true
 
 [build-dependencies]
 thiserror.workspace = true

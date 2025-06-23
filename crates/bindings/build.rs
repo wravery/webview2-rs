@@ -2,7 +2,10 @@ fn main() -> Result<()> {
     webview2_link::update_rustc_flags(webview2_link::output_libs(
         webview2_path::get_manifest_dir()?,
         webview2_path::get_out_dir()?,
-    )?)
+    )?)?;
+
+    println!("cargo:rustc-link-lib=advapi32");
+    Ok(())
 }
 
 #[derive(Debug, Error)]
