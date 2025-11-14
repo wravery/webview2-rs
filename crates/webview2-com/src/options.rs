@@ -2,15 +2,15 @@
 use std::{cell::UnsafeCell, default::Default, ffi::c_void, mem, ptr};
 
 use windows::{
-    core::{Error, IUnknown, IUnknown_Vtbl, Interface, Result, BOOL, HRESULT, PCWSTR, PWSTR},
+    core::{
+        implement, interface, Error, IUnknown, IUnknown_Vtbl, Interface, Result, BOOL, HRESULT,
+        PCWSTR, PWSTR,
+    },
     Win32::{
         Foundation::{E_POINTER, E_UNEXPECTED, S_OK},
         System::Com::CoTaskMemAlloc,
     },
 };
-
-use windows_implement::implement;
-use windows_interface::interface;
 
 use crate::{
     pwstr::{pwstr_from_str, string_from_pcwstr},

@@ -68,7 +68,7 @@ pub fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         unsafe {
             match WindowsAndMessaging::GetMessageA(&mut msg, None, 0, 0).0 {
                 -1 => {
-                    return Err(windows::core::Error::from_win32().into());
+                    return Err(windows::core::Error::from_thread().into());
                 }
                 0 => return Err(Error::TaskCanceled),
                 _ => {
