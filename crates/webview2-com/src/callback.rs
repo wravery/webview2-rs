@@ -1,9 +1,7 @@
 use windows::{
-    core::{IUnknown, Interface, Ref, BOOL, HRESULT, PCWSTR},
+    core::{implement, IUnknown, Interface, Ref, BOOL, HRESULT, PCWSTR},
     Win32::System::Com::IStream,
 };
-
-use windows_implement::implement;
 
 use crate::{pwstr::string_from_pcwstr, Microsoft::Web::WebView2::Win32::*};
 
