@@ -1011,7 +1011,7 @@ pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER:
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(2i32);
 pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: windows_core::PCWSTR =
-    windows_core::w!("137.0.3296.44");
+    windows_core::w!("138.0.3351.48");
 windows_core::imp::define_interface!(
     ICoreWebView2,
     ICoreWebView2_Vtbl,
@@ -10653,6 +10653,115 @@ impl ICoreWebView2ControllerOptions3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2ControllerOptions3 {}
+windows_core::imp::define_interface!(
+    ICoreWebView2ControllerOptions4,
+    ICoreWebView2ControllerOptions4_Vtbl,
+    0x21eb052f_ad39_555e_824a_c87b091d4d36
+);
+impl core::ops::Deref for ICoreWebView2ControllerOptions4 {
+    type Target = ICoreWebView2ControllerOptions3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2ControllerOptions4,
+    windows_core::IUnknown,
+    ICoreWebView2ControllerOptions,
+    ICoreWebView2ControllerOptions2,
+    ICoreWebView2ControllerOptions3
+);
+impl ICoreWebView2ControllerOptions4 {
+    pub unsafe fn AllowHostInputProcessing(
+        &self,
+        value: *mut windows_core::BOOL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).AllowHostInputProcessing)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn SetAllowHostInputProcessing(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetAllowHostInputProcessing)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2ControllerOptions4_Vtbl {
+    pub base__: ICoreWebView2ControllerOptions3_Vtbl,
+    pub AllowHostInputProcessing: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetAllowHostInputProcessing: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2ControllerOptions4_Impl: ICoreWebView2ControllerOptions3_Impl {
+    fn AllowHostInputProcessing(&self, value: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetAllowHostInputProcessing(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+}
+impl ICoreWebView2ControllerOptions4_Vtbl {
+    pub const fn new<Identity: ICoreWebView2ControllerOptions4_Impl, const OFFSET: isize>() -> Self
+    {
+        unsafe extern "system" fn AllowHostInputProcessing<
+            Identity: ICoreWebView2ControllerOptions4_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2ControllerOptions4_Impl::AllowHostInputProcessing(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn SetAllowHostInputProcessing<
+            Identity: ICoreWebView2ControllerOptions4_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2ControllerOptions4_Impl::SetAllowHostInputProcessing(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: ICoreWebView2ControllerOptions3_Vtbl::new::<Identity, OFFSET>(),
+            AllowHostInputProcessing: AllowHostInputProcessing::<Identity, OFFSET>,
+            SetAllowHostInputProcessing: SetAllowHostInputProcessing::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2ControllerOptions4 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2ControllerOptions as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2ControllerOptions2 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2ControllerOptions3 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2ControllerOptions4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Cookie,
     ICoreWebView2Cookie_Vtbl,
