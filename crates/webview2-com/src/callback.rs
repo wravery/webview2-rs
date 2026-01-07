@@ -659,6 +659,23 @@ pub struct FrameChildFrameCreatedEventHandler(
     Option<ICoreWebView2FrameCreatedEventArgs>,
 );
 
+#[event_callback]
+pub struct FindActiveMatchIndexChangedEventHandler(
+    ICoreWebView2FindActiveMatchIndexChangedEventHandler,
+    Option<ICoreWebView2Find>,
+    Option<IUnknown>,
+);
+
+#[event_callback]
+pub struct FindMatchCountChangedEventHandler(
+    ICoreWebView2FindMatchCountChangedEventHandler,
+    Option<ICoreWebView2Find>,
+    Option<IUnknown>,
+);
+
+#[completed_callback]
+pub struct FindStartCompletedHandler(ICoreWebView2FindStartCompletedHandler, HRESULT);
+
 impl ClosureArg for COREWEBVIEW2_SAVE_AS_UI_RESULT {
     type Output = Self;
 }

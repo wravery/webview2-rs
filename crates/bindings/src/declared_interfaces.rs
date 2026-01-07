@@ -34,6 +34,9 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2ExecuteScriptCompletedHandler");
     interfaces.insert("ICoreWebView2ExecuteScriptWithResultCompletedHandler");
     interfaces.insert("ICoreWebView2FaviconChangedEventHandler");
+    interfaces.insert("ICoreWebView2FindActiveMatchIndexChangedEventHandler");
+    interfaces.insert("ICoreWebView2FindMatchCountChangedEventHandler");
+    interfaces.insert("ICoreWebView2FindStartCompletedHandler");
     interfaces.insert("ICoreWebView2FocusChangedEventHandler");
     interfaces.insert("ICoreWebView2FrameChildFrameCreatedEventHandler");
     interfaces.insert("ICoreWebView2FrameContentLoadingEventHandler");

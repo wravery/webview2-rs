@@ -42,7 +42,7 @@ By default this crate uses the `WebView2LoaderStatic.lib` static library and doe
 You can tell the `update-bindings` tool to use a different version by updating `WEBVIEW2_VERSION` in `main.rs`:
 
 ```rust
-    const WEBVIEW2_VERSION: &str = "1.0.3351.48";
+    const WEBVIEW2_VERSION: &str = "1.0.3650.58";
 ```
 
 It will also regenerate [declared_interfaces.rs](./crates/bindings/src/declared_interfaces.rs) if they change in a new version. This file is used in `webview2-com`, and in particular, the tests in [callback.rs](./crates/webview2-com/src/callback.rs) and [options.rs](./crates/webview2-com/src/options.rs) verify that all of the interfaces listed in `declared_interfaces.rs` are implemented.

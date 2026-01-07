@@ -1011,7 +1011,7 @@ pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER:
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(2i32);
 pub const CORE_WEBVIEW_TARGET_PRODUCT_VERSION: windows_core::PCWSTR =
-    windows_core::w!("138.0.3351.48");
+    windows_core::w!("143.0.3650.58");
 windows_core::imp::define_interface!(
     ICoreWebView2,
     ICoreWebView2_Vtbl,
@@ -14981,6 +14981,104 @@ impl ICoreWebView2Environment14_Vtbl {
 }
 impl windows_core::RuntimeName for ICoreWebView2Environment14 {}
 windows_core::imp::define_interface!(
+    ICoreWebView2Environment15,
+    ICoreWebView2Environment15_Vtbl,
+    0x2ac5ebfb_e654_5961_a667_7971885c7b27
+);
+impl core::ops::Deref for ICoreWebView2Environment15 {
+    type Target = ICoreWebView2Environment14;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2Environment15,
+    windows_core::IUnknown,
+    ICoreWebView2Environment,
+    ICoreWebView2Environment2,
+    ICoreWebView2Environment3,
+    ICoreWebView2Environment4,
+    ICoreWebView2Environment5,
+    ICoreWebView2Environment6,
+    ICoreWebView2Environment7,
+    ICoreWebView2Environment8,
+    ICoreWebView2Environment9,
+    ICoreWebView2Environment10,
+    ICoreWebView2Environment11,
+    ICoreWebView2Environment12,
+    ICoreWebView2Environment13,
+    ICoreWebView2Environment14
+);
+impl ICoreWebView2Environment15 {
+    pub unsafe fn CreateFindOptions(&self) -> windows_core::Result<ICoreWebView2FindOptions> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateFindOptions)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2Environment15_Vtbl {
+    pub base__: ICoreWebView2Environment14_Vtbl,
+    pub CreateFindOptions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2Environment15_Impl: ICoreWebView2Environment14_Impl {
+    fn CreateFindOptions(&self) -> windows_core::Result<ICoreWebView2FindOptions>;
+}
+impl ICoreWebView2Environment15_Vtbl {
+    pub const fn new<Identity: ICoreWebView2Environment15_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateFindOptions<
+            Identity: ICoreWebView2Environment15_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2Environment15_Impl::CreateFindOptions(this) {
+                    Ok(ok__) => {
+                        value.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: ICoreWebView2Environment14_Vtbl::new::<Identity, OFFSET>(),
+            CreateFindOptions: CreateFindOptions::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2Environment15 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment2 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment3 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment4 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment5 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment6 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment7 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment8 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment9 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment10 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment11 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment12 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment13 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2Environment14 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2Environment15 {}
+windows_core::imp::define_interface!(
     ICoreWebView2Environment2,
     ICoreWebView2Environment2_Vtbl,
     0x41f3632b_5ef4_404f_ad82_2d606c5a9a21
@@ -17646,6 +17744,914 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2FileSystemHandle {}
+windows_core::imp::define_interface!(
+    ICoreWebView2Find,
+    ICoreWebView2Find_Vtbl,
+    0xa3ec0f5f_ddbc_54ed_8546_af75a785b9a6
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2Find, windows_core::IUnknown);
+impl ICoreWebView2Find {
+    pub unsafe fn ActiveMatchIndex(&self, value: *mut i32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).ActiveMatchIndex)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn MatchCount(&self, value: *mut i32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).MatchCount)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn add_ActiveMatchIndexChanged<P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut i64,
+    ) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2FindActiveMatchIndexChangedEventHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).add_ActiveMatchIndexChanged)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                token as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn remove_ActiveMatchIndexChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_ActiveMatchIndexChanged)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn add_MatchCountChanged<P0>(
+        &self,
+        eventhandler: P0,
+        token: *mut i64,
+    ) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2FindMatchCountChangedEventHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).add_MatchCountChanged)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                token as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn remove_MatchCountChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_MatchCountChanged)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn Start<P0, P1>(&self, options: P0, handler: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2FindOptions>,
+        P1: windows_core::Param<ICoreWebView2FindStartCompletedHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Start)(
+                windows_core::Interface::as_raw(self),
+                options.param().abi(),
+                handler.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn FindNext(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).FindNext)(windows_core::Interface::as_raw(self))
+                .ok()
+        }
+    }
+    pub unsafe fn FindPrevious(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).FindPrevious)(windows_core::Interface::as_raw(
+                self,
+            ))
+            .ok()
+        }
+    }
+    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2Find_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ActiveMatchIndex:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub MatchCount:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub add_ActiveMatchIndexChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_ActiveMatchIndexChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub add_MatchCountChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_MatchCountChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub FindNext: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindPrevious: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2Find_Impl: windows_core::IUnknownImpl {
+    fn ActiveMatchIndex(&self, value: *mut i32) -> windows_core::Result<()>;
+    fn MatchCount(&self, value: *mut i32) -> windows_core::Result<()>;
+    fn add_ActiveMatchIndexChanged(
+        &self,
+        eventhandler: windows_core::Ref<'_, ICoreWebView2FindActiveMatchIndexChangedEventHandler>,
+        token: *mut i64,
+    ) -> windows_core::Result<()>;
+    fn remove_ActiveMatchIndexChanged(&self, token: i64) -> windows_core::Result<()>;
+    fn add_MatchCountChanged(
+        &self,
+        eventhandler: windows_core::Ref<'_, ICoreWebView2FindMatchCountChangedEventHandler>,
+        token: *mut i64,
+    ) -> windows_core::Result<()>;
+    fn remove_MatchCountChanged(&self, token: i64) -> windows_core::Result<()>;
+    fn Start(
+        &self,
+        options: windows_core::Ref<'_, ICoreWebView2FindOptions>,
+        handler: windows_core::Ref<'_, ICoreWebView2FindStartCompletedHandler>,
+    ) -> windows_core::Result<()>;
+    fn FindNext(&self) -> windows_core::Result<()>;
+    fn FindPrevious(&self) -> windows_core::Result<()>;
+    fn Stop(&self) -> windows_core::Result<()>;
+}
+impl ICoreWebView2Find_Vtbl {
+    pub const fn new<Identity: ICoreWebView2Find_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn ActiveMatchIndex<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut i32,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::ActiveMatchIndex(this, core::mem::transmute_copy(&value))
+                    .into()
+            }
+        }
+        unsafe extern "system" fn MatchCount<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut i32,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::MatchCount(this, core::mem::transmute_copy(&value)).into()
+            }
+        }
+        unsafe extern "system" fn add_ActiveMatchIndexChanged<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            eventhandler: *mut core::ffi::c_void,
+            token: *mut i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::add_ActiveMatchIndexChanged(
+                    this,
+                    core::mem::transmute_copy(&eventhandler),
+                    core::mem::transmute_copy(&token),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn remove_ActiveMatchIndexChanged<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            token: i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::remove_ActiveMatchIndexChanged(
+                    this,
+                    core::mem::transmute_copy(&token),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn add_MatchCountChanged<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            eventhandler: *mut core::ffi::c_void,
+            token: *mut i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::add_MatchCountChanged(
+                    this,
+                    core::mem::transmute_copy(&eventhandler),
+                    core::mem::transmute_copy(&token),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn remove_MatchCountChanged<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            token: i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::remove_MatchCountChanged(
+                    this,
+                    core::mem::transmute_copy(&token),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn Start<Identity: ICoreWebView2Find_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            options: *mut core::ffi::c_void,
+            handler: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::Start(
+                    this,
+                    core::mem::transmute_copy(&options),
+                    core::mem::transmute_copy(&handler),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn FindNext<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::FindNext(this).into()
+            }
+        }
+        unsafe extern "system" fn FindPrevious<
+            Identity: ICoreWebView2Find_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::FindPrevious(this).into()
+            }
+        }
+        unsafe extern "system" fn Stop<Identity: ICoreWebView2Find_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2Find_Impl::Stop(this).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            ActiveMatchIndex: ActiveMatchIndex::<Identity, OFFSET>,
+            MatchCount: MatchCount::<Identity, OFFSET>,
+            add_ActiveMatchIndexChanged: add_ActiveMatchIndexChanged::<Identity, OFFSET>,
+            remove_ActiveMatchIndexChanged: remove_ActiveMatchIndexChanged::<Identity, OFFSET>,
+            add_MatchCountChanged: add_MatchCountChanged::<Identity, OFFSET>,
+            remove_MatchCountChanged: remove_MatchCountChanged::<Identity, OFFSET>,
+            Start: Start::<Identity, OFFSET>,
+            FindNext: FindNext::<Identity, OFFSET>,
+            FindPrevious: FindPrevious::<Identity, OFFSET>,
+            Stop: Stop::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2Find as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2Find {}
+windows_core::imp::define_interface!(
+    ICoreWebView2FindActiveMatchIndexChangedEventHandler,
+    ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl,
+    0x0054f514_9a8e_5876_aed5_30b37f8c86a5
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2FindActiveMatchIndexChangedEventHandler,
+    windows_core::IUnknown
+);
+impl ICoreWebView2FindActiveMatchIndexChangedEventHandler {
+    pub unsafe fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2Find>,
+        P1: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                sender.param().abi(),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2FindActiveMatchIndexChangedEventHandler_Impl:
+    windows_core::IUnknownImpl
+{
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<'_, ICoreWebView2Find>,
+        args: windows_core::Ref<'_, windows_core::IUnknown>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2FindActiveMatchIndexChangedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2FindActiveMatchIndexChangedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2FindActiveMatchIndexChangedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindActiveMatchIndexChangedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == & < ICoreWebView2FindActiveMatchIndexChangedEventHandler as windows_core::Interface >::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2FindActiveMatchIndexChangedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2FindMatchCountChangedEventHandler,
+    ICoreWebView2FindMatchCountChangedEventHandler_Vtbl,
+    0xda0d6827_4254_5b10_a6d9_412076afc9f3
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2FindMatchCountChangedEventHandler,
+    windows_core::IUnknown
+);
+impl ICoreWebView2FindMatchCountChangedEventHandler {
+    pub unsafe fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2Find>,
+        P1: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                sender.param().abi(),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2FindMatchCountChangedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2FindMatchCountChangedEventHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<'_, ICoreWebView2Find>,
+        args: windows_core::Ref<'_, windows_core::IUnknown>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2FindMatchCountChangedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2FindMatchCountChangedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2FindMatchCountChangedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindMatchCountChangedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2FindMatchCountChangedEventHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2FindMatchCountChangedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2FindOptions,
+    ICoreWebView2FindOptions_Vtbl,
+    0xe82e3b2b_a4af_5bc6_94c6_18b44157a16c
+);
+windows_core::imp::interface_hierarchy!(ICoreWebView2FindOptions, windows_core::IUnknown);
+impl ICoreWebView2FindOptions {
+    pub unsafe fn FindTerm(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).FindTerm)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn SetFindTerm<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetFindTerm)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn IsCaseSensitive(
+        &self,
+        value: *mut windows_core::BOOL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).IsCaseSensitive)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn SetIsCaseSensitive(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsCaseSensitive)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn ShouldHighlightAllMatches(
+        &self,
+        value: *mut windows_core::BOOL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).ShouldHighlightAllMatches)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn SetShouldHighlightAllMatches(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetShouldHighlightAllMatches)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn ShouldMatchWord(
+        &self,
+        value: *mut windows_core::BOOL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).ShouldMatchWord)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn SetShouldMatchWord(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetShouldMatchWord)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn SuppressDefaultFindDialog(
+        &self,
+        value: *mut windows_core::BOOL,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SuppressDefaultFindDialog)(
+                windows_core::Interface::as_raw(self),
+                value as _,
+            )
+            .ok()
+        }
+    }
+    pub unsafe fn SetSuppressDefaultFindDialog(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSuppressDefaultFindDialog)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2FindOptions_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub FindTerm: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::PWSTR,
+    ) -> windows_core::HRESULT,
+    pub SetFindTerm: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+    pub IsCaseSensitive: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetIsCaseSensitive: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub ShouldHighlightAllMatches: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetShouldHighlightAllMatches: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub ShouldMatchWord: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetShouldMatchWord: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SuppressDefaultFindDialog: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+    pub SetSuppressDefaultFindDialog: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2FindOptions_Impl: windows_core::IUnknownImpl {
+    fn FindTerm(&self, value: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SetFindTerm(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn IsCaseSensitive(&self, value: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsCaseSensitive(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ShouldHighlightAllMatches(&self, value: *mut windows_core::BOOL)
+        -> windows_core::Result<()>;
+    fn SetShouldHighlightAllMatches(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ShouldMatchWord(&self, value: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetShouldMatchWord(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SuppressDefaultFindDialog(&self, value: *mut windows_core::BOOL)
+        -> windows_core::Result<()>;
+    fn SetSuppressDefaultFindDialog(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+}
+impl ICoreWebView2FindOptions_Vtbl {
+    pub const fn new<Identity: ICoreWebView2FindOptions_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn FindTerm<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::PWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::FindTerm(this, core::mem::transmute_copy(&value))
+                    .into()
+            }
+        }
+        unsafe extern "system" fn SetFindTerm<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::SetFindTerm(this, core::mem::transmute(&value))
+                    .into()
+            }
+        }
+        unsafe extern "system" fn IsCaseSensitive<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::IsCaseSensitive(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn SetIsCaseSensitive<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::SetIsCaseSensitive(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn ShouldHighlightAllMatches<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::ShouldHighlightAllMatches(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn SetShouldHighlightAllMatches<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::SetShouldHighlightAllMatches(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn ShouldMatchWord<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::ShouldMatchWord(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn SetShouldMatchWord<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::SetShouldMatchWord(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn SuppressDefaultFindDialog<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: *mut windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::SuppressDefaultFindDialog(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn SetSuppressDefaultFindDialog<
+            Identity: ICoreWebView2FindOptions_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindOptions_Impl::SetSuppressDefaultFindDialog(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            FindTerm: FindTerm::<Identity, OFFSET>,
+            SetFindTerm: SetFindTerm::<Identity, OFFSET>,
+            IsCaseSensitive: IsCaseSensitive::<Identity, OFFSET>,
+            SetIsCaseSensitive: SetIsCaseSensitive::<Identity, OFFSET>,
+            ShouldHighlightAllMatches: ShouldHighlightAllMatches::<Identity, OFFSET>,
+            SetShouldHighlightAllMatches: SetShouldHighlightAllMatches::<Identity, OFFSET>,
+            ShouldMatchWord: ShouldMatchWord::<Identity, OFFSET>,
+            SetShouldMatchWord: SetShouldMatchWord::<Identity, OFFSET>,
+            SuppressDefaultFindDialog: SuppressDefaultFindDialog::<Identity, OFFSET>,
+            SetSuppressDefaultFindDialog: SetSuppressDefaultFindDialog::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2FindOptions as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2FindOptions {}
+windows_core::imp::define_interface!(
+    ICoreWebView2FindStartCompletedHandler,
+    ICoreWebView2FindStartCompletedHandler_Vtbl,
+    0x6a90ecaf_44b0_5bd9_8f07_1967e17be9fb
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2FindStartCompletedHandler,
+    windows_core::IUnknown
+);
+impl ICoreWebView2FindStartCompletedHandler {
+    pub unsafe fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Invoke)(
+                windows_core::Interface::as_raw(self),
+                errorcode,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2FindStartCompletedHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2FindStartCompletedHandler_Impl: windows_core::IUnknownImpl {
+    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+}
+impl ICoreWebView2FindStartCompletedHandler_Vtbl {
+    pub const fn new<Identity: ICoreWebView2FindStartCompletedHandler_Impl, const OFFSET: isize>(
+    ) -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2FindStartCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            errorcode: windows_core::HRESULT,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2FindStartCompletedHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&errorcode),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2FindStartCompletedHandler as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2FindStartCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2FocusChangedEventHandler,
     ICoreWebView2FocusChangedEventHandler_Vtbl,
@@ -41479,6 +42485,127 @@ impl ICoreWebView2_27_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2_27 {}
+windows_core::imp::define_interface!(
+    ICoreWebView2_28,
+    ICoreWebView2_28_Vtbl,
+    0x62e50381_5bf5_51a8_aae0_f20a3a9c8a90
+);
+impl core::ops::Deref for ICoreWebView2_28 {
+    type Target = ICoreWebView2_27;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2_28,
+    windows_core::IUnknown,
+    ICoreWebView2,
+    ICoreWebView2_2,
+    ICoreWebView2_3,
+    ICoreWebView2_4,
+    ICoreWebView2_5,
+    ICoreWebView2_6,
+    ICoreWebView2_7,
+    ICoreWebView2_8,
+    ICoreWebView2_9,
+    ICoreWebView2_10,
+    ICoreWebView2_11,
+    ICoreWebView2_12,
+    ICoreWebView2_13,
+    ICoreWebView2_14,
+    ICoreWebView2_15,
+    ICoreWebView2_16,
+    ICoreWebView2_17,
+    ICoreWebView2_18,
+    ICoreWebView2_19,
+    ICoreWebView2_20,
+    ICoreWebView2_21,
+    ICoreWebView2_22,
+    ICoreWebView2_23,
+    ICoreWebView2_24,
+    ICoreWebView2_25,
+    ICoreWebView2_26,
+    ICoreWebView2_27
+);
+impl ICoreWebView2_28 {
+    pub unsafe fn Find(&self) -> windows_core::Result<ICoreWebView2Find> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Find)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreWebView2_28_Vtbl {
+    pub base__: ICoreWebView2_27_Vtbl,
+    pub Find: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2_28_Impl: ICoreWebView2_27_Impl {
+    fn Find(&self) -> windows_core::Result<ICoreWebView2Find>;
+}
+impl ICoreWebView2_28_Vtbl {
+    pub const fn new<Identity: ICoreWebView2_28_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Find<Identity: ICoreWebView2_28_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ICoreWebView2_28_Impl::Find(this) {
+                    Ok(ok__) => {
+                        value.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: ICoreWebView2_27_Vtbl::new::<Identity, OFFSET>(),
+            Find: Find::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreWebView2_28 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_2 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_3 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_4 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_5 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_6 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_7 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_8 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_9 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_10 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_11 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_12 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_13 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_14 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_15 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_16 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_17 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_18 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_19 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_20 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_21 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_22 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_23 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_24 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_25 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_26 as windows_core::Interface>::IID
+            || iid == &<ICoreWebView2_27 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2_28 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_3,
     ICoreWebView2_3_Vtbl,
