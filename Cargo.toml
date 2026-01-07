@@ -9,10 +9,10 @@ repository = "https://github.com/wravery/webview2-rs"
 license = "MIT"
 keywords = [ "win32", "webview2" ]
 categories = [ "os::windows-apis" ]
-version = "0.38.1"
+version = "0.38.2"
 
 [workspace.dependencies]
-webview2-com-sys = { version = "0.38.1", path = "crates/bindings/" }
+webview2-com-sys = { version = "0.38.2", path = "crates/bindings/" }
 webview2-com-macros = { version = "0.8.1", path = "crates/callback-macros/" }
 
 proc-macro2 = "1"
