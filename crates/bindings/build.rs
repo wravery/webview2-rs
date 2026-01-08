@@ -73,6 +73,8 @@ mod webview2_link {
             "x86" => "x86",
             "arm" => "arm",
             "aarch64" => "arm64",
+            // ARM64EC uses the x64 machine type for linking and ABI compatibility
+            "arm64ec" => "x64",
             unimplemented => unimplemented!(
                 "`{}` architecture set by `CARGO_CFG_TARGET_ARCH`",
                 unimplemented
