@@ -4,7 +4,7 @@ resolver = "2"
 
 [workspace.package]
 edition = "2021"
-rust-version = "1.74"
+rust-version = "1.82"
 repository = "https://github.com/wravery/webview2-rs"
 license = "MIT"
 keywords = [ "win32", "webview2" ]
@@ -23,12 +23,10 @@ serde = { version = "1.0", features = [ "derive" ] }
 serde_json = "1"
 thiserror = "2"
 windows-bindgen = "0.62"
-windows-core = "0.61"
-windows-implement = "0.60"
-windows-interface = "0.59"
+windows-core = "0.62"
 
 [workspace.dependencies.windows]
-version = "0.61"
+version = "0.62"
 features = [
     "Win32_Foundation",
     "Win32_Globalization",
