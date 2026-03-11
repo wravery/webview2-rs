@@ -695,6 +695,13 @@ pub struct ShowSaveAsUICompletedHandler(
     COREWEBVIEW2_SAVE_AS_UI_RESULT,
 );
 
+#[event_callback]
+pub struct DragStartingEventHandler(
+    ICoreWebView2DragStartingEventHandler,
+    Option<ICoreWebView2CompositionController>,
+    Option<ICoreWebView2DragStartingEventArgs>,
+);
+
 #[cfg(test)]
 mod test {
     use std::collections::BTreeSet;

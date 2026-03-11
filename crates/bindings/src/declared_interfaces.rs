@@ -30,6 +30,7 @@ pub fn all_declared_callbacks() -> BTreeSet<&'static str> {
     interfaces.insert("ICoreWebView2DevToolsProtocolEventReceivedEventHandler");
     interfaces.insert("ICoreWebView2DocumentTitleChangedEventHandler");
     interfaces.insert("ICoreWebView2DownloadStartingEventHandler");
+    interfaces.insert("ICoreWebView2DragStartingEventHandler");
     interfaces.insert("ICoreWebView2EstimatedEndTimeChangedEventHandler");
     interfaces.insert("ICoreWebView2ExecuteScriptCompletedHandler");
     interfaces.insert("ICoreWebView2ExecuteScriptWithResultCompletedHandler");

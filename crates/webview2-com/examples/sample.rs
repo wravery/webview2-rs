@@ -372,7 +372,7 @@ impl WebView {
                 let result = WindowsAndMessaging::GetMessageW(&mut msg, None, 0, 0).0;
 
                 match result {
-                    -1 => break Err(windows::core::Error::from_win32().into()),
+                    -1 => break Err(windows::core::Error::from_thread().into()),
                     0 => break Ok(()),
                     _ => match msg.message {
                         WindowsAndMessaging::WM_APP => (),
