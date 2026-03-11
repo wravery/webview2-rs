@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.39.1](https://github.com/wravery/webview2-rs/compare/webview2-com-v0.39.0...webview2-com-v0.39.1) - 2026-03-11
+
+### Other
+
+- Bump `windows(-core)` dependencies to `0.62`
+
 ## [0.39.0](https://github.com/wravery/webview2-rs/compare/webview2-com-v0.38.2...webview2-com-v0.39.0) - 2026-03-11
 
 ### Other
