@@ -24,8 +24,6 @@ serde_json = "1"
 thiserror = "2"
 windows-bindgen = "0.66"
 windows-core = "0.62"
-windows-implement = "0.60"
-windows-interface = "0.59"
 
 [workspace.dependencies.windows]
 version = "0.62"
